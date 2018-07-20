@@ -12,7 +12,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       graphql(
         `
           {
-            allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
+            allMarkdownRemark(sort: { fields: [frontmatter___category], order: DESC }, limit: 1000) {
               edges {
                 node {
                   fields {
@@ -20,6 +20,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                   }
                   frontmatter {
                     title
+                    category
                   }
                 }
               }

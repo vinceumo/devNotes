@@ -9,7 +9,7 @@ class Template extends React.Component {
       header = (
         <h1>
           <Link to={'/'} >
-            Gatsby Starter Blog
+          devNotes
           </Link>
         </h1>
       )
@@ -17,7 +17,7 @@ class Template extends React.Component {
       header = (
         <h3>
           <Link to={'/'}>
-            Gatsby Starter Blog
+            devNotes
           </Link>
         </h3>
       )
