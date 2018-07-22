@@ -2,10 +2,24 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
   {%- include head.html -%}
   <body>
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
+    <div class="page-wrapper">
+      <header class="page-header">
+        <p>
+            <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+        </p>
+      </header>
+      <main class="page-content" aria-label="Content">
         {{ content }}
-      </div>
-    </main>
+      </main>
+      <footer>
+          <p>Hello world, I'm Vince 😃 Lead Front End Developer <a href="https://www.damdigital.com/">@DAMDigital 🚀</a></p>
+          <p>🌍 London, UK</p>
+          <ul class="links">
+              <li><a href="/feed.xml">RSS</a></li>
+              <li><a href="http://vincent-humeau.com/">vincent-humeau.com</a></li>
+              <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+          </ul>
+      </footer>
+    </div>
   </body>
 </html>
