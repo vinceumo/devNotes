@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%}
+
+  {{ content }}
+
+  {% assign sorted_cats = site.categories | sort %}
+  {% for category in sorted_cats %}
+    {% assign sorted_posts = category[1] | reversed %}
+      <h2 id="{{category[0] | uri_escape | downcase }}">
+        {{category[0]}}
+      </h2>
+      <ul>
+        {% for post in sorted_posts %}
+          <li>
+            <a href="{{ site.url }}{{ site.baseurl }}{{  post.url }}">{{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+  {% endfor %}
+
+</div>
