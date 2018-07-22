@@ -45,6 +45,13 @@ a {
   color: $bleu;
 }
 
+blockquote{
+  font-style: italic;
+  border-left: 3px solid lighten($black, 40%);
+  margin-left: 2rem;
+  padding-left: 1rem;
+}
+
 hr {
   border-top: 1px solid lighten($black, 40%);
 }

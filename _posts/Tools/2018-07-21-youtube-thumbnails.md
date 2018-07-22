@@ -5,7 +5,7 @@ date:   2018-07-21 20:32:19 +0100
 categories: Tools
 ---
 
-Youtube thumbnails in different resolution, just replace `ClrylwQ7Un4` by your video code.
+Youtube thumbnails in different resolution, just replace `ClrylwQ7Un4` by your youtube video code.
 
 
 - https://www.youtube.com/watch?v=ClrylwQ7Un4
