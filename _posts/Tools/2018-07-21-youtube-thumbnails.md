@@ -1,18 +1,15 @@
 ---
 layout: post
 title:  "Youtube thumbnails"
-date:   2018-07-21 20:32:19 +0100
+date:   2018-07-25 10:00:00 +0100
 categories: Tools
 ---
 
-Youtube thumbnails in different resolution, just replace `ClrylwQ7Un4` by your youtube video code.
+Youtube thumbnails in different resolution, just replace `e7AzBqt4_p0` by your youtube video code.
 
-
-- https://www.youtube.com/watch?v=ClrylwQ7Un4
-- https://www.youtube.com/embed/ClrylwQ7Un4?rel=0
-- http://img.youtube.com/vi/ClrylwQ7Un4/0.jpg
-- Default Thumb:  http://i.ytimg.com/vi/ClrylwQ7Un4/default.jpg
-- MaxRes Thumb:   http://i.ytimg.com/vi/ClrylwQ7Un4/maxresdefault.jpg
-- HQ Thumb:       http://i.ytimg.com/vi/ClrylwQ7Un4/hqdefault.jpg
-- MQ Thumb:       http://i.ytimg.com/vi/ClrylwQ7Un4/mqdefault.jpg
-- SD Thumb:       http://i.ytimg.com/vi/ClrylwQ7Un4/sddefault.jpg
+- [https://youtu.be/e7AzBqt4_p0](https://youtu.be/e7AzBqt4_p0)
+- [Default Thumb](http://i.ytimg.com/vi/e7AzBqt4_p0/default.jpg)
+- [MaxRes Thumb](http://i.ytimg.com/vi/e7AzBqt4_p0/maxresdefault.jpg)
+- [HQ Thumb](http://i.ytimg.com/vi/e7AzBqt4_p0/hqdefault.jpg)
+- [MQ Thumb](http://i.ytimg.com/vi/e7AzBqt4_p0/mqdefault.jpg)
+- [SD Thumb](http://i.ytimg.com/vi/e7AzBqt4_p0/sddefault.jpg)

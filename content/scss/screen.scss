@@ -1,8 +1,8 @@
 @import "vendor/highlight-theme";
 
 $black: #3f3f3f;
-$grey: #f5f5f5;
-$bleu: #3b94d9;
+$primary: #EDAD1E;
+$white: #ffffff;
 
 *,
 *:before,
@@ -10,16 +10,21 @@ $bleu: #3b94d9;
   box-sizing: border-box;
 }
 
+html {
+  font-size: 18px;
+}
+
 body {
   font-family: Sans-Serif;
   color: $black;
   display: flex;
   justify-content: center;
-  background-color: $grey;
+  background-color: $white;
+  line-height: 1.5;
 }
 
 .page-wrapper {
-  max-width: 600px;
+  max-width: 750px;
   width: 100%;
   padding: 1rem;
 }
@@ -27,7 +32,7 @@ body {
 div.highlight {
   max-width: 100%;
   overflow-x: auto;
-  background-color: #272822;
+  background-color: #272822; //To fit highlight theme for now
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -38,11 +43,11 @@ img {
 }
 
 p code {
-  background-color: lighten($bleu, 40%);
+  background-color: lighten($primary, 40%);
 }
 
 a {
-  color: $bleu;
+  color: $primary;
 }
 
 blockquote{
@@ -65,9 +70,10 @@ hr {
 
 .page-header {
   .site-title {
-    font-size: 2rem;
-    color: lighten($black, 40%);
+    font-size: 1.5rem;
+    color: $black;
     text-decoration: none;
+    font-weight: bold;
   }
 
   border-bottom: 1px solid lighten($black, 40%);
@@ -102,5 +108,16 @@ footer {
         }
       }
     }
+  }
+}
+
+.home {
+  h2 {
+    margin-bottom: 0;
+    font-size: 1.3rem;
+  }
+
+  ul {
+    margin-top: 0;
   }
 }

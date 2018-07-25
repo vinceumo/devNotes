@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "CSS custom properties (CSS variables) with SCSS"
-date:   2018-07-21 20:32:19 +0100
+date:   2018-07-25 10:00:00 +0100
 categories: Sass
 ---
 
