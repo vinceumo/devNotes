@@ -31,6 +31,8 @@ In `settings.scss`, we have a flag to enable the use of CSS variables globally.
 $use-css-var: true;
 ```
 
+In our variable file, I follow this template:
+
 ```scss
 // ------------------------------
 // Sass Variables
