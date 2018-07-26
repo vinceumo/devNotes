@@ -1,6 +1,8 @@
 {
     "name": "devNotes",
     "short_name": "devNotes",
+    "author": "Vincent Humeau",
+    "lang": "en-GB",
     "icons": [
         {
             "src": "/dist/img/icons/android-chrome-192x192.png",
@@ -15,5 +17,8 @@
     ],
     "theme_color": "#3f3f3f",
     "background_color": "#3f3f3f",
-    "display": "standalone"
+    "display": "standalone",
+    "orientation": "portrait",
+    "scope": "/devNotes/",
+    "start_url": "/devNotes/"
 }
