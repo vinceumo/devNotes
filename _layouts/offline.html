@@ -8,13 +8,20 @@
     <title>{{ site.title }}</title>
     <style type="text/css" media="screen">
         body {
-            text-align: center;
-            font-family: Sans-Serif;
-            color: #3f3f3f;
-            background: #EDAD1E;
+            color: #EDAD1E;
+            background: #3f3f3f;
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            font-family: Sans-Serif;
+            padding: 1rem;
         }
 
         h1 {
@@ -28,7 +35,9 @@
 </head>
 
 <body>
-    {{ content }}
+    <div class="container">
+        {{ content }}
+    </div>
 </body>
 
 </html>
