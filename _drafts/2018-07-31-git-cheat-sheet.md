@@ -17,9 +17,21 @@ categories: Git
 
 `git add [file]` - Stages only [file]
 
-//`git add -a` - Stages all files
+`git add -A` - Stages all files
 
 `git reset [file]` - Unstages a file
+
+## Commit and push changes
+
+`git commit -m "message"` - Commits staged filles
+
+`git push` - Pushes changes
+
+## Pull changes from origin
+
+`git pull` - Gets the latest changes from origin and merge
+
+`git pull -rebase` - Gets the latest changes from origin and place changes on top
 
 ## Branches
 
