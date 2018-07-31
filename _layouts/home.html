@@ -11,7 +11,7 @@ layout: default
 
   {% assign sorted_cats = site.categories | sort %}
   {% for category in sorted_cats %}
-    {% assign sorted_posts = category[1] | reversed %}
+    {% assign sorted_posts = category[1] | sort: 'title' %}
       <h2 id="{{category[0] | uri_escape | downcase }}">
         {{category[0]}}
       </h2>
