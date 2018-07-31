@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ES6, Const - Let - Var"
+title:  "0 ES6/ const - let - var"
 date:   2018-07-31 01:00:00 +0100
 categories: Javascript
 ---
