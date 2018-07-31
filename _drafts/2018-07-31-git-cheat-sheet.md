@@ -17,7 +17,7 @@ categories: Git
 
 `git add [file]` - Stages only [file]
 
-`git add -a` - Stages all files
+//`git add -a` - Stages all files
 
 `git reset [file]` - Unstages a file
 
