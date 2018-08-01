@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "0 Git - Cheat sheet"
-date:   2018-07-31 01:32:19 +0100
+title:  "Git - Cheat sheet"
+date:   2018-08-01 09:00:00 +0100
 categories: Git
 ---
 
@@ -15,6 +15,8 @@ categories: Git
 
 `git status` - Gives a list of all the uncommitted changes
 
+`git diff` - Shows file differences not yet staged
+
 `git add [file]` - Stages only [file]
 
 `git add -A` - Stages all files
@@ -27,11 +29,27 @@ categories: Git
 
 `git push` - Pushes changes
 
+`git tag [tag-name]` - Allows to add a tag name, useful for releases
+
 ## Pull changes from origin
+
+`git fetch` - Gets latest changes from origin (don't merge)
 
 `git pull` - Gets the latest changes from origin and merge
 
 `git pull -rebase` - Gets the latest changes from origin and place changes on top
+
+## Stash
+
+`git stash` - Temporarily saves all uncommitted tracked files
+
+`git stash list` - Shows list of stashes
+
+`git stash pop` - Restores the most recently stashed files and removed them from the list of stashes
+
+`git stash apply [optional-id-from-list]` - Applies the latest stashed contents, or a specifics one if use [optional-id-from-list]
+
+`git stash drop [optional-id-from-list]` - Discards the most recently stashed files, or a specifics one if use [optional-id-from-list]
 
 ## Branches
 
