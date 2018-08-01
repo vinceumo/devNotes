@@ -65,6 +65,8 @@ categories: Git
 
 `git push origin --delete [branch-name]` - Deletes [branch-name] locally and remotely
 
+`git push origin [branch1]:[branch2]` - Pushes [branch1] into [branch2]
+
 ## Resources
 
 - [GIT CHEAT SHEET - GitHub](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
