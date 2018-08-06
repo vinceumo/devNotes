@@ -52,8 +52,8 @@ a {
 
 blockquote{
   font-style: italic;
-  border-left: 3px solid lighten($black, 40%);
-  margin-left: 2rem;
+  border-left: 6px solid $primary;
+  margin-left: 0;
   padding-left: 1rem;
 }
 
