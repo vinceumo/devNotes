@@ -114,9 +114,9 @@ console.log(test); // 1
 //-----------------
 
 // let
-var test = 1;
+let test = 1;
 if(test > 0) {
-  var test = 2;
+  let test = 2;
   console.log(test); // 2
 }
 console.log(test); // 1
@@ -124,9 +124,9 @@ console.log(test); // 1
 //-----------------
 
 // const
-var test = 1;
+const test = 1;
 if(test > 0) {
-  var test = 2;
+  const test = 2;
   console.log(test); // 2
 }
 console.log(test); // 1
