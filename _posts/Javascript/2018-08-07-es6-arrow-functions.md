@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "0 ES6/ Arrow functions"
-date:   2018-08-06 23:13:00 +0100
+title:  "ES6/ Arrow functions"
+date:   2018-08-07 19:08:00 +0100
 categories: Javascript
 ---
 
@@ -71,22 +71,21 @@ var orderTotalEs5 = function(){
   return total.toFixed(2);
 }
 
-console.log(orderTotalEs5()); 
+console.log(orderTotalEs5()); // 97.85
 
 // -----
 
 // ES6
 const orderTotalEs6 = () => {
   let total = 0;
-  order.forEach(currentValue => {
-    Object.keys(currentValue).map(key => {
-      total += currentValue[key];
-    });
-  });
-  total = total + (total * (vatTax / 100));
+  order.forEach(currentValue => 
+    Object.keys(currentValue).map(key => 
+      total += currentValue[key]));
+  total = total + (total * (vatTax / 100))
   return total.toFixed(2);
 }
-console.log(orderTotalEs6());
+
+console.log(orderTotalEs6()); // 97.85
 ```
 
 ## Support
