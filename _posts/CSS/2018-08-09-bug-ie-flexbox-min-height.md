@@ -7,7 +7,7 @@ categories: CSS
 
 On Internet Explorer 11, `align-items: center;` do not center vertically, if our flex container have a `min-height`.
 
-![IE11 flexbox center bug](/dist/img/css-ie11-bug-flex-min-height.jpg)
+![IE11 flexbox center bug]({{ site.baseurl }}/dist/img/css-ie11-bug-flex-min-height.jpg)
 
 A small hack to fix this issue, is to use an after on our flex-container and give it an inherit min-height:
 
