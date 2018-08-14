@@ -19,15 +19,18 @@
               <li><a href="http://vincent-humeau.com/">vincent-humeau.com</a></li>
               <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
           </ul>
+          <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+          <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
       </footer>
     </div>
+    <script src="{{ site.baseurl }}/dist/js/scriptsBundleMain.js"></script>
     <script>
       if ('serviceWorker' in navigator) {
           window.addEventListener('load', () => {
               navigator.serviceWorker.register('{{ site.baseurl }}/sw.js');
           });
       }
-  </script>
-  <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
   </body>
 </html>

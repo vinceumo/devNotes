@@ -39,5 +39,6 @@ exclude:
   - package-lock.json
   - package.json
   - gulpfile.js
+  - Tasks/
   - README.md
 

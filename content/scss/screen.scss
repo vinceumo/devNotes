@@ -9,11 +9,21 @@
   --color-white--darken: hsl(0, 0%, 95%);
 }
 
-.theme-dark {
+[data-theme="theme-default"] {
+  [data-toggle-theme="theme-default"]{
+    display: none;
+  }
+}
+
+[data-theme="theme-dark"] {
   --color-black: hsl(0, 0%, 100%);
   --color-white: hsl(0, 0%, 20%);
   --color-white--darken: hsl(0, 0%, 25%);
   --color-primary--lighten: hsl(41, 85%, 40%);
+
+  [data-toggle-theme="theme-dark"]{
+    display: none;
+  }
 }
 
 $black: var(--color-black);
@@ -63,10 +73,18 @@ img {
 
 p code, li code, table code {
   background-color: $primary-lighten;
+  padding: 0 0.2rem;
 }
 
 a {
   color: $primary;
+}
+
+button {
+  background-color: $primary;
+  padding: 0.5rem 1rem;
+  border: 0;
+  cursor: pointer;
 }
 
 blockquote{
