@@ -1,8 +1,31 @@
 @import "vendor/highlight-theme";
+.test{
+  color: hsl(0, 0%, 17%)
+}
 
-$black: #3f3f3f;
-$primary: #EDAD1E;
-$white: #ffffff;
+
+:root {
+  --color-black: hsl(0, 0%, 17%);
+  --color-black--lighten: hsl(0, 0%, 50%);
+  --color-primary: hsl(41, 85%, 52%);
+  --color-primary--lighten: hsl(41, 85%, 85%);
+  --color-white: hsl(0, 0%, 100%);
+  --color-white--darken: hsl(0, 0%, 95%);
+}
+
+.theme-dark {
+  --color-black: hsl(0, 0%, 100%);
+  --color-white: hsl(0, 0%, 20%);
+  --color-white--darken: hsl(0, 0%, 25%);
+  --color-primary--lighten: hsl(41, 85%, 40%);
+}
+
+$black: var(--color-black);
+  $black-lighten: var(--color-black--lighten);
+$primary: var(--color-primary);
+  $primary-lighten: var(--color-primary--lighten);
+$white: var(--color-white);
+  $white-darken: var(--color-white--darken);
 
 *,
 *:before,
@@ -32,7 +55,7 @@ body {
 div.highlight {
   max-width: 100%;
   overflow-x: auto;
-  background-color: #2b2b2b; //To fit highlight theme for now
+  background-color: hsl(0, 0%, 17%); //To fit highlight theme for now
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -43,7 +66,7 @@ img {
 }
 
 p code, li code, table code {
-  background-color: lighten($primary, 40%);
+  background-color: $primary-lighten;
 }
 
 a {
@@ -60,7 +83,7 @@ blockquote{
 hr {
   border: 0;
   height: 1px;
-  background-color: lighten($black, 40%);
+  background-color: $black-lighten;
 }
 
 table {
@@ -74,14 +97,14 @@ table {
   tbody{
     tr {
       &:nth-child(even) {
-        background: lighten($black, 70);
+        background: $white-darken;
     }
     }
   }
 }
 
 table, th, td {
-  border: 1px solid lighten($black, 40%);
+  border: 1px solid $black-lighten;
   border-collapse: collapse;
 }
 
@@ -100,12 +123,12 @@ table, th, td {
     font-weight: bold;
   }
 
-  border-bottom: 1px solid lighten($black, 40%);
+  border-bottom: 1px solid $black-lighten;
 }
 
 footer {
   text-align: center;
-  border-top: 1px solid lighten($black, 40%);
+  border-top: 1px solid $black-lighten;
   margin-top: 2rem;
   .links {
     list-style-type: none;
