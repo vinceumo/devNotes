@@ -7,12 +7,17 @@ categories: CSS
 
 CSS grid is a two dimensional CSS layout system where is flexbox a one dimensional one.
 
-## Example
+## Examples
 
 <p data-height="500" data-theme-id="dark" data-slug-hash="RxOygp" data-default-tab="css,result" data-user="vinceumo" data-pen-title="CSS Grid Layout Experiment 1, Responsive Layout" class="codepen">See the Pen <a href="https://codepen.io/vinceumo/pen/RxOygp/">CSS Grid Layout Experiment 1, Responsive Layout</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 - [Open in codepen](https://codepen.io/vinceumo/pen/RxOygp)
+
+<p data-height="500" data-theme-id="dark" data-slug-hash="gdxpwK" data-default-tab="css,result" data-user="vinceumo" data-pen-title="CSS Grid Layout Experiment 2" class="codepen">See the Pen <a href="https://codepen.io/vinceumo/pen/gdxpwK/">CSS Grid Layout Experiment 2</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+- [Open in codepen](https://codepen.io/vinceumo/pen/gdxpwK)
 
 ## Atomic Bulldog Grid 💥 🐶
 
