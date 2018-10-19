@@ -2,7 +2,7 @@
 @import "vendor/highlight-theme";
 
 :root {
-  --color-black: hsl(0, 0%, 17%);
+  --color-black: hsl(0, 0%, 13%);
   --color-black--lighten: hsl(0, 0%, 50%);
   --color-primary: hsl(41, 85%, 52%);
   --color-primary--lighten: hsl(41, 85%, 85%);
@@ -11,28 +11,28 @@
 }
 
 [data-theme="theme-default"] {
-  [data-toggle-theme="theme-default"]{
+  [data-toggle-theme="theme-default"] {
     display: none;
   }
 }
 
 [data-theme="theme-dark"] {
   --color-black: hsl(0, 0%, 100%);
-  --color-white: hsl(0, 0%, 20%);
-  --color-white--darken: hsl(0, 0%, 25%);
+  --color-white: hsl(0, 0%, 13%);
+  --color-white--darken: hsl(0, 0%, 18%);
   --color-primary--lighten: hsl(41, 85%, 40%);
 
-  [data-toggle-theme="theme-dark"]{
+  [data-toggle-theme="theme-dark"] {
     display: none;
   }
 }
 
 $black: var(--color-black);
-  $black-lighten: var(--color-black--lighten);
+$black-lighten: var(--color-black--lighten);
 $primary: var(--color-primary);
-  $primary-lighten: var(--color-primary--lighten);
+$primary-lighten: var(--color-primary--lighten);
 $white: var(--color-white);
-  $white-darken: var(--color-white--darken);
+$white-darken: var(--color-white--darken);
 
 *,
 *:before,
@@ -72,7 +72,9 @@ img {
   height: auto;
 }
 
-p code, li code, table code {
+p code,
+li code,
+table code {
   background-color: $primary-lighten;
   padding: 0 0.2rem;
 }
@@ -88,7 +90,7 @@ button {
   cursor: pointer;
 }
 
-blockquote{
+blockquote {
   font-style: italic;
   border-left: 6px solid $primary;
   margin-left: 0;
@@ -105,20 +107,23 @@ table {
   max-width: 100%;
   margin-bottom: 1rem;
 
-  td, th {
+  td,
+  th {
     padding: 0.5rem;
   }
 
-  tbody{
+  tbody {
     tr {
       &:nth-child(even) {
         background: $white-darken;
-    }
+      }
     }
   }
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid $black-lighten;
   border-collapse: collapse;
 }
