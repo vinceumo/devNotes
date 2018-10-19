@@ -17,7 +17,7 @@ title: devNotes
 description: > # this means to ignore newlines until "twitter_username:"
   Collection of things I learned around web development.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "/devNotes" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
@@ -41,4 +41,3 @@ exclude:
   - gulpfile.js
   - Tasks/
   - README.md
-
