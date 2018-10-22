@@ -109,20 +109,28 @@ To debug a popup extension:
 
 [mozilla/webextension-polyfill](https://github.com/mozilla/webextension-polyfill) allows browsers to use Promise-based WebExtension APIs. Some browsers might style need some adjustments.
 
+## Share extension
+
+## Firefox
+
+## Chrome
+
+## Opera
+
 ## Example of a popup extension
 
-In this example, I will show you how I developed the browser extension [A11Y-Color-Blindness-Empathy-Test-browser-extensions](https://github.com/vinceumo/A11Y-Color-Blindness-Empathy-Test-browser-extensions).
+I developed recently the browser extension [A11Y-Color-Blindness-Empathy-Test-browser-extensions](https://github.com/vinceumo/A11Y-Color-Blindness-Empathy-Test-browser-extensions).
 
 This extension is a popup extension that inject an inline svg for filtering colors, some style and change the class of the `html` tag of the current tab open, depending on the picked radio button.
 
-The finale extension will follow this structure:
+The extension will follow this structure:
 
 ```
 WebExtension
-|   manifest.json
+|   manifest.json // Give permissions to the active Tab and reference the popup `choose_test.html`
 |
 +---content_scripts
-|       runTest.js
+|       runTest.js // Script interacting with the active tab
 |
 +---icons
 |       icon128.png
@@ -131,112 +139,18 @@ WebExtension
 |       icon48.png
 |
 +---polyfills
-|       browser-polyfill.js
+|       browser-polyfill.js // Polyfill for chrome and opera
 |
 \---popup
-        choose_test.css
-        choose_test.html
-        choose_test.js
+        choose_test.css // Style of the popup
+        choose_test.html // Markup of the popup
+        choose_test.js // Script of the popup, click handler
 ```
 
-### Setup project
-
-#### manifest.json
-
-First we are going to create our `manifest.json`
-
-```json
-{
-  "manifest_version": 2,
-  "name": "A11Y - Color blindness empathy test",
-  "version": "1.0.1",
-  "description": "Empathy test for color blindness and visual impairment",
-  "author": "Vincent Humeau",
-  "homepage_url": "https://github.com/vinceumo/A11Y-Color-Blindness-Empathy-Test",
-  "icons": {
-    "16": "icons/icon16.png",
-    "32": "icons/icon32.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
-  }
-}
-```
-
-Our extension need permissions to access the active tab and any url.
-
-Let's use the [permissions key](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) to do so.
-
-```json
-// manifest.json
-{
-  // ...
-  "permissions": [
-    "activeTab",
-    "<all_urls>",
-    "file://*/*",
-    "http://*/*",
-    "https://*/*"
-  ]
-}
-```
-
-### Create the popup
-
-Now let's create our popup. Create a `popup` folder, add `choose_test.html` and `choose_test.js`. You can create a `choose_test.css` if you want to style this popup or get the CSS from the repo.
-
-#### HTML
-
-In our HTML let's add the following markup
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="choose_test.css" />
-</head>
-<body>
-  <main>
-    <div id="popup-content">
-      <h2 class="has-mt-0">Color blindness tests:</h2>
-      <ul class="test-picker">
-        <li><label><input type="radio" name="colorBlindness" value="reset" checked>None</label></li>
-        <li><label><input type="radio" name="colorBlindness" value="protanopia">Protanopia</label></li>
-        <li><label><input type="radio" name="colorBlindness" value="protanomaly">Protanomaly</label></li>
-        <li><label><input type="radio" name="colorBlindness" value="deuteranopia">Deuteranopia</label></li>
-        <li><label><input type="radio" name="colorBlindness" value="deuteranomaly">Deuteranomaly</label></li>
-        <li><label><input type="radio" name="colorBlindness" value="tritanopia">Tritanopia</label></li>
-        <li><label><input type="radio" name="colorBlindness" value="tritanomaly">Tritanomaly</label></li>
-        <li><label><input type="radio" name="colorBlindness" value="achromatopsia">Achromatopsia</label></li>
-        <li><label><input type="radio" name="colorBlindness" value="achromatomaly">Achromatomaly</label></li>
-        <li><label><input type="radio" name="colorBlindness" value="grayscale">Grayscale</label></li>
-      </ul>
-
-      <h2>Vision loss tests:</h2>
-      <ul class="test-picker">
-        <li><label><input type="radio" name="vision" value="reset" checked>None</label></li>
-        <li><label><input type="radio" name="vision" value="vision-loss-moderate">Moderate vision loss</label></li>
-        <li><label><input type="radio" name="vision" value="vision-loss-severe">Severe vision loss</label></li>
-        <li><label><input type="radio" name="vision" value="vision-blindness">Blindness</label></li>
-      </ul>
-    </div>
-
-     <!-- Error message to show if no access to the active tab -->
-    <div id="error-content" class="hidden">
-      <p>Can't test this web page.<br />
-        Try a different page.</p>
-    </div>
-  </main>
-  <script type="application/javascript" src="choose_test.js"></script>
-</body>
-</html>
-```
-
-#### JS
-
-#### Add polyfill
-
-### Run the tests
+- [permissions]()
+- [Browser_action]()
+- [tabs]()
+- [Content scripts]()
 
 ## Resources
 
