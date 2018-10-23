@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Cross Browser extensions with WebExtensions API"
-date: 2018-10-22 01:32:19 +0100
+title: "Cross Browser extensions with WebExtensions API - 101"
+date: 2018-10-23 09:25:00 +0100
 categories: Javascript
 ---
 
-A browser extensions add features and functionalities to a browser. It use web technologies such as HTML, CSS, and JS.
+Browser extensions add features and functionalities to a browser. It uses web technologies such as HTML, CSS, and JS.
 
 ## Manifest.json
 
@@ -41,7 +41,7 @@ You can find the available keys on [manifest.json - MDN](https://developer.mozil
 }
 ```
 
-## Add and Debugging a browser extension locally
+## Adding and Debugging a browser extension locally
 
 ### Firefox
 
@@ -59,7 +59,7 @@ You can find the available keys on [manifest.json - MDN](https://developer.mozil
 - Click on **Debug**
 - Developer toll will open
 
-### Chrome
+### Chrome / Opera
 
 #### Add extension
 
@@ -79,20 +79,12 @@ Background script errors can be shown when the package is loaded.
 To debug a popup extension:
 
 - Open the popup
-- Right click in the popup
+- Right-click in the popup
 - Click on Inspect
 
 [Chrome - Debugging Extensions](https://developer.chrome.com/extensions/tut_debugging)
 
 ### Edge
-
-To debug a popup extension:
-
-- Open the popup
-- Right click in the popup
-- Click on Inspect element
-
-[Microsoft Edge - Debugging Extensions](https://docs.microsoft.com/en-us/microsoft-edge/extensions/guides/debugging-extensions)
 
 #### Add extension
 
@@ -105,25 +97,56 @@ To debug a popup extension:
 
 #### Debugging extension
 
+To debug a popup extension:
+
+- Open the popup
+- Right-click in the popup
+- Click on Inspect element
+
+[Microsoft Edge - Debugging Extensions](https://docs.microsoft.com/en-us/microsoft-edge/extensions/guides/debugging-extensions)
+
 ## Cross browser extension using a polyfill
 
 [mozilla/webextension-polyfill](https://github.com/mozilla/webextension-polyfill) allows browsers to use Promise-based WebExtension APIs. Some browsers might style need some adjustments.
 
-## Share extension
+Note that opera use Chromium as well as Vivaldi and Brave, your extension will work in all these browsers if it works in Chrome.
 
-## Firefox
+## Publish an extension
 
-## Chrome
+### Chrome / Brave / Vivaldi
 
-## Opera
+Brave and Vivaldi can download extensions from the [Chrome web store](https://chrome.google.com/).
+
+- Create a zip file of your extension (Manifest file need to be at the root of this file)
+- Connect/Create an account on the [Google developer dashboard](https://chrome.google.com/webstore/developer/dashboard)
+  - If you submit an extension for the first time you will need to pay a $5 fee
+- Upload the zip file
+
+### Firefox
+
+- Create a zip file of your extension (Manifest file need to be at the root of this file)
+- Connect/Create account on the [Add-on developer hub](https://addons.mozilla.org/en-US/developers/)
+- Submit a new Add-on
+
+### Opera
+
+- Create a zip file of your extension (Manifest file need to be at the root of this file)
+- Connect/Create account on the [opera add-ons platform](https://addons.opera.com/developer/)
+- Submit a new Add-on
+- You will need to wait for moderation, could take up to a few weeks/months
 
 ## Example of a popup extension
 
 I developed recently the browser extension [A11Y-Color-Blindness-Empathy-Test-browser-extensions](https://github.com/vinceumo/A11Y-Color-Blindness-Empathy-Test-browser-extensions).
 
-This extension is a popup extension that inject an inline svg for filtering colors, some style and change the class of the `html` tag of the current tab open, depending on the picked radio button.
+This extension is a popup extension that injects an inline SVG for filtering colours, some style and changes the class of the `html` tag of the current tab open, depending on the picked radio button.
 
-The extension will follow this structure:
+The extension will follow the following APIs and structure:
+
+- [manifest.json - permissions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions)
+- [manifest.json - Browser_action](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action)
+- [WebExtensions API - tabs](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs)
+- [Content scripts](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)
 
 ```
 WebExtension
@@ -147,14 +170,11 @@ WebExtension
         choose_test.js // Script of the popup, click handler
 ```
 
-- [permissions]()
-- [Browser_action]()
-- [tabs]()
-- [Content scripts]()
-
 ## Resources
 
-- [Microsoft Edge extension API roadmap](https://docs.microsoft.com/en-us/microsoft-edge/extensions/api-support/extension-api-roadmap)
 - [MDN - Browser Extensions](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions)
+- [Chrome - Browser Extensions](https://developer.chrome.com/extensions)
+- [Microsoft Edge extension API roadmap](https://docs.microsoft.com/en-us/microsoft-edge/extensions/api-support/extension-api-roadmap)
 - [W3C - Browser extensions](https://www.w3.org/community/browserext/)
 - [webextensions-examples - Github](https://github.com/mdn/webextensions-examples)
+- [How to make a cross-browser extension using JavaScript and browser APIs - Medium](https://medium.freecodecamp.org/how-to-make-a-cross-browser-extension-using-javascript-and-browser-apis-355c001cebba)
