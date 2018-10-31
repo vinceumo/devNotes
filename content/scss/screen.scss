@@ -27,6 +27,20 @@
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-black: hsl(0, 0%, 100%);
+    --color-white: hsl(0, 0%, 13%);
+    --color-white--darken: hsl(0, 0%, 18%);
+    --color-primary--lighten: hsl(41, 85%, 40%);
+  }
+  
+  [data-toggle-theme="theme-dark"] {
+    display: none;
+  }
+}
+
+
 $black: var(--color-black);
 $black-lighten: var(--color-black--lighten);
 $primary: var(--color-primary);
