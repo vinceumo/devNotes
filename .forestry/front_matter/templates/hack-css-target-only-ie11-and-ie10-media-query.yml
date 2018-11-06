@@ -1,7 +1,7 @@
 ---
-label: Hack - CSS target only IE11 and IE10 (media query)
-hide_body: 
-is_partial: 
+label: Post
+hide_body: false
+is_partial: false
 fields:
 - name: layout
   label: Layout
