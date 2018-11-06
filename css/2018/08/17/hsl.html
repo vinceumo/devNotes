@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>devNotes</title>
+  <meta name="description" content="Collection of things I learned around web development.
+">
+  <meta name="author" content="Vincent Humeau">
+  <link rel="manifest" href="/devNotes/manifest.json">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/devNotes/dist/img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/devNotes/dist/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/devNotes/dist/img/icons/favicon-16x16.png">
+  <link rel="mask-icon" href="/devNotes/dist/img/icons/safari-pinned-tab.svg" color="#212121">
+  <link rel="shortcut icon" href="/devNotes/dist/img/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="msapplication-config" content="/devNotes/dist/img/icons/browserconfig.xml">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="/devNotes/dist/css/screen.min.css">
+</head><body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <p>
+        <a class="site-title" rel="author" href="/devNotes/">devNotes</a>
+      </p>
+    </header>
+    <main class="page-content" aria-label="Content">
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 itemprop="name headline">hsl() &amp; hsla()</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-08-17T08:42:00+00:00" itemprop="datePublished">Aug 17, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p><code class="highlighter-rouge">hsl()</code> defines color using the HSL(A) model. It stands for hue, saturation and lightness.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">H</code>: Hue, this is a degree on the color wheel from 0 to 360. Red is a 0, yellow at 60, green at 120, cyan at 180, blue at 240 and magenta at 300.</li>
+  <li><code class="highlighter-rouge">S</code>: Saturation, It is set from 0% to 100%, where 0% is a shade of grey and 100% is the full color vivid color.</li>
+  <li><code class="highlighter-rouge">L</code>: Lightness, It is set from 0% to 100%, where 0% is black and 100% is white. Above 50% you add white to your color, bellow 50% you add black to your color.</li>
+  <li><code class="highlighter-rouge">A</code>: Alpha (optional), the alpha channel set the opacity of the color, 0 is fully transparent and 1 is fully opaque.</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>color: hsl(`hue from 0 to 360`, `saturation from 0% to 100%`, `lightness from 0% to 100%` [`Alpha from 0% to1 100%`])
+</code></pre></div></div>
+
+<p><img src="/devNotes/dist/img/hsl.jpg" alt="HSL color wheel" /></p>
+
+<h2 id="h-hue---test"><code class="highlighter-rouge">H</code> Hue - test</h2>
+
+<p data-height="500" data-theme-id="dark" data-slug-hash="zLgqZb" data-default-tab="result" data-user="vinceumo" data-pen-title="hsl() test - Hue" class="codepen">See the Pen <a href="https://codepen.io/vinceumo/pen/zLgqZb/">hsl() test - Hue</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="s-saturation---test"><code class="highlighter-rouge">S</code> Saturation - test</h2>
+
+<p data-height="500" data-theme-id="dark" data-slug-hash="QBeNGa" data-default-tab="result" data-user="vinceumo" data-pen-title="hsl() test - Saturation" class="codepen">See the Pen <a href="https://codepen.io/vinceumo/pen/QBeNGa/">hsl() test - Saturation</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="l-lightness---test"><code class="highlighter-rouge">L</code> Lightness - test</h2>
+
+<p data-height="500" data-theme-id="dark" data-slug-hash="XBvdJx" data-default-tab="result" data-user="vinceumo" data-pen-title="hsl() test - Lighteness" class="codepen">See the Pen <a href="https://codepen.io/vinceumo/pen/XBvdJx/">hsl() test - Lightness</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async="" src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">color - hsl and hsla - MDN</a></li>
+  <li><a href="https://www.quackit.com/css/color/values/css_hsl_function.cfm">CSS hsl() Function - Quackit</a></li>
+  <li><a href="https://tympanus.net/codrops/css_reference/hsl/">hsl() - codrops</a></li>
+  <li><a href="https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/">On Switching from HEX &amp; RGB to HSL - Sara Soueidan</a></li>
+</ul>
+
+  </div>
+
+  <a class="u-url" href="/devNotes/css/2018/08/17/hsl.html" hidden></a>
+</article>
+    </main>
+    <footer>
+      <p>Hello world, I'm Vince 😃 Lead Front End Developer <a href="https://www.damdigital.com/">@ DAM Digital 🚀</a></p>
+      <p>🌍 London, UK</p>
+      <ul class="links">
+        <li><a href="/devNotes/feed.xml">RSS</a></li>
+        <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+        <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+      </ul>
+      <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+      <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+    </footer>
+  </div>
+  <script src="/devNotes/dist/js/scriptsBundleMain.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/devNotes/sw.js');
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+</body>
+
+</html>

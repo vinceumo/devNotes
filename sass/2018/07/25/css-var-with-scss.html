@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>devNotes</title>
+  <meta name="description" content="Collection of things I learned around web development.
+">
+  <meta name="author" content="Vincent Humeau">
+  <link rel="manifest" href="/devNotes/manifest.json">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/devNotes/dist/img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/devNotes/dist/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/devNotes/dist/img/icons/favicon-16x16.png">
+  <link rel="mask-icon" href="/devNotes/dist/img/icons/safari-pinned-tab.svg" color="#212121">
+  <link rel="shortcut icon" href="/devNotes/dist/img/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="msapplication-config" content="/devNotes/dist/img/icons/browserconfig.xml">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="/devNotes/dist/css/screen.min.css">
+</head><body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <p>
+        <a class="site-title" rel="author" href="/devNotes/">devNotes</a>
+      </p>
+    </header>
+    <main class="page-content" aria-label="Content">
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 itemprop="name headline">CSS custom properties (CSS variables) with SCSS</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-07-25T09:00:00+00:00" itemprop="datePublished">Jul 25, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>While working on my personal SCSS boilerplate, <a href="https://github.com/vinceumo/atomic-bulldog">Atomic Bulldog</a>. I wanted to implement a strict set of variables using maps. The goal is to create a consistent design system and to be able to use CSS variables for easy theming.</p>
+
+<p>The base structure of my variable folder:</p>
+
+<pre><code class="language-t">_aspect-ratios.scss
+_box-shadow.scss
+_breakpoints.scss
+_colors.scss
+_container-sizes.scss
+_font-families.scss
+_font-sizes.scss
+_grid.scss
+_root-classes.scss
+_spacers.scss
+_z-index.scss
+</code></pre>
+
+<p>When looking on how to implement CSS variables in SASS, I found this great article, <a href="https://codepen.io/jakealbaugh/post/css4-variables-and-sass">CSS4 Variables and Sass</a>, from Jake Albaugh. It helped me to create this template for each variable file:</p>
+
+<p>In <code class="highlighter-rouge">settings.scss</code>, we have a flag to enable the use of CSS variables globally.</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$use-css-var</span><span class="p">:</span> <span class="bp">true</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>In our variable file, I follow this template:</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ------------------------------</span>
+<span class="c1">// Sass Variables</span>
+<span class="c1">// ------------------------------</span>
+<span class="nv">$variable-prefix</span><span class="p">:</span> <span class="o">--</span><span class="n">variable-</span><span class="p">;</span> <span class="c1">// CSS Variable prefix</span>
+
+<span class="nv">$variables</span><span class="p">:</span> <span class="p">(</span>
+  <span class="n">val1</span><span class="o">:</span> <span class="m">1</span><span class="o">,</span>
+  <span class="n">val2</span><span class="o">:</span> <span class="m">2</span><span class="o">,</span>
+  <span class="n">val3</span><span class="o">:</span> <span class="m">3</span> <span class="o">//</span> <span class="n">etc</span><span class="o">.</span>
+<span class="p">);</span>
+
+<span class="c1">// ------------------------------</span>
+<span class="c1">// Set variable function</span>
+<span class="c1">// ------------------------------</span>
+<span class="k">@function</span> <span class="nf">myVariable</span><span class="p">(</span><span class="nv">$variable</span><span class="o">,</span> <span class="nv">$true-val</span><span class="o">:</span><span class="bp">false</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">@if</span> <span class="nv">$use-css-var</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
+    <span class="k">@if</span> <span class="nv">$true-val</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
+      <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$variables</span><span class="o">,</span> <span class="nv">$variable</span><span class="p">);</span> <span class="c1">//True Val</span>
+    <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
+      <span class="k">@return</span> <span class="nf">var</span><span class="p">(</span><span class="si">#{</span><span class="nv">$variable-prefix</span><span class="si">}#{</span><span class="nv">$variable</span><span class="si">}</span><span class="p">);</span> <span class="c1">//CSS Var</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
+    <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$variables</span><span class="o">,</span> <span class="nv">$variable</span><span class="p">);</span> <span class="c1">//Disabled CSS Var</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+  <span class="c1">// If $use-css-var == true</span>
+    <span class="c1">// myVariable(val1) =&gt; var(--variable-val1)</span>
+    <span class="c1">// myVariable(val2, true) =&gt; 2</span>
+  <span class="c1">// If $use-css-var == false</span>
+    <span class="c1">// myVariable(val3) =&gt; 3</span>
+    <span class="c1">// myVariable(val2, true) =&gt; 2</span>
+
+<span class="c1">// ------------------------------</span>
+<span class="c1">// Set root variables</span>
+<span class="c1">// ------------------------------</span>
+<span class="k">@if</span> <span class="nv">$use-css-var</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
+  <span class="nd">:root</span><span class="p">{</span>
+    <span class="k">@each</span> <span class="nv">$name</span><span class="o">,</span> <span class="nv">$variable</span> <span class="n">in</span> <span class="nv">$variables</span> <span class="p">{</span>
+      <span class="si">#{</span><span class="nv">$variable-prefix</span><span class="si">}#{</span><span class="nv">$name</span><span class="si">}</span><span class="nd">:</span> <span class="err">$</span><span class="nt">variable</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+  <span class="c1">// Output if $use-css-var == true</span>
+  <span class="c1">// :root{</span>
+  <span class="c1">//   --variable-val1: 1;</span>
+  <span class="c1">//   --variable-val2: 2;</span>
+  <span class="c1">//   --variable-val3: 3;</span>
+  <span class="c1">//   /*etc.*/</span>
+  <span class="c1">// }</span>
+
+</code></pre></div></div>
+
+<p>Example for spacer variables:</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ------------------------------</span>
+<span class="c1">// Sass Variables</span>
+<span class="c1">// ------------------------------</span>
+<span class="nv">$spacer-reference</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+<span class="nv">$spacer-prefix</span><span class="p">:</span> <span class="o">--</span><span class="n">spacer-</span><span class="p">;</span>
+<span class="nv">$spacers</span><span class="p">:</span> <span class="p">(</span>
+  <span class="m">0</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span>
+  <span class="m">1</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">0</span><span class="mi">.25</span><span class="p">)</span><span class="o">,</span>
+  <span class="m">2</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+  <span class="m">3</span><span class="o">:</span> <span class="nv">$spacer-reference</span><span class="o">,</span>
+  <span class="m">4</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">1</span><span class="mi">.25</span><span class="p">)</span><span class="o">,</span>
+  <span class="m">5</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">1</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+  <span class="m">6</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">3</span><span class="p">)</span><span class="o">,</span>
+  <span class="m">7</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">6</span><span class="p">)</span><span class="o">,</span>
+  <span class="m">8</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">9</span><span class="p">)</span><span class="o">,</span>
+  <span class="m">9</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">12</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="c1">// ------------------------------</span>
+<span class="c1">// Set spacer function</span>
+<span class="c1">// ------------------------------</span>
+<span class="k">@function</span> <span class="nf">spacer</span><span class="p">(</span><span class="nv">$spacer</span><span class="o">,</span> <span class="nv">$true-val</span><span class="o">:</span><span class="bp">false</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">@if</span> <span class="nv">$use-css-var</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
+    <span class="k">@if</span> <span class="nv">$true-val</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
+      <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$spacers</span><span class="o">,</span> <span class="nv">$spacer</span><span class="p">);</span> <span class="c1">//True Val</span>
+    <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
+      <span class="k">@return</span> <span class="nf">var</span><span class="p">(</span><span class="si">#{</span><span class="nv">$spacer-prefix</span><span class="si">}#{</span><span class="nv">$spacer</span><span class="si">}</span><span class="p">);</span> <span class="c1">//CSS Var</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
+    <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$spacers</span><span class="o">,</span> <span class="nv">$spacer</span><span class="p">);</span> <span class="c1">//Disabled CSS Var</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ------------------------------</span>
+<span class="c1">// Set root variables</span>
+<span class="c1">// ------------------------------</span>
+<span class="k">@if</span> <span class="nv">$use-css-var</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
+  <span class="nd">:root</span><span class="p">{</span>
+    <span class="k">@each</span> <span class="nv">$name</span><span class="o">,</span> <span class="nv">$spacer</span> <span class="n">in</span> <span class="nv">$spacers</span> <span class="p">{</span>
+      <span class="si">#{</span><span class="nv">$spacer-prefix</span><span class="si">}#{</span><span class="nv">$name</span><span class="si">}</span><span class="nd">:</span> <span class="err">$</span><span class="nt">spacer</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>With deep maps, (Colours):</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ------------------------------</span>
+<span class="c1">// Sass Variables</span>
+<span class="c1">// ------------------------------</span>
+<span class="nv">$color-prefix</span><span class="p">:</span> <span class="o">--</span><span class="n">color-</span><span class="p">;</span>
+<span class="nv">$color-themes</span><span class="p">:</span> <span class="p">(</span>
+  <span class="n">primary</span><span class="o">:</span>
+    <span class="p">(</span>
+      <span class="n">base</span><span class="o">:</span> <span class="mh">#4c5c8c</span><span class="o">,</span>
+      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#4c5c8c</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#4c5c8c</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#4c5c8c</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
+    <span class="p">)</span><span class="o">,</span>
+  <span class="n">secondary</span><span class="o">:</span>
+    <span class="p">(</span>
+      <span class="n">base</span><span class="o">:</span> <span class="mh">#212529</span><span class="o">,</span>
+      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
+    <span class="p">)</span><span class="o">,</span>
+  <span class="nb">text</span><span class="o">:</span>
+    <span class="p">(</span>
+      <span class="n">base</span><span class="o">:</span> <span class="mh">#212529</span><span class="o">,</span>
+      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
+    <span class="p">)</span><span class="o">,</span>
+  <span class="n">link</span><span class="o">:</span>
+    <span class="p">(</span>
+      <span class="n">base</span><span class="o">:</span> <span class="mh">#4b7e9e</span><span class="o">,</span>
+      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#4b7e9e</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#4b7e9e</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#4b7e9e</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
+    <span class="p">)</span><span class="o">,</span>
+  <span class="n">success</span><span class="o">:</span>
+    <span class="p">(</span>
+      <span class="n">base</span><span class="o">:</span> <span class="mh">#4b9b50</span><span class="o">,</span>
+      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#4b9b50</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#4b9b50</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#4b9b50</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
+    <span class="p">)</span><span class="o">,</span>
+  <span class="n">danger</span><span class="o">:</span>
+    <span class="p">(</span>
+      <span class="n">base</span><span class="o">:</span> <span class="mh">#c65556</span><span class="o">,</span>
+      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#c65556</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#c65556</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#c65556</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
+    <span class="p">)</span><span class="o">,</span>
+  <span class="n">warning</span><span class="o">:</span>
+    <span class="p">(</span>
+      <span class="n">base</span><span class="o">:</span> <span class="mh">#d3b354</span><span class="o">,</span>
+      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#d3b354</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#d3b354</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#d3b354</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
+    <span class="p">)</span><span class="o">,</span>
+  <span class="n">light</span><span class="o">:</span>
+    <span class="p">(</span>
+      <span class="n">base</span><span class="o">:</span> <span class="mh">#efe5cf</span><span class="o">,</span>
+      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#efe5cf</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#efe5cf</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#efe5cf</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#343a40</span>
+    <span class="p">)</span><span class="o">,</span>
+  <span class="n">dark</span><span class="o">:</span>
+    <span class="p">(</span>
+      <span class="n">base</span><span class="o">:</span> <span class="mh">#343a40</span><span class="o">,</span>
+      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#343a40</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#343a40</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#343a40</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#efe5cf</span>
+    <span class="p">)</span>
+<span class="p">);</span>
+
+
+<span class="c1">// ------------------------------</span>
+<span class="c1">// Set color function</span>
+<span class="c1">// ------------------------------</span>
+<span class="c1">// retrieve color from map with Sass ie. `color(primary, base)`</span>
+<span class="k">@function</span> <span class="nf">color</span><span class="p">(</span><span class="nv">$color-name</span><span class="o">,</span> <span class="nv">$color-variant</span><span class="o">:</span><span class="n">null</span><span class="o">,</span> <span class="nv">$true-val</span><span class="o">:</span><span class="bp">false</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// if we enable css var</span>
+  <span class="k">@if</span> <span class="nv">$use-css-var</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
+    <span class="c1">// we need to return the color value</span>
+    <span class="k">@if</span> <span class="nv">$true-val</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
+      <span class="c1">// color variant is optional</span>
+      <span class="k">@if</span> <span class="p">(</span><span class="nv">$color-variant</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// map inception, need two deep</span>
+        <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nf">map-get</span><span class="p">(</span><span class="nv">$color-themes</span><span class="o">,</span><span class="nv">$color-name</span><span class="p">)</span><span class="o">,</span><span class="nv">$color-variant</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
+        <span class="c1">// Default color</span>
+        <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nf">map-get</span><span class="p">(</span><span class="nv">$color-themes</span><span class="o">,</span><span class="nv">$color-name</span><span class="p">)</span><span class="o">,</span> <span class="n">base</span><span class="p">);</span>
+      <span class="p">}</span> <span class="c1">// if we're only returning the CSS4 variable</span>
+    <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
+      <span class="c1">// color variant is optional</span>
+      <span class="k">@if</span> <span class="p">(</span><span class="nv">$color-variant</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// map inception, need two names</span>
+        <span class="k">@return</span> <span class="nf">var</span><span class="p">(</span><span class="si">#{</span><span class="nv">$color-prefix</span><span class="si">}#{</span><span class="nv">$color-name</span><span class="si">}</span><span class="o">-</span><span class="si">#{</span><span class="nv">$color-variant</span><span class="si">}</span><span class="p">);</span>
+      <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
+        <span class="c1">// Default color, one name</span>
+        <span class="k">@return</span> <span class="nf">var</span><span class="p">(</span><span class="si">#{</span><span class="nv">$color-prefix</span><span class="si">}#{</span><span class="nv">$color-name</span><span class="si">}</span><span class="o">-</span><span class="n">base</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
+    <span class="c1">// color variant is optional</span>
+    <span class="k">@if</span> <span class="p">(</span><span class="nv">$color-variant</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// map inception, need two deep</span>
+      <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nf">map-get</span><span class="p">(</span><span class="nv">$color-themes</span><span class="o">,</span><span class="nv">$color-name</span><span class="p">)</span><span class="o">,</span><span class="nv">$color-variant</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
+      <span class="c1">// Default color</span>
+      <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nf">map-get</span><span class="p">(</span><span class="nv">$color-themes</span><span class="o">,</span><span class="nv">$color-name</span><span class="p">)</span><span class="o">,</span> <span class="n">base</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ------------------------------</span>
+<span class="c1">// Set root variables</span>
+<span class="c1">// ------------------------------</span>
+<span class="k">@if</span> <span class="nv">$use-css-var</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
+  <span class="nd">:root</span> <span class="p">{</span>
+    <span class="k">@each</span> <span class="nv">$name</span><span class="o">,</span> <span class="nv">$color</span> <span class="n">in</span> <span class="nv">$color-themes</span> <span class="p">{</span>
+      <span class="k">@if</span> <span class="nf">type-of</span><span class="p">(</span><span class="nv">$color</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"map"</span> <span class="p">{</span>
+        <span class="k">@each</span> <span class="nv">$subname</span><span class="o">,</span> <span class="nv">$subcolor</span> <span class="n">in</span> <span class="nv">$color</span> <span class="p">{</span>
+          <span class="si">#{</span><span class="nv">$color-prefix</span><span class="si">}#{</span><span class="nv">$name</span><span class="si">}</span><span class="nt">-</span><span class="si">#{</span><span class="nv">$subname</span><span class="si">}</span><span class="nd">:</span> <span class="err">$</span><span class="nt">subcolor</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span> <span class="k">@else</span> <span class="n">if</span> <span class="nf">type-of</span><span class="p">(</span><span class="nv">$color</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"color"</span> <span class="p">{</span>
+        <span class="si">#{</span><span class="nv">$color-prefix</span><span class="si">}#{</span><span class="nv">$name</span><span class="si">}</span><span class="nd">:</span> <span class="err">$</span><span class="nt">color</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+  </div>
+
+  <a class="u-url" href="/devNotes/sass/2018/07/25/css-var-with-scss.html" hidden></a>
+</article>
+    </main>
+    <footer>
+      <p>Hello world, I'm Vince 😃 Lead Front End Developer <a href="https://www.damdigital.com/">@ DAM Digital 🚀</a></p>
+      <p>🌍 London, UK</p>
+      <ul class="links">
+        <li><a href="/devNotes/feed.xml">RSS</a></li>
+        <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+        <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+      </ul>
+      <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+      <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+    </footer>
+  </div>
+  <script src="/devNotes/dist/js/scriptsBundleMain.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/devNotes/sw.js');
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+</body>
+
+</html>

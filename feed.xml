@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2018-11-06T10:49:43+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
+</subtitle><entry><title type="html">Set up SignalR in a vue.js project</title><link href="/devNotes/dotnet/2018/10/29/signalR.html" rel="alternate" type="text/html" title="Set up SignalR in a vue.js project" /><published>2018-10-29T16:50:00+00:00</published><updated>2018-10-29T16:50:00+00:00</updated><id>/devNotes/dotnet/2018/10/29/signalR</id><content type="html" xml:base="/devNotes/dotnet/2018/10/29/signalR.html">&lt;p&gt;SignalR is an ASP.NET library for real-time applications. It uses the WebSockets API:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The WebSocket API is an advanced technology that makes it possible to open a two-way interactive communication session between the user’s browser and a server. With this API, you can send messages to a server and receive event-driven responses without having to poll the server for a reply.
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API&quot;&gt;The WebSocket API (WebSockets) - MDN&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;SignalR comes pre instal with ASP.NET Core 2.1. If you don’t have .NET core SDK on your machine, you can instal this one from the &lt;a href=&quot;https://www.microsoft.com/net/download&quot;&gt;microsoft website&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I build a small demo using SignalR with Vue.js:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/vinceumo/SignalR-Vuejs--Demo&quot;&gt;SignalR-Vuejs–Demo - Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/devNotes/dist/img/signalR.gif&quot; alt=&quot;demo&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;create-a-new-net-core-mvc-project&quot;&gt;Create a new .NET core MVC project&lt;/h2&gt;
+
+&lt;p&gt;Create a new .NET core MVC project.&lt;/p&gt;
+
+&lt;p&gt;If you are using the terminal run:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dotnet new mvc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;set-up-our-hub&quot;&gt;Set up our hub&lt;/h2&gt;
+
+&lt;p&gt;First, we need to create a hub. The hub is a class used for persistent connections between the client and the server.&lt;/p&gt;
+
+&lt;p&gt;At the root of our project lets create a &lt;code class=&quot;highlighter-rouge&quot;&gt;ChatHub.cs&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Microsoft.AspNetCore.SignalR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Threading.Tasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;signalrChatApp&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ChatHub&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Hub&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;SendMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Clients&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;All&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SendAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ReceiveMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;Startup.cs&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;signalrChatApp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;//...&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;MyApp&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Startup&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;//...&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ConfigureServices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IServiceCollection&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//...&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;services&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AddSignalR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//...&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Configure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IApplicationBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IHostingEnvironment&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;env&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//...&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;UseSignalR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;routes&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;routes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;MapHub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ChatHub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/chatHub&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;set-up-our-front-end-with-vuejs&quot;&gt;Set up our front end with vue.js&lt;/h2&gt;
+
+&lt;p&gt;We are going to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;Views/Home/Index.cshtml&lt;/code&gt; file to make our demo, I got rid of all the unused markup in this file and the &lt;code class=&quot;highlighter-rouge&quot;&gt;_lautout.cshtml&lt;/code&gt; as well&lt;/p&gt;
+
+&lt;h2 id=&quot;add-our-dependencies&quot;&gt;Add our dependencies&lt;/h2&gt;
+
+&lt;p&gt;First, we need the &lt;code class=&quot;highlighter-rouge&quot;&gt;@aspnet/signalr&lt;/code&gt; package. You can download it from npm&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; @aspnet/signalr
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Copy the file in &lt;code class=&quot;highlighter-rouge&quot;&gt;node_modules/@sapnet/signalr/dist/browser/signalr.js&lt;/code&gt; into the &lt;code class=&quot;highlighter-rouge&quot;&gt;wwwroot&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;p&gt;Now we need the reference this file in our view&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;~/signalr.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We are going to add vue.js with a CDN as well:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- (Developer version) --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;front-end&quot;&gt;Front End&lt;/h2&gt;
+
+&lt;p&gt;Now that our dependencies have been added, let’s work on the Front End.&lt;/p&gt;
+
+&lt;p&gt;Above our script let’s add our app markup:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;chatApp&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;form-group&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;label&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;for=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userName&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Your Name&lt;span class=&quot;nt&quot;&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Name&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userName&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;v-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userName&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;label&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;for=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userMessage&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Message&lt;span class=&quot;nt&quot;&gt;&amp;lt;/label&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Message&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userMessage&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;v-model=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;userMessage&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;button&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;v-on:click=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;submitCard&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;button&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Submit&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;v-for=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;(item, index) in messages&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;v-bind:key=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;index + 'itemMessage'&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;b&amp;gt;&lt;/span&gt;Name: &lt;span class=&quot;nt&quot;&gt;&amp;lt;/b&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&amp;lt;b&amp;gt;&lt;/span&gt;Message: &lt;span class=&quot;nt&quot;&gt;&amp;lt;/b&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now lets set up our script:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DOMContentLoaded&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Vue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;#chatApp&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;userName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;userMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;messages&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;methods&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;submitCard&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;// ---------&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;//  Call hub methods from client&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;// ---------&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connection&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;invoke&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;SendMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toSting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+          &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userName&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userMessage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;created&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// ---------&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// Connect to our hub&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// ---------&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connection&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;signalR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;HubConnectionBuilder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;withUrl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/chatHub&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;configureLogging&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;signalR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;LogLevel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Information&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toSting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;mounted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// ---------&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// Call client methods from hub&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;// ---------&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;thisVue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;thisVue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;thisVue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ReceiveMessage&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;thisVue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;messages&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/aspnet/core/signalr/dotnet-client?view=aspnetcore-2.1&quot;&gt;ASP.NET Core SignalR .NET Client&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://signalr.net/&quot;&gt;ASP.NET SignalR&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/8929519/what-do-hub-represents-in-signalr#8929826&quot;&gt;What do Hub represents in SignalR&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-2.1&quot;&gt;ASP.NET Core SignalR JavaScript client&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">SignalR is an ASP.NET library for real-time applications. It uses the WebSockets API:</summary></entry><entry><title type="html">Cross Browser extensions with WebExtensions API - 101</title><link href="/devNotes/javascript/2018/10/23/webextensionapi.html" rel="alternate" type="text/html" title="Cross Browser extensions with WebExtensions API - 101" /><published>2018-10-23T08:25:00+00:00</published><updated>2018-10-23T08:25:00+00:00</updated><id>/devNotes/javascript/2018/10/23/webextensionapi</id><content type="html" xml:base="/devNotes/javascript/2018/10/23/webextensionapi.html">&lt;p&gt;Browser extensions add features and functionalities to a browser. It uses web technologies such as HTML, CSS, and JS.&lt;/p&gt;
+
+&lt;h2 id=&quot;manifestjson&quot;&gt;Manifest.json&lt;/h2&gt;
+
+&lt;p&gt;The only file that a browser extension need is the &lt;code class=&quot;highlighter-rouge&quot;&gt;manifest.json&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Using manifest.json, you specify basic metadata about your extension such as the name and version, and can also specify aspects of your extension’s functionality, such as background scripts, content scripts, and browser actions.
+&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json&quot;&gt;MDN&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The manifest.json keys dependent on the extension you are developing.&lt;/p&gt;
+
+&lt;p&gt;You can find the available keys on &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json&quot;&gt;manifest.json - MDN&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;example&quot;&gt;Example:&lt;/h3&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//Mandatory&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;manifest_version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Name of your extension&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Recommended&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;default_locale&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Extension description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;author&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Your Name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;homepage_url&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://github.com/vinceumo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;icons&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;16&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;icons/icon16.png&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;32&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;icons/icon32.png&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;48&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;icons/icon48.png&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;128&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;icons/icon128.png&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;adding-and-debugging-a-browser-extension-locally&quot;&gt;Adding and Debugging a browser extension locally&lt;/h2&gt;
+
+&lt;h3 id=&quot;firefox&quot;&gt;Firefox&lt;/h3&gt;
+
+&lt;h4 id=&quot;add-extension&quot;&gt;Add extension&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Navigate to &lt;code class=&quot;highlighter-rouge&quot;&gt;about:debugging&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Check &lt;strong&gt;Enable add-on debugging&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Click on &lt;strong&gt;Load Temporary Add-on&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Select the &lt;em&gt;manifest.json&lt;/em&gt; file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;debugging-extension&quot;&gt;Debugging extension&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Navigate to &lt;code class=&quot;highlighter-rouge&quot;&gt;about:debugging&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Find your extension&lt;/li&gt;
+  &lt;li&gt;Click on &lt;strong&gt;Debug&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Developer toll will open&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;chrome--opera&quot;&gt;Chrome / Opera&lt;/h3&gt;
+
+&lt;h4 id=&quot;add-extension-1&quot;&gt;Add extension&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Navigate to &lt;code class=&quot;highlighter-rouge&quot;&gt;chrome://extensions/&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Click on &lt;strong&gt;Load unpacked&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Select the extension folder&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;debugging-extension-1&quot;&gt;Debugging extension&lt;/h4&gt;
+
+&lt;p&gt;Background script errors can be shown when the package is loaded.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Navigate to &lt;code class=&quot;highlighter-rouge&quot;&gt;chrome://extensions/&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Find your extension&lt;/li&gt;
+  &lt;li&gt;Click on the &lt;strong&gt;errors&lt;/strong&gt; button (Will show only if errors)&lt;/li&gt;
+  &lt;li&gt;Click on &lt;code class=&quot;highlighter-rouge&quot;&gt;View in Developer Tools&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To debug a popup extension:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Open the popup&lt;/li&gt;
+  &lt;li&gt;Right-click in the popup&lt;/li&gt;
+  &lt;li&gt;Click on Inspect&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.chrome.com/extensions/tut_debugging&quot;&gt;Chrome - Debugging Extensions&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;edge&quot;&gt;Edge&lt;/h3&gt;
+
+&lt;h4 id=&quot;add-extension-2&quot;&gt;Add extension&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Navigate to &lt;code class=&quot;highlighter-rouge&quot;&gt;about:flags&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Check &lt;strong&gt;Enable extension developer features&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Click on the &lt;strong&gt;Settings and More&lt;/strong&gt; icon (3 dots icon on the right)&lt;/li&gt;
+  &lt;li&gt;Select &lt;strong&gt;Extensions&lt;/strong&gt; from this menu&lt;/li&gt;
+  &lt;li&gt;Click on &lt;strong&gt;Load extension&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Select the extension folder&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;debugging-extension-2&quot;&gt;Debugging extension&lt;/h4&gt;
+
+&lt;p&gt;To debug a popup extension:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Open the popup&lt;/li&gt;
+  &lt;li&gt;Right-click in the popup&lt;/li&gt;
+  &lt;li&gt;Click on Inspect element&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/microsoft-edge/extensions/guides/debugging-extensions&quot;&gt;Microsoft Edge - Debugging Extensions&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;cross-browser-extension-using-a-polyfill&quot;&gt;Cross browser extension using a polyfill&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/mozilla/webextension-polyfill&quot;&gt;mozilla/webextension-polyfill&lt;/a&gt; allows browsers to use Promise-based WebExtension APIs. Some browsers might style need some adjustments.&lt;/p&gt;
+
+&lt;p&gt;Note that opera use Chromium as well as Vivaldi and Brave, your extension will work in all these browsers if it works in Chrome.&lt;/p&gt;
+
+&lt;h2 id=&quot;publish-an-extension&quot;&gt;Publish an extension&lt;/h2&gt;
+
+&lt;h3 id=&quot;chrome--brave--vivaldi&quot;&gt;Chrome / Brave / Vivaldi&lt;/h3&gt;
+
+&lt;p&gt;Brave and Vivaldi can download extensions from the &lt;a href=&quot;https://chrome.google.com/&quot;&gt;Chrome web store&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Create a zip file of your extension (Manifest file need to be at the root of this file)&lt;/li&gt;
+  &lt;li&gt;Connect/Create an account on the &lt;a href=&quot;https://chrome.google.com/webstore/developer/dashboard&quot;&gt;Google developer dashboard&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;If you submit an extension for the first time you will need to pay a $5 fee&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Upload the zip file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;firefox-1&quot;&gt;Firefox&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Create a zip file of your extension (Manifest file need to be at the root of this file)&lt;/li&gt;
+  &lt;li&gt;Connect/Create account on the &lt;a href=&quot;https://addons.mozilla.org/en-US/developers/&quot;&gt;Add-on developer hub&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Submit a new Add-on&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;opera&quot;&gt;Opera&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Create a zip file of your extension (Manifest file need to be at the root of this file)&lt;/li&gt;
+  &lt;li&gt;Connect/Create account on the &lt;a href=&quot;https://addons.opera.com/developer/&quot;&gt;opera add-ons platform&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Submit a new Add-on&lt;/li&gt;
+  &lt;li&gt;You will need to wait for moderation, could take up to a few weeks/months&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;example-of-a-popup-extension&quot;&gt;Example of a popup extension&lt;/h2&gt;
+
+&lt;p&gt;I developed recently the browser extension &lt;a href=&quot;https://github.com/vinceumo/A11Y-Color-Blindness-Empathy-Test-browser-extensions&quot;&gt;A11Y-Color-Blindness-Empathy-Test-browser-extensions&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This extension is a popup extension that injects an inline SVG for filtering colours, some style and changes the class of the &lt;code class=&quot;highlighter-rouge&quot;&gt;html&lt;/code&gt; tag of the current tab open, depending on the picked radio button.&lt;/p&gt;
+
+&lt;p&gt;The extension will follow the following APIs and structure:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions&quot;&gt;manifest.json - permissions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action&quot;&gt;manifest.json - Browser_action&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs&quot;&gt;WebExtensions API - tabs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts&quot;&gt;Content scripts&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;WebExtension
+|   manifest.json // Give permissions to the active Tab and reference the popup `choose_test.html`
+|
++---content_scripts
+|       runTest.js // Script interacting with the active tab
+|
++---icons
+|       icon128.png
+|       icon16.png
+|       icon32.png
+|       icon48.png
+|
++---polyfills
+|       browser-polyfill.js // Polyfill for chrome and opera
+|
+\---popup
+        choose_test.css // Style of the popup
+        choose_test.html // Markup of the popup
+        choose_test.js // Script of the popup, click handler
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions&quot;&gt;MDN - Browser Extensions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.chrome.com/extensions&quot;&gt;Chrome - Browser Extensions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/microsoft-edge/extensions/api-support/extension-api-roadmap&quot;&gt;Microsoft Edge extension API roadmap&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.w3.org/community/browserext/&quot;&gt;W3C - Browser extensions&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/mdn/webextensions-examples&quot;&gt;webextensions-examples - Github&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.freecodecamp.org/how-to-make-a-cross-browser-extension-using-javascript-and-browser-apis-355c001cebba&quot;&gt;How to make a cross-browser extension using JavaScript and browser APIs - Medium&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Browser extensions add features and functionalities to a browser. It uses web technologies such as HTML, CSS, and JS.</summary></entry><entry><title type="html">Vue - Components props and events examples</title><link href="/devNotes/javascript/2018/08/24/vue-props-events.html" rel="alternate" type="text/html" title="Vue - Components props and events examples" /><published>2018-08-24T10:07:00+00:00</published><updated>2018-08-24T10:07:00+00:00</updated><id>/devNotes/javascript/2018/08/24/vue-props-events</id><content type="html" xml:base="/devNotes/javascript/2018/08/24/vue-props-events.html">&lt;p&gt;The following examples show how to pass data between components in vue js, using &lt;a href=&quot;https://vuejs.org/v2/guide/components-props.html&quot;&gt;props&lt;/a&gt; and &lt;a href=&quot;https://vuejs.org/v2/guide/components-custom-events.html&quot;&gt;custom events&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;example-1-props&quot;&gt;Example 1: Props&lt;/h2&gt;
+
+&lt;p&gt;ParentComponent ==&amp;gt; ChildComponent&lt;/p&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;xawzRq&quot; data-default-tab=&quot;js,result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;Vue js - Props example&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/xawzRq/&quot;&gt;Vue js - Props example&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;example-2-events&quot;&gt;Example 2: Events&lt;/h2&gt;
+
+&lt;p&gt;ParentComponent &amp;lt;== ChildComponent&lt;/p&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;pOjZNe&quot; data-default-tab=&quot;js,result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;Vue js - Events example&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/pOjZNe/&quot;&gt;Vue js - Events example&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;example-3-props-and-events&quot;&gt;Example 3: Props and events&lt;/h2&gt;
+
+&lt;p&gt;ParentComponent &amp;lt;==&amp;gt; ChildComponent&lt;/p&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;LJVoaJ&quot; data-default-tab=&quot;js,result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;Vue js - Props and Event example&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/LJVoaJ/&quot;&gt;Vue js - Props and Event example&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;</content><author><name></name></author><summary type="html">The following examples show how to pass data between components in vue js, using props and custom events.</summary></entry><entry><title type="html">Inert - Avoid keyboard trap</title><link href="/devNotes/a11y/2018/08/21/avoid-keyboard-trap.html" rel="alternate" type="text/html" title="Inert - Avoid keyboard trap" /><published>2018-08-21T14:49:19+00:00</published><updated>2018-08-21T14:49:19+00:00</updated><id>/devNotes/a11y/2018/08/21/avoid-keyboard-trap</id><content type="html" xml:base="/devNotes/a11y/2018/08/21/avoid-keyboard-trap.html">&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;inert&lt;/code&gt; attribute is still into draft and no browser currently support it. The current draft currently states:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A node (in particular elements and text nodes) can be marked as inert. When a node is inert, then the user agent must act as if the node was absent for the purposes of targeting user interaction events, may ignore the node for the purposes of text search user interfaces (commonly known as “find in page”), and may prevent the user from selecting text in that node.&lt;/p&gt;
+
+  &lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://html.spec.whatwg.org/multipage/interaction.html#inert-subtrees&quot;&gt;Inert subtrees - HTML- Living Standard — Last Updated 20 August 2018&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;inert&lt;/code&gt; allow us to prevent access to subtrees, so we do not activate now visible DOM elements such as form elements, links, buttons etc. It helps us as well to tell assistive technology, such as screen readers, to not read &lt;code class=&quot;highlighter-rouge&quot;&gt;inert&lt;/code&gt; sections of your application.&lt;/p&gt;
+
+&lt;h2 id=&quot;example&quot;&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;In this example, I use &lt;a href=&quot;https://github.com/WICG/inert&quot;&gt;Inert Polyfill from WICG&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Using this polyfill we can set a DOM element as inert by adding the &lt;code class=&quot;highlighter-rouge&quot;&gt;inert&lt;/code&gt; attribute:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;inert&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;inert link&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;&amp;lt;!--  --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To remove the inert attribute with js we use:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;inert&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To add the inert attribute with js we use:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;inert&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Inert DOM elements have a red background in the following example.&lt;/p&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;BOaXLq&quot; data-default-tab=&quot;result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;Inert Polyfill&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/BOaXLq/&quot;&gt;Inert Polyfill&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/WICG/inert&quot;&gt;Inert Polyfill - WICG&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.chromestatus.com/feature/5703266176335872&quot;&gt;inert attribute - Chrome Platform Status&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dev.to/hybrid_alex/intro-to-the-inert-attribute-3d25&quot;&gt;Intro to the inert attribute - dev.to&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=921504&quot;&gt;implement the html5 inert attribute - bugzilla&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://robdodson.me/building-better-accessibility-primitives/&quot;&gt;Building better accessibility primitives&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=fGLp_gfMMGU&quot;&gt;📺 Inert Polyfill – A11ycasts #02&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">The inert attribute is still into draft and no browser currently support it. The current draft currently states:</summary></entry><entry><title type="html">hsl() &amp;amp; hsla()</title><link href="/devNotes/css/2018/08/17/hsl.html" rel="alternate" type="text/html" title="hsl() &amp; hsla()" /><published>2018-08-17T08:42:00+00:00</published><updated>2018-08-17T08:42:00+00:00</updated><id>/devNotes/css/2018/08/17/hsl</id><content type="html" xml:base="/devNotes/css/2018/08/17/hsl.html">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;hsl()&lt;/code&gt; defines color using the HSL(A) model. It stands for hue, saturation and lightness.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;H&lt;/code&gt;: Hue, this is a degree on the color wheel from 0 to 360. Red is a 0, yellow at 60, green at 120, cyan at 180, blue at 240 and magenta at 300.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;S&lt;/code&gt;: Saturation, It is set from 0% to 100%, where 0% is a shade of grey and 100% is the full color vivid color.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;L&lt;/code&gt;: Lightness, It is set from 0% to 100%, where 0% is black and 100% is white. Above 50% you add white to your color, bellow 50% you add black to your color.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt;: Alpha (optional), the alpha channel set the opacity of the color, 0 is fully transparent and 1 is fully opaque.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;color: hsl(`hue from 0 to 360`, `saturation from 0% to 100%`, `lightness from 0% to 100%` [`Alpha from 0% to1 100%`])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/devNotes/dist/img/hsl.jpg&quot; alt=&quot;HSL color wheel&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;h-hue---test&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;H&lt;/code&gt; Hue - test&lt;/h2&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;zLgqZb&quot; data-default-tab=&quot;result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;hsl() test - Hue&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/zLgqZb/&quot;&gt;hsl() test - Hue&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;s-saturation---test&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;S&lt;/code&gt; Saturation - test&lt;/h2&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;QBeNGa&quot; data-default-tab=&quot;result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;hsl() test - Saturation&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/QBeNGa/&quot;&gt;hsl() test - Saturation&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;l-lightness---test&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;L&lt;/code&gt; Lightness - test&lt;/h2&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;XBvdJx&quot; data-default-tab=&quot;result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;hsl() test - Lighteness&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/XBvdJx/&quot;&gt;hsl() test - Lightness&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/color_value&quot;&gt;color - hsl and hsla - MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.quackit.com/css/color/values/css_hsl_function.cfm&quot;&gt;CSS hsl() Function - Quackit&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://tympanus.net/codrops/css_reference/hsl/&quot;&gt;hsl() - codrops&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/&quot;&gt;On Switching from HEX &amp;amp; RGB to HSL - Sara Soueidan&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">hsl() defines color using the HSL(A) model. It stands for hue, saturation and lightness.</summary></entry><entry><title type="html">Screen reader - TalkBack (Android)</title><link href="/devNotes/a11y/2018/08/13/screen-reader-talkback.html" rel="alternate" type="text/html" title="Screen reader - TalkBack (Android)" /><published>2018-08-13T13:25:19+00:00</published><updated>2018-08-13T13:25:19+00:00</updated><id>/devNotes/a11y/2018/08/13/screen-reader-talkback</id><content type="html" xml:base="/devNotes/a11y/2018/08/13/screen-reader-talkback.html">&lt;blockquote&gt;
+  &lt;p&gt;TalkBack is the Google screen reader included on Android devices. TalkBack gives you spoken feedback so that you can use your device without looking at the screen.&lt;/p&gt;
+
+  &lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://support.google.com/accessibility/android/answer/6283677?hl=en&quot;&gt;Android Accessibility Help&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;start-talkback&quot;&gt;Start TalkBack&lt;/h2&gt;
+
+&lt;p&gt;To start TalkBack:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Go in your device settings&lt;/li&gt;
+  &lt;li&gt;Open Advanced&lt;/li&gt;
+  &lt;li&gt;Open Accessibility&lt;/li&gt;
+  &lt;li&gt;Turn on TalkBack&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I would recommend setting TalkBack as your &lt;strong&gt;Accessibility shortcut&lt;/strong&gt;. Turn on &lt;strong&gt;Accessibility shortcut&lt;/strong&gt; and select TalkBack as the shortcut service. The shortcut depends on your device.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/devNotes/dist/img/a11y-talkback-shortcurt.jpg&quot; alt=&quot;Android TalkBack Accessibility shortcut screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-use-talkback&quot;&gt;How to use TalkBack&lt;/h2&gt;
+
+&lt;p&gt;TalkBack is a gesture-based screen reader. We are going to use our screen to navigate.&lt;/p&gt;
+
+&lt;p&gt;Here is a list of the default gesture for navigating:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Gesture&lt;/th&gt;
+      &lt;th&gt;Action&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Single tap&lt;/code&gt; while talking&lt;/td&gt;
+      &lt;td&gt;Stop talking&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Single tap&lt;/code&gt; on content&lt;/td&gt;
+      &lt;td&gt;Announce content (Explore by touch)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Double tap&lt;/code&gt; on link button etc.&lt;/td&gt;
+      &lt;td&gt;Activate/click link button&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe Up&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Previous navigation setting&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe Down&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Next navigation setting&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe Left&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Previous item (Move backwards)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe Right&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Next item (Move forward)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Scroll 2 finger&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Scroll the page&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe down then right&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Open &lt;a href=&quot;https://support.google.com/accessibility/android/answer/6007066&quot;&gt;global context menu&lt;/a&gt; &lt;em&gt;The global context menu contains commands that work anywhere&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe up then right&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Open &lt;a href=&quot;https://support.google.com/accessibility/android/answer/6007066&quot;&gt;local context menu&lt;/a&gt;, &lt;em&gt;The local context menu contains controls that relate to the focused item. The options available in the menu change depending on the item&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe left then right&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Scroll back&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe right then left&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Scroll forward&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe up then down&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Focus first item on screen&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe down then up&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Focus last item on screen&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe down then left&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Back button&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe left then up&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Overview button&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe right then down&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Open notifications&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe up then left&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Home button&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=QjKG4Tx9ER8&quot;&gt;📺 How I Use Screen Reading And Magnification- Voice Over- Talk Back&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://youtu.be/0Zpzl4EKCco&quot;&gt;📺 Assistive Tech: TalkBack&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://support.google.com/accessibility/android/answer/6283677?hl=en&quot;&gt;Android Accessibility Help&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=h5rRNXzy1xo&quot;&gt;📺 What’s New in Android Accessibility (Google I/O ‘17)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">TalkBack is the Google screen reader included on Android devices. TalkBack gives you spoken feedback so that you can use your device without looking at the screen. Android Accessibility Help</summary></entry><entry><title type="html">Vue - SCSS set up with Vue CLI 3</title><link href="/devNotes/javascript/2018/08/13/vue-scss-setup.html" rel="alternate" type="text/html" title="Vue - SCSS set up with Vue CLI 3" /><published>2018-08-13T08:50:00+00:00</published><updated>2018-08-13T08:50:00+00:00</updated><id>/devNotes/javascript/2018/08/13/vue-scss-setup</id><content type="html" xml:base="/devNotes/javascript/2018/08/13/vue-scss-setup.html">&lt;h2 id=&quot;setup-vue-cli-3&quot;&gt;Setup Vue CLI 3&lt;/h2&gt;
+
+&lt;p&gt;When creating a new project with &lt;code class=&quot;highlighter-rouge&quot;&gt;vue create my-vue-project&lt;/code&gt;, pick &lt;code class=&quot;highlighter-rouge&quot;&gt;Manually select features&lt;/code&gt; and check &lt;code class=&quot;highlighter-rouge&quot;&gt;CSS Pre-processors&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you already have created your project without the previous steps, manually install sass-loader:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt; sass-loader node-sass
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You will probably want, to import your SCSS functions, mixins and variables into your components as well. Add &lt;a href=&quot;https://github.com/yenshih/style-resources-loader&quot;&gt;style-resources-loader&lt;/a&gt; to your project.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm i style-resources-loader &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;scss-project-structure&quot;&gt;SCSS project structure&lt;/h2&gt;
+
+&lt;p&gt;In most of my projects, I use the &lt;a href=&quot;http://bradfrost.com/blog/post/atomic-web-design/&quot;&gt;atomic design&lt;/a&gt; methodology from &lt;a href=&quot;http://bradfrost.com/&quot;&gt;Brad Frost&lt;/a&gt;. My SCSS project structure follow this structure:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;my-vue-project/src/:
+| \---styles
+|     +---atoms
+|     |   +---forms
+|     |   +---modifiers
+|     |   \---typography
+|     +---functions // 🚩 Shared with vue components
+|     +---layouts
+|     +---mixins // 🚩 Shared with vue components
+|     +---molecules
+|     +---organisms
+|     +---settings // 🚩 Shared with vue components
+|     +---templates
+|     +---variables // 🚩 Shared with vue components
+|     \---vendors
+|         +---a11y
+|         \---normalize
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;All your SCSS get imported into &lt;code class=&quot;highlighter-rouge&quot;&gt;global.scss&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;make-variables-functions-and-mixins-accessible-to-component&quot;&gt;Make variables functions and mixins accessible to component&lt;/h2&gt;
+
+&lt;p&gt;If you don’t already have a &lt;code class=&quot;highlighter-rouge&quot;&gt;vue.config.js&lt;/code&gt; file at the root of your project, create it.&lt;/p&gt;
+
+&lt;p&gt;Add your shared SCSS files to this one so your components can use variables, mixins, functions etc.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'path'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;chainWebpack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;types&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'vue-modules'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'vue'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'normal-modules'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'normal'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;addStyleResource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'scss'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;oneOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;addStyleResource&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;rule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'style-resource'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'style-resources-loader'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;patterns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./src/styles/settings/*.scss'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./src/styles/functions/*.scss'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./src/styles/mixins/*.scss'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./src/styles/variables/*.scss'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;add-your-globalscss-style-to-your-app&quot;&gt;Add your &lt;code class=&quot;highlighter-rouge&quot;&gt;global.scss&lt;/code&gt; style to your app&lt;/h2&gt;
+
+&lt;p&gt;in &lt;code class=&quot;highlighter-rouge&quot;&gt;main.js&lt;/code&gt; we want to have our &lt;code class=&quot;highlighter-rouge&quot;&gt;global.scss&lt;/code&gt;, to do so add:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./styles/global.scss'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Setup Vue CLI 3</summary></entry><entry><title type="html">CSS Grid Layout</title><link href="/devNotes/css/2018/08/09/css-grid-layout.html" rel="alternate" type="text/html" title="CSS Grid Layout" /><published>2018-08-09T13:37:19+00:00</published><updated>2018-08-09T13:37:19+00:00</updated><id>/devNotes/css/2018/08/09/css-grid-layout</id><content type="html" xml:base="/devNotes/css/2018/08/09/css-grid-layout.html">&lt;p&gt;CSS grid is a two dimensional CSS layout system where is flexbox a one dimensional one.&lt;/p&gt;
+
+&lt;h2 id=&quot;examples&quot;&gt;Examples&lt;/h2&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;RxOygp&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;CSS Grid Layout Experiment 1, Responsive Layout&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/RxOygp/&quot;&gt;CSS Grid Layout Experiment 1, Responsive Layout&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://codepen.io/vinceumo/pen/RxOygp&quot;&gt;Open in codepen&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;gdxpwK&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;CSS Grid Layout Experiment 2&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/gdxpwK/&quot;&gt;CSS Grid Layout Experiment 2&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://codepen.io/vinceumo/pen/gdxpwK&quot;&gt;Open in codepen&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;atomic-bulldog-grid--&quot;&gt;Atomic Bulldog Grid 💥 🐶&lt;/h2&gt;
+
+&lt;p&gt;CSS (SCSS) grid, based on CSS grid layout with @supports fallback to flexbox (partial support).&lt;/p&gt;
+
+&lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;ZrMKYb&quot; data-default-tab=&quot;result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;CSS (SCSS) grid with grid layout and fallback to flexbox&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/ZrMKYb/&quot;&gt;CSS (SCSS) grid with grid layout and fallback to flexbox&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://codepen.io/vinceumo/pen/ZrMKYb&quot;&gt;Open in codepen&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/vinceumo/atomic-bulldog-grid&quot;&gt;Atomic Bulldog Grid - Github&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;support&quot;&gt;Support&lt;/h2&gt;
+
+&lt;p class=&quot;ciu_embed&quot; data-feature=&quot;css-grid&quot; data-periods=&quot;future_1,current,past_1,past_2&quot; data-accessible-colours=&quot;false&quot;&gt;
+  &lt;a href=&quot;http://caniuse.com/#feat=css-grid&quot;&gt;Can I Use css-grid?&lt;/a&gt; Data on support for the css-grid feature across the major browsers from caniuse.com.
+&lt;/p&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout&quot;&gt;CSS Grid Layout - MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://css-tricks.com/snippets/css/complete-guide-grid/&quot;&gt;A Complete Guide to Grid - css-trick&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cssgridgarden.com/&quot;&gt;Grid Garden - A game for learning CSS grid layout&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cssgrid.io/&quot;&gt;📺 CSS Grid - Wes Bos&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mozilladevelopers.github.io/playground/css-grid/&quot;&gt;Introduction to CSS Grid Layout - mozilla&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">CSS grid is a two dimensional CSS layout system where is flexbox a one dimensional one.</summary></entry><entry><title type="html">Bug - IE11, flexbox and min-height</title><link href="/devNotes/css/2018/08/09/bug-ie-flexbox-min-height.html" rel="alternate" type="text/html" title="Bug - IE11, flexbox and min-height" /><published>2018-08-09T10:53:19+00:00</published><updated>2018-08-09T10:53:19+00:00</updated><id>/devNotes/css/2018/08/09/bug-ie-flexbox-min-height</id><content type="html" xml:base="/devNotes/css/2018/08/09/bug-ie-flexbox-min-height.html">&lt;p&gt;On Internet Explorer 11, &lt;code class=&quot;highlighter-rouge&quot;&gt;align-items: center;&lt;/code&gt; do not center vertically, if our flex container have a &lt;code class=&quot;highlighter-rouge&quot;&gt;min-height&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/devNotes/dist/img/css-ie11-bug-flex-min-height.jpg&quot; alt=&quot;IE11 flexbox center bug&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A small hack to fix this issue, is to use an after on our flex-container and give it an inherit min-height:&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.flex-container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;min-height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;500px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;align-items&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// See Hack - CSS target only IE11 and IE10 (media query)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;@media&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;all&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms-high-contrast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms-high-contrast&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;active&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:after&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;min-height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;inherit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Fix from &lt;a href=&quot;https://github.com/philipwalton/flexbugs/issues/231&quot;&gt;IE11: align-items: center with min-height workaround - Github/flexbugs&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">On Internet Explorer 11, align-items: center; do not center vertically, if our flex container have a min-height.</summary></entry><entry><title type="html">Hack - CSS target only IE11 and IE10 (media query)</title><link href="/devNotes/css/2018/08/08/ie-media-query.html" rel="alternate" type="text/html" title="Hack - CSS target only IE11 and IE10 (media query)" /><published>2018-08-08T10:57:19+00:00</published><updated>2018-08-08T10:57:19+00:00</updated><id>/devNotes/css/2018/08/08/ie-media-query</id><content type="html" xml:base="/devNotes/css/2018/08/08/ie-media-query.html">&lt;p&gt;Small hack, to apply CSS to only Internet Explorer 10 and 11, using media query:&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@media&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;all&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;-ms-high-contrast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;-ms-high-contrast&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;active&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c&quot;&gt;/* Your styles */&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://philipnewcomer.net/2014/04/target-internet-explorer-10-11-css/&quot;&gt;How to Target Internet Explorer 10 and 11 in CSS&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/18907131/detecting-ie11-using-css-capability-feature-detection&quot;&gt;Detecting IE11 using CSS Capability/Feature Detection - Stackoverflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Small hack, to apply CSS to only Internet Explorer 10 and 11, using media query:</summary></entry></feed>

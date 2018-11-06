@@ -1,0 +1,25 @@
+---
+title: devNotes
+description: 'Collection of things I learned around web development.
+
+'
+baseurl: "/devNotes"
+url: ''
+markdown: kramdown
+plugins:
+- jekyll-feed
+exclude:
+- Gemfile
+- Gemfile.lock
+- node_modules
+- vendor/bundle/
+- vendor/cache/
+- vendor/gems/
+- vendor/ruby/
+- content
+- package-lock.json
+- package.json
+- gulpfile.js
+- Tasks/
+- README.md
+timezone: Etc/UTC

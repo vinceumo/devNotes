@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>devNotes</title>
+  <meta name="description" content="Collection of things I learned around web development.
+">
+  <meta name="author" content="Vincent Humeau">
+  <link rel="manifest" href="/devNotes/manifest.json">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/devNotes/dist/img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/devNotes/dist/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/devNotes/dist/img/icons/favicon-16x16.png">
+  <link rel="mask-icon" href="/devNotes/dist/img/icons/safari-pinned-tab.svg" color="#212121">
+  <link rel="shortcut icon" href="/devNotes/dist/img/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="msapplication-config" content="/devNotes/dist/img/icons/browserconfig.xml">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="/devNotes/dist/css/screen.min.css">
+</head><body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <p>
+        <a class="site-title" rel="author" href="/devNotes/">devNotes</a>
+      </p>
+    </header>
+    <main class="page-content" aria-label="Content">
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 itemprop="name headline">IIFE template use at DAM</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-07-21T19:32:19+00:00" itemprop="datePublished">Jul 21, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>An IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. All the functions and variables are scoped inside the IIFE, meaning they can’t be access outside this one.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">ctas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">"button.cta"</span><span class="p">);</span>
+
+        <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">ctas</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">currentCta</span> <span class="o">=</span> <span class="nx">ctas</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+
+            <span class="c1">//Event handler 1 for exemple click</span>
+            <span class="nx">currentCta</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">functionEventHandlerBehavior1</span><span class="p">(</span><span class="nx">ctas</span><span class="p">,</span> <span class="nx">currentCta</span><span class="p">);</span>
+            <span class="p">});</span>
+
+            <span class="c1">//Event handler 2 for exemple touchstart</span>
+            <span class="nx">currentCta</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"touchstart"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">functionEventHandlerBehavior2</span><span class="p">(</span><span class="nx">ctas</span><span class="p">,</span> <span class="nx">currentCta</span><span class="p">);</span>
+            <span class="p">});</span>
+
+            <span class="c1">//Event handler 3 for exemple mouseover</span>
+            <span class="nx">currentCta</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"mouseover"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+                <span class="nx">functionEventHandlerBehavior3</span><span class="p">(</span><span class="nx">ctas</span><span class="p">,</span> <span class="nx">currentCta</span><span class="p">);</span>
+            <span class="p">});</span>
+        <span class="p">});</span>
+
+    <span class="p">});</span>
+
+    <span class="kd">function</span> <span class="nx">functionEventHandlerBehavior1</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span> <span class="nx">currentElement</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Do things</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">functionEventHandlerBehavior2</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span> <span class="nx">currentElement</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Do things</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">functionEventHandlerBehavior3</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span> <span class="nx">currentElement</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Do things</span>
+    <span class="p">}</span>
+<span class="p">})();</span>
+</code></pre></div></div>
+
+<h2 id="more-about-iife">More about IIFE</h2>
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">IIFE - MDN</a></li>
+  <li><a href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/">IIFE - Ben Alman</a></li>
+</ul>
+
+  </div>
+
+  <a class="u-url" href="/devNotes/javascript/2018/07/21/IIFEE-template-dam.html" hidden></a>
+</article>
+    </main>
+    <footer>
+      <p>Hello world, I'm Vince 😃 Lead Front End Developer <a href="https://www.damdigital.com/">@ DAM Digital 🚀</a></p>
+      <p>🌍 London, UK</p>
+      <ul class="links">
+        <li><a href="/devNotes/feed.xml">RSS</a></li>
+        <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+        <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+      </ul>
+      <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+      <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+    </footer>
+  </div>
+  <script src="/devNotes/dist/js/scriptsBundleMain.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/devNotes/sw.js');
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+</body>
+
+</html>

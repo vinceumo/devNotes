@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>devNotes</title>
+  <meta name="description" content="Collection of things I learned around web development.
+">
+  <meta name="author" content="Vincent Humeau">
+  <link rel="manifest" href="/devNotes/manifest.json">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/devNotes/dist/img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/devNotes/dist/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/devNotes/dist/img/icons/favicon-16x16.png">
+  <link rel="mask-icon" href="/devNotes/dist/img/icons/safari-pinned-tab.svg" color="#212121">
+  <link rel="shortcut icon" href="/devNotes/dist/img/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="msapplication-config" content="/devNotes/dist/img/icons/browserconfig.xml">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="/devNotes/dist/css/screen.min.css">
+</head><body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <p>
+        <a class="site-title" rel="author" href="/devNotes/">devNotes</a>
+      </p>
+    </header>
+    <main class="page-content" aria-label="Content">
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 itemprop="name headline">ES6/ const - let - var</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-08-06T22:13:00+00:00" itemprop="datePublished">Aug 6, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>ES6 introduced two new kinds of variables in Javascript, <code class="highlighter-rouge">const</code> and <code class="highlighter-rouge">let</code>. They are block scoped variables, meaning they are scope inside <code class="highlighter-rouge">{}</code>, where <code class="highlighter-rouge">var</code> is <a href="/javascript/2018/07/31/hoisting.html">hoisted</a> to the global or functional scope.</p>
+
+<h2 id="const-vs-let-vs-var"><code class="highlighter-rouge">const</code> vs <code class="highlighter-rouge">let</code> vs <code class="highlighter-rouge">var</code></h2>
+
+<p>Let’s compare some small code snippets and their outputs:</p>
+
+<h3 id="snippet-1---for-loop">Snippet 1 - for loop</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// var</span>
+<span class="c1">// console.log(i); // undefined</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="c1">// 0; 1; 2</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="c1">// 3</span>
+
+<span class="c1">//-----------------</span>
+
+<span class="c1">// let</span>
+<span class="c1">// console.log(i); // ReferenceError: i is not defined</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="c1">// 0; 1; 2</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="c1">// ReferenceError: i is not defined</span>
+
+<span class="c1">//-----------------</span>
+
+<span class="c1">// const</span>
+<span class="c1">// console.log(i); // ReferenceError: i is not defined</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">const</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="c1">// 0; ReferenceError: i is not defined</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>This first code snippet shows us that <code class="highlighter-rouge">const</code> and <code class="highlighter-rouge">let</code> are scoped at a block level, where var is scoped and hoisted, here in the global scope.</p>
+
+<p>We can see as well that the value of <code class="highlighter-rouge">const</code> cannot change in our for loop.</p>
+
+<h3 id="snippet-2---reassign-values">Snippet 2 - Reassign values</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// var</span>
+<span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// 1</span>
+<span class="nx">test</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// 2</span>
+
+<span class="c1">//-----------------</span>
+
+<span class="c1">// let</span>
+<span class="kd">let</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// 1</span>
+<span class="nx">test</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// 2</span>
+
+<span class="c1">//-----------------</span>
+
+<span class="c1">// const</span>
+<span class="kd">const</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// 1</span>
+<span class="nx">test</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// TypeError: invalid assignment to const `test'</span>
+</code></pre></div></div>
+
+<p>This example shows us that the value of <code class="highlighter-rouge">const</code> can’t be reassigned.</p>
+
+<h3 id="snippet-3---redeclare-variable">Snippet 3 - Redeclare variable</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// var</span>
+<span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// 1</span>
+<span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// 2</span>
+
+<span class="c1">//-----------------</span>
+
+<span class="c1">// let</span>
+<span class="kd">let</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// SyntaxError: redeclaration of let test</span>
+<span class="kd">let</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span>
+
+<span class="c1">//-----------------</span>
+
+<span class="c1">// const</span>
+<span class="kd">const</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// SyntaxError: redeclaration of const test</span>
+<span class="kd">const</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Both <code class="highlighter-rouge">let</code> and <code class="highlighter-rouge">const</code> can’t be redeclare</p>
+
+<h3 id="snippet-4---scope">Snippet 4 - Scope</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// var</span>
+<span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">function</span> <span class="nx">testFunction</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// 2</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// 1</span>
+
+<span class="c1">//-----------------</span>
+
+<span class="c1">// let</span>
+<span class="kd">let</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">test</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// 2</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// 1</span>
+
+<span class="c1">//-----------------</span>
+
+<span class="c1">// const</span>
+<span class="kd">const</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">test</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">test</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// 2</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">);</span> <span class="c1">// 1</span>
+</code></pre></div></div>
+
+<p>The above examples, show us that using <code class="highlighter-rouge">let</code> and <code class="highlighter-rouge">const</code> can reuse in another scope.</p>
+
+<h3 id="snippet-5---object">Snippet 5 - Object</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// var</span>
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">test1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">test2</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">};</span>
+<span class="c1">// obj = {test: 0};</span>
+<span class="c1">// console.log(obj); // { test: 0 }</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">test1</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span> <span class="c1">// { test1: 10, test2: 2 }</span>
+
+<span class="c1">//-----------------</span>
+
+<span class="c1">// let</span>
+<span class="kd">let</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">test1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">test2</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">};</span>
+<span class="c1">// obj = {test: 0};</span>
+<span class="c1">// console.log(obj); // { test: 0 }</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">test1</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span> <span class="c1">// { test1: 10, test2: 2 }</span>
+
+<span class="c1">//-----------------</span>
+
+<span class="c1">// const</span>
+<span class="kd">const</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">test1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="na">test2</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">};</span>
+<span class="c1">// obj = {test: 0};</span>
+<span class="c1">// console.log(obj); // invalid assignment to const `obj'</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">test1</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span> <span class="c1">// { test1: 10, test2: 2 }</span>
+</code></pre></div></div>
+
+<p>This last example shows us that with <code class="highlighter-rouge">const</code> we can mutate properties in our variable.</p>
+
+<h2 id="const--let-support"><code class="highlighter-rouge">const</code> &amp; <code class="highlighter-rouge">let</code> support</h2>
+
+<h3 id="const"><code class="highlighter-rouge">const</code></h3>
+
+<blockquote>
+  <p>Constants are block-scoped, much like variables defined using the let statement. The value of a constant cannot change through re-assignment, and it can’t be redeclared. <em><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const">MDN - const</a></em></p>
+</blockquote>
+
+<h4 id="support">Support</h4>
+
+<p class="ciu_embed" data-feature="const" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+  <a href="http://caniuse.com/#feat=const">Can I Use const?</a> Data on support for the const feature across the major browsers from caniuse.com.
+</p>
+
+<h3 id="let"><code class="highlighter-rouge">let</code></h3>
+
+<blockquote>
+  <p>The let statement declares a block scope local variable, optionally initializing it to a value. <em><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">MDN - let</a></em></p>
+</blockquote>
+
+<h4 id="support-1">Support</h4>
+
+<p class="ciu_embed" data-feature="let" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+  <a href="http://caniuse.com/#feat=let">Can I Use let?</a> Data on support for the let feature across the major browsers from caniuse.com.
+</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="https://mbeaudru.github.io/modern-js-cheatsheet/#variable-declaration-var-const-let">Variable declaration: var, const, let - Modern JS Cheatsheet</a></li>
+  <li><a href="https://hackernoon.com/js-var-let-or-const-67e51dbb716f">var, let, or const?</a></li>
+  <li><a href="https://duckduckgo.com/?q=const+let+var+es6&amp;t=ffab&amp;atb=v123-1&amp;ia=web">Var, let and const- what’s the difference?</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const">const - MDN</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">let - MDN</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var">var - MDN</a></li>
+</ul>
+
+  </div>
+
+  <a class="u-url" href="/devNotes/javascript/2018/08/06/es6-const-let-var.html" hidden></a>
+</article>
+    </main>
+    <footer>
+      <p>Hello world, I'm Vince 😃 Lead Front End Developer <a href="https://www.damdigital.com/">@ DAM Digital 🚀</a></p>
+      <p>🌍 London, UK</p>
+      <ul class="links">
+        <li><a href="/devNotes/feed.xml">RSS</a></li>
+        <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+        <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+      </ul>
+      <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+      <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+    </footer>
+  </div>
+  <script src="/devNotes/dist/js/scriptsBundleMain.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/devNotes/sw.js');
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+</body>
+
+</html>
