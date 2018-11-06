@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "ES6/ const - let - var"
-date:   2018-08-06 23:13:00 +0100
+title: ES6/ const - let - var
+date: 2018-08-06 22:13:00 +0000
 categories: Javascript
----
 
-ES6 introduced two new kinds of variables in Javascript, `const` and `let`. They are block scoped variables, meaning they are scope inside `{}`, where `var` is [hoisted]({% post_url 2018-07-31-hoisting %}) to the global or functional scope.
+---
+ES6 introduced two new kinds of variables in Javascript, `const` and `let`. They are block scoped variables, meaning they are scope inside `{}`, where `var` is [hoisted](/javascript/2018/07/31/hoisting.html) to the global or functional scope.
 
 ## `const` vs `let` vs `var`
 
@@ -172,35 +172,35 @@ obj.test1 = 10;
 console.log(obj); // { test1: 10, test2: 2 }
 ```
 
-This last example shows us that with `const` we can mutate properties in our variable. 
+This last example shows us that with `const` we can mutate properties in our variable.
 
 ## `const` & `let` support
 
 ### `const`
 
-> Constants are block-scoped, much like variables defined using the let statement. The value of a constant cannot change through re-assignment, and it can't be redeclared. *[MDN - const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)* 
+> Constants are block-scoped, much like variables defined using the let statement. The value of a constant cannot change through re-assignment, and it can't be redeclared. [_MDN - const_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
 
 #### Support
 
 <p class="ciu_embed" data-feature="const" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
-  <a href="http://caniuse.com/#feat=const">Can I Use const?</a> Data on support for the const feature across the major browsers from caniuse.com.
+<a href="http://caniuse.com/#feat=const">Can I Use const?</a> Data on support for the const feature across the major browsers from caniuse.com.
 </p>
 
 ### `let`
 
-> The let statement declares a block scope local variable, optionally initializing it to a value. *[MDN - let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)* 
+> The let statement declares a block scope local variable, optionally initializing it to a value. [_MDN - let_](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
 
 #### Support
 
 <p class="ciu_embed" data-feature="let" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
-  <a href="http://caniuse.com/#feat=let">Can I Use let?</a> Data on support for the let feature across the major browsers from caniuse.com.
+<a href="http://caniuse.com/#feat=let">Can I Use let?</a> Data on support for the let feature across the major browsers from caniuse.com.
 </p>
 
 ## Resources
 
-- [Variable declaration: var, const, let - Modern JS Cheatsheet](https://mbeaudru.github.io/modern-js-cheatsheet/#variable-declaration-var-const-let)
-- [var, let, or const?](https://hackernoon.com/js-var-let-or-const-67e51dbb716f)
-- [Var, let and const- what's the difference?](https://duckduckgo.com/?q=const+let+var+es6&t=ffab&atb=v123-1&ia=web)
-- [const - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
-- [let - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
-- [var - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
+* [Variable declaration: var, const, let - Modern JS Cheatsheet](https://mbeaudru.github.io/modern-js-cheatsheet/#variable-declaration-var-const-let)
+* [var, let, or const?](https://hackernoon.com/js-var-let-or-const-67e51dbb716f)
+* [Var, let and const- what's the difference?](https://duckduckgo.com/?q=const+let+var+es6&t=ffab&atb=v123-1&ia=web)
+* [const - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+* [let - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
+* [var - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
