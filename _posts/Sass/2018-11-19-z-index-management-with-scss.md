@@ -1,7 +1,7 @@
 ---
-title: Z-index management with Scss
+title: Z-index management with SCSS
 date: 2018-11-19 20:22
-layout: ''
+layout: post
 categories:
 - Sass
 
