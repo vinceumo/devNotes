@@ -24,4 +24,4 @@ fields:
   hidden: false
   default: ''
 pages:
-- _posts/Sass/z-index-management-with-scss.md
+- _posts/Sass/2018-11-19-z-index-management-with-scss.md

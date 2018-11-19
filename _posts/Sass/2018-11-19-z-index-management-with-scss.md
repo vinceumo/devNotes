@@ -65,5 +65,7 @@ $z-indexes: (
 
 ```
 
+## Example 
+
 <p data-height="500" data-theme-id="0" data-slug-hash="MmQrbK" data-default-tab="css,result" data-user="vinceumo" data-pen-title="z-index Sass management" class="codepen">See the Pen <a href="https://codepen.io/vinceumo/pen/MmQrbK/">z-index Sass management</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
