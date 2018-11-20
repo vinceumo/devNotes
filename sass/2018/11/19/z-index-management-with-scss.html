@@ -39,61 +39,36 @@
   <div class="post-content" itemprop="articleBody">
     <div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="c1">// Set our z-indexes map</span>
-
 <span class="nv">$z-indexes</span><span class="p">:</span> <span class="p">(</span>
-
   <span class="s2">"up-btn"</span><span class="o">,</span> <span class="o">//</span><span class="m">60</span>
-
   <span class="s2">"cookies-info"</span><span class="o">,</span> <span class="o">//</span><span class="m">50</span>
-
   <span class="s2">"left-nav"</span><span class="o">,</span> <span class="o">//</span><span class="m">40</span>
-
   <span class="s2">"footer"</span><span class="o">,</span> <span class="o">//</span><span class="m">30</span>
-
   <span class="s2">"top-nav"</span><span class="o">,</span> <span class="o">//</span><span class="m">20</span>
-
   <span class="s2">"content"</span><span class="o">,</span> <span class="o">//</span><span class="m">10</span>
-
 <span class="p">);</span>
 
 <span class="c1">// Z function return the z-index value</span>
-
 <span class="k">@function</span> <span class="nf">z</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="p">{</span>
-
     <span class="k">@if</span> <span class="nf">index</span><span class="p">(</span><span class="nv">$z-indexes</span><span class="o">,</span> <span class="nv">$name</span><span class="p">)</span> <span class="p">{</span>
-
         <span class="k">@return</span> <span class="p">((</span><span class="nf">length</span><span class="p">(</span><span class="nv">$z-indexes</span><span class="p">)</span> <span class="o">-</span> <span class="nf">index</span><span class="p">(</span><span class="nv">$z-indexes</span><span class="o">,</span> <span class="nv">$name</span><span class="p">))</span> <span class="o">+</span> <span class="m">1</span><span class="p">)</span><span class="o">*</span><span class="m">10</span><span class="p">;</span>
-
     <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
-
         <span class="k">@warn</span> <span class="s1">'There is no item "</span><span class="si">#{</span><span class="nv">$name</span><span class="si">}</span><span class="s1">" in this list; choose one of: </span><span class="si">#{</span><span class="nv">$z-indexes</span><span class="si">}</span><span class="s1">'</span><span class="p">;</span>
-
         <span class="k">@return</span> <span class="n">null</span><span class="p">;</span>
-
     <span class="p">}</span>
-
 <span class="p">}</span>
 
 <span class="c1">//------</span>
 
 <span class="nc">.content</span><span class="p">{</span><span class="nl">z-index</span><span class="p">:</span> <span class="nf">z</span><span class="p">(</span><span class="s1">'content'</span><span class="p">);}</span>
-
   <span class="nc">.img-1</span><span class="p">{</span><span class="nl">z-index</span><span class="p">:</span> <span class="nf">z</span><span class="p">(</span><span class="s1">'content'</span><span class="p">)</span> <span class="o">+</span> <span class="m">2</span><span class="p">;}</span>
-
   <span class="nc">.img-2</span><span class="p">{</span><span class="nl">z-index</span><span class="p">:</span> <span class="nf">z</span><span class="p">(</span><span class="s1">'content'</span><span class="p">)</span> <span class="o">+</span> <span class="m">1</span><span class="p">;}</span>
-
 <span class="nc">.top-nav</span><span class="p">{</span><span class="nl">z-index</span><span class="p">:</span> <span class="nf">z</span><span class="p">(</span><span class="s1">'top-nav'</span><span class="p">);}</span>
-
   <span class="nc">.mkt-flash</span><span class="p">{</span><span class="nl">z-index</span><span class="p">:</span> <span class="nf">z</span><span class="p">(</span><span class="s1">'top-nav'</span><span class="p">)</span> <span class="o">-</span> <span class="m">1</span><span class="p">;}</span> 
-
 <span class="nc">.left-nav</span><span class="p">{</span><span class="nl">z-index</span><span class="p">:</span> <span class="nf">z</span><span class="p">(</span><span class="s1">'left-nav'</span><span class="p">);}</span>
-
 <span class="nc">.footer</span><span class="p">{</span><span class="nl">z-index</span><span class="p">:</span> <span class="nf">z</span><span class="p">(</span><span class="s1">'footer'</span><span class="p">);}</span>
-
 <span class="nc">.cookies-info</span><span class="p">{</span><span class="nl">z-index</span><span class="p">:</span> <span class="nf">z</span><span class="p">(</span><span class="s1">'cookies-info'</span><span class="p">);}</span>
-
 <span class="nc">.up-btn</span><span class="p">{</span><span class="nl">z-index</span><span class="p">:</span> <span class="nf">z</span><span class="p">(</span><span class="s1">'up-btn'</span><span class="p">);}</span>
-
 </code></pre></div></div>
 
 <h2 id="example">Example</h2>
