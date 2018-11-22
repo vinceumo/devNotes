@@ -111,116 +111,116 @@
 
 <h2 id="css-output">CSS output:</h2>
 
-<pre><code class="language-CSS">.container {
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-.container:not(.is-fluid) {
-  margin: 0 auto;
-}
-@media only screen and (min-width: 600px) {
-  .container:not(.is-fluid) {
-    width: 100%;
-    max-width: 570px;
-  }
-}
-@media only screen and (min-width: 900px) {
-  .container:not(.is-fluid) {
-    width: 100%;
-    max-width: 860px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .container:not(.is-fluid) {
-    width: 100%;
-    max-width: 1150px;
-  }
-}
-@media only screen and (min-width: 1800px) {
-  .container:not(.is-fluid) {
-    width: 100%;
-    max-width: 1400px;
-  }
-}
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">.container</span> <span class="p">{</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+  <span class="nl">padding-left</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.container</span><span class="nd">:not</span><span class="o">(</span><span class="nc">.is-fluid</span><span class="o">)</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">only</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">600px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.container</span><span class="nd">:not</span><span class="o">(</span><span class="nc">.is-fluid</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">570px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">only</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">900px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.container</span><span class="nd">:not</span><span class="o">(</span><span class="nc">.is-fluid</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">860px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">only</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">1200px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.container</span><span class="nd">:not</span><span class="o">(</span><span class="nc">.is-fluid</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">1150px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">only</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">1800px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.container</span><span class="nd">:not</span><span class="o">(</span><span class="nc">.is-fluid</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">1400px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-.container-sm {
-  margin: 0 auto;
-  padding-right: 1rem;
-  padding-left: 1rem;
-  width: 100%;
-}
-@media only screen and (min-width: 600px) {
-  .container-sm {
-    max-width: 570px;
-  }
-}
-@media only screen and (min-width: 900px) {
-  .container-sm {
-    max-width: 860px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .container-sm {
-    max-width: 1150px;
-  }
-}
-@media only screen and (min-width: 1800px) {
-  .container-sm {
-    max-width: 1400px;
-  }
-}
+<span class="nc">.container-sm</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+  <span class="nl">padding-left</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">only</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">600px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.container-sm</span> <span class="p">{</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">570px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">only</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">900px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.container-sm</span> <span class="p">{</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">860px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">only</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">1200px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.container-sm</span> <span class="p">{</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">1150px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">only</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">1800px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.container-sm</span> <span class="p">{</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">1400px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-.container-md {
-  margin: 0 auto;
-  padding-right: 1rem;
-  padding-left: 1rem;
-  width: 100%;
-}
-@media only screen and (min-width: 900px) {
-  .container-md {
-    max-width: 860px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .container-md {
-    max-width: 1150px;
-  }
-}
-@media only screen and (min-width: 1800px) {
-  .container-md {
-    max-width: 1400px;
-  }
-}
+<span class="nc">.container-md</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+  <span class="nl">padding-left</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">only</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">900px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.container-md</span> <span class="p">{</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">860px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">only</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">1200px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.container-md</span> <span class="p">{</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">1150px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">only</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">1800px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.container-md</span> <span class="p">{</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">1400px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-.container-lg {
-  margin: 0 auto;
-  padding-right: 1rem;
-  padding-left: 1rem;
-  width: 100%;
-}
-@media only screen and (min-width: 1200px) {
-  .container-lg {
-    max-width: 1150px;
-  }
-}
-@media only screen and (min-width: 1800px) {
-  .container-lg {
-    max-width: 1400px;
-  }
-}
+<span class="nc">.container-lg</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+  <span class="nl">padding-left</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">only</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">1200px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.container-lg</span> <span class="p">{</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">1150px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">only</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">1800px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.container-lg</span> <span class="p">{</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">1400px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-.container-xl {
-  margin: 0 auto;
-  padding-right: 1rem;
-  padding-left: 1rem;
-  width: 100%;
-}
-@media only screen and (min-width: 1800px) {
-  .container-xl {
-    max-width: 1400px;
-  }
-}
-</code></pre>
+<span class="nc">.container-xl</span> <span class="p">{</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+  <span class="nl">padding-left</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+  <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">@media</span> <span class="n">only</span> <span class="n">screen</span> <span class="n">and</span> <span class="p">(</span><span class="n">min-width</span><span class="p">:</span> <span class="m">1800px</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nc">.container-xl</span> <span class="p">{</span>
+    <span class="nl">max-width</span><span class="p">:</span> <span class="m">1400px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
   </div>
 
