@@ -81,7 +81,7 @@ $container-sizes: (
 
 ## CSS output:
 
-```CSS
+```css
 .container {
   padding-right: 1rem;
   padding-left: 1rem;
