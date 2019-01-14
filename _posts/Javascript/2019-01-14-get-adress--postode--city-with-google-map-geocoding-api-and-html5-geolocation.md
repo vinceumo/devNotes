@@ -9,9 +9,11 @@ categories:
 Exemple on how to get the user current postcode using Google map Geocoding API and HTML5 Geolocation (Navigator.geolocation).
 
 ```html
-<script src="https://maps.googleapis.com/maps/api/js?key={{Your Key}}"
+<script src="https://maps.googleapis.com/maps/api/js?key=[Your Key]"
             async defer></script>
 ```
+
+---
 
 ```js
 (function () {
@@ -76,5 +78,5 @@ Exemple on how to get the user current postcode using Google map Geocoding API a
 
 ## Sources
 
-- [Navigator.geolocation - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation)
-- [Geocoding API - Google](https://developers.google.com/maps/documentation/geocoding/start)
+* [Navigator.geolocation - MDN](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation)
+* [Geocoding API - Google](https://developers.google.com/maps/documentation/geocoding/start)
