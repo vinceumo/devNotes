@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>devNotes</title>
+  <meta name="description" content="Collection of things I learned around web development.
+">
+  <meta name="author" content="Vincent Humeau">
+  <link rel="manifest" href="/devNotes/manifest.json">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/devNotes/dist/img/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/devNotes/dist/img/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/devNotes/dist/img/icons/favicon-16x16.png">
+  <link rel="mask-icon" href="/devNotes/dist/img/icons/safari-pinned-tab.svg" color="#212121">
+  <link rel="shortcut icon" href="/devNotes/dist/img/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="msapplication-config" content="/devNotes/dist/img/icons/browserconfig.xml">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="/devNotes/dist/css/screen.min.css">
+</head><body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <p>
+        <a class="site-title" rel="author" href="/devNotes/">devNotes</a>
+      </p>
+    </header>
+    <main class="page-content" aria-label="Content">
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 itemprop="name headline">Get Adress || Postode || City with Google map Geocoding API and HTML5 Geolocation</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-01-14T00:00:00+00:00" itemprop="datePublished">Jan 14, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>Exemple on how to get the user current postcode using Google map Geocoding API and HTML5 Geolocation (Navigator.geolocation).</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maps.googleapis.com/maps/api/js?key="</span>
+            <span class="na">async</span> <span class="na">defer</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">getCurrentLocation</span><span class="p">.</span><span class="nx">location</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="kd">const</span> <span class="nx">getCurrentLocation</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">success</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">const</span> <span class="nx">_this</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+            <span class="kd">const</span> <span class="nx">geocoder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Geocoder</span><span class="p">;</span>
+            <span class="kd">const</span> <span class="nx">latlng</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="na">lat</span><span class="p">:</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">,</span>
+                <span class="na">lng</span><span class="p">:</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span>
+            <span class="p">};</span>
+            <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="na">error</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="na">value</span><span class="p">:</span> <span class="s2">""</span>
+            <span class="p">};</span>
+
+            <span class="nx">geocoder</span><span class="p">.</span><span class="nx">geocode</span><span class="p">({</span> <span class="s2">"location"</span><span class="p">:</span> <span class="nx">latlng</span> <span class="p">},</span> <span class="p">(</span><span class="nx">results</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nx">status</span> <span class="o">===</span> <span class="s1">'OK'</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+                        <span class="kd">const</span> <span class="nx">resultsData</span> <span class="o">=</span> <span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">address_components</span><span class="p">;</span>
+
+                        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">addressComponent</span> <span class="k">of</span> <span class="nx">resultsData</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="k">if</span> <span class="p">(</span><span class="nx">addressComponent</span><span class="p">.</span><span class="nx">types</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"postal_code"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="nx">result</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">addressComponent</span><span class="p">.</span><span class="nx">long_name</span><span class="p">;</span>
+                                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+
+                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="nx">result</span><span class="p">.</span><span class="nx">error</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+                        <span class="nx">_this</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+                    <span class="p">}</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                    <span class="nx">result</span><span class="p">.</span><span class="nx">error</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+                    <span class="nx">_this</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">});</span>
+        <span class="p">},</span>
+        <span class="na">error</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">code</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">error</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Sorry we couldn't find your current location"</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="na">location</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="kd">const</span> <span class="nx">_this</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+
+			<span class="nb">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">((</span><span class="nx">position</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="nx">_this</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">position</span><span class="p">);</span>
+            <span class="p">},</span> <span class="p">(</span><span class="nx">positionError</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+                <span class="nx">_this</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">positionError</span><span class="p">);</span>
+            <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+<span class="p">})();</span>
+</code></pre></div></div>
+
+<h2 id="sources">Sources</h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/geolocation">Navigator.geolocation - MDN</a></li>
+  <li><a href="https://developers.google.com/maps/documentation/geocoding/start">Geocoding API - Google</a></li>
+</ul>
+
+  </div>
+
+  <a class="u-url" href="/devNotes/javascript/2019/01/14/get-adress-postode-city-with-google-map-geocoding-api-and-html5-geolocation.html" hidden></a>
+</article>
+    </main>
+    <footer>
+      <p>Hello world, I'm Vince 😃 Lead Front End Developer <a href="https://www.damdigital.com/">@ DAM Digital 🚀</a></p>
+      <p>🌍 London, UK</p>
+      <ul class="links">
+        <li><a href="/devNotes/feed.xml">RSS</a></li>
+        <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+        <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+      </ul>
+      <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+      <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+    </footer>
+  </div>
+  <script src="/devNotes/dist/js/scriptsBundleMain.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/devNotes/sw.js');
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+</body>
+
+</html>
