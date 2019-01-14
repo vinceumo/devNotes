@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Get Adress || Postode || City with Google map Geocoding API and HTML5 Geolocation
+title: Get Address || Postode || City with Google map Geocoding API and HTML5 Geolocation
 date: 2019-01-14 00:00:00 +0000
 categories:
 - Javascript
