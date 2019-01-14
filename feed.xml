@@ -1,5 +1,132 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-01-14T22:01:11+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
-</subtitle><entry><title type="html">Get Address || Postode || City with Google map Geocoding API and HTML5 Geolocation</title><link href="/devNotes/javascript/2019/01/14/get-address-postode-city-with-google-map-geocoding-api-and-html5-geolocation.html" rel="alternate" type="text/html" title="Get Address || Postode || City with Google map Geocoding API and HTML5 Geolocation" /><published>2019-01-14T00:00:00+00:00</published><updated>2019-01-14T00:00:00+00:00</updated><id>/devNotes/javascript/2019/01/14/get-address--postode--city-with-google-map-geocoding-api-and-html5-geolocation</id><content type="html" xml:base="/devNotes/javascript/2019/01/14/get-address-postode-city-with-google-map-geocoding-api-and-html5-geolocation.html">&lt;p&gt;Exemple on how to get the user current postcode using Google map Geocoding API and HTML5 Geolocation (Navigator.geolocation).&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-01-14T22:04:16+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
+</subtitle><entry><title type="html">Regex - 101</title><link href="/devNotes/tools/2019/01/14/regex-101.html" rel="alternate" type="text/html" title="Regex - 101" /><published>2019-01-14T00:00:00+00:00</published><updated>2019-01-14T00:00:00+00:00</updated><id>/devNotes/tools/2019/01/14/regex-101</id><content type="html" xml:base="/devNotes/tools/2019/01/14/regex-101.html">&lt;blockquote&gt;
+  &lt;p&gt;A regular expression, regex or regexp(sometimes called a rational expression) is a sequence of characters that define a search pattern. Usually this pattern is used by string searching algorithms for “find” or “find and replace” operations on strings, or for input validation&lt;/p&gt;
+
+  &lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Regular_expression&quot;&gt;Regular expression - Wikipedia&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;cheat-sheet&quot;&gt;Cheat sheet&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Description&lt;/th&gt;
+      &lt;th&gt; &lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;abc…&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Letters&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;123…&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Digits&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\d&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Any Digit&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\D&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Any Non-digit character&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Any Character&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\.&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Period&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[abc]&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Only a, b, or c&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[^abc]&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Not a, b, nor c&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[a-z]&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Characters a to z&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[0-9]&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Numbers 0 to 9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\w&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Any Alphanumeric character&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\W&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Any Non-alphanumeric character&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{n}&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The preceding item is matched exactly &lt;em&gt;n&lt;/em&gt; times&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{min, }&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The preceding item is matched &lt;em&gt;min&lt;/em&gt; or more times&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{min,max}&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;The preceding item is matched at least min times, but not more than max times&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Zero or more repetitions&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;One or more repetitions&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;?&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Optional character&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\s&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Any Whitespace&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\S&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Any Non-whitespace character&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;^…$&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Starts and ends&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(…)&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Capture Group&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(a(bc))&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Capture Sub-group&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(.*)&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Capture all&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(abc|def)&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;Matches abc or def&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://regexr.com/&quot;&gt;RegExr&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://regexone.com&quot;&gt;Exercices - regexOne&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=7DG3kCDx53c&amp;amp;list=PLRqwX-V7Uu6YEypLuls7iidwHMdCM6o2w&quot;&gt;📺 Session 2: Regular Expressions - Programming - The coding train&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=EkluES9Rvak&amp;amp;t=295s&quot;&gt;📺 Best of Fluent 2012: /Reg(exp){2}lained/: Demystifying Regular Expressions - Lea Verou&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285&quot;&gt;Regex tutorial — A quick cheatsheet by examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">A regular expression, regex or regexp(sometimes called a rational expression) is a sequence of characters that define a search pattern. Usually this pattern is used by string searching algorithms for “find” or “find and replace” operations on strings, or for input validation Regular expression - Wikipedia</summary></entry><entry><title type="html">Get Address || Postode || City with Google map Geocoding API and HTML5 Geolocation</title><link href="/devNotes/javascript/2019/01/14/get-address-postode-city-with-google-map-geocoding-api-and-html5-geolocation.html" rel="alternate" type="text/html" title="Get Address || Postode || City with Google map Geocoding API and HTML5 Geolocation" /><published>2019-01-14T00:00:00+00:00</published><updated>2019-01-14T00:00:00+00:00</updated><id>/devNotes/javascript/2019/01/14/get-address--postode--city-with-google-map-geocoding-api-and-html5-geolocation</id><content type="html" xml:base="/devNotes/javascript/2019/01/14/get-address-postode-city-with-google-map-geocoding-api-and-html5-geolocation.html">&lt;p&gt;Exemple on how to get the user current postcode using Google map Geocoding API and HTML5 Geolocation (Navigator.geolocation).&lt;/p&gt;
 
 &lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://maps.googleapis.com/maps/api/js?key=[Your Key]&quot;&lt;/span&gt;
             &lt;span class=&quot;na&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;defer&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
@@ -900,77 +1027,4 @@
   &lt;li&gt;&lt;a href=&quot;https://youtu.be/0Zpzl4EKCco&quot;&gt;📺 Assistive Tech: TalkBack&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://support.google.com/accessibility/android/answer/6283677?hl=en&quot;&gt;Android Accessibility Help&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=h5rRNXzy1xo&quot;&gt;📺 What’s New in Android Accessibility (Google I/O ‘17)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">TalkBack is the Google screen reader included on Android devices. TalkBack gives you spoken feedback so that you can use your device without looking at the screen. Android Accessibility Help</summary></entry><entry><title type="html">Vue - SCSS set up with Vue CLI 3</title><link href="/devNotes/javascript/2018/08/13/vue-scss-setup.html" rel="alternate" type="text/html" title="Vue - SCSS set up with Vue CLI 3" /><published>2018-08-13T08:50:00+00:00</published><updated>2018-08-13T08:50:00+00:00</updated><id>/devNotes/javascript/2018/08/13/vue-scss-setup</id><content type="html" xml:base="/devNotes/javascript/2018/08/13/vue-scss-setup.html">&lt;h2 id=&quot;setup-vue-cli-3&quot;&gt;Setup Vue CLI 3&lt;/h2&gt;
-
-&lt;p&gt;When creating a new project with &lt;code class=&quot;highlighter-rouge&quot;&gt;vue create my-vue-project&lt;/code&gt;, pick &lt;code class=&quot;highlighter-rouge&quot;&gt;Manually select features&lt;/code&gt; and check &lt;code class=&quot;highlighter-rouge&quot;&gt;CSS Pre-processors&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;If you already have created your project without the previous steps, manually install sass-loader:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt; sass-loader node-sass
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You will probably want, to import your SCSS functions, mixins and variables into your components as well. Add &lt;a href=&quot;https://github.com/yenshih/style-resources-loader&quot;&gt;style-resources-loader&lt;/a&gt; to your project.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm i style-resources-loader &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;scss-project-structure&quot;&gt;SCSS project structure&lt;/h2&gt;
-
-&lt;p&gt;In most of my projects, I use the &lt;a href=&quot;http://bradfrost.com/blog/post/atomic-web-design/&quot;&gt;atomic design&lt;/a&gt; methodology from &lt;a href=&quot;http://bradfrost.com/&quot;&gt;Brad Frost&lt;/a&gt;. My SCSS project structure follow this structure:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;my-vue-project/src/:
-| \---styles
-|     +---atoms
-|     |   +---forms
-|     |   +---modifiers
-|     |   \---typography
-|     +---functions // 🚩 Shared with vue components
-|     +---layouts
-|     +---mixins // 🚩 Shared with vue components
-|     +---molecules
-|     +---organisms
-|     +---settings // 🚩 Shared with vue components
-|     +---templates
-|     +---variables // 🚩 Shared with vue components
-|     \---vendors
-|         +---a11y
-|         \---normalize
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;All your SCSS get imported into &lt;code class=&quot;highlighter-rouge&quot;&gt;global.scss&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;make-variables-functions-and-mixins-accessible-to-component&quot;&gt;Make variables functions and mixins accessible to component&lt;/h2&gt;
-
-&lt;p&gt;If you don’t already have a &lt;code class=&quot;highlighter-rouge&quot;&gt;vue.config.js&lt;/code&gt; file at the root of your project, create it.&lt;/p&gt;
-
-&lt;p&gt;Add your shared SCSS files to this one so your components can use variables, mixins, functions etc.&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'path'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;chainWebpack&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;types&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'vue-modules'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'vue'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'normal-modules'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'normal'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;addStyleResource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'scss'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;oneOf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;addStyleResource&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;rule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;rule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;use&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'style-resource'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'style-resources-loader'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;patterns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./src/styles/settings/*.scss'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./src/styles/functions/*.scss'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./src/styles/mixins/*.scss'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;__dirname&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./src/styles/variables/*.scss'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;add-your-globalscss-style-to-your-app&quot;&gt;Add your &lt;code class=&quot;highlighter-rouge&quot;&gt;global.scss&lt;/code&gt; style to your app&lt;/h2&gt;
-
-&lt;p&gt;in &lt;code class=&quot;highlighter-rouge&quot;&gt;main.js&lt;/code&gt; we want to have our &lt;code class=&quot;highlighter-rouge&quot;&gt;global.scss&lt;/code&gt;, to do so add:&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./styles/global.scss'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Setup Vue CLI 3</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">TalkBack is the Google screen reader included on Android devices. TalkBack gives you spoken feedback so that you can use your device without looking at the screen. Android Accessibility Help</summary></entry></feed>
