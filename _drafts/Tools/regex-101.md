@@ -6,8 +6,13 @@ categories:
 - Tools
 
 ---
+> A regular expression, regex or regexp(sometimes called a rational expression) is a sequence of characters that define a search pattern. Usually this pattern is used by string searching algorithms for "find" or "find and replace" operations on strings, or for input validation
+>
+> *[Regular expression - Wikipedia](https://en.wikipedia.org/wiki/Regular_expression)*
+
+## Cheat sheet
+
 `abc…`|Letters
------|-----
 `123…`|Digits
 `\d`|Any Digit
 `\D`|Any Non-digit character
@@ -19,8 +24,9 @@ categories:
 `[0-9]`|Numbers 0 to 9
 `\w`|Any Alphanumeric character
 `\W`|Any Non-alphanumeric character
-`{m}`|m Repetitions
-`{m,n}`|m to n Repetitions
+`{n}`|The preceding item is matched exactly *n* times
+`{min, }`|The preceding item is matched *min* or more times
+`{min,max}`|The preceding item is matched at least min times, but not more than max times
 `*`|Zero or more repetitions
 `+`|One or more repetitions
 `?`|Optional character
@@ -33,3 +39,9 @@ categories:
 `(abc|def)`|Matches abc or def
 
 ## Resources
+
+* [RegExr](https://regexr.com/)
+* [Exercices - regexOne](https://regexone.com)
+* [📺 Session 2: Regular Expressions - Programming - The coding train](https://www.youtube.com/watch?v=7DG3kCDx53c&list=PLRqwX-V7Uu6YEypLuls7iidwHMdCM6o2w)
+* [📺 Best of Fluent 2012: /Reg(exp){2}lained/: Demystifying Regular Expressions - Lea Verou](https://www.youtube.com/watch?v=EkluES9Rvak&t=295s)
+* [Regex tutorial — A quick cheatsheet by examples](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
