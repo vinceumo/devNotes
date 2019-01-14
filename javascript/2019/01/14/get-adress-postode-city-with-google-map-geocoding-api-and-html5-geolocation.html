@@ -39,9 +39,11 @@
   <div class="post-content" itemprop="articleBody">
     <p>Exemple on how to get the user current postcode using Google map Geocoding API and HTML5 Geolocation (Navigator.geolocation).</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maps.googleapis.com/maps/api/js?key="</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maps.googleapis.com/maps/api/js?key=[Your Key]"</span>
             <span class="na">async</span> <span class="na">defer</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre></div></div>
+
+<hr />
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
     <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
