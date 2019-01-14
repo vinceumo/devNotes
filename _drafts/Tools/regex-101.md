@@ -7,6 +7,7 @@ categories:
 
 ---
 `abc…`|Letters
+-----|-----
 `123…`|Digits
 `\d`|Any Digit
 `\D`|Any Non-digit character
