@@ -45,16 +45,20 @@
   <meta name="theme-color" content="#212121" />
 
   <link rel="stylesheet" href="/devNotes/dist/css/screen.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Asap:400,700"
+    rel="stylesheet"
+  />
 </head>
 <body>
-  <div class="page-wrapper">
-    <header class="page-header">
-      <p>
-        <a class="site-title" rel="author" href="/devNotes/">devNotes</a>
-      </p>
-    </header>
-    <main class="page-content" aria-label="Content">
-      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="page-wrapper">
+      <header class="page-header">
+        <p>
+          <a class="site-title" href="/devNotes/">devNotes</a> <small>by <a href="https://www.vincent-humeau.com" rel="author">Vincent Humeau</a></small>
+        </p>
+      </header>
+      <main class="page-content" aria-label="Content">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
     <h1 itemprop="name headline">WCAG 2.0 &amp; 2.1 Checklist</h1>
@@ -566,28 +570,27 @@
 
   <a class="u-url" href="/devNotes/a11y/2018/08/03/wcag.html" hidden></a>
 </article>
-    </main>
-    <footer>
-      <p>Hello world, I'm Vince 😃 Lead Front End Developer <a href="https://www.damdigital.com/">@ DAM Digital 🚀</a></p>
-      <p>🌍 London, UK</p>
-      <ul class="links">
-        <li><a href="/devNotes/feed.xml">RSS</a></li>
-        <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
-        <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
-      </ul>
-      <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
-      <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
-    </footer>
-  </div>
-  <script src="/devNotes/dist/js/scriptsBundleMain.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/devNotes/sw.js');
-      });
-    }
-  </script>
-  <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
-</body>
-
+      </main>
+      <footer>
+        <p>Hello world, I'm Vince 😃 Lead Front End Developer <a href="https://www.damdigital.com/">@ DAM Digital 🚀</a></p>
+        <p>🌍 London, UK</p>
+        <ul class="links">
+          <li><a href="/devNotes/feed.xml">RSS</a></li>
+          <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+          <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+        </ul>
+        <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+        <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+      </footer>
+    </div>
+    <script src="/devNotes/dist/js/scriptsBundleMain.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/devNotes/sw.js');
+        });
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+  </body>
 </html>
