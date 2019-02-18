@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>
+    devNotes | Photoshop 101, introduction for web developers
+  </title>
+  <meta name="description" content="Collection of things I learned around web development.
+" />
+  <meta name="author" content="Vincent Humeau" />
+  <link rel="manifest" href="/devNotes/manifest.json" />
+  
+  <link rel="canonical" href="https://medium.com/@vince_umo_34593/photoshop-101-introduction-for-web-developers-62d55232e62b" />
+  
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/devNotes/dist/img/icons/apple-touch-icon.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/devNotes/dist/img/icons/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/devNotes/dist/img/icons/favicon-16x16.png"
+  />
+  <link
+    rel="mask-icon"
+    href="/devNotes/dist/img/icons/safari-pinned-tab.svg"
+    color="#212121"
+  />
+  <link
+    rel="shortcut icon"
+    href="/devNotes/dist/img/icons/favicon.ico"
+  />
+  <meta name="msapplication-TileColor" content="#212121" />
+  <meta
+    name="msapplication-config"
+    content="/devNotes/dist/img/icons/browserconfig.xml"
+  />
+  <meta name="theme-color" content="#212121" />
+
+  <link rel="stylesheet" href="/devNotes/dist/css/screen.min.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <p>
+        <a class="site-title" rel="author" href="/devNotes/">devNotes</a>
+      </p>
+    </header>
+    <main class="page-content" aria-label="Content">
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 itemprop="name headline">Photoshop 101, introduction for web developers</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-07-22T23:00:00+00:00" itemprop="datePublished">Jul 22, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="introduction">Introduction</h2>
+
+<p>Often, when working as web developer, we need to integrate templates. They can be from Photoshop or other software. In this article, we will have a look at the basics of Photoshop for a web developer.</p>
+
+<p>This content was initially written for a workshop for <a href="http://damdigital.com/">DAMDigital London</a>.</p>
+
+<p>Adobe Photoshop is a raster graphics editor software, meaning it is a program that allows users to create and edit images.</p>
+
+<p>It was released in 1988 and have grown since then, as the industry standard for graphics software.</p>
+
+<p>You can download a free trial version of Photoshop on the <a href="https://www.adobe.com/products/photoshop/free-trial-download.html">Adobe website</a>.</p>
+
+<h2 id="workspace">Workspace</h2>
+
+<p>Photoshop’s workspace is modular, you can adapt it depending on the work you are doing. Some default workspaces are already set up in Photoshop. In this article, I’m using the <code class="highlighter-rouge">Graphic and Web</code> one. To change to this one go into <code class="highlighter-rouge">Window/workspace/Graphic and Web</code></p>
+
+<p>Let’s have a look at our workspace</p>
+
+<p><img src="https://s33.postimg.cc/azhnj48qn/photoshop.png" alt="Layers box screenshot" /></p>
+
+<ul>
+  <li><strong>A - Menu bar</strong>: It is where you get most of photoshop options.</li>
+  <li><strong>B - Options bar</strong>: This bar will give you all the options of the currently selected tool.</li>
+  <li><strong>C - Toolbox</strong>: This panel contains all the available tools from photoshop. Related tools are grouped together, long click on one of them to see all the tools.</li>
+  <li><strong>D - Panels</strong>: It is the area where you have your basic panels open, such as <code class="highlighter-rouge">Layers</code>, <code class="highlighter-rouge">History</code>, etc. To open a panel just go into <code class="highlighter-rouge">Window/(Panel that you want to open)</code></li>
+</ul>
+
+<h2 id="create-a-new-file">Create a new file</h2>
+
+<p>When creating a new file in Photoshop, you need to know first, for what support is my design going to be used for? Meaning, is it going to be used for a screen? (Web, film and video) or for print?</p>
+
+<p>Depending on the answer to this question, you will need to change the PPI (Pixels Per Inch) value.</p>
+
+<blockquote>
+  <p>Pixels per inch (PPI) is a measurement used to define the resolution of a computer display. This metric evaluates the picture/image quality that a particular computing or output display device is able to display. Pixels per inch is also known as pixel density. <em><a href="https://www.techopedia.com/definition/2741/pixels-per-inch-ppi">Techopedia</a></em></p>
+</blockquote>
+
+<p>For print, you normally will need 300PPI, but that will actually depend on the printer and the size of the print document. You should change your colour to CMYK as well, but that will again depend on how you will print your document. If you want to learn more about RGB and CMYK colour check out this <a href="https://printaura.com/difference-between-RGB-and-CMYK">article</a>.</p>
+
+<p>For screens and web 😃, you will need 72PPI and RGB colour. Then you will need to specify your screen size. I would recommend designing first for mobile, then tablet and desktop 😉.</p>
+
+<p>As a web developer, you might not need to create a new file. Chances are that you will need to work with a design provided by web designers.</p>
+
+<p>We are now going to look at an existing <code class="highlighter-rouge">.psd</code> template and work with this one to have a look around Photoshop.</p>
+
+<p>You can download and open this <a href="https://shibbythemes.com/psd-freebies/surfersco-psd-template/">PSD template</a> from <a href="http://lucaal.co/">Luis Costa</a>.</p>
+
+<h2 id="layers">Layers</h2>
+
+<p>One of the core features of Photoshop is <strong>layers</strong>. Layers are like a stack of sheets, you can see through transparent areas or area with low opacity (partially transparent).</p>
+
+<p>You can open the layer panel in <code class="highlighter-rouge">Window/Layers</code>.</p>
+
+<p><img src="https://s33.postimg.cc/4yjym1een/layers.png" alt="Layers box screen shot" /></p>
+
+<p>The top layer, in this panel, will be over all the other ones under. Layers can be organized as well in folders. It is important to correctly name layers and folders. That will help during the integration.</p>
+
+<p>Next to each folder and layers, you have an eye icon, it allows you to toggle the visibility of these ones.</p>
+
+<p>Your PSD might have a lot of layers and documents. One way to quickly find a layer is to select the <code class="highlighter-rouge">move tool (v)</code>. Right click on the canvas, where you want to find your layer. You will get all the layers in the area where you have right clicked. By clicking on one, it will select this layer in your layer panel.</p>
+
+<p><img src="https://s33.postimg.cc/85ei5n3zj/layers-tree.jpg" alt="layer tree" /></p>
+
+<h2 id="toolbox">Toolbox</h2>
+
+<p>Photoshop comes with a load of tools. I’m going to show you a few useful ones that will help you 😉.</p>
+
+<p>First, if you just install Photoshop CC 2018 you will need to restore all tools go to <code class="highlighter-rouge">Edit &gt; Toolbar and click on Restore Defaults button</code>.</p>
+
+<p><img src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/tools/_jcr_content/main-pars/image_0/v2_Tools%20panel_PS_update1.png" alt="toolbox" /></p>
+
+<p><em><a href="https://helpx.adobe.com/photoshop/using/tools.html">Image from Adobe</a></em></p>
+
+<p>We are going to see some of the most useful tools, to integrate a template:</p>
+
+<h3 id="a---selection-tools">A - Selection tools</h3>
+
+<ul>
+  <li><strong>Move</strong>: Allows the user to move a layer around the canvas. As we saw earlier it can be used as well to find a layer if you right click on your canvas.</li>
+  <li>
+    <p><strong>Rectangular Marquee</strong>: This tool is used to select an area of the canvas, to copy and paste, fill it in etc. It can be used as well to measure. When your selection is done you can find the size of the selected area in <code class="highlighter-rouge">Window/Info</code>. You might need to change the default unit in photoshop <code class="highlighter-rouge">Edit/preferences/general/Unit &amp; Rulers</code> then set your units to pixels.</p>
+
+    <p><img src="https://s33.postimg.cc/60u54khsf/size.jpg" alt="select size" /></p>
+  </li>
+</ul>
+
+<h3 id="b---crop-and-slice-tools">B - Crop and Slice tools</h3>
+
+<ul>
+  <li><strong>Crop</strong>: This tool can… crop an image 🤟. In the tool settings (Options Bar), you can set an aspect ratio that you want to keep.</li>
+</ul>
+
+<h3 id="c---measuring-tools">C - Measuring tools</h3>
+
+<ul>
+  <li><strong>Eyedropper</strong>: The eyedropper allows you to quickly get a colour reference in your design. Just click where you want the colour. Then at the bottom of your toolbox, the foreground colour will change to the selected colour. If you click on the foreground colour, it will open the <code class="highlighter-rouge">color picker window</code> from here you can get the value of your colour.</li>
+  <li><strong>Color Sampler</strong>: When integrating your design you might need to select multiple colours. We are going to use the info window again <code class="highlighter-rouge">Window/Info</code>. this tool allows us to create a colour sampler. Just click on the area of the image you want to get the colours from. You will get each colour in the info panel. You can change the colour type to web by clicking on the Eyedropper icon under the number.
+<img src="https://s33.postimg.cc/evuzf2jfj/color-sampler.png" alt="color sampler" /></li>
+  <li><strong>Ruler</strong>: helps you to measure your template. All the info will appear in your info window. Maintain <code class="highlighter-rouge">Shift</code> when measuring, so your ruler stays straight. You can get angles also.</li>
+</ul>
+
+<h3 id="g---navigation-tool">G - Navigation tool</h3>
+
+<ul>
+  <li><strong>Hand</strong>: This tool helps you to get around the canvas, you can access this tool as well at any time by holding the spacebar and dragging it with your mouse.</li>
+  <li><strong>Zoom</strong>: Allows to zoom in and out, you can you <code class="highlighter-rouge">Ctrl</code> + <code class="highlighter-rouge">+</code>, or <code class="highlighter-rouge">Ctrl</code> + <code class="highlighter-rouge">-</code> too.</li>
+</ul>
+
+<h2 id="guides">Guides</h2>
+
+<p>As you might have noticed when opening our PSD file, we have some green lines on our template. They are guides, they are basically helpers that will help you build or measure things around your canvas.</p>
+
+<p>You can move existing guides using the <code class="highlighter-rouge">move tool</code>(v)</p>
+
+<p>To create new guides, you will need to open your ruler. <code class="highlighter-rouge">View/Ruler</code> or <code class="highlighter-rouge">Ctrl</code> + <code class="highlighter-rouge">R</code>. The ruler will appear in your workspace. Then from the ruler, you can drag in your canvas, a new guide.</p>
+
+<p>To remove a guide, use the <code class="highlighter-rouge">move tool</code>(v) and put back the guide in the ruler.</p>
+
+<p>To hide and show all your guide you can just use <code class="highlighter-rouge">Ctrl</code> + <code class="highlighter-rouge">H</code>, or go to <code class="highlighter-rouge">View/Extras</code>.</p>
+
+<h2 id="smart-objects">Smart objects</h2>
+
+<p>What are smart objects?</p>
+
+<blockquote>
+  <p>Smart Objects are layers that contain image data from raster or vector images, such as Photoshop or Illustrator files. Smart Objects preserve an image’s source content with all its original characteristics, enabling you to perform nondestructive editing to the layer. <em><a href="https://helpx.adobe.com/photoshop/using/create-smart-objects.html">Adobe</a></em></p>
+</blockquote>
+
+<p>Smart objects can be recognized in your layers when they have the following icon in their thumbnails:</p>
+
+<p><img src="https://s33.postimg.cc/z38f7ebrz/smart-object.png" alt="smart object" /></p>
+
+<p>Smart object is really handy if you work with vector type images (SVG, EPS, AI), but as well as other complex raster files.</p>
+
+<p>Let’s try to import a smart object in our PSD. Download an SVG file from <a href="https://www.flaticon.com/free-icon/surfboard_930944#term=surf&amp;page=1&amp;position=10">flaticon</a>. To import our SVG in our canvas, just drag the file into the canvas. We can now edit our SVG in illustrator, or another vector software by double-clicking on the thumbnail or our smart object. Changes will appear in our PSD.</p>
+
+<p>Smart object can do way more than that, if you want to learn more about them, check out <a href="https://design.tutsplus.com/tutorials/10-things-you-need-to-know-about-smart-objects-in-photoshop--cms-20268">10 Things You Need to Know About Smart Objects in Photoshop</a>.</p>
+
+<h2 id="export-assets">Export assets</h2>
+
+<p>First, just a reminder that photoshop is a <strong>raster</strong> software. Not a <strong>vector</strong> software. Meaning we “can’t” export SVG files from photoshop. To do so you will need to export this kind of files from Illustrator or Inkscape, for example.</p>
+
+<p>In the web, we want to have light image files, for a photography, we would use a compress <code class="highlighter-rouge">.jpg</code> file. If you need to use transparency (Alpha channel) we will use <code class="highlighter-rouge">.png</code> file. For an animated image, we would use a <code class="highlighter-rouge">.gif</code>. If you need a vector image (icons for example) the best is to export your file as <code class="highlighter-rouge">.svg</code>. If you want to have more information about all the files available in Photoshop you can check out <a href="https://helpx.adobe.com/photoshop/using/file-formats.html">“file formats” in the Adobe’s website</a>.</p>
+
+<h3 id="export-our-canvas">Export our canvas</h3>
+
+<p>To export the canvas just follow these steps:</p>
+
+<ol>
+  <li>Go to <code class="highlighter-rouge">File/Export/Save for Web</code></li>
+  <li>Pick file format</li>
+  <li>Pick image size</li>
+  <li>Pick quality</li>
+  <li>Save</li>
+</ol>
+
+<h3 id="export-only-an-asset-from-the-canvas">Export only an asset from the canvas</h3>
+
+<p>You will probably, need to export some assets of your template.</p>
+
+<p>Let’s export the left arrow in the product carousel:</p>
+
+<p><img src="https://s33.postimg.cc/5o2qydrsv/export1.jpg" alt="screenshot carousel" /></p>
+
+<p>Using the move tool we are going to find our layer. Right click on the arrow and select the layer <code class="highlighter-rouge">Arrow Left</code>. Now just right click on this layer in the layer panel. Select <code class="highlighter-rouge">export as</code>. Just select the type of file you need.</p>
+
+<p>We can as well export folders.</p>
+
+<h2 id="actions">Actions</h2>
+
+<p>What’s an action in Photoshop?</p>
+
+<blockquote>
+  <p>An action is a series of tasks that you playback on a single file or a batch of files—menu commands, panel options, tool actions, and so on. For example, you can create an action that changes the size of an image, applies an effect to the image, and then saves the file in the desired format. <em><a href="https://helpx.adobe.com/photoshop/using/actions-actions-panel.html">Adobe</a></em></p>
+</blockquote>
+
+<p>This feature is really convenient if you want to resize a batch of images for the web!</p>
+
+<p>Let’s create a new action to crop an image and export this one:</p>
+
+<ol>
+  <li>Download a bunch of images from https://unsplash.com/</li>
+  <li>Open one of our images</li>
+  <li>Open the <code class="highlighter-rouge">Actions</code> panel, <code class="highlighter-rouge">Window/Actions</code>,</li>
+  <li>Create a new action by clicking on the icon <strong>Create a new action</strong> (The one on the left to the bin icon) and let’s name this action <strong>Export for web - client name</strong></li>
+  <li>We are now recording our action, the record button is in red, you can stop to record by clicking on the stop icon (square icon on the left)</li>
+  <li>Select the crop icon and set the ratio to 1x1 and crop the image</li>
+  <li>Now we want to export our image, <code class="highlighter-rouge">File/Export/Save for Web</code>, select <code class="highlighter-rouge">JPG</code>, quality 50% and width 500px</li>
+  <li>Click save and pick your destination folder</li>
+  <li>Close your image without saving</li>
+  <li>Stop recording, click on the stop icon (square icon on the left)</li>
+</ol>
+
+<p>We now have our action, we can open an image and just “play” our action by clicking on the play button.</p>
+
+<p>If we want to apply our action to a batch of images just follow this steps:</p>
+
+<ol>
+  <li>Go to <code class="highlighter-rouge">File/Automate/Batch</code></li>
+  <li>Select the <code class="highlighter-rouge">Source</code> folder.</li>
+  <li>Select our action</li>
+  <li>Click on <code class="highlighter-rouge">Ok</code></li>
+</ol>
+
+<p>And voila 😉. All your images are in the export folder.</p>
+
+<hr />
+
+<p>I hope you enjoyed this small Photoshop 101 introduction for web developer 😃. If you want to have a 102 version, let me know what you would like to know or to hear about 😉.</p>
+
+  </div>
+
+  <a class="u-url" href="/devNotes/tools/2018/07/22/photoshop-101-introduction-for-web-developers.html" hidden></a>
+</article>
+    </main>
+    <footer>
+      <p>Hello world, I'm Vince 😃 Lead Front End Developer <a href="https://www.damdigital.com/">@ DAM Digital 🚀</a></p>
+      <p>🌍 London, UK</p>
+      <ul class="links">
+        <li><a href="/devNotes/feed.xml">RSS</a></li>
+        <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+        <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+      </ul>
+      <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+      <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+    </footer>
+  </div>
+  <script src="/devNotes/dist/js/scriptsBundleMain.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/devNotes/sw.js');
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+</body>
+
+</html>
