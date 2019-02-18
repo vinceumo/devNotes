@@ -2,7 +2,8 @@
 layout: post
 title: 'Vue - 101 todo PWA tutorial '
 date: 2018-07-20 23:00:00 +0000
-categories: []
+categories:
+- Javascript
 canonical: https://medium.com/@vince_umo_34593/vue-js-101-todo-pwa-tutorial-ea96eb4e64b1
 
 ---
