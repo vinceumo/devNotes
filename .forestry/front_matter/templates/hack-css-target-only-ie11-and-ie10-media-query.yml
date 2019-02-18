@@ -3,28 +3,33 @@ label: Post
 hide_body: false
 is_partial: false
 fields:
-- name: layout
-  label: Layout
-  type: text
-  hidden: false
-  default: post
-- name: title
-  label: Title
-  type: text
-  hidden: false
-  default: ''
-- name: date
-  label: Date
-  type: datetime
-  hidden: false
-  default: ''
-- name: categories
-  label: Categories
-  type: tag_list
-  hidden: false
-  default: ''
+  - name: layout
+    label: Layout
+    type: text
+    hidden: false
+    default: post
+  - name: title
+    label: Title
+    type: text
+    hidden: false
+    default: ""
+  - name: date
+    label: Date
+    type: datetime
+    hidden: false
+    default: ""
+  - name: categories
+    label: Categories
+    type: tag_list
+    hidden: false
+    default: ""
+  - name: canonical
+    label: Canonical
+    type: url
+    hidden: false
+    default: ""
 pages:
-- _posts/Sass/2018-11-19-z-index-management-with-scss.md
-- _posts/Javascript/get-address--postode--city-with-google-map-geocoding-api-and-html5-geolocation.md
-- _posts/Tools/2019-01-14-regex-101.md
-- _posts/Sass/2018-11-22-responsive-container-classes-with-scss.md
+  - _posts/Sass/2018-11-19-z-index-management-with-scss.md
+  - _posts/Javascript/get-address--postode--city-with-google-map-geocoding-api-and-html5-geolocation.md
+  - _posts/Tools/2019-01-14-regex-101.md
+  - _posts/Sass/2018-11-22-responsive-container-classes-with-scss.md

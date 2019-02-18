@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Console.log argument in object"
-date:   2018-07-21 20:32:19 +0100
+title: "Console.log argument in object"
+date: 2018-07-21 20:32:19 +0100
 categories: Javascript
 ---
 
