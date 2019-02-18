@@ -1,5 +1,5 @@
 ---
-label: Post
+label: Post-old
 hide_body: false
 is_partial: false
 fields:
@@ -25,10 +25,6 @@ fields:
   default: ''
 - name: canonical
   label: Canonical
-  type: text
+  type: boolean
   hidden: false
   default: ''
-pages:
-- _posts/Sass/2018-11-22-responsive-container-classes-with-scss.md
-- _posts/Tools/2019-01-14-regex-101.md
-- _posts/Sass/2018-11-19-z-index-management-with-scss.md
