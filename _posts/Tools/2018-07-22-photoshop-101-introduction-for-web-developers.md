@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Photoshop 101, introduction for web developers
+title: Photoshop - 101 introduction for web developers
 date: 2018-07-22 23:00:00 +0000
 categories:
 - Tools
