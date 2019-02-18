@@ -4,8 +4,8 @@
 :root {
   --color-black: hsl(0, 0%, 13%);
   --color-black--lighten: hsl(0, 0%, 50%);
-  --color-primary: hsl(41, 85%, 52%);
-  --color-primary--lighten: hsl(41, 85%, 85%);
+  --color-primary: hsl(220, 85%, 52%);
+  --color-primary--lighten: hsl(220, 85%, 85%);
   --color-white: hsl(0, 0%, 100%);
   --color-white--darken: hsl(0, 0%, 95%);
 }
@@ -17,10 +17,11 @@
 }
 
 [data-theme="theme-dark"] {
+  --color-primary: hsl(220, 85%, 75%);
   --color-black: hsl(0, 0%, 100%);
   --color-white: hsl(0, 0%, 13%);
   --color-white--darken: hsl(0, 0%, 18%);
-  --color-primary--lighten: hsl(41, 85%, 40%);
+  --color-primary--lighten: hsl(220, 85%, 42%);
 
   [data-toggle-theme="theme-dark"] {
     display: none;
@@ -29,17 +30,17 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --color-primary: hsl(220, 85%, 75%);
     --color-black: hsl(0, 0%, 100%);
     --color-white: hsl(0, 0%, 13%);
     --color-white--darken: hsl(0, 0%, 18%);
-    --color-primary--lighten: hsl(41, 85%, 40%);
+    --color-primary--lighten: hsl(220, 85%, 42%);
   }
-  
+
   [data-toggle-theme="theme-dark"] {
     display: none;
   }
 }
-
 
 $black: var(--color-black);
 $black-lighten: var(--color-black--lighten);
@@ -55,11 +56,11 @@ $white-darken: var(--color-white--darken);
 }
 
 html {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 body {
-  font-family: Sans-Serif;
+  font-family: Asap, Helvetica Neue, Arial, sans-serif;
   color: $black;
   display: flex;
   justify-content: center;
@@ -98,7 +99,8 @@ a {
 }
 
 button {
-  background-color: $primary;
+  background-color: $primary-lighten;
+  color: $black;
   padding: 0.5rem 1rem;
   border: 0;
   cursor: pointer;
@@ -200,5 +202,14 @@ footer {
 
   ul {
     margin-top: 0;
+  }
+}
+
+.list-unstyled {
+  list-style-type: none;
+  padding-left: 0;
+
+  > li {
+    margin-bottom: 0.5rem;
   }
 }

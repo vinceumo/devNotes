@@ -18,6 +18,8 @@ description: > # this means to ignore newlines until "twitter_username:"
   Collection of things I learned around web development.
 baseurl: "/devNotes" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+author: "Vincent Humeau"
+authorUrl: "https://www.vincent-humeau.com"
 
 # Build settings
 markdown: kramdown
