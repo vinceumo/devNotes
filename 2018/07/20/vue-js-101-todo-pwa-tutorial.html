@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>
+    devNotes | Vue.js 101 todo PWA tutorial 
+  </title>
+  <meta name="description" content="Collection of things I learned around web development.
+" />
+  <meta name="author" content="Vincent Humeau" />
+  <link rel="manifest" href="/devNotes/manifest.json" />
+  
+  <link rel="canonical" href="https://medium.com/@vince_umo_34593/vue-js-101-todo-pwa-tutorial-ea96eb4e64b1" />
+  
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/devNotes/dist/img/icons/apple-touch-icon.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/devNotes/dist/img/icons/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/devNotes/dist/img/icons/favicon-16x16.png"
+  />
+  <link
+    rel="mask-icon"
+    href="/devNotes/dist/img/icons/safari-pinned-tab.svg"
+    color="#212121"
+  />
+  <link
+    rel="shortcut icon"
+    href="/devNotes/dist/img/icons/favicon.ico"
+  />
+  <meta name="msapplication-TileColor" content="#212121" />
+  <meta
+    name="msapplication-config"
+    content="/devNotes/dist/img/icons/browserconfig.xml"
+  />
+  <meta name="theme-color" content="#212121" />
+
+  <link rel="stylesheet" href="/devNotes/dist/css/screen.min.css" />
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="page-header">
+      <p>
+        <a class="site-title" rel="author" href="/devNotes/">devNotes</a>
+      </p>
+    </header>
+    <main class="page-content" aria-label="Content">
+      <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 itemprop="name headline">Vue.js 101 todo PWA tutorial </h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-07-20T23:00:00+00:00" itemprop="datePublished">Jul 20, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>The goal of this tutorial is to give an introduction to vue.js ❤.</p>
+
+<p>This content was initially written for a workshop for <a href="https://www.damdigital.com/">DAM Digital London</a>.</p>
+
+<p>Vue.js is a progressive framework for building user interfaces (UI).</p>
+
+<p>This tutorial assumes that you already have some intermediate knowledge about HTML, CSS and Javascript. If you don’t have any knowledge of these fields, check out <a href="https://www.freecodecamp.org/">freeCodeCamp</a>, they have great resources to learn these topics 😉.</p>
+
+<p>Here are the subjects this tutorial will cover:</p>
+
+<ul>
+  <li>v-bind directive</li>
+  <li>Class and Style Bindings</li>
+  <li>Event Handling</li>
+  <li>Data binding in attributes</li>
+  <li>List Rendering</li>
+  <li>Interpolations - Mustache</li>
+  <li>Form Input Bindings - Checkbox</li>
+  <li>v-model</li>
+  <li>Methods</li>
+  <li>Conditional Rendering</li>
+  <li>v-if</li>
+  <li>v-else</li>
+  <li>Introduction to PWA</li>
+</ul>
+
+<p>We are going to create a todo application with the ability to have multiple lists of todos.</p>
+
+<p><img src="https://image.ibb.co/g3g8Gy/Screenshot_2018_07_17_Todo_list.png" alt="todo app screenshot" /></p>
+
+<h2 id="getting-started">Getting started</h2>
+
+<p>Clone the <a href="https://github.com/vinceumo/todo-vue-starter-materials">starter materials from github</a>. It includes the base HTML, CSS and JS.</p>
+
+<p>You can find the final code of this tutorial on <a href="https://github.com/vinceumo/todo">github</a>, and the demo if you follow this <a href="http://vinceumo.github.io/todo">link</a>.</p>
+
+<p>Vue CDN is already included in our index.html, as well as our CSS and content/js/app.js 😃.</p>
+
+<h2 id="toggle-navigation-on-mobile">Toggle navigation on mobile</h2>
+
+<p>First thing first, the side navigation on mobile (📱 &lt; 850px) should show and hide.</p>
+
+<p><img src="https://image.ibb.co/c7qGmy/menu.gif" alt="toggle nav" /></p>
+
+<p>When we click on <strong>Menu</strong> we want <code class="highlighter-rouge">&lt;nav&gt;</code> to toggle the class <code class="highlighter-rouge">.is-open</code>.</p>
+
+<p>In vue.js, <code class="highlighter-rouge">v-bind</code> allow us to bind data inside an html attribute. E.g. <code class="highlighter-rouge">v-bind:id=""</code>, <code class="highlighter-rouge">v-bind:style=""</code>, <code class="highlighter-rouge">v-bind:data-target=""</code>, etc. The shorthand for <code class="highlighter-rouge">v-bind</code> is <code class="highlighter-rouge">:</code>.</p>
+
+<p>In <code class="highlighter-rouge">index.html</code>, we will dynamically pass <code class="highlighter-rouge">.is-open</code> using <code class="highlighter-rouge">v-bind:class</code>. If <code class="highlighter-rouge">isNavOpen</code> is true, then we will add our class.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;nav</span> <span class="na">v-bind:class=</span><span class="s">"{'is-open': isNavOpen}"</span><span class="nt">&gt;</span>
+<span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</code></pre></div></div>
+
+<p>In <code class="highlighter-rouge">content/js/app.js</code>, we need <code class="highlighter-rouge">isNavOpen</code> in our data. If you change the value of this last one to <strong>true</strong>, the nav will show up.</p>
+
+<p>The <strong>data</strong> property in vue.js is where we store the data of our application but as well the state of our UI. For example, <code class="highlighter-rouge">isNavOpen</code> is by default set to false, but by changing its value to true, we can bind the class <em>is-open</em> to the DOM.</p>
+
+<p>In our app.js, we need to add <code class="highlighter-rouge">isNavOpen: false</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">el</span><span class="p">:</span> <span class="s2">"#app"</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">isNavOpen</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Now we want to change the value of <code class="highlighter-rouge">isNavOpen</code> when we click on the <strong>Menu</strong> button.</p>
+
+<p>We are going to use the event handler ‘on click’. In vue.js, we can use <code class="highlighter-rouge">v-on:</code> or <code class="highlighter-rouge">@</code> (Shorthands), to listen to DOM events. In our case, we want to listen to a click event. We are then going to use <code class="highlighter-rouge">v-on:click</code>/<code class="highlighter-rouge">@click</code>.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">v-on:click=</span><span class="s">"isNavOpen = !isNavOpen"</span> <span class="na">class=</span><span class="s">"menu"</span><span class="nt">&gt;</span>Menu<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<p>As you can see, we can pass an inline javascript statement, we can as well use a method (function), we will see later in this tutorial how to use this last one.</p>
+
+<h3 id="documentation-references">Documentation references</h3>
+
+<ul>
+  <li><a href="https://vuejs.org/v2/guide/class-and-style.html">Class and Style Bindings</a></li>
+  <li><a href="https://vuejs.org/v2/guide/events.html">Event Handling</a></li>
+  <li><a href="https://vuejs.org/v2/api/#v-bind">v-bind directive</a></li>
+  <li><a href="https://vuejs.org/v2/guide/syntax.html#Attributes">Data binding in attributes</a></li>
+</ul>
+
+<h2 id="bind-our-todo-lists-to-the-side-navigation">Bind our todo lists to the side navigation</h2>
+
+<p>In <code class="highlighter-rouge">content/js/app.js</code>, let’s add some dummy lists so we can start to integrate our side navigation.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">el</span><span class="p">:</span> <span class="s2">"#app"</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">isNavOpen</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">todoLists</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">title</span><span class="p">:</span> <span class="s2">"✈️ Trip to japan"</span><span class="p">,</span>
+        <span class="na">keyword</span><span class="p">:</span> <span class="s2">"japan"</span><span class="p">,</span>
+        <span class="na">items</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Eat ramen"</span><span class="p">,</span> <span class="na">isCompleted</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Visit mt Fuji"</span><span class="p">,</span> <span class="na">isCompleted</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Learn japanese"</span><span class="p">,</span> <span class="na">isCompleted</span><span class="p">:</span> <span class="kc">false</span> <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">title</span><span class="p">:</span> <span class="s2">"🏂 Ski trip to the Alps"</span><span class="p">,</span>
+        <span class="na">keyword</span><span class="p">:</span> <span class="s2">"Alps"</span><span class="p">,</span>
+        <span class="na">items</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Find a chalet"</span><span class="p">,</span> <span class="na">isCompleted</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Learn how to ski"</span><span class="p">,</span> <span class="na">isCompleted</span><span class="p">:</span> <span class="kc">false</span> <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">title</span><span class="p">:</span> <span class="s2">"🍉 Groceries"</span><span class="p">,</span>
+        <span class="na">keyword</span><span class="p">:</span> <span class="s2">"Food"</span><span class="p">,</span>
+        <span class="na">items</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Apples"</span><span class="p">,</span> <span class="na">isCompleted</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Banana"</span><span class="p">,</span> <span class="na">isCompleted</span><span class="p">:</span> <span class="kc">true</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Tomatoes"</span><span class="p">,</span> <span class="na">isCompleted</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+          <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Bread"</span><span class="p">,</span> <span class="na">isCompleted</span><span class="p">:</span> <span class="kc">true</span> <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>To render our lists in the side navigation, we need to use the <code class="highlighter-rouge">v-for</code> directive.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;nav</span> <span class="na">v-bind:class=</span><span class="s">"{'is-open': isNavOpen}"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">v-for=</span><span class="s">"todoList in todoLists"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button&gt;</span>
+        
+        <span class="nt">&lt;span&gt;</span>
+          
+        <span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-add"</span><span class="nt">&gt;</span>Create a new list<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/nav&gt;</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">todoLists</code> is the source data and <code class="highlighter-rouge">todoList</code> is the alias used to iterate in our array.</p>
+
+<p>We are using the ‘moustache’ syntax `` to bind our text to the view. The moustache tag gets replace by the targeted value in <code class="highlighter-rouge">todoLists</code>.</p>
+
+<h3 id="documentation-references-1">Documentation references</h3>
+
+<ul>
+  <li><a href="https://vuejs.org/v2/guide/list.html">List Rendering</a></li>
+  <li><a href="https://vuejs.org/v2/guide/syntax.html#Text">Interpolations - Mustache</a></li>
+</ul>
+
+<h2 id="main-section">Main section</h2>
+
+<h3 id="header">Header</h3>
+
+<p>We want to be able to see our todos in the main section. For now, we will only render the first <code class="highlighter-rouge">todoLists</code> list (index 0).</p>
+
+<p>In <code class="highlighter-rouge">content/js/app.js</code> =&gt; <code class="highlighter-rouge">data</code> add <code class="highlighter-rouge">currentListIndex: 0</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">el</span><span class="p">:</span> <span class="s2">"#app"</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">isNavOpen</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">currentListIndex</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="na">todoLists</span><span class="p">:</span> <span class="p">[</span>
+      <span class="c1">//...</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Bind the title of the list using the moustache syntax in the header.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h1&gt;&lt;/h1&gt;</span>
+</code></pre></div></div>
+
+<p>The header has a background image. We are using <a href="https://source.unsplash.com/">Unsplash Source</a> to get a random image. We can specify a keyword to get a relevant image for our header.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://source.unsplash.com/featured/?{KEYWORD},{KEYWORD}
+</code></pre></div></div>
+
+<p>As we bind our keyword inside an attribute, we are using <code class="highlighter-rouge">v-bind</code></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;header</span> <span class="na">v-bind:style=</span><span class="s">"'background-image: url(https://source.unsplash.com/featured/?' + todoLists[currentListIndex].keyword + ')'"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+</code></pre></div></div>
+
+<h3 id="todos">Todos</h3>
+
+<p>To render our todos in the main section, we will need to use <code class="highlighter-rouge">v-for</code>. As we want an individual ID and names for each input we are passing the index in our for loop <code class="highlighter-rouge">v-for="(value, index) in object"</code>.</p>
+
+<p>We use <code class="highlighter-rouge">v-bind</code> to <em>check/tick</em> our todos inputs if these ones are already checked.</p>
+
+<p>We are using <code class="highlighter-rouge">v-model</code> to update the value of <code class="highlighter-rouge">isCompleted</code> from our todos when we click on the checkbox. When our checkbox is checked, isCompleted will get the value of true and the parent <code class="highlighter-rouge">li</code> will automatically get the class <code class="highlighter-rouge">.is-completed</code> as isCompleted is <code class="highlighter-rouge">true</code>.</p>
+
+<p>The <code class="highlighter-rouge">v-model</code> directive creates a two-way data bindings, meaning when the value gets updated the UI will be updated as well.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">v-for=</span><span class="s">"(todo, index) in todoLists[currentListIndex].items"</span> <span class="na">v-bind:class=</span><span class="s">"{'is-completed': todo.isCompleted}"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">v-bind:for=</span><span class="s">"'todo' + index"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span>
+      <span class="na">type=</span><span class="s">"checkbox"</span>
+      <span class="na">v-bind:name=</span><span class="s">"'todo' + index"</span>
+      <span class="na">v-bind:id=</span><span class="s">"'todo' + index"</span>
+      <span class="na">v-bind:checked=</span><span class="s">"todo.isCompleted"</span>
+      <span class="na">v-model=</span><span class="s">"todo.isCompleted"</span><span class="nt">&gt;</span>
+      
+    <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-danger"</span><span class="nt">&gt;</span>Edit todo<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-add"</span><span class="nt">&gt;</span>New Todo<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre></div></div>
+
+<h3 id="documentation-references-2">Documentation references</h3>
+
+<ul>
+  <li><a href="https://vuejs.org/v2/guide/forms.html#Checkbox">Form Input Bindings - Checkbox</a></li>
+  <li><a href="https://vuejs.org/v2/api/#v-model">v-model</a></li>
+</ul>
+
+<h2 id="change-current-list">Change current list</h2>
+
+<p>We want to be able to change the current list being displayed. This one is set by <code class="highlighter-rouge">currentListIndex</code> in our app’s data. When we click on one of the list items we want to change <code class="highlighter-rouge">currentListIndex</code> to the index of this one and close the side navigation if open.</p>
+
+<p>We need as well, to show the user the current list being displayed, to do so, we are adding the class <code class="highlighter-rouge">.is-active</code> if <code class="highlighter-rouge">currentListIndex === index</code>.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;li</span> <span class="na">v-for=</span><span class="s">"(todoList, index) in todoLists"</span>  <span class="na">v-bind:class=</span><span class="s">"{'is-active' : currentListIndex === index}"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">v-on:click=</span><span class="s">"currentListIndex = index; isNavOpen = false"</span><span class="nt">&gt;</span>
+        
+        <span class="nt">&lt;span&gt;</span>
+            
+        <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/li&gt;</span>
+</code></pre></div></div>
+
+<h2 id="create-a-new-list">Create a new list</h2>
+
+<h3 id="toggle-the-sidebar">Toggle the sidebar</h3>
+
+<p>When clicking on <strong>Create a new list</strong>, we show the <code class="highlighter-rouge">.sidebar</code>. To do so we want to add the class <code class="highlighter-rouge">.is-open</code> to this one, then close the nav bar if this one is open on mobile. The way to do this is quite similar to what we have done with the navigation on mobile.</p>
+
+<p>In our data, we will first, add a new entry of <code class="highlighter-rouge">isSidebarOpen: false</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">el</span><span class="p">:</span> <span class="s2">"#app"</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">isNavOpen</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">isSidebarOpen</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">currentListIndex</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="c1">//...</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Now let’s bind our class <code class="highlighter-rouge">.is-open</code> to our <code class="highlighter-rouge">.sidebar</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"sidebar"</span> <span class="na">v-bind:class=</span><span class="s">"{'is-open' : isSidebarOpen}"</span><span class="nt">&gt;</span>
+ <span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>We need to add an event handler on click on <strong>Create a new list</strong>, that will open the sidebar and close the navigation on mobile:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-add"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = true; isNavOpen = false;"</span><span class="nt">&gt;</span>Create a new list<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<p>Nice, now we can open our sidebar 🎉.</p>
+
+<p>Now let’s close the sidebar when we click on <strong>cancel</strong>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>Cancel<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<h3 id="add-the-new-list">Add the new list</h3>
+
+<p>To create a new list, we need the values of the <em>title</em> and <em>keyword</em> inputs. When the user clicks on <strong>Create List</strong>, we will push our new values to <code class="highlighter-rouge">todoLists</code> in our data. If one of our input is empty we will show up a default value.</p>
+
+<p>In our <em>app.js</em>, add a <code class="highlighter-rouge">tempNewList</code> array, it will store the values of our inputs.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">el</span><span class="p">:</span> <span class="s2">"#app"</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">isNavOpen</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">isSidebarOpen</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">currentListIndex</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="na">tempNewList</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">title</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+        <span class="na">keyword</span><span class="p">:</span> <span class="kc">null</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+    <span class="c1">//...</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Now we will bind our inputs using <code class="highlighter-rouge">v-model</code>.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form&gt;</span>
+  <span class="nt">&lt;h3&gt;</span>Create a new list<span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"listTitle"</span><span class="nt">&gt;</span>Title:<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"listTitle"</span> <span class="na">name=</span><span class="s">"listTitle"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"My amazing next trip to south america"</span> <span class="na">v-model=</span><span class="s">"tempNewList.title"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"listKeyword"</span><span class="nt">&gt;</span>Keyword:<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"listKeyword"</span> <span class="na">name=</span><span class="s">"listKeyword"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Colombia"</span> <span class="na">v-model=</span><span class="s">"tempNewList.keyword"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>Cancel<span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span><span class="nt">&gt;</span>Create List<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<p>Alright, now let’s push our new <code class="highlighter-rouge">tempNewList</code> values to <code class="highlighter-rouge">todoLists</code>.</p>
+
+<p>Create a <strong>method</strong> called <code class="highlighter-rouge">addNewList</code>. A <strong>method</strong> is a function stored as an object property. Here the object is the vue instance. In vue, our method will be stored in a <code class="highlighter-rouge">methods</code> object.</p>
+
+<p><code class="highlighter-rouge">addNewList</code> method will follow this scenario:</p>
+
+<ol>
+  <li>If <em>title</em> is empty, use a default string of <code class="highlighter-rouge">"🕵️‍ List with no name"</code></li>
+  <li>If <em>keyword</em> is empty, use a default string of <code class="highlighter-rouge">"earth"</code></li>
+  <li>Push our values to <code class="highlighter-rouge">todoLists</code></li>
+  <li>Change our current list to our new list</li>
+  <li>Close the sidebar</li>
+  <li>Reset the values of our inputs</li>
+</ol>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">el</span><span class="p">:</span> <span class="s2">"#app"</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+  <span class="p">},</span>
+  <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">addNewList</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">listTitle</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tempNewList</span><span class="p">.</span><span class="nx">title</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">listKeyword</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tempNewList</span><span class="p">.</span><span class="nx">keyword</span><span class="p">;</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">listTitle</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">listTitle</span> <span class="o">=</span> <span class="s2">"🕵️‍ List with no name"</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">listKeyword</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">listKeyword</span> <span class="o">=</span> <span class="s2">"earth"</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">todoLists</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+        <span class="na">title</span><span class="p">:</span> <span class="nx">listTitle</span><span class="p">,</span>
+        <span class="na">keyword</span><span class="p">:</span> <span class="nx">listKeyword</span><span class="p">,</span>
+        <span class="na">items</span><span class="p">:</span> <span class="p">[]</span>
+      <span class="p">});</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">currentListIndex</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">todoLists</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">isSidebarOpen</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">tempNewList</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">tempNewList</span><span class="p">.</span><span class="nx">keyword</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Finally, we are going to bind our method to our <strong>Create list</strong> button.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span> <span class="na">v-on:click=</span><span class="s">"addNewList"</span><span class="nt">&gt;</span>Create List<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<h3 id="documentation-references-3">Documentation references</h3>
+
+<ul>
+  <li><a href="https://vuejs.org/v2/guide/events.html#Method-Event-Handlers">Method Event Handlers</a></li>
+</ul>
+
+<h2 id="edit-a-list">Edit a list</h2>
+
+<p>Good, now that we can create a new list, we want the ability to edit existing ones. We will be able to edit the title, the keyword and delete a list.</p>
+
+<h3 id="toggle-the-sidebar-content">Toggle the sidebar content</h3>
+
+<p>Create a new method <code class="highlighter-rouge">openSidebar</code>. This one will:</p>
+
+<ol>
+  <li>Open the sidebar</li>
+  <li>Show the form that we want to use</li>
+  <li>Close the navigation if this one is open</li>
+</ol>
+
+<p>In data, let’s add <code class="highlighter-rouge">sidebarContentToShow: null</code>, This will allow us to know what form should be shown.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">el</span><span class="p">:</span> <span class="s2">"#app"</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">isNavOpen</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">isSidebarOpen</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">sidebarContentToShow</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="na">currentListIndex</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="c1">//...</span>
+  <span class="p">},</span>
+  <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>We have 4 forms in our sidebar that we will toggle:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">"createNewList"</code></li>
+  <li><code class="highlighter-rouge">"editList"</code></li>
+  <li><code class="highlighter-rouge">"createNewTodo"</code></li>
+  <li><code class="highlighter-rouge">"editTodo"</code></li>
+</ol>
+
+<p>In our HTML, we will conditionally render our forms depending on the value of <code class="highlighter-rouge">sidebarContentToShow</code>. To do so we are using the <code class="highlighter-rouge">v-if</code> directive. It will allow us to render our block if a condition is true. We need to uncomment our forms and add a <code class="highlighter-rouge">v-if</code> directive.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"sidebar"</span> <span class="na">v-bind:class=</span><span class="s">"{'is-open' : isSidebarOpen}"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"sidebar-content"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'createNewList'"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h3&gt;</span>Create a new list<span class="nt">&lt;/h3&gt;</span>
+          <span class="c">&lt;!-- ... --&gt;</span>
+      <span class="nt">&lt;/form&gt;</span>
+      <span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'editList'"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h3&gt;</span>Edit list<span class="nt">&lt;/h3&gt;</span>
+          <span class="c">&lt;!-- ... --&gt;</span>
+      <span class="nt">&lt;/form&gt;</span>
+      <span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'createNewTodo'"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h3&gt;</span>Create a new todo<span class="nt">&lt;/h3&gt;</span>
+          <span class="c">&lt;!-- ... --&gt;</span>
+      <span class="nt">&lt;/form&gt;</span>
+      <span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'editTodo'"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h3&gt;</span>Edit todo<span class="nt">&lt;/h3&gt;</span>
+          <span class="c">&lt;!-- ... --&gt;</span>
+      <span class="nt">&lt;/form&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>Now when we click on the <strong>Create a new list</strong>, the sidebar appears and we see… Nothing 😱. That normal remember, <code class="highlighter-rouge">sidebarContentToShow</code> is set to null 😉.</p>
+
+<p>To change the value of <code class="highlighter-rouge">sidebarContentToShow</code> we are going to create an <code class="highlighter-rouge">openSidebar</code> method that will open the sidebar and change the form that we want to show.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">el</span><span class="p">:</span> <span class="s2">"#app"</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+  <span class="p">},</span>
+  <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">openSidebar</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">contentToShow</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">isSidebarOpen</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">isNavOpen</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">sidebarContentToShow</span> <span class="o">=</span> <span class="nx">contentToShow</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">//...</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Now we can change <strong>Create a new list</strong> so we can use <code class="highlighter-rouge">openSidebar</code></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-add"</span> <span class="na">v-on:click=</span><span class="s">"openSidebar('createNewList')"</span><span class="nt">&gt;</span>Create a new list<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<p>And ta-dah we are now rendering the <strong>create a new list form</strong>. As you may have already guessed we will reuse our method with the <strong>Edit list</strong> button.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-primary"</span> <span class="na">v-on:click=</span><span class="s">"openSidebar('editList')"</span><span class="nt">&gt;</span>Edit list<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<h3 id="edit-list-form">Edit list form</h3>
+
+<h4 id="delete-a-list">Delete a list</h4>
+
+<p>We are going to start with the <strong>delete list</strong> button. Create a new method called <code class="highlighter-rouge">deleteList</code>. It will remove the currently shown list and show the first one.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//...</span>
+<span class="nx">deleteList</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">todoLists</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentListIndex</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">currentListIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">isSidebarOpen</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">//...</span>
+</code></pre></div></div>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"deleteList"</span><span class="nt">&gt;</span>Delete list<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<p>Now we can remove lists, but if we try to remove all lists we get an error and our app stop to work.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Vue warn]: Error in render: "TypeError: todoLists[currentListIndex] is undefined"
+</code></pre></div></div>
+
+<p>As you might have guessed, we have this error because our <code class="highlighter-rouge">todoLists</code> is empty and we still try to render some part of our application that relies on the values of <code class="highlighter-rouge">todoLists</code>. We will use conditional rendering <code class="highlighter-rouge">v-if</code> and <code class="highlighter-rouge">v-else</code>, to fix this issue we will render our main content only if <code class="highlighter-rouge">todoLists.length &gt; 0</code>. Moreover, we want the user to able to create a new list, we will use <code class="highlighter-rouge">v-else</code> to show an alternative main content that will help the user create a new list.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;main</span> <span class="na">v-if=</span><span class="s">"todoLists.length &gt; 0"</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- ... --&gt;</span>
+<span class="nt">&lt;/main&gt;</span>
+<span class="nt">&lt;main</span> <span class="na">v-else</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;header</span> <span class="na">style=</span><span class="s">"background-image: url(https://source.unsplash.com/featured/?cat"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"header-content"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h1&gt;</span>Please create a new list<span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-add"</span> <span class="na">v-on:click=</span><span class="s">"openSidebar('createNewList')"</span><span class="nt">&gt;</span>Create a new list<span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/header&gt;</span>
+<span class="nt">&lt;/main&gt;</span>
+</code></pre></div></div>
+
+<h4 id="change-the-title-and-keyword-value">Change the title and keyword value</h4>
+
+<p>Let’s get back to our <strong>editList</strong> form. We want to:</p>
+
+<ul>
+  <li>Bind our inputs with the right <code class="highlighter-rouge">todoLists</code> element using <code class="highlighter-rouge">v-model</code>.</li>
+  <li>When we click on <strong>done</strong>, we want to close our slider.</li>
+  <li>Only want to render this form if <code class="highlighter-rouge">todoLists.length &gt; 0</code></li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'editList' &amp;&amp; todoLists.length &gt; 0"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h3&gt;</span>Edit list<span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"listTitle"</span><span class="nt">&gt;</span>Title:<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"listTitle"</span> <span class="na">name=</span><span class="s">"listTitle"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"My amazing next trip to south america"</span> <span class="na">v-model=</span><span class="s">"todoLists[currentListIndex].title"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"listKeyword"</span><span class="nt">&gt;</span>Keyword:<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"listKeyword"</span> <span class="na">name=</span><span class="s">"listKeyword"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Colombia"</span> <span class="na">v-model=</span><span class="s">"todoLists[currentListIndex].keyword"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"deleteList"</span><span class="nt">&gt;</span>Delete list<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>Done<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<h3 id="documentation-references-4">Documentation references</h3>
+
+<ul>
+  <li><a href="https://vuejs.org/v2/guide/conditional.html">Conditional Rendering</a></li>
+  <li><a href="https://vuejs.org/v2/api/#v-if">v-if</a></li>
+  <li><a href="https://vuejs.org/v2/guide/conditional.html#v-else">v-else</a></li>
+</ul>
+
+<h2 id="create-and-edit-a-todo">Create and edit a todo</h2>
+
+<p>The UI of our app is almost finished, we still need to:</p>
+
+<ul>
+  <li>Create a new todo in a list</li>
+  <li>Edit and delete an existing todo</li>
+</ul>
+
+<p>Sound similar to what we have done with the lists right? It is going to be almost the same steps.</p>
+
+<h4 id="create-a-todo">Create a todo</h4>
+
+<p>In our data create a new element of <code class="highlighter-rouge">tempNewList</code>:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">tempNewTodo</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="na">isCompleted</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">}</span>
+<span class="p">],</span>
+</code></pre></div></div>
+
+<p>We need a new method, so we can add our new todo to a list in <code class="highlighter-rouge">todoLists</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">addNewTodo</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">todoName</span><span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tempNewTodo</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">todoCompleted</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">tempNewTodo</span><span class="p">.</span><span class="nx">isCompleted</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">todoName</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">todoName</span> <span class="o">=</span> <span class="s2">"🕵️‍ unnamed todo"</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">todoLists</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">currentListIndex</span><span class="p">].</span><span class="nx">items</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="nx">todoName</span><span class="p">,</span>
+    <span class="na">isCompleted</span><span class="p">:</span> <span class="nx">todoCompleted</span>
+  <span class="p">});</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">isSidebarOpen</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">tempNewTodo</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">tempNewTodo</span><span class="p">.</span><span class="nx">isCompleted</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now let’s dive in our HTML.</p>
+
+<p>We need to open the sidebar with the <strong>createNewTodo</strong> form.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-add"</span> <span class="na">v-on:click=</span><span class="s">"openSidebar('createNewTodo')"</span><span class="nt">&gt;</span>New Todo<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<p>As we did before, we will bind our inputs using <code class="highlighter-rouge">v-model</code> and use the <code class="highlighter-rouge">addNewTodo</code> method to push our new values.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'createNewTodo'"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h3&gt;</span>Create a new todo<span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"todoName"</span><span class="nt">&gt;</span>Name:<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"todoName"</span> <span class="na">name=</span><span class="s">"todoName"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Do things..."</span> <span class="na">v-model=</span><span class="s">"tempNewTodo.name"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"todoCompleted"</span><span class="nt">&gt;&lt;input</span> <span class="na">name=</span><span class="s">"todoCompleted"</span> <span class="na">id=</span><span class="s">"todoCompleted"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">v-bind:checked=</span><span class="s">"tempNewTodo.isCompleted"</span> <span class="na">v-model=</span><span class="s">"tempNewTodo.isCompleted"</span><span class="nt">&gt;</span> Is completed<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>Cancel<span class="nt">&lt;/button&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span> <span class="na">v-on:click=</span><span class="s">"addNewTodo"</span><span class="nt">&gt;</span>Create todo<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<p>As we are now binding the data for <code class="highlighter-rouge">isCompleted</code> in our todos, we will show, in our navigation the number of completed todos.</p>
+
+<p>In our <strong>app.js</strong>, create a <code class="highlighter-rouge">totalTodosCompleted</code> method passing the index of the current todoList.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">totalTodosCompleted</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">){</span>
+  <span class="kd">var</span> <span class="nx">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">todoLists</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">todoLists</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">items</span><span class="p">[</span><span class="nx">j</span><span class="p">].</span><span class="nx">isCompleted</span><span class="p">){</span>
+      <span class="nx">total</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">total</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>And now in our <code class="highlighter-rouge">navigation</code>, we are going to use our new method to return the total of completed todos.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;li</span> <span class="na">v-for=</span><span class="s">"(todoList, index) in todoLists"</span> <span class="na">v-bind:class=</span><span class="s">"{'is-active' : currentListIndex === index}"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">v-on:click=</span><span class="s">"currentListIndex = index; isNavOpen = false"</span><span class="nt">&gt;</span>
+        
+        <span class="nt">&lt;span&gt;</span>
+             / 
+        <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/li&gt;</span>
+</code></pre></div></div>
+
+<h4 id="edit-a-todo">Edit a todo</h4>
+
+<p>To edit a todo, first, we need to know the index of the todo that will be editing, in our data, create <code class="highlighter-rouge">currentTodoIndex</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">currentTodoIndex</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+</code></pre></div></div>
+
+<p>We will need a <code class="highlighter-rouge">deleteTodo</code> method that will remove the current todo.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">deleteTodo</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">todoLists</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">currentListIndex</span><span class="p">].</span><span class="nx">items</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">currentTodoIndex</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">isSidebarOpen</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">currentTodoIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now let’s have look at our HTML.</p>
+
+<p>First, we want to open our slider and change the value of <code class="highlighter-rouge">currentTodoIndex</code>.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-primary"</span> <span class="na">v-on:click=</span><span class="s">"openSidebar('editTodo'); currentTodoIndex = index"</span><span class="nt">&gt;</span>Edit todo<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<p>In our <strong>editTodo</strong> form we will:</p>
+
+<ul>
+  <li>Show our form only if <code class="highlighter-rouge">todoLists[currentListIndex].items.length &gt; 0</code></li>
+  <li>Bind the todo name and if completed using <code class="highlighter-rouge">v-model</code></li>
+  <li>When we click on <em>Delete todo</em>, trigger the method <code class="highlighter-rouge">deleteTodo</code></li>
+  <li>When we click on <em>Done</em>, close our sidebar</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'editTodo' &amp;&amp; todoLists[currentListIndex].items.length &gt; 0"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h3&gt;</span>Edit todo<span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"todoName"</span><span class="nt">&gt;</span>Todo:<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"todoName"</span> <span class="na">name=</span><span class="s">"todoName"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Do things..."</span> <span class="na">v-model=</span><span class="s">"todoLists[currentListIndex].items[currentTodoIndex].name"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"todoCompleted"</span><span class="nt">&gt;&lt;input</span> <span class="na">name=</span><span class="s">"todoCompleted"</span> <span class="na">id=</span><span class="s">"todoCompleted"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">v-bind:checked=</span><span class="s">"todoLists[currentListIndex].items[currentTodoIndex].isCompleted"</span> <span class="na">v-model=</span><span class="s">"todoLists[currentListIndex].items[currentTodoIndex].isCompleted"</span><span class="nt">&gt;</span> Is completed<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"deleteTodo"</span><span class="nt">&gt;</span>Delete todo<span class="nt">&lt;/button&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>Done<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre></div></div>
+
+<p>🎉🎉🎉🎉🎉 The UI of our todo is now done!</p>
+
+<h2 id="localstorage">LocalStorage</h2>
+
+<p>When we reload the page, it goes back to our dummy values. How great would it be if we could store our lists and todos locally?</p>
+
+<p>We are going to use <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">window.localStorage</a>. It is part of the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">Web Storage API</a>.</p>
+
+<p><strong>localStorage</strong> allow us to store data with no expiration date.</p>
+
+<p>In our <strong>app.js</strong>, create a new method <code class="highlighter-rouge">updateTodoLocalStorage</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//...</span>
+<span class="nx">updateTodoLocalStorage</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">'todoLocalStorage'</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">todoLists</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="c1">//...</span>
+</code></pre></div></div>
+
+<p>We are using <code class="highlighter-rouge">setItem()</code> method from the Web Storage API. We pass the following parameters:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">setItem(keyName, keyValue);</code>
+    <ul>
+      <li><code class="highlighter-rouge">keyName</code>: name of the key we want to create/update (<code class="highlighter-rouge">'todoLocalStorage'</code>).</li>
+      <li><code class="highlighter-rouge">keyValue</code>: value we want to give the key you are creating/updating (<code class="highlighter-rouge">JSON.stringify(this.todoLists)</code>).</li>
+    </ul>
+  </li>
+</ul>
+
+<p>We want now to use this method every time we update the values of our todos or lists. Vue allows us to react to data changes with the <code class="highlighter-rouge">watch</code> option. Every time we have a change in our <code class="highlighter-rouge">todoLists</code>, we will call our <code class="highlighter-rouge">updateTodoLocalStorage</code> method. As our object has nested values, we want to detect changes inside this values. We can pass <code class="highlighter-rouge">deep: true</code> to do so.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">el</span><span class="p">:</span> <span class="s2">"#app"</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+  <span class="p">},</span>
+  <span class="na">watch</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">todoLists</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nx">handler</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">updateTodoLocalStorage</span><span class="p">();</span>
+      <span class="p">},</span>
+      <span class="na">deep</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+    <span class="na">updateTodoLocalStorage</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">"todoLocalStorage"</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">todoLists</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Now let’s inspect our app and look into <strong>Local Storage</strong>. If we create/update a list or a todo, we can see our <code class="highlighter-rouge">todoLocalStorage</code> storage being updated.</p>
+
+<p>Now, when we load our page, we need to set our <code class="highlighter-rouge">todoLists</code> as our <code class="highlighter-rouge">todoLocalStorage</code>. Vue comes with <a href="https://vuejs.org/v2/api/#created">Lifecycle Hooks</a>. We will use the <code class="highlighter-rouge">created: function()</code> one to set our values. We are going, as well, to remove our dummy values.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="na">el</span><span class="p">:</span> <span class="s2">"#app"</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+    <span class="na">todoLists</span><span class="p">:</span> <span class="p">[]</span>
+  <span class="p">},</span>
+  <span class="na">created</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">todoLists</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span>
+      <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">"todoLocalStorage"</span><span class="p">)</span> <span class="o">||</span> <span class="s2">"[]"</span>
+    <span class="p">);</span>
+  <span class="p">},</span>
+  <span class="na">watch</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+  <span class="p">},</span>
+  <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Now if we reload, close and reopen our app all our todos and list have been saved 🤟.</p>
+
+<h3 id="documentation-references-5">Documentation references</h3>
+
+<ul>
+  <li><a href="https://vuejs.org/v2/guide/computed.html#Watchers">Watchers</a></li>
+  <li><a href="https://vuejs.org/v2/api/#created">Created</a></li>
+</ul>
+
+<h1 id="bonus---offline-progressive-web-app-pwa">Bonus - Offline Progressive Web App (PWA)</h1>
+
+<p>In this bonus part of this tutorial, we will set up a Progressive Web App (PWA) and services workers, so we can use this web application offline on a smartphone.</p>
+
+<h2 id="set-up-a-pwa">Set up a PWA</h2>
+
+<p>A PWA is:</p>
+
+<blockquote>
+  <p>Progressive Web Apps are web applications that are regular web pages or websites, but can appear to the user like traditional applications or native mobile applications. The application type attempts to combine features offered by most modern browsers with the benefits of a mobile experience. <em><a href="https://en.wikipedia.org/wiki/Progressive_Web_Apps">wikipedia</a></em></p>
+</blockquote>
+
+<p>It is basically a web app that takes advantages of the latest technologies to act and feels like a native app.</p>
+
+<p>To set up our PWA we will need to create a <code class="highlighter-rouge">manifest.json</code> file and set up our service workers.</p>
+
+<p>PWA must be served from a secure origin (HTTPS).</p>
+
+<ul>
+  <li><a href="https://www.smashingmagazine.com/2016/08/a-beginners-guide-to-progressive-web-apps/">A Beginner’s Guide To Progressive Web Apps</a></li>
+  <li><a href="https://duckduckgo.com/?q=progressive+web+app+definition&amp;t=ffab&amp;atb=v123-1&amp;ia=about">Progressive Web Apps - Google</a></li>
+</ul>
+
+<h3 id="generate-icon-assets">Generate icon assets</h3>
+
+<p>First, include all the icon assets in our project. The icons have already been generated using https://realfavicongenerator.net/. They are included in <code class="highlighter-rouge">content/img/</code>.</p>
+
+<p>In the head of our HTML we want to include:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"apple-touch-icon"</span> <span class="na">sizes=</span><span class="s">"180x180"</span> <span class="na">href=</span><span class="s">"content/img/apple-touch-icon.png"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"icon"</span> <span class="na">type=</span><span class="s">"image/png"</span> <span class="na">sizes=</span><span class="s">"32x32"</span> <span class="na">href=</span><span class="s">"content/img/favicon-32x32.png"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"icon"</span> <span class="na">type=</span><span class="s">"image/png"</span> <span class="na">sizes=</span><span class="s">"16x16"</span> <span class="na">href=</span><span class="s">"content/img/favicon-16x16.png"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"mask-icon"</span> <span class="na">href=</span><span class="s">"content/img/safari-pinned-tab.svg"</span> <span class="na">color=</span><span class="s">"#5bbad5"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"shortcut icon"</span> <span class="na">href=</span><span class="s">"content/img/favicon.ico"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"msapplication-TileColor"</span> <span class="na">content=</span><span class="s">"#ffffff"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"msapplication-config"</span> <span class="na">content=</span><span class="s">"content/img/browserconfig.xml"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"theme-color"</span> <span class="na">content=</span><span class="s">"#77c4d3"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h3 id="web-app-manifest">Web App Manifest</h3>
+
+<p>Web App Manifest (manifest.json) is a file that provides information about our web app such as icons, the name of our application, etc. It is part of the technologies used for PWAs. You can get more information about the Web App Manifest on <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest">MDN web docs</a>.</p>
+
+<p>Create this file at the root of our project.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"todo"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"short_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"todo"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vincent Humeau"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en-GB"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"icons"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"content/img/android-chrome-192x192.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"192x192"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"content/img/android-chrome-512x512.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sizes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512x512"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image/png"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"theme_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#77c4d3"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"background_color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#77c4d3"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standalone"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"orientation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"portrait"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/todo/"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"start_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/todo/"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In our HTML file, we want to include it.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"manifest"</span> <span class="na">href=</span><span class="s">"manifest.json"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<h3 id="service-workers">Service workers</h3>
+
+<p>What are service workers?</p>
+
+<blockquote>
+  <p>Service workers are a new browser feature that provide event-driven scripts that run independently of web pages. Unlike other workers, service workers can be shut down at the end of events, note the lack of retained references from documents, and they have access to domain-wide events such as network fetches. Service workers also have scriptable caches. Along with the ability to respond to network requests from certain web pages via script, this provides a way for applications to “go offline”. <em><a href="https://github.com/w3c/ServiceWorker">w3c/ServiceWorker - Github</a></em></p>
+</blockquote>
+
+<p>This tutorial does not aim to go in depth about service workers, you can find some great tutorial and resources online:</p>
+
+<ul>
+  <li><a href="https://www.youtube.com/watch?v=BfL3pprhnms">How to Setup a Basic Service Worker (with Caching) - bitsofcode (Video)</a></li>
+  <li><a href="https://developers.google.com/web/fundamentals/primers/service-workers/">Service Workers: an Introduction</a></li>
+  <li><a href="https://www.pwabuilder.com/serviceworker">pwabuilder - service workers</a></li>
+  <li><a href="https://www.pwabuilder.com/serviceworker">pwabuilder - service workers</a></li>
+  <li><a href="https://developers.google.com/web/tools/lighthouse/">Lighthouse</a></li>
+  <li><a href="https://css-tricks.com/serviceworker-for-offline/">Making a Simple Site Work Offline with ServiceWorker</a></li>
+  <li><a href="https://www.sitepoint.com/getting-started-with-service-workers/">Getting Started with Service Workers</a></li>
+</ul>
+
+<p>For our services workers we are using this <a href="https://gist.github.com/Omranic/4e648fa38caab7b8207d3e237fde0c77#create-service-worker">gist from Omranic</a></p>
+
+<p>Create a <code class="highlighter-rouge">sw.js</code> file at the root of our project.</p>
+
+<p>In our <strong>index.html</strong>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="s1">'serviceWorker'</span> <span class="k">in</span> <span class="nb">navigator</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'load'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nb">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">'sw.js'</span><span class="p">);</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>Then, in our <strong>sw.js</strong> we will cache all our assets that will allow our app to be usable offline:</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">shellCacheName</span> <span class="o">=</span> <span class="s2">"pwa-todo-v1"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">filesToCache</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="s2">"./"</span><span class="p">,</span>
+  <span class="s2">"./index.html"</span><span class="p">,</span>
+  <span class="s2">"./content/css/screen.min.css"</span><span class="p">,</span>
+  <span class="s2">"./content/js/app.js"</span><span class="p">,</span>
+  <span class="s2">"https://cdn.jsdelivr.net/npm/vue"</span><span class="p">,</span>
+  <span class="s2">"https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"</span>
+<span class="p">];</span>
+</code></pre></div></div>
+
+<p>Now, we only have to follow this gist and add the parts <strong>Listen to installation event</strong>, <strong>Update Assets Cache</strong> and <strong>Serve App Shell Offline From Cache</strong>.</p>
+
+<hr />
+
+<p>This tutorial is now finally done. Our <strong>todo vue.js PWA</strong> can now be accessed here https://vinceumo.github.io/todo</p>
+
+  </div>
+
+  <a class="u-url" href="/devNotes/2018/07/20/vue-js-101-todo-pwa-tutorial.html" hidden></a>
+</article>
+    </main>
+    <footer>
+      <p>Hello world, I'm Vince 😃 Lead Front End Developer <a href="https://www.damdigital.com/">@ DAM Digital 🚀</a></p>
+      <p>🌍 London, UK</p>
+      <ul class="links">
+        <li><a href="/devNotes/feed.xml">RSS</a></li>
+        <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+        <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+      </ul>
+      <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+      <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+    </footer>
+  </div>
+  <script src="/devNotes/dist/js/scriptsBundleMain.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/devNotes/sw.js');
+      });
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+</body>
+
+</html>
