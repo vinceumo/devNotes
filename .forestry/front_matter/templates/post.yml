@@ -25,7 +25,7 @@ fields:
     default: ""
   - name: canonical
     label: Canonical
-    type: url
+    type: text
     hidden: false
     default: ""
 pages:
