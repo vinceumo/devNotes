@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ES6/ const - let - var
+title: ES6 - const | let | var
 date: 2018-08-06 22:13:00 +0000
 categories: Javascript
 
