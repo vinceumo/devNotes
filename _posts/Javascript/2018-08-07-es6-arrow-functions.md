@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "ES6/ Arrow functions"
-date:   2018-08-07 19:08:00 +0100
+title: ES6 - Arrow functions
+date: 2018-08-07 18:08:00 +0000
 categories: Javascript
----
 
+---
 > An arrow function expression has a shorter syntax than a function expression and does not have its own this, arguments, super, or new.target. These function expressions are best suited for non-method functions, and they cannot be used as constructors.
 > 
 > *[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)*
