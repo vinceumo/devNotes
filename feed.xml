@@ -1,5 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-02-20T19:15:33+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
-</subtitle><author><name>Vincent Humeau</name></author><entry><title type="html">Regex - 101</title><link href="/devNotes/tools/2019/01/14/regex-101.html" rel="alternate" type="text/html" title="Regex - 101" /><published>2019-01-14T00:00:00+00:00</published><updated>2019-01-14T00:00:00+00:00</updated><id>/devNotes/tools/2019/01/14/regex-101</id><content type="html" xml:base="/devNotes/tools/2019/01/14/regex-101.html">&lt;blockquote&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-02-20T19:16:12+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
+</subtitle><author><name>Vincent Humeau</name></author><entry><title type="html">CSS customs properties</title><link href="/devNotes/css/2019/02/20/css-customs-properties.html" rel="alternate" type="text/html" title="CSS customs properties" /><published>2019-02-20T00:00:00+00:00</published><updated>2019-02-20T00:00:00+00:00</updated><id>/devNotes/css/2019/02/20/css-customs-properties</id><content type="html" xml:base="/devNotes/css/2019/02/20/css-customs-properties.html">&lt;p&gt;CSS customs properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.&lt;/p&gt;
+
+&lt;h2 id=&quot;declare-a-custom-property-in-css&quot;&gt;Declare a custom property in CSS&lt;/h2&gt;
+
+&lt;p&gt;To declare a Custom property in your CSS, you need to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;--&lt;/code&gt; syntax:&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;--colorPrimary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;360&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;74%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Notice the &lt;code class=&quot;highlighter-rouge&quot;&gt;:root&lt;/code&gt; pseudo-class selector, we can declare our variable globally using it. We can as well declare them using other selectors, they will be then be scoped in these ones.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.theme-dark&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;--colorPrimary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hsla&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;360&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;24%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;use-a-custom-property-in-css&quot;&gt;Use a custom property in CSS&lt;/h2&gt;
+
+&lt;p&gt;To use a CSS custom property in your CSS you can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;var()&lt;/code&gt; function&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;--colorPrimary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;tomato&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.theme-dark&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;--colorPrimary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;lime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;--colorPrimary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In this case, &lt;code class=&quot;highlighter-rouge&quot;&gt;body&lt;/code&gt; will have a background colour of &lt;code class=&quot;highlighter-rouge&quot;&gt;tomato&lt;/code&gt;. But &lt;code class=&quot;highlighter-rouge&quot;&gt;body.theme-dark&lt;/code&gt; of &lt;code class=&quot;highlighter-rouge&quot;&gt;lime&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;use-custom-properties-without-units&quot;&gt;Use custom properties without units&lt;/h2&gt;
+
+&lt;p&gt;CSS custom properties can be declared without units if they are used with the &lt;code class=&quot;highlighter-rouge&quot;&gt;calc()&lt;/code&gt; function.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;py&quot;&gt;--spacing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;--spacing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/*Doesn't Work 😫*/&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;--spacing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1rem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/*Will output 2rem 😃*/&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;use-custom-properties-with-javascript&quot;&gt;Use custom properties with JavaScript&lt;/h2&gt;
+
+&lt;p&gt;To get a custom property we can use the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;getComputedStyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getPropertyValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;--my-var&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Or if inline&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getPropertyValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;--my-var&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To update the custom property value:&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;--my-var&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;newVal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;example-of-getting-and-replacing-values&quot;&gt;Example of getting and replacing values:&lt;/h3&gt;
+
+&lt;p class=&quot;codepen&quot; data-height=&quot;456&quot; data-theme-id=&quot;dark&quot; data-default-tab=&quot;js,result&quot; data-user=&quot;vinceumo&quot; data-slug-hash=&quot;jdJLge&quot; style=&quot;height: 456px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;&quot; data-pen-title=&quot;CSS 3D perspective&quot;&gt;
+  &lt;span&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/jdJLge/&quot;&gt;
+  CSS 3D perspective&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;)
+  on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://drafts.csswg.org/css-variables/#defining-variables&quot;&gt;Defining Custom Properties: the –* family of properties&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;[Custom properties (–&lt;em&gt;): CSS variables - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/–&lt;/em&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/var&quot;&gt;var() - MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables&quot;&gt;Using CSS custom properties (variables) - MDN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Vincent Humeau</name></author><summary type="html">CSS customs properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.</summary></entry><entry><title type="html">Regex - 101</title><link href="/devNotes/tools/2019/01/14/regex-101.html" rel="alternate" type="text/html" title="Regex - 101" /><published>2019-01-14T00:00:00+00:00</published><updated>2019-01-14T00:00:00+00:00</updated><id>/devNotes/tools/2019/01/14/regex-101</id><content type="html" xml:base="/devNotes/tools/2019/01/14/regex-101.html">&lt;blockquote&gt;
   &lt;p&gt;A regular expression, regex or regexp(sometimes called a rational expression) is a sequence of characters that define a search pattern. Usually this pattern is used by string searching algorithms for “find” or “find and replace” operations on strings, or for input validation&lt;/p&gt;
 
   &lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Regular_expression&quot;&gt;Regular expression - Wikipedia&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
@@ -910,121 +992,4 @@
   &lt;li&gt;&lt;a href=&quot;https://www.quackit.com/css/color/values/css_hsl_function.cfm&quot;&gt;CSS hsl() Function - Quackit&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://tympanus.net/codrops/css_reference/hsl/&quot;&gt;hsl() - codrops&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/&quot;&gt;On Switching from HEX &amp;amp; RGB to HSL - Sara Soueidan&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Vincent Humeau</name></author><summary type="html">hsl() defines color using the HSL(A) model. It stands for hue, saturation and lightness.</summary></entry><entry><title type="html">Screen reader - TalkBack (Android)</title><link href="/devNotes/a11y/2018/08/13/screen-reader-talkback.html" rel="alternate" type="text/html" title="Screen reader - TalkBack (Android)" /><published>2018-08-13T13:25:19+00:00</published><updated>2018-08-13T13:25:19+00:00</updated><id>/devNotes/a11y/2018/08/13/screen-reader-talkback</id><content type="html" xml:base="/devNotes/a11y/2018/08/13/screen-reader-talkback.html">&lt;blockquote&gt;
-  &lt;p&gt;TalkBack is the Google screen reader included on Android devices. TalkBack gives you spoken feedback so that you can use your device without looking at the screen.&lt;/p&gt;
-
-  &lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://support.google.com/accessibility/android/answer/6283677?hl=en&quot;&gt;Android Accessibility Help&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;start-talkback&quot;&gt;Start TalkBack&lt;/h2&gt;
-
-&lt;p&gt;To start TalkBack:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Go in your device settings&lt;/li&gt;
-  &lt;li&gt;Open Advanced&lt;/li&gt;
-  &lt;li&gt;Open Accessibility&lt;/li&gt;
-  &lt;li&gt;Turn on TalkBack&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;I would recommend setting TalkBack as your &lt;strong&gt;Accessibility shortcut&lt;/strong&gt;. Turn on &lt;strong&gt;Accessibility shortcut&lt;/strong&gt; and select TalkBack as the shortcut service. The shortcut depends on your device.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/devNotes/dist/img/a11y-talkback-shortcurt.jpg&quot; alt=&quot;Android TalkBack Accessibility shortcut screenshot&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;how-to-use-talkback&quot;&gt;How to use TalkBack&lt;/h2&gt;
-
-&lt;p&gt;TalkBack is a gesture-based screen reader. We are going to use our screen to navigate.&lt;/p&gt;
-
-&lt;p&gt;Here is a list of the default gesture for navigating:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Gesture&lt;/th&gt;
-      &lt;th&gt;Action&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Single tap&lt;/code&gt; while talking&lt;/td&gt;
-      &lt;td&gt;Stop talking&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Single tap&lt;/code&gt; on content&lt;/td&gt;
-      &lt;td&gt;Announce content (Explore by touch)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Double tap&lt;/code&gt; on link button etc.&lt;/td&gt;
-      &lt;td&gt;Activate/click link button&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe Up&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Previous navigation setting&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe Down&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Next navigation setting&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe Left&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Previous item (Move backwards)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe Right&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Next item (Move forward)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Scroll 2 finger&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Scroll the page&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe down then right&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Open &lt;a href=&quot;https://support.google.com/accessibility/android/answer/6007066&quot;&gt;global context menu&lt;/a&gt; &lt;em&gt;The global context menu contains commands that work anywhere&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe up then right&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Open &lt;a href=&quot;https://support.google.com/accessibility/android/answer/6007066&quot;&gt;local context menu&lt;/a&gt;, &lt;em&gt;The local context menu contains controls that relate to the focused item. The options available in the menu change depending on the item&lt;/em&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe left then right&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Scroll back&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe right then left&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Scroll forward&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe up then down&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Focus first item on screen&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe down then up&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Focus last item on screen&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe down then left&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Back button&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe left then up&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Overview button&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe right then down&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Open notifications&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Swipe up then left&lt;/code&gt;&lt;/td&gt;
-      &lt;td&gt;Home button&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=QjKG4Tx9ER8&quot;&gt;📺 How I Use Screen Reading And Magnification- Voice Over- Talk Back&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://youtu.be/0Zpzl4EKCco&quot;&gt;📺 Assistive Tech: TalkBack&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://support.google.com/accessibility/android/answer/6283677?hl=en&quot;&gt;Android Accessibility Help&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=h5rRNXzy1xo&quot;&gt;📺 What’s New in Android Accessibility (Google I/O ‘17)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Vincent Humeau</name></author><summary type="html">TalkBack is the Google screen reader included on Android devices. TalkBack gives you spoken feedback so that you can use your device without looking at the screen. Android Accessibility Help</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Vincent Humeau</name></author><summary type="html">hsl() defines color using the HSL(A) model. It stands for hue, saturation and lightness.</summary></entry></feed>
