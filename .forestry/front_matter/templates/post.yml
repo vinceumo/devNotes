@@ -29,6 +29,7 @@ fields:
   hidden: false
   default: ''
 pages:
+- _posts/CSS/css-customs-properties.md
 - _posts/Tools/2018-07-22-photoshop-101-introduction-for-web-developers.md
 - _posts/Javascript/2018-07-20-vue-js-101-todo-pwa-tutorial.md
 - _posts/Sass/2018-11-22-responsive-container-classes-with-scss.md
