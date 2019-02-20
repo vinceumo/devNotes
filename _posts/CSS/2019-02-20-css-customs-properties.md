@@ -91,6 +91,6 @@ element.style.setProperty("--my-var", newVal);
 ## Resources
 
 - [Defining Custom Properties: the --* family of properties](https://drafts.csswg.org/css-variables/#defining-variables)
-- [Custom properties (--*): CSS variables - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
+- [Custom properties: CSS variables - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
 - [var() - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/var)
 - [Using CSS custom properties (variables) - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)
