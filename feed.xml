@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-02-20T19:18:22+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
-</subtitle><author><name>Vincent Humeau</name></author><entry><title type="html">CSS customs properties</title><link href="/devNotes/css/2019/02/20/css-customs-properties.html" rel="alternate" type="text/html" title="CSS customs properties" /><published>2019-02-20T00:00:00+00:00</published><updated>2019-02-20T00:00:00+00:00</updated><id>/devNotes/css/2019/02/20/css-customs-properties</id><content type="html" xml:base="/devNotes/css/2019/02/20/css-customs-properties.html">&lt;p&gt;CSS customs properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-02-21T08:52:02+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
+</subtitle><author><name>Vincent Humeau</name></author><entry><title type="html">CSS customs properties - Cheat sheet</title><link href="/devNotes/css/2019/02/20/css-customs-properties.html" rel="alternate" type="text/html" title="CSS customs properties - Cheat sheet" /><published>2019-02-20T00:00:00+00:00</published><updated>2019-02-20T00:00:00+00:00</updated><id>/devNotes/css/2019/02/20/css-customs-properties</id><content type="html" xml:base="/devNotes/css/2019/02/20/css-customs-properties.html">&lt;p&gt;CSS customs properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.&lt;/p&gt;
 
 &lt;h2 id=&quot;declare-a-custom-property-in-css&quot;&gt;Declare a custom property in CSS&lt;/h2&gt;
 
@@ -67,10 +67,12 @@
 
 &lt;h3 id=&quot;example-of-getting-and-replacing-values&quot;&gt;Example of getting and replacing values:&lt;/h3&gt;
 
+&lt;p&gt;In the following example, we use the &lt;a href=&quot;https://workshop.chromeexperiments.com/examples/gui/&quot;&gt;dat.gui controller library&lt;/a&gt; to change the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;--scenePerspective&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;--cubeRotateY&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;--cubeRotateX&lt;/code&gt; custom properties. This method makes it easier to apply a new style as do not have to apply inline style on each Dom elements where it should apply.&lt;/p&gt;
+
 &lt;p class=&quot;codepen&quot; data-height=&quot;456&quot; data-theme-id=&quot;dark&quot; data-default-tab=&quot;js,result&quot; data-user=&quot;vinceumo&quot; data-slug-hash=&quot;jdJLge&quot; style=&quot;height: 456px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;&quot; data-pen-title=&quot;CSS 3D perspective&quot;&gt;
-  &lt;span&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/jdJLge/&quot;&gt;
-  CSS 3D perspective&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;)
-  on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;span&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/jdJLge/&quot;&gt;
+CSS 3D perspective&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;)
+on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
 &lt;/p&gt;
 &lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
 
