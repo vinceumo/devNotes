@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CSS customs properties
+title: CSS customs properties - Cheat sheet
 date: 2019-02-20 00:00:00 +0000
 categories:
 - CSS
@@ -81,16 +81,18 @@ element.style.setProperty("--my-var", newVal);
 
 ### Example of getting and replacing values:
 
+In the following example, we use the [dat.gui controller library](https://workshop.chromeexperiments.com/examples/gui/) to change the value of `--scenePerspective`, `--cubeRotateY`, `--cubeRotateX` custom properties. This method makes it easier to apply a new style as do not have to apply inline style on each Dom elements where it should apply.
+
 <p class="codepen" data-height="456" data-theme-id="dark" data-default-tab="js,result" data-user="vinceumo" data-slug-hash="jdJLge" style="height: 456px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3D perspective">
-  <span>See the Pen <a href="https://codepen.io/vinceumo/pen/jdJLge/">
-  CSS 3D perspective</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
+<span>See the Pen <a href="https://codepen.io/vinceumo/pen/jdJLge/">
+CSS 3D perspective</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
+on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 ## Resources
 
-- [Defining Custom Properties: the --* family of properties](https://drafts.csswg.org/css-variables/#defining-variables)
-- [Custom properties: CSS variables - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
-- [var() - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/var)
-- [Using CSS custom properties (variables) - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)
+* [Defining Custom Properties: the --* family of properties](https://drafts.csswg.org/css-variables/#defining-variables)
+* [Custom properties: CSS variables - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
+* [var() - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/var)
+* [Using CSS custom properties (variables) - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)
