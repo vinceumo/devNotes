@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CSS customs properties - Cheat sheet
+title: CSS customs properties - Cheatsheet
 date: 2019-02-20 00:00:00 +0000
 categories:
 - CSS
