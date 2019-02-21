@@ -81,7 +81,7 @@ element.style.setProperty("--my-var", newVal);
 
 ### Example of getting and replacing values:
 
-In the following example, we use the [dat.gui controller library](https://workshop.chromeexperiments.com/examples/gui/) to change the value of `--scenePerspective`, `--cubeRotateY`, `--cubeRotateX` custom properties. This method makes it easier to apply a new style as do not have to apply inline style on each Dom elements where it should apply.
+In the following example, we use the [dat.gui controller library](https://workshop.chromeexperiments.com/examples/gui/) to change the value of `--scenePerspective`, `--cubeRotateY`, `--cubeRotateX` custom properties. This method makes it easier to apply a new style, as do not have to apply inline style on each Dom elements.
 
 <p class="codepen" data-height="456" data-theme-id="dark" data-default-tab="js,result" data-user="vinceumo" data-slug-hash="jdJLge" style="height: 456px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3D perspective">
 <span>See the Pen <a href="https://codepen.io/vinceumo/pen/jdJLge/">
