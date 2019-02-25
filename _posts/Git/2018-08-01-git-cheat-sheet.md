@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "Git - Cheat sheet"
-date:   2018-08-01 09:00:00 +0100
-categories: Git
----
+title: Git - Cheat sheet
+date: 2018-08-01 08:00:00 +0000
+categories: []
 
+---
 ## Create a repository
 
 `git init [project-name]` - Creates a new, empty local *[project-name]* repository
