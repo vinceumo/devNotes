@@ -2,7 +2,8 @@
 layout: post
 title: Git - Cheat sheet
 date: 2018-08-01 08:00:00 +0000
-categories: []
+categories:
+- Tools
 
 ---
 ## Create a repository
