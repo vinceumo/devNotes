@@ -16,14 +16,14 @@ layout: default
   </h2>
   <ul class="list-unstyled">
     {% for post in sorted_posts %} {%- assign date_format =
-    site.minima.date_format | default: "%b %-d,%Y"-%}
+    site.minima.date_format | default: "%b %Y"-%}
     <li>
       <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{
         post.title
-      }}</a>
-      <i>
-        <small>, {{ post.date | date: date_format }}</small>
-      </i>
+      }}</a
+      ><i
+        ><small>, {{ post.date | date: date_format }}</small></i
+      >
     </li>
     {% endfor %}
   </ul>
