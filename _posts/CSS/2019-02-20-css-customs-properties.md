@@ -7,7 +7,7 @@ categories:
 canonical: ''
 
 ---
-CSS customs properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.
+CSS custom properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.
 
 ## Declare a custom property in CSS
 
