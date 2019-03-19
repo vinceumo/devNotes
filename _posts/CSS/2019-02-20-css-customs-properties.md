@@ -19,7 +19,7 @@ To declare a Custom property in your CSS, you need to use the `--` syntax:
 }
 ```
 
-Notice the `:root` pseudo-class selector, we can declare our variables globally using it. We can as well declare them using other selectors, they will be then be scoped in these ones.
+Notice the `:root` pseudo-class selector, we can declare our variables globally using it. We can as well declare them using other selectors, they will be then be scoped in these ones. 
 
 ```css
 .theme-dark {
