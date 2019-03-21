@@ -7,7 +7,7 @@ categories:
 canonical: ''
 
 ---
-![Demo Gif](../resources/css3d/demo.gif)
+![Demo gif]({{ site.baseurl }}/dist/img/css3d-z-scroll-demo.gif)
 
 In this article, we are going to create a small 3D scene, where the user can scroll on the z-axis. You can find the final code of this tutorial on [github](https://github.com/vinceumo/CSS-3D-Scrolling-z-axis-demo/), and the demo if you follow this [link](https://vinceumo.github.io/CSS-3D-Scrolling-z-axis-demo/).
 
@@ -23,9 +23,9 @@ When speaking of CSS 3D, we really speak about CSS3 transform 3D. This method al
 
 To be allowed to render our Dom elements in a 3D space we need to have a look in the following properties:
 
-- Perspective
-- Perspective origin
-- Transform Z
+* Perspective
+* Perspective origin
+* Transform Z
 
 ### Perspective
 
@@ -37,16 +37,16 @@ To be allowed to render our Dom elements in a 3D space we need to have a look in
 }
 ```
 
-The value of `perspective` is a [`<length>`](https://developer.mozilla.org/en-US/docs/Web/CSS/length).
+The value of `perspective` is a `[<length>](https://developer.mozilla.org/en-US/docs/Web/CSS/length)`.
 
-![perspective illustration](../resources/css3d/perspective1.png)
+![perspective illustration]({{ site.baseurl }}/dist/img/css3d-z-scroll-perspective1.png)
 
 Try to set the value of `scenePerspective` to 0 and 70 in the example below. You can notice that our cube get no perspective at all if its value is set to 0. If the value is set to 70, you can see a really strong distortion of the cube perspective. The smaller the perspective value is, the deeper it is.
 
 <p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="css,result" data-user="vinceumo" data-slug-hash="jdJLge" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3D perspective">
-  <span>See the Pen <a href="https://codepen.io/vinceumo/pen/jdJLge/">
-  CSS 3D perspective</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
+<span>See the Pen <a href="https://codepen.io/vinceumo/pen/jdJLge/">
+CSS 3D perspective</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
+on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
@@ -83,23 +83,23 @@ This property basically allows us to move the vanishing point of our 3D scene.
 
 For both x and y we can set the position using percentages. but we can as well use the following values:
 
-- x position:
-  - `left` = 0%
-  - `center` = 50%
-  - `right` = 100%
-- y position
-  - `top` = 0%
-  - `center` = 50%
-  - `bottom` = 50%
+* x position:
+  * `left` = 0%
+  * `center` = 50%
+  * `right` = 100%
+* y position
+  * `top` = 0%
+  * `center` = 50%
+  * `bottom` = 50%
 
-![Perspective origin illustration](../resources/css3d/perspective-origin.png)
+![Perspective origin illustration]({{ site.baseurl }}/dist/img/css3d-z-scroll-perspective-origin.png)
 
 In the following example, you can change the value of `perspectiveOriginX` and `perspectiveOriginY`.
 
 <p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="css,result" data-user="vinceumo" data-slug-hash="wOwzBY" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3D perspective origin">
-  <span>See the Pen <a href="https://codepen.io/vinceumo/pen/wOwzBY/">
-  CSS 3D perspective origin</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
+<span>See the Pen <a href="https://codepen.io/vinceumo/pen/wOwzBY/">
+CSS 3D perspective origin</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
+on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 
 ### Transform Z
@@ -108,20 +108,20 @@ We already mentioned earlier that the `transform` CSS property allows us to set 
 
 Transform comes with different functions to transform our elements in 3D:
 
-- rotateX(angle) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateX)
-- rotateY(angle) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateY)
-- rotateZ(angle) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateZ)
-- translateZ(tz) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateZ)
-- scaleZ(sz) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleZ)
+* rotateX(angle) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateX)
+* rotateY(angle) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateY)
+* rotateZ(angle) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateZ)
+* translateZ(tz) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateZ)
+* scaleZ(sz) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleZ)
 
 As we saw in the illustration in the `perspective` section. `translateZ()` allows us to position an element along the z-axis of the 3D space. Alternately we can use the `translate3D(x, y, z)` CSS function.
 
 In the following example, you can play with the Z-axis position of the `.cube` and `.face-` by changing the value of `cubeTranslateZ` and `cubeFacesTranslateZ`.
 
 <p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="css,result" data-user="vinceumo" data-slug-hash="VRZKEB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3D Transform Z">
-  <span>See the Pen <a href="https://codepen.io/vinceumo/pen/VRZKEB/">
-  CSS 3D Transform Z</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
+<span>See the Pen <a href="https://codepen.io/vinceumo/pen/VRZKEB/">
+CSS 3D Transform Z</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
+on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 
 ## Scroll on the z-axis
@@ -133,9 +133,9 @@ Now that we have a good understanding of how CSS 3D works we are going to create
 We are going to create a page that lists out all the films of Studio Ghibli. Each film is going to be a card positioned on the z-axis of our scene. Feel free to fork or [download](https://codepen.io/vinceumo/share/zip/JzaXqN) the following codepen as a starter material to follow along. I'm using [axios](https://github.com/axios/axios) with [Studio Ghibli API](https://ghibliapi.herokuapp.com/) to populate this page.
 
 <p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="html, result" data-user="vinceumo" data-slug-hash="JzaXqN" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3d Scrolling in the z axis - Step 1">
-  <span>See the Pen <a href="https://codepen.io/vinceumo/pen/JzaXqN/">
-  CSS 3d Scrolling in the z axis - Step 1</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
+<span>See the Pen <a href="https://codepen.io/vinceumo/pen/JzaXqN/">
+CSS 3d Scrolling in the z axis - Step 1</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
+on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 
 If you want to follow along with your own content we will need the following markup:
@@ -252,9 +252,9 @@ We use SCSS to programmatically translate each item. On the **X** and **Y** axis
 The CSS is now done, we have a 3D scene. In the following parts of this article, we are going to write some javascript that going to allow us to navigate in the scene.
 
 <p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="css,result" data-user="vinceumo" data-slug-hash="WmgxBG" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3d Scrolling in the z axis - Step 2">
-  <span>See the Pen <a href="https://codepen.io/vinceumo/pen/WmgxBG/">
-  CSS 3d Scrolling in the z axis - Step 2</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
+<span>See the Pen <a href="https://codepen.io/vinceumo/pen/WmgxBG/">
+CSS 3d Scrolling in the z axis - Step 2</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
+on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 
 #### Scrolling on z-axis (move camera)
@@ -263,12 +263,12 @@ To be able to scroll, we need first to set the value of `--viewportHeight` which
 
 The depth of the scene is equal to the addition of the following:
 
-- The height of the user window
-  - window.innerHeight
-- The `.scene3D-container` perspective
-  - `var(--scenePerspective) * var(--cameraSpeed)`
-- The translate z value of our last item
-  - `var(--itemZ) * var(--cameraSpeed) * items.length`
+* The height of the user window
+  * window.innerHeight
+* The `.scene3D-container` perspective
+  * `var(--scenePerspective) * var(--cameraSpeed)`
+* The translate z value of our last item
+  * `var(--itemZ) * var(--cameraSpeed) * items.length`
 
 Let's create a `setSceneHeight()` function that will update the value of `--viewportHeight` on load.
 
@@ -301,7 +301,7 @@ function setSceneHeight() {
 }
 ```
 
-Our page has now a scrollbar, but we are still unable to scroll. We need to add an event listener that will listen to the user scrolling. The scroll event will call a `moveCamera()` function. It will update the value of `--cameraZ` with the value of [`window.pageYOffset`](https://developer.mozilla.org/en-US/docs/Web/API/Window/pageYOffset).
+Our page has now a scrollbar, but we are still unable to scroll. We need to add an event listener that will listen to the user scrolling. The scroll event will call a `moveCamera()` function. It will update the value of `--cameraZ` with the value of `[window.pageYOffset](https://developer.mozilla.org/en-US/docs/Web/API/Window/pageYOffset)`.
 
 ```js
 document.addEventListener("DOMContentLoaded", function() {
@@ -319,14 +319,14 @@ function setSceneHeight() {
 ```
 
 <p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="js,result" data-user="vinceumo" data-slug-hash="pYxpLW" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3d Scrolling in the z axis - Step 3">
-  <span>See the Pen <a href="https://codepen.io/vinceumo/pen/pYxpLW/">
-  CSS 3d Scrolling in the z axis - Step 3</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
+<span>See the Pen <a href="https://codepen.io/vinceumo/pen/pYxpLW/">
+CSS 3d Scrolling in the z axis - Step 3</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
+on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 
 #### Move camera angle
 
-Finally, let's make our scene a bit more dynamic. On [mousemove event](https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event) we are going to change the values of `scenePerspectiveOriginX` and `scenePerspectiveOriginY`. This will give the illusion that the camera move. The items will stay straight in the scene. If you want to give a more realistic camera rotation movement, you could apply [`rotate3d()`](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d) on the scene.
+Finally, let's make our scene a bit more dynamic. On [mousemove event](https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event) we are going to change the values of `scenePerspectiveOriginX` and `scenePerspectiveOriginY`. This will give the illusion that the camera move. The items will stay straight in the scene. If you want to give a more realistic camera rotation movement, you could apply `[rotate3d()](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d)` on the scene.
 
 First, we are going to store the initial values of these two variables in a `perspectiveOrigin` object, we are going to set a `perspectiveOrigin.maxGap` value which is going to limit the maximum and minimum values of the variables. For example if `scenePerspectiveOriginY` is equal to 50%. On mousemove, the new value will be between 40% and 60%.
 
@@ -350,8 +350,8 @@ If the user cursor is at the centre of the screen, we will set the values of `--
 
 The `moveCameraAngle()` function is going to update the values:
 
-- `xGap` and `yGap` return the mouse position of the user in percentage on the X and Y axis, compare to the centre of the window.
-- `newPerspectiveOriginX` and `newPerspectiveOriginY` return the new perspective origin.
+* `xGap` and `yGap` return the mouse position of the user in percentage on the X and Y axis, compare to the centre of the window.
+* `newPerspectiveOriginX` and `newPerspectiveOriginY` return the new perspective origin.
 
 ```js
 document.addEventListener("DOMContentLoaded", function() {
@@ -388,22 +388,22 @@ function moveCameraAngle(event) {
 Our scene is now finished 🎉. I hope you enjoyed this article 😃
 
 <p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="js,result" data-user="vinceumo" data-slug-hash="NJEwwo" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3d Scrolling in the z axis - Step 4">
-  <span>See the Pen <a href="https://codepen.io/vinceumo/pen/NJEwwo/">
-  CSS 3d Scrolling in the z axis - Step 4</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
+<span>See the Pen <a href="https://codepen.io/vinceumo/pen/NJEwwo/">
+CSS 3d Scrolling in the z axis - Step 4</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
+on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 
 ## Resources
 
-- [perspective - Codrops](https://tympanus.net/codrops/css_reference/perspective/)
-- [perspective - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective)
-- [transform-style - Codrops](https://tympanus.net/codrops/css_reference/transform-style/)
-- [transform-style - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style)
-- [perspective-origin - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin)
-- [Things to Watch Out for When Working with CSS 3D - CSS-tricks](https://css-tricks.com/things-watch-working-css-3d/)
+* [perspective - Codrops](https://tympanus.net/codrops/css_reference/perspective/)
+* [perspective - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective)
+* [transform-style - Codrops](https://tympanus.net/codrops/css_reference/transform-style/)
+* [transform-style - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style)
+* [perspective-origin - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin)
+* [Things to Watch Out for When Working with CSS 3D - CSS-tricks](https://css-tricks.com/things-watch-working-css-3d/)
 
----
+***
 
-- [Follow me on twitter](https://twitter.com/vince_umo)
-- [Follow me on Github](https://github.com/vinceumo)
-- [Follow me on dev.to](https://dev.to/vinceumo)
+* [Follow me on twitter](https://twitter.com/vince_umo)
+* [Follow me on Github](https://github.com/vinceumo)
+* [Follow me on dev.to](https://dev.to/vinceumo)
