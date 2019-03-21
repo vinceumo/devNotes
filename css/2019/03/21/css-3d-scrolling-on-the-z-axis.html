@@ -103,7 +103,7 @@
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>The value of <code class="highlighter-rouge">perspective</code> is a <code class="highlighter-rouge">[&lt;length&gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/length)</code>.</p>
+<p>The value of <code class="highlighter-rouge">perspective</code> is a [<length>](https://developer.mozilla.org/en-US/docs/Web/CSS/length).</length></p>
 
 <p><img src="/devNotes/dist/img/css3d-z-scroll-perspective1.png" alt="perspective illustration" /></p>
 
@@ -381,7 +381,7 @@ on <a href="https://codepen.io">CodePen</a>.</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Our page has now a scrollbar, but we are still unable to scroll. We need to add an event listener that will listen to the user scrolling. The scroll event will call a <code class="highlighter-rouge">moveCamera()</code> function. It will update the value of <code class="highlighter-rouge">--cameraZ</code> with the value of <code class="highlighter-rouge">[window.pageYOffset](https://developer.mozilla.org/en-US/docs/Web/API/Window/pageYOffset)</code>.</p>
+<p>Our page has now a scrollbar, but we are still unable to scroll. We need to add an event listener that will listen to the user scrolling. The scroll event will call a <code class="highlighter-rouge">moveCamera()</code> function. It will update the value of <code class="highlighter-rouge">--cameraZ</code> with the value of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/pageYOffset">window.pageYOffset</a>.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"scroll"</span><span class="p">,</span> <span class="nx">moveCamera</span><span class="p">);</span>
@@ -405,7 +405,7 @@ on <a href="https://codepen.io">CodePen</a>.</span>
 
 <h4 id="move-camera-angle">Move camera angle</h4>
 
-<p>Finally, let’s make our scene a bit more dynamic. On <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event">mousemove event</a> we are going to change the values of <code class="highlighter-rouge">scenePerspectiveOriginX</code> and <code class="highlighter-rouge">scenePerspectiveOriginY</code>. This will give the illusion that the camera move. The items will stay straight in the scene. If you want to give a more realistic camera rotation movement, you could apply <code class="highlighter-rouge">[rotate3d()](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d)</code> on the scene.</p>
+<p>Finally, let’s make our scene a bit more dynamic. On <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event">mousemove event</a> we are going to change the values of <code class="highlighter-rouge">scenePerspectiveOriginX</code> and <code class="highlighter-rouge">scenePerspectiveOriginY</code>. This will give the illusion that the camera move. The items will stay straight in the scene. If you want to give a more realistic camera rotation movement, you could apply <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d">rotate3d()</a> on the scene.</p>
 
 <p>First, we are going to store the initial values of these two variables in a <code class="highlighter-rouge">perspectiveOrigin</code> object, we are going to set a <code class="highlighter-rouge">perspectiveOrigin.maxGap</code> value which is going to limit the maximum and minimum values of the variables. For example if <code class="highlighter-rouge">scenePerspectiveOriginY</code> is equal to 50%. On mousemove, the new value will be between 40% and 60%.</p>
 
