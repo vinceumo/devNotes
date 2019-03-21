@@ -37,7 +37,7 @@ To be allowed to render our Dom elements in a 3D space we need to have a look in
 }
 ```
 
-The value of `perspective` is a [<length>](https://developer.mozilla.org/en-US/docs/Web/CSS/length).
+The value of `perspective` is a [length unit](https://developer.mozilla.org/en-US/docs/Web/CSS/length).
 
 ![perspective illustration]({{ site.baseurl }}/dist/img/css3d-z-scroll-perspective1.png)
 
