@@ -132,11 +132,7 @@ Now that we have a good understanding of how CSS 3D works we are going to create
 
 We are going to create a page that lists out all the films of Studio Ghibli. Each film is going to be a card positioned on the z-axis of our scene. Feel free to fork or [download](https://codepen.io/vinceumo/share/zip/JzaXqN) the following codepen as a starter material to follow along. I'm using [axios](https://github.com/axios/axios) with [Studio Ghibli API](https://ghibliapi.herokuapp.com/) to populate this page.
 
-<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="html, result" data-user="vinceumo" data-slug-hash="JzaXqN" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3d Scrolling in the z axis - Step 1">
-<span>See the Pen <a href="https://codepen.io/vinceumo/pen/JzaXqN/">
-CSS 3d Scrolling in the z axis - Step 1</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
-on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="html, result" data-user="vinceumo" data-slug-hash="JzaXqN" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3d Scrolling on the z axis - Step 1"> <span>See the Pen <a href="https://codepen.io/vinceumo/pen/JzaXqN/"> CSS 3d Scrolling on the z axis - Step 1</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</span> </p>
 
 If you want to follow along with your own content we will need the following markup:
 
@@ -251,11 +247,7 @@ We use SCSS to programmatically translate each item. On the **X** and **Y** axis
 
 The CSS is now done, we have a 3D scene. In the following parts of this article, we are going to write some javascript that going to allow us to navigate in the scene.
 
-<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="css,result" data-user="vinceumo" data-slug-hash="WmgxBG" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3d Scrolling in the z axis - Step 2">
-<span>See the Pen <a href="https://codepen.io/vinceumo/pen/WmgxBG/">
-CSS 3d Scrolling in the z axis - Step 2</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
-on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="css,result" data-user="vinceumo" data-slug-hash="WmgxBG" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3d Scrolling on the z axis - Step 2"> <span>See the Pen <a href="https://codepen.io/vinceumo/pen/WmgxBG/"> CSS 3d Scrolling on the z axis - Step 2</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</span> </p>
 
 #### Scrolling on z-axis (move camera)
 
@@ -318,11 +310,7 @@ function setSceneHeight() {
 }
 ```
 
-<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="js,result" data-user="vinceumo" data-slug-hash="pYxpLW" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3d Scrolling in the z axis - Step 3">
-<span>See the Pen <a href="https://codepen.io/vinceumo/pen/pYxpLW/">
-CSS 3d Scrolling in the z axis - Step 3</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
-on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="js,result" data-user="vinceumo" data-slug-hash="pYxpLW" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3d Scrolling on the z axis - Step 3"> <span>See the Pen <a href="https://codepen.io/vinceumo/pen/pYxpLW/"> CSS 3d Scrolling on the z axis - Step 3</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</span> </p>
 
 #### Move camera angle
 
@@ -385,11 +373,7 @@ function moveCameraAngle(event) {
 }
 ```
 
-<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="js,result" data-user="vinceumo" data-slug-hash="NJEwwo" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3d Scrolling in the z axis - Step 4">
-<span>See the Pen <a href="https://codepen.io/vinceumo/pen/NJEwwo/">
-CSS 3d Scrolling in the z axis - Step 4</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
-on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="js,result" data-user="vinceumo" data-slug-hash="NJEwwo" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3d Scrolling on the z axis - Step 4"> <span>See the Pen <a href="https://codepen.io/vinceumo/pen/NJEwwo/"> CSS 3d Scrolling on the z axis - Step 4</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</span> </p>
 
 Our scene is now finished 🎉. I hope you enjoyed this article 😃
 
