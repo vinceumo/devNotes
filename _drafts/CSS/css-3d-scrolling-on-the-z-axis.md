@@ -3,7 +3,7 @@ layout: post
 title: CSS 3D - Scrolling on the z-axis
 date: 2019-03-21 00:00:00 +0000
 categories:
-- css
+- CSS
 canonical: ''
 
 ---
