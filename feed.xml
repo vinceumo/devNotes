@@ -1,5 +1,424 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-03-21T17:41:49+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
-</subtitle><author><name>Vincent Humeau</name></author><entry><title type="html">CSS custom properties - Cheatsheet</title><link href="/devNotes/css/2019/02/20/css-customs-properties.html" rel="alternate" type="text/html" title="CSS custom properties - Cheatsheet" /><published>2019-02-20T00:00:00+00:00</published><updated>2019-02-20T00:00:00+00:00</updated><id>/devNotes/css/2019/02/20/css-customs-properties</id><content type="html" xml:base="/devNotes/css/2019/02/20/css-customs-properties.html">&lt;p&gt;CSS custom properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-03-21T17:42:28+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
+</subtitle><author><name>Vincent Humeau</name></author><entry><title type="html">CSS 3D - Scrolling on the z-axis</title><link href="/devNotes/css/2019/03/21/css-3d-scrolling-on-the-z-axis.html" rel="alternate" type="text/html" title="CSS 3D - Scrolling on the z-axis" /><published>2019-03-21T00:00:00+00:00</published><updated>2019-03-21T00:00:00+00:00</updated><id>/devNotes/css/2019/03/21/css-3d-scrolling-on-the-z-axis</id><content type="html" xml:base="/devNotes/css/2019/03/21/css-3d-scrolling-on-the-z-axis.html">&lt;p&gt;&lt;img src=&quot;/devNotes/dist/img/css3d-z-scroll-demo.gif&quot; alt=&quot;Demo gif&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this article, we are going to create a small 3D scene, where the user can scroll on the z-axis. You can find the final code of this tutorial on &lt;a href=&quot;https://github.com/vinceumo/CSS-3D-Scrolling-z-axis-demo/&quot;&gt;github&lt;/a&gt;, and the demo if you follow this &lt;a href=&quot;https://vinceumo.github.io/CSS-3D-Scrolling-z-axis-demo/&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This article assumes that you already have some knowledge about CSS and JS. We are going to use CSS custom properties, if you are not familiar with this you can read &lt;a href=&quot;https://vinceumo.github.io/devNotes/css/2019/02/20/css-customs-properties.html&quot;&gt;CSS custom properties - Cheatsheet&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction-to-css-3d&quot;&gt;Introduction to CSS 3D&lt;/h2&gt;
+
+&lt;p&gt;When speaking of CSS 3D, we really speak about CSS3 transform 3D. This method allows us to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;transform&lt;/code&gt; CSS property to set perspective or rotation on the z-axis to our DOM elements.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The transform CSS property lets you rotate, scale, skew or translate an element. It modifies the coordinate space of the CSS visual formatting model.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/transform&quot;&gt;transform - MDN&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To be allowed to render our Dom elements in a 3D space we need to have a look in the following properties:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Perspective&lt;/li&gt;
+  &lt;li&gt;Perspective origin&lt;/li&gt;
+  &lt;li&gt;Transform Z&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;perspective&quot;&gt;Perspective&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;perspective&lt;/code&gt; is a CSS property that set the distance between z=0 and the user. The smaller is the perspective value the greater will be the distortion of our see. (Try to change the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;scenePerspective&lt;/code&gt; in the codePen example below).&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.container-scene&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;perspective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The value of &lt;code class=&quot;highlighter-rouge&quot;&gt;perspective&lt;/code&gt; is a &lt;code class=&quot;highlighter-rouge&quot;&gt;[&amp;lt;length&amp;gt;](https://developer.mozilla.org/en-US/docs/Web/CSS/length)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/devNotes/dist/img/css3d-z-scroll-perspective1.png&quot; alt=&quot;perspective illustration&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Try to set the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;scenePerspective&lt;/code&gt; to 0 and 70 in the example below. You can notice that our cube get no perspective at all if its value is set to 0. If the value is set to 70, you can see a really strong distortion of the cube perspective. The smaller the perspective value is, the deeper it is.&lt;/p&gt;
+
+&lt;p class=&quot;codepen&quot; data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;vinceumo&quot; data-slug-hash=&quot;jdJLge&quot; style=&quot;height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;&quot; data-pen-title=&quot;CSS 3D perspective&quot;&gt;
+&lt;span&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/jdJLge/&quot;&gt;
+CSS 3D perspective&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;)
+on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;To be able to render a 3D space, we need to specify &lt;code class=&quot;highlighter-rouge&quot;&gt;transform-style: preserve-3d;&lt;/code&gt; on the child elements. In the above example, it set to our &lt;code class=&quot;highlighter-rouge&quot;&gt;.cube&lt;/code&gt;. By default, the elements are flattened.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.container-scene&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;perspective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;400px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.container-scene&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.cube&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;transform-style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preserve-3d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;perspective-origin&quot;&gt;Perspective origin&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;perspective-origin&lt;/code&gt; CSS property determines the position at which the viewer is looking. It is used as the vanishing point by the perspective property.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin&quot;&gt;MDN&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This property basically allows us to move the vanishing point of our 3D scene.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.container-scene&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;perspective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;400px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;perspective-origin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50%&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;/*X position value, Y position value*/&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nc&quot;&gt;.container-scene&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.cube&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;transform-style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preserve-3d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For both x and y we can set the position using percentages. but we can as well use the following values:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;x position:
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;left&lt;/code&gt; = 0%&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;center&lt;/code&gt; = 50%&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;right&lt;/code&gt; = 100%&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;y position
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;top&lt;/code&gt; = 0%&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;center&lt;/code&gt; = 50%&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bottom&lt;/code&gt; = 50%&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/devNotes/dist/img/css3d-z-scroll-perspective-origin.png&quot; alt=&quot;Perspective origin illustration&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In the following example, you can change the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;perspectiveOriginX&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;perspectiveOriginY&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p class=&quot;codepen&quot; data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;vinceumo&quot; data-slug-hash=&quot;wOwzBY&quot; style=&quot;height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;&quot; data-pen-title=&quot;CSS 3D perspective origin&quot;&gt;
+&lt;span&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/wOwzBY/&quot;&gt;
+CSS 3D perspective origin&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;)
+on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;h3 id=&quot;transform-z&quot;&gt;Transform Z&lt;/h3&gt;
+
+&lt;p&gt;We already mentioned earlier that the &lt;code class=&quot;highlighter-rouge&quot;&gt;transform&lt;/code&gt; CSS property allows us to set our elements in a 3D space.&lt;/p&gt;
+
+&lt;p&gt;Transform comes with different functions to transform our elements in 3D:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;rotateX(angle) - &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateX&quot;&gt;MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;rotateY(angle) - &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateY&quot;&gt;MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;rotateZ(angle) - &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateZ&quot;&gt;MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;translateZ(tz) - &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateZ&quot;&gt;MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;scaleZ(sz) - &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleZ&quot;&gt;MDN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As we saw in the illustration in the &lt;code class=&quot;highlighter-rouge&quot;&gt;perspective&lt;/code&gt; section. &lt;code class=&quot;highlighter-rouge&quot;&gt;translateZ()&lt;/code&gt; allows us to position an element along the z-axis of the 3D space. Alternately we can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;translate3D(x, y, z)&lt;/code&gt; CSS function.&lt;/p&gt;
+
+&lt;p&gt;In the following example, you can play with the Z-axis position of the &lt;code class=&quot;highlighter-rouge&quot;&gt;.cube&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;.face-&lt;/code&gt; by changing the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;cubeTranslateZ&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;cubeFacesTranslateZ&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p class=&quot;codepen&quot; data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;vinceumo&quot; data-slug-hash=&quot;VRZKEB&quot; style=&quot;height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;&quot; data-pen-title=&quot;CSS 3D Transform Z&quot;&gt;
+&lt;span&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/VRZKEB/&quot;&gt;
+CSS 3D Transform Z&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;)
+on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&quot;scroll-on-the-z-axis&quot;&gt;Scroll on the z-axis&lt;/h2&gt;
+
+&lt;p&gt;Now that we have a good understanding of how CSS 3D works we are going to create a 3D scene, where we are going to be able to scroll on the z-axis.&lt;/p&gt;
+
+&lt;h3 id=&quot;set-the-scene&quot;&gt;Set the scene&lt;/h3&gt;
+
+&lt;p&gt;We are going to create a page that lists out all the films of Studio Ghibli. Each film is going to be a card positioned on the z-axis of our scene. Feel free to fork or &lt;a href=&quot;https://codepen.io/vinceumo/share/zip/JzaXqN&quot;&gt;download&lt;/a&gt; the following codepen as a starter material to follow along. I’m using &lt;a href=&quot;https://github.com/axios/axios&quot;&gt;axios&lt;/a&gt; with &lt;a href=&quot;https://ghibliapi.herokuapp.com/&quot;&gt;Studio Ghibli API&lt;/a&gt; to populate this page.&lt;/p&gt;
+
+&lt;p class=&quot;codepen&quot; data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-default-tab=&quot;html, result&quot; data-user=&quot;vinceumo&quot; data-slug-hash=&quot;JzaXqN&quot; style=&quot;height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;&quot; data-pen-title=&quot;CSS 3d Scrolling in the z axis - Step 1&quot;&gt;
+&lt;span&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/JzaXqN/&quot;&gt;
+CSS 3d Scrolling in the z axis - Step 1&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;)
+on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;p&gt;If you want to follow along with your own content we will need the following markup:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewport&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;scene3D-container&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;scene3D&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;Card1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&amp;gt;&lt;/span&gt;Card2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;c&quot;&gt;&amp;lt;!--Etc.--&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;styling&quot;&gt;Styling&lt;/h4&gt;
+
+&lt;p&gt;First, we are going to set our &lt;a href=&quot;https://vinceumo.github.io/devNotes/css/2019/02/20/css-customs-properties.html&quot;&gt;CSS custom properties&lt;/a&gt; (CSS variables). Some of these variables are going to be transformed using JS. They are going to help us to interact with the scene.&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;:root&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;--scenePerspective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;--scenePerspectiveOriginX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;--scenePerspectiveOriginY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;--itemZ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Gap between each cards&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;--cameraSpeed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;150&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Where 1 is the fastest, this var is a multiplying factor of --scenePerspective and --filmZ&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;--cameraZ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Initial camera position&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;--viewportHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Viewport height will allow us to set the depth of our scene&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.viewport&lt;/code&gt; will allow us to set the height of the window. We will later use it to set the depth of the scene and use the scrollbar to navigate in the z-axis.&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.viewport&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;viewportHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.scene3D-container&lt;/code&gt; sets the scene perspective and the perspective origin. It is position fixed so it stays always on screen. We are as well going to set the perspective origin.&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.viewport&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.scene3D-container&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;fixed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;perspective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scenePerspective&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cameraSpeed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;perspective-origin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scenePerspectiveOriginX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;nf&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scenePerspectiveOriginY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1%&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;will-change&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;perspective-origin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translate3d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//Allows Hardware-Accelerated CSS, so transitions are smoother&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.scene3D&lt;/code&gt; sets the position of our scene on the z-axis, This will behave a bit like moving a camera on the z-axis. But really we are moving the scene and the camera (viewport) is fixed. In the rest of this article, we are going to use the camera comparison. &lt;code class=&quot;highlighter-rouge&quot;&gt;.scene3D&lt;/code&gt; takes the full height and width of the viewport.&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.viewport&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.scene3D-container&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.scene3D&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;absolute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100vh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;transform-style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preserve-3d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translateZ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cameraZ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;will-change&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Last but not least we are going to position our cards in the scene. All items are position absolute. Odd items are position on the left, even ones on the right.&lt;/p&gt;
+
+&lt;p&gt;We use SCSS to programmatically translate each item. On the &lt;strong&gt;X&lt;/strong&gt; and &lt;strong&gt;Y&lt;/strong&gt; axis we randomly translate them between -25% and 25% for X, between -50% and 50% for Y. We use a &lt;code class=&quot;highlighter-rouge&quot;&gt;@for&lt;/code&gt; loop so each item can be translated on the &lt;strong&gt;z&lt;/strong&gt; axis multiply by their indexes.&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.viewport&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.scene3D-container&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.scene3D&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;absolute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;top&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;40%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;@media&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;only&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;screen&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;min-width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;600px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;45%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:nth-child&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;2n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:nth-child&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;2n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nl&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;@for&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;through&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;25&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:nth-child&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nl&quot;&gt;transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;translate3D&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+          &lt;span class=&quot;nf&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;25&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1%&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;nf&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;50&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1%&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;nf&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;itemZ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cameraSpeed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$i&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The CSS is now done, we have a 3D scene. In the following parts of this article, we are going to write some javascript that going to allow us to navigate in the scene.&lt;/p&gt;
+
+&lt;p class=&quot;codepen&quot; data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;vinceumo&quot; data-slug-hash=&quot;WmgxBG&quot; style=&quot;height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;&quot; data-pen-title=&quot;CSS 3d Scrolling in the z axis - Step 2&quot;&gt;
+&lt;span&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/WmgxBG/&quot;&gt;
+CSS 3d Scrolling in the z axis - Step 2&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;)
+on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;h4 id=&quot;scrolling-on-z-axis-move-camera&quot;&gt;Scrolling on z-axis (move camera)&lt;/h4&gt;
+
+&lt;p&gt;To be able to scroll, we need first to set the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;--viewportHeight&lt;/code&gt; which emulates the depth of the scene.&lt;/p&gt;
+
+&lt;p&gt;The depth of the scene is equal to the addition of the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The height of the user window
+    &lt;ul&gt;
+      &lt;li&gt;window.innerHeight&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;.scene3D-container&lt;/code&gt; perspective
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;var(--scenePerspective) * var(--cameraSpeed)&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The translate z value of our last item
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;var(--itemZ) * var(--cameraSpeed) * items.length&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let’s create a &lt;code class=&quot;highlighter-rouge&quot;&gt;setSceneHeight()&lt;/code&gt; function that will update the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;--viewportHeight&lt;/code&gt; on load.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DOMContentLoaded&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;setSceneHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setSceneHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;numberOfItems&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;films&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Or number of items you have in `.scene3D`&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;itemZ&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;parseFloat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;getComputedStyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;documentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getPropertyValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;--itemZ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scenePerspective&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;parseFloat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;getComputedStyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;documentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getPropertyValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;--scenePerspective&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cameraSpeed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;parseFloat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;getComputedStyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;documentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getPropertyValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;--cameraSpeed&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;height&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHeight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;scenePerspective&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cameraSpeed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;itemZ&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;cameraSpeed&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;numberOfItems&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// Update --viewportHeight value&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;documentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;--viewportHeight&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Our page has now a scrollbar, but we are still unable to scroll. We need to add an event listener that will listen to the user scrolling. The scroll event will call a &lt;code class=&quot;highlighter-rouge&quot;&gt;moveCamera()&lt;/code&gt; function. It will update the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;--cameraZ&lt;/code&gt; with the value of &lt;code class=&quot;highlighter-rouge&quot;&gt;[window.pageYOffset](https://developer.mozilla.org/en-US/docs/Web/API/Window/pageYOffset)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DOMContentLoaded&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;scroll&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;moveCamera&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;setSceneHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;moveCamera&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;documentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;--cameraZ&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;pageYOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;setSceneHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// ...&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p class=&quot;codepen&quot; data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-default-tab=&quot;js,result&quot; data-user=&quot;vinceumo&quot; data-slug-hash=&quot;pYxpLW&quot; style=&quot;height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;&quot; data-pen-title=&quot;CSS 3d Scrolling in the z axis - Step 3&quot;&gt;
+&lt;span&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/pYxpLW/&quot;&gt;
+CSS 3d Scrolling in the z axis - Step 3&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;)
+on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;h4 id=&quot;move-camera-angle&quot;&gt;Move camera angle&lt;/h4&gt;
+
+&lt;p&gt;Finally, let’s make our scene a bit more dynamic. On &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event&quot;&gt;mousemove event&lt;/a&gt; we are going to change the values of &lt;code class=&quot;highlighter-rouge&quot;&gt;scenePerspectiveOriginX&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;scenePerspectiveOriginY&lt;/code&gt;. This will give the illusion that the camera move. The items will stay straight in the scene. If you want to give a more realistic camera rotation movement, you could apply &lt;code class=&quot;highlighter-rouge&quot;&gt;[rotate3d()](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d)&lt;/code&gt; on the scene.&lt;/p&gt;
+
+&lt;p&gt;First, we are going to store the initial values of these two variables in a &lt;code class=&quot;highlighter-rouge&quot;&gt;perspectiveOrigin&lt;/code&gt; object, we are going to set a &lt;code class=&quot;highlighter-rouge&quot;&gt;perspectiveOrigin.maxGap&lt;/code&gt; value which is going to limit the maximum and minimum values of the variables. For example if &lt;code class=&quot;highlighter-rouge&quot;&gt;scenePerspectiveOriginY&lt;/code&gt; is equal to 50%. On mousemove, the new value will be between 40% and 60%.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;perspectiveOrigin&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;parseFloat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;getComputedStyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;documentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getPropertyValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;--scenePerspectiveOriginX&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;parseFloat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;getComputedStyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;documentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getPropertyValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;--scenePerspectiveOriginY&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;maxGap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If the user cursor is at the centre of the screen, we will set the values of &lt;code class=&quot;highlighter-rouge&quot;&gt;--scenePerspectiveOriginX&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;--scenePerspectiveOriginX&lt;/code&gt; as the initial ones. The further the cursor moves away from the centre, the bigger will increase/decrease these values. If the user moves to the top left corner the values will increase, on the bottom right corner they will decrease.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;moveCameraAngle()&lt;/code&gt; function is going to update the values:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;xGap&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;yGap&lt;/code&gt; return the mouse position of the user in percentage on the X and Y axis, compare to the centre of the window.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;newPerspectiveOriginX&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;newPerspectiveOriginY&lt;/code&gt; return the new perspective origin.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DOMContentLoaded&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;scroll&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;moveCamera&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;mousemove&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;moveCameraAngle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;setSceneHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;moveCameraAngle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;xGap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clientX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerWidth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerWidth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;yGap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;clientY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHeight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHeight&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;newPerspectiveOriginX&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;perspectiveOrigin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;xGap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;perspectiveOrigin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;maxGap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;newPerspectiveOriginY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;perspectiveOrigin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;yGap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;perspectiveOrigin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;maxGap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;documentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;--scenePerspectiveOriginX&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;newPerspectiveOriginX&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;documentElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setProperty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;--scenePerspectiveOriginY&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;newPerspectiveOriginY&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Our scene is now finished 🎉. I hope you enjoyed this article 😃&lt;/p&gt;
+
+&lt;p class=&quot;codepen&quot; data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-default-tab=&quot;js,result&quot; data-user=&quot;vinceumo&quot; data-slug-hash=&quot;NJEwwo&quot; style=&quot;height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;&quot; data-pen-title=&quot;CSS 3d Scrolling in the z axis - Step 4&quot;&gt;
+&lt;span&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/NJEwwo/&quot;&gt;
+CSS 3d Scrolling in the z axis - Step 4&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;)
+on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://tympanus.net/codrops/css_reference/perspective/&quot;&gt;perspective - Codrops&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/perspective&quot;&gt;perspective - MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://tympanus.net/codrops/css_reference/transform-style/&quot;&gt;transform-style - Codrops&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style&quot;&gt;transform-style - MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin&quot;&gt;perspective-origin - MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://css-tricks.com/things-watch-working-css-3d/&quot;&gt;Things to Watch Out for When Working with CSS 3D - CSS-tricks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://twitter.com/vince_umo&quot;&gt;Follow me on twitter&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/vinceumo&quot;&gt;Follow me on Github&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://dev.to/vinceumo&quot;&gt;Follow me on dev.to&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Vincent Humeau</name></author><summary type="html"></summary></entry><entry><title type="html">CSS custom properties - Cheatsheet</title><link href="/devNotes/css/2019/02/20/css-customs-properties.html" rel="alternate" type="text/html" title="CSS custom properties - Cheatsheet" /><published>2019-02-20T00:00:00+00:00</published><updated>2019-02-20T00:00:00+00:00</updated><id>/devNotes/css/2019/02/20/css-customs-properties</id><content type="html" xml:base="/devNotes/css/2019/02/20/css-customs-properties.html">&lt;p&gt;CSS custom properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.&lt;/p&gt;
 
 &lt;h2 id=&quot;declare-a-custom-property-in-css&quot;&gt;Declare a custom property in CSS&lt;/h2&gt;
 
@@ -958,40 +1377,4 @@ on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
   &lt;li&gt;&lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=921504&quot;&gt;implement the html5 inert attribute - bugzilla&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://robdodson.me/building-better-accessibility-primitives/&quot;&gt;Building better accessibility primitives&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=fGLp_gfMMGU&quot;&gt;📺 Inert Polyfill – A11ycasts #02&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Vincent Humeau</name></author><summary type="html">The inert attribute is still into draft and no browser currently support it. The current draft currently states:</summary></entry><entry><title type="html">hsl() &amp;amp; hsla()</title><link href="/devNotes/css/2018/08/17/hsl.html" rel="alternate" type="text/html" title="hsl() &amp; hsla()" /><published>2018-08-17T08:42:00+00:00</published><updated>2018-08-17T08:42:00+00:00</updated><id>/devNotes/css/2018/08/17/hsl</id><content type="html" xml:base="/devNotes/css/2018/08/17/hsl.html">&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;hsl()&lt;/code&gt; defines color using the HSL(A) model. It stands for hue, saturation and lightness.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;H&lt;/code&gt;: Hue, this is a degree on the color wheel from 0 to 360. Red is a 0, yellow at 60, green at 120, cyan at 180, blue at 240 and magenta at 300.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;S&lt;/code&gt;: Saturation, It is set from 0% to 100%, where 0% is a shade of grey and 100% is the full color vivid color.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;L&lt;/code&gt;: Lightness, It is set from 0% to 100%, where 0% is black and 100% is white. Above 50% you add white to your color, bellow 50% you add black to your color.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt;: Alpha (optional), the alpha channel set the opacity of the color, 0 is fully transparent and 1 is fully opaque.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;color: hsl(`hue from 0 to 360`, `saturation from 0% to 100%`, `lightness from 0% to 100%` [`Alpha from 0% to1 100%`])
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/devNotes/dist/img/hsl.jpg&quot; alt=&quot;HSL color wheel&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;h-hue---test&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;H&lt;/code&gt; Hue - test&lt;/h2&gt;
-
-&lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;zLgqZb&quot; data-default-tab=&quot;result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;hsl() test - Hue&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/zLgqZb/&quot;&gt;hsl() test - Hue&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
-&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;s-saturation---test&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;S&lt;/code&gt; Saturation - test&lt;/h2&gt;
-
-&lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;QBeNGa&quot; data-default-tab=&quot;result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;hsl() test - Saturation&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/QBeNGa/&quot;&gt;hsl() test - Saturation&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
-&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;l-lightness---test&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;L&lt;/code&gt; Lightness - test&lt;/h2&gt;
-
-&lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;XBvdJx&quot; data-default-tab=&quot;result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;hsl() test - Lighteness&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/XBvdJx/&quot;&gt;hsl() test - Lightness&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
-&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/color_value&quot;&gt;color - hsl and hsla - MDN&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.quackit.com/css/color/values/css_hsl_function.cfm&quot;&gt;CSS hsl() Function - Quackit&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://tympanus.net/codrops/css_reference/hsl/&quot;&gt;hsl() - codrops&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/&quot;&gt;On Switching from HEX &amp;amp; RGB to HSL - Sara Soueidan&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Vincent Humeau</name></author><summary type="html">hsl() defines color using the HSL(A) model. It stands for hue, saturation and lightness.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Vincent Humeau</name></author><summary type="html">The inert attribute is still into draft and no browser currently support it. The current draft currently states:</summary></entry></feed>
