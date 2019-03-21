@@ -37,7 +37,7 @@ To be allowed to render our Dom elements in a 3D space we need to have a look in
 }
 ```
 
-The value of `perspective` is a `[<length>](https://developer.mozilla.org/en-US/docs/Web/CSS/length)`.
+The value of `perspective` is a [<length>](https://developer.mozilla.org/en-US/docs/Web/CSS/length).
 
 ![perspective illustration]({{ site.baseurl }}/dist/img/css3d-z-scroll-perspective1.png)
 
@@ -301,7 +301,7 @@ function setSceneHeight() {
 }
 ```
 
-Our page has now a scrollbar, but we are still unable to scroll. We need to add an event listener that will listen to the user scrolling. The scroll event will call a `moveCamera()` function. It will update the value of `--cameraZ` with the value of `[window.pageYOffset](https://developer.mozilla.org/en-US/docs/Web/API/Window/pageYOffset)`.
+Our page has now a scrollbar, but we are still unable to scroll. We need to add an event listener that will listen to the user scrolling. The scroll event will call a `moveCamera()` function. It will update the value of `--cameraZ` with the value of [window.pageYOffset](https://developer.mozilla.org/en-US/docs/Web/API/Window/pageYOffset).
 
 ```js
 document.addEventListener("DOMContentLoaded", function() {
@@ -326,7 +326,7 @@ on <a href="https://codepen.io">CodePen</a>.</span>
 
 #### Move camera angle
 
-Finally, let's make our scene a bit more dynamic. On [mousemove event](https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event) we are going to change the values of `scenePerspectiveOriginX` and `scenePerspectiveOriginY`. This will give the illusion that the camera move. The items will stay straight in the scene. If you want to give a more realistic camera rotation movement, you could apply `[rotate3d()](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d)` on the scene.
+Finally, let's make our scene a bit more dynamic. On [mousemove event](https://developer.mozilla.org/en-US/docs/Web/API/Element/mousemove_event) we are going to change the values of `scenePerspectiveOriginX` and `scenePerspectiveOriginY`. This will give the illusion that the camera move. The items will stay straight in the scene. If you want to give a more realistic camera rotation movement, you could apply [rotate3d()](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate3d) on the scene.
 
 First, we are going to store the initial values of these two variables in a `perspectiveOrigin` object, we are going to set a `perspectiveOrigin.maxGap` value which is going to limit the maximum and minimum values of the variables. For example if `scenePerspectiveOriginY` is equal to 50%. On mousemove, the new value will be between 40% and 60%.
 
