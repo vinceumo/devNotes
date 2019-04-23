@@ -4,7 +4,7 @@ layout: home
 ---
 👋 My name is Vince, I'm lead Front End Developer at [Dam Digital](https://www.damdigital.com/), London, UK.
 
-DevNotes is a collection of notes and posts abouth things I learned around development.
+devNotes is a collection of notes and posts about things I learned around web development.
 
 You can check out my main posts on [dev.to](https://dev.to/vinceumo).
 
