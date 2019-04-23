@@ -1,14 +1,18 @@
 ---
 layout: home
----
 
-DevNotes/TIL (Today I Learnt) is a collection of things I learned around web development. This project is inspired by [@charliegerard/dev-notes](https://github.com/charliegerard/dev-notes) repo.
+---
+👋 My name is Vince, I'm lead Front End Developer at [Dam Digital](https://www.damdigital.com/), London, UK.
+
+DevNotes is a collection of notes and posts abouth things I learned around development.
+
+You can check out my main posts on [dev.to](https://dev.to/vinceumo).
 
 {% assign counter = 0 %}
 {% for post in site.posts %}
-  {% assign counter = counter | plus: 1 %}
+{% assign counter = counter | plus: 1 %}
 {% endfor %}
 
 Currently: <b>{{counter}}</b> devNotes.
 
----
+***
