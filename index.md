@@ -6,7 +6,7 @@ layout: home
 
 devNotes is a collection of notes and posts about things I learned around web development.
 
-You can check out my main posts on [dev.to](https://dev.to/vinceumo).
+You can check out my main posts on [dev.to](https://dev.to/vinceumo) or on [medium freeCodeCamp](https://medium.freecodecamp.org/@vince_umo_34593).
 
 {% assign counter = 0 %}
 {% for post in site.posts %}
