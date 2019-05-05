@@ -1,5 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-05-05T17:24:54+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
-</subtitle><author><name>Vincent Humeau</name></author><entry><title type="html">CSS 3D - Scrolling on the z-axis</title><link href="/devNotes/css/2019/03/21/css-3d-scrolling-on-the-z-axis.html" rel="alternate" type="text/html" title="CSS 3D - Scrolling on the z-axis" /><published>2019-03-21T00:00:00+00:00</published><updated>2019-03-21T00:00:00+00:00</updated><id>/devNotes/css/2019/03/21/css-3d-scrolling-on-the-z-axis</id><content type="html" xml:base="/devNotes/css/2019/03/21/css-3d-scrolling-on-the-z-axis.html">&lt;p&gt;&lt;img src=&quot;/devNotes/dist/img/css3d-z-scroll-demo.gif&quot; alt=&quot;Demo gif&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-05-05T17:25:43+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
+</subtitle><author><name>Vincent Humeau</name></author><entry><title type="html">Class (ES6) template use at DAM</title><link href="/devNotes/javascript/2019/05/04/class-es6-template-use-at-dam.html" rel="alternate" type="text/html" title="Class (ES6) template use at DAM" /><published>2019-05-04T23:00:00+00:00</published><updated>2019-05-04T23:00:00+00:00</updated><id>/devNotes/javascript/2019/05/04/class-es6-template-use-at-dam</id><content type="html" xml:base="/devNotes/javascript/2019/05/04/class-es6-template-use-at-dam.html">&lt;p&gt;Javascript (Class based) project structure use at Dam Digital for SSR (server-side rendering) applications. You can use &lt;a href=&quot;https://webpack.js.org/&quot;&gt;webpack&lt;/a&gt; or &lt;a href=&quot;https://parceljs.org/&quot;&gt;parcel&lt;/a&gt; to bundle your js project.&lt;/p&gt;
+
+&lt;p&gt;This project structure helps, developers, to write more modular/reusable code.&lt;/p&gt;
+
+&lt;h2 id=&quot;project-structure&quot;&gt;Project structure&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;js:
+| \---modules
+|     +---MyModule.js
+| +---vendors
+| +---index.js
+| +---global.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;indexjs&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;index.js&lt;/code&gt;&lt;/h2&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MyModule&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;.modules/MyModule&quot;&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;modules&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;MyModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MyModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Use default settings&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;MyModule2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MyModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Or use optional settings to overwrite default settings &lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;DOMContentLoaded&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;modules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;MyModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;modules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;MyModule2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;mymodulejs&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;MyModule.js&lt;/code&gt;&lt;/h2&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MyModule&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;MyModule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;updateSettings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selector&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selector&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selector&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'string'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ctas&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelectorAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ctaClassName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;kr&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;updateSettings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;userSettings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;defaultSettings&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;.my-selector&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Dom El or string&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;ctaClassName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;cta&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// String&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;otherOption&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Bool&lt;/span&gt;
+            &lt;span class=&quot;na&quot;&gt;onInit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Call back example&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;attrName&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;userSettings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;defaultSettings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attrName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;userSettings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;attrName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;defaultSettings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nx&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;//Do things&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onInit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes&quot;&gt;Classes - MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://javascriptplayground.com/introduction-to-es6-classes-tutorial/&quot;&gt;An introduction to ES6 classes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.freecodecamp.org/a-guide-to-prototype-based-class-inheritance-in-javascript-84953db26df0&quot;&gt;A guide to prototype-based class inheritance in JavaScript&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=T-HGdc8L-7w&quot;&gt;6.2: Classes in JavaScript with ES6 - p5.js Tutorial 📺&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS&quot;&gt;Object-oriented Java​Script for beginners - MDN&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import&quot;&gt;import - MDN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Vincent Humeau</name></author><summary type="html">Javascript (Class based) project structure use at Dam Digital for SSR (server-side rendering) applications. You can use webpack or parcel to bundle your js project.</summary></entry><entry><title type="html">CSS 3D - Scrolling on the z-axis</title><link href="/devNotes/css/2019/03/21/css-3d-scrolling-on-the-z-axis.html" rel="alternate" type="text/html" title="CSS 3D - Scrolling on the z-axis" /><published>2019-03-21T00:00:00+00:00</published><updated>2019-03-21T00:00:00+00:00</updated><id>/devNotes/css/2019/03/21/css-3d-scrolling-on-the-z-axis</id><content type="html" xml:base="/devNotes/css/2019/03/21/css-3d-scrolling-on-the-z-axis.html">&lt;p&gt;&lt;img src=&quot;/devNotes/dist/img/css3d-z-scroll-demo.gif&quot; alt=&quot;Demo gif&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In this article, we are going to create a small 3D scene, where the user can scroll on the z-axis. You can find the final code of this tutorial on &lt;a href=&quot;https://github.com/vinceumo/CSS-3D-Scrolling-z-axis-demo/&quot;&gt;github&lt;/a&gt;, and the demo if you follow this &lt;a href=&quot;https://vinceumo.github.io/CSS-3D-Scrolling-z-axis-demo/&quot;&gt;link&lt;/a&gt;.&lt;/p&gt;
 
@@ -1315,50 +1388,4 @@ on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/span&gt;
 &lt;p&gt;ParentComponent &amp;lt;==&amp;gt; ChildComponent&lt;/p&gt;
 
 &lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;LJVoaJ&quot; data-default-tab=&quot;js,result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;Vue js - Props and Event example&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/LJVoaJ/&quot;&gt;Vue js - Props and Event example&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
-&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;</content><author><name>Vincent Humeau</name></author><summary type="html">The following examples show how to pass data between components in vue js, using props and custom events.</summary></entry><entry><title type="html">Inert - Avoid keyboard trap</title><link href="/devNotes/a11y/2018/08/21/avoid-keyboard-trap.html" rel="alternate" type="text/html" title="Inert - Avoid keyboard trap" /><published>2018-08-21T14:49:19+00:00</published><updated>2018-08-21T14:49:19+00:00</updated><id>/devNotes/a11y/2018/08/21/avoid-keyboard-trap</id><content type="html" xml:base="/devNotes/a11y/2018/08/21/avoid-keyboard-trap.html">&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;inert&lt;/code&gt; attribute is still into draft and no browser currently support it. The current draft currently states:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A node (in particular elements and text nodes) can be marked as inert. When a node is inert, then the user agent must act as if the node was absent for the purposes of targeting user interaction events, may ignore the node for the purposes of text search user interfaces (commonly known as “find in page”), and may prevent the user from selecting text in that node.&lt;/p&gt;
-
-  &lt;p&gt;&lt;em&gt;&lt;a href=&quot;https://html.spec.whatwg.org/multipage/interaction.html#inert-subtrees&quot;&gt;Inert subtrees - HTML- Living Standard — Last Updated 20 August 2018&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;inert&lt;/code&gt; allow us to prevent access to subtrees, so we do not activate now visible DOM elements such as form elements, links, buttons etc. It helps us as well to tell assistive technology, such as screen readers, to not read &lt;code class=&quot;highlighter-rouge&quot;&gt;inert&lt;/code&gt; sections of your application.&lt;/p&gt;
-
-&lt;h2 id=&quot;example&quot;&gt;Example&lt;/h2&gt;
-
-&lt;p&gt;In this example, I use &lt;a href=&quot;https://github.com/WICG/inert&quot;&gt;Inert Polyfill from WICG&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Using this polyfill we can set a DOM element as inert by adding the &lt;code class=&quot;highlighter-rouge&quot;&gt;inert&lt;/code&gt; attribute:&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;inert&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;inert link&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!--  --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;To remove the inert attribute with js we use:&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;inert&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;To add the inert attribute with js we use:&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;inert&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Inert DOM elements have a red background in the following example.&lt;/p&gt;
-
-&lt;p data-height=&quot;500&quot; data-theme-id=&quot;dark&quot; data-slug-hash=&quot;BOaXLq&quot; data-default-tab=&quot;result&quot; data-user=&quot;vinceumo&quot; data-pen-title=&quot;Inert Polyfill&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;https://codepen.io/vinceumo/pen/BOaXLq/&quot;&gt;Inert Polyfill&lt;/a&gt; by Vincent Humeau (&lt;a href=&quot;https://codepen.io/vinceumo&quot;&gt;@vinceumo&lt;/a&gt;) on &lt;a href=&quot;https://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
-&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/WICG/inert&quot;&gt;Inert Polyfill - WICG&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.chromestatus.com/feature/5703266176335872&quot;&gt;inert attribute - Chrome Platform Status&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://dev.to/hybrid_alex/intro-to-the-inert-attribute-3d25&quot;&gt;Intro to the inert attribute - dev.to&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://bugzilla.mozilla.org/show_bug.cgi?id=921504&quot;&gt;implement the html5 inert attribute - bugzilla&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://robdodson.me/building-better-accessibility-primitives/&quot;&gt;Building better accessibility primitives&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=fGLp_gfMMGU&quot;&gt;📺 Inert Polyfill – A11ycasts #02&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Vincent Humeau</name></author><summary type="html">The inert attribute is still into draft and no browser currently support it. The current draft currently states:</summary></entry></feed>
+&lt;script async=&quot;&quot; src=&quot;https://static.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;</content><author><name>Vincent Humeau</name></author><summary type="html">The following examples show how to pass data between components in vue js, using props and custom events.</summary></entry></feed>
