@@ -12,7 +12,8 @@ An IIFE (Immediately Invoked Function Expression) is a JavaScript function that 
     document.addEventListener("DOMContentLoaded", function (event) {
         var ctas = document.querySelectorAll("button.cta");
 
-        Array.prototype.forEach.call(ctas, function (el, i) {
+       if(ctas){
+       Array.prototype.forEach.call(ctas, function (el, i) {
             var currentCta = ctas[i];
 
             //Event handler 1 for exemple click
@@ -30,6 +31,7 @@ An IIFE (Immediately Invoked Function Expression) is a JavaScript function that 
                 functionEventHandlerBehavior3(ctas, currentCta);
             });
         });
+       } 
 
     });
 
