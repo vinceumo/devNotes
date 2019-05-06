@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>
+    devNotes | Webpack 4 - Bundle SCSS and JavaScript for SSR applications
+  </title>
+  <meta name="description" content="Collection of things I learned around web development.
+" />
+  <meta name="author" content="Vincent Humeau" />
+  <link rel="manifest" href="/devNotes/manifest.json" />
+  
+  <link rel="canonical" href="" />
+  
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/devNotes/dist/img/icons/apple-touch-icon.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/devNotes/dist/img/icons/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/devNotes/dist/img/icons/favicon-16x16.png"
+  />
+  <link
+    rel="mask-icon"
+    href="/devNotes/dist/img/icons/safari-pinned-tab.svg"
+    color="#212121"
+  />
+  <link
+    rel="shortcut icon"
+    href="/devNotes/dist/img/icons/favicon.ico"
+  />
+  <meta name="msapplication-TileColor" content="#212121" />
+  <meta
+    name="msapplication-config"
+    content="/devNotes/dist/img/icons/browserconfig.xml"
+  />
+  <meta name="theme-color" content="#212121" />
+
+  <link rel="stylesheet" href="/devNotes/dist/css/screen.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Asap:400,700"
+    rel="stylesheet"
+  />
+</head>
+<body>
+    <div class="page-wrapper">
+      <header class="page-header">
+        <p>
+          <a class="site-title" href="/devNotes/">devNotes</a> <small>by <a href="https://www.vincent-humeau.com" rel="author">Vincent Humeau</a></small>
+        </p>
+      </header>
+      <main class="page-content" aria-label="Content">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 itemprop="name headline">Webpack 4 - Bundle SCSS and JavaScript for SSR applications</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-05-05T23:00:00+00:00" itemprop="datePublished">May 5, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="project-structure">Project structure</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Proj:
+| \---Content
+|     +---js
+|     |   +---index.js
+|     +---scss
+|     |   +---screen.scss
+| \---Dist
+|     +---css
+|     |   +---screen.css
+|     +---js
+|     |   +---index.js
+</code></pre></div></div>
+
+<h2 id="packagejson"><code class="highlighter-rouge">package.json</code></h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-app"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"@babel/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.4.4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"@babel/preset-env"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.4.3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"babel-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^8.0.5"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cssnano"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.1.10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"css-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cross-env"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.2.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"file-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.0.1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"mini-css-extract-plugin"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^0.6.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"node-sass"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.12.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postcss-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.0.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postcss-preset-env"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^6.6.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sass-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.1.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"webpack"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.30.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"webpack-cli"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.3.2"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"dev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webpack --watch"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cross-env NODE_ENV=production webpack"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="webpackconfigjs"><code class="highlighter-rouge">webpack.config.js</code></h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"path"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">MiniCssExtractPlugin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"mini-css-extract-plugin"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">devMode</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">!==</span> <span class="s2">"production"</span><span class="p">;</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">mode</span><span class="p">:</span> <span class="nx">devMode</span> <span class="p">?</span> <span class="s2">"development"</span> <span class="p">:</span> <span class="s2">"production"</span><span class="p">,</span>
+  <span class="na">entry</span><span class="p">:</span> <span class="p">[</span><span class="s2">"./Content/js/index.js"</span><span class="p">,</span> <span class="s2">"./Content/scss/screen.scss"</span><span class="p">],</span>
+  <span class="na">output</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">path</span><span class="p">:</span> <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">"Dist"</span><span class="p">),</span>
+    <span class="na">publicPath</span><span class="p">:</span> <span class="s2">"/Dist"</span><span class="p">,</span>
+    <span class="na">filename</span><span class="p">:</span> <span class="nx">devMode</span> <span class="p">?</span> <span class="s2">"js/index.js"</span> <span class="p">:</span> <span class="s2">"js/index.min.js"</span>
+  <span class="p">},</span>
+  <span class="na">module</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">rules</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.(</span><span class="sr">js</span><span class="se">)</span><span class="sr">$/</span><span class="p">,</span>
+        <span class="na">exclude</span><span class="p">:</span> <span class="sr">/node_modules/</span><span class="p">,</span>
+        <span class="na">use</span><span class="p">:</span> <span class="p">{</span>
+          <span class="na">loader</span><span class="p">:</span> <span class="s2">"babel-loader"</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.(</span><span class="sr">sa|sc</span><span class="se">)</span><span class="sr">ss$/</span><span class="p">,</span>
+        <span class="na">use</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="na">loader</span><span class="p">:</span> <span class="nx">MiniCssExtractPlugin</span><span class="p">.</span><span class="nx">loader</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="na">loader</span><span class="p">:</span> <span class="s2">"css-loader"</span><span class="p">,</span>
+            <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+              <span class="na">importLoaders</span><span class="p">:</span> <span class="mi">2</span>
+            <span class="p">}</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="na">loader</span><span class="p">:</span> <span class="s2">"postcss-loader"</span><span class="p">,</span>
+            <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+              <span class="na">ident</span><span class="p">:</span> <span class="s2">"postcss"</span><span class="p">,</span>
+              <span class="na">plugins</span><span class="p">:</span> <span class="nx">devMode</span> <span class="p">?</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">[]</span> <span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">require</span><span class="p">(</span><span class="s2">"cssnano"</span><span class="p">)()]</span>
+            <span class="p">}</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="na">loader</span><span class="p">:</span> <span class="s2">"sass-loader"</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">test</span><span class="p">:</span> <span class="sr">/</span><span class="se">\.(</span><span class="sr">woff</span><span class="se">(</span><span class="sr">2</span><span class="se">)?</span><span class="sr">|ttf|eot|svg</span><span class="se">)(\?</span><span class="sr">v=</span><span class="se">\d</span><span class="sr">+</span><span class="se">\.\d</span><span class="sr">+</span><span class="se">\.\d</span><span class="sr">+</span><span class="se">)?</span><span class="sr">$/</span><span class="p">,</span>
+        <span class="na">use</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="na">loader</span><span class="p">:</span> <span class="s2">"file-loader"</span><span class="p">,</span>
+            <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
+              <span class="na">name</span><span class="p">:</span> <span class="s2">"[name].[ext]"</span><span class="p">,</span>
+              <span class="na">outputPath</span><span class="p">:</span> <span class="s2">"/fonts/"</span>
+            <span class="p">}</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span>
+    <span class="k">new</span> <span class="nx">MiniCssExtractPlugin</span><span class="p">({</span>
+      <span class="na">filename</span><span class="p">:</span> <span class="nx">devMode</span> <span class="p">?</span> <span class="s2">"css/screen.css"</span> <span class="p">:</span> <span class="s2">"css/screen.min.css"</span>
+    <span class="p">})</span>
+  <span class="p">]</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="postcssconfigjs"><code class="highlighter-rouge">postcss.config.js</code></h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">modules</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="na">plugins</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">autoprefixer</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">grid</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="browserslistrc"><code class="highlighter-rouge">.browserslistrc</code></h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; 1%
+last 2 versions
+ie 11
+</code></pre></div></div>
+
+<h2 id="babelrc"><code class="highlighter-rouge">.babelrc</code></h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "presets": ["@babel/preset-env"]
+}
+</code></pre></div></div>
+
+  </div>
+
+  <a class="u-url" href="/devNotes/javascript/2019/05/05/webpack-4-bundle-scss-and-javascript-for-ssr-applications.html" hidden></a>
+</article>
+      </main>
+      <footer>
+        <p>🌍 London, UK</p>
+        <ul class="links">
+          <li><a href="/devNotes/feed.xml">RSS</a></li>
+          <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+          <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+        </ul>
+        <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+        <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+      </footer>
+    </div>
+    <script src="/devNotes/dist/js/scriptsBundleMain.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/devNotes/sw.js');
+        });
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+  </body>
+</html>
