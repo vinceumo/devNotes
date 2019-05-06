@@ -28,7 +28,7 @@ fields:
   hidden: false
   default: ''
 pages:
-- _posts/Javascript/webpack-4-bundle-scss-and-javascript-for-ssr-applications.md
+- _posts/Javascript/2019-05-05-webpack-4-bundle-scss-and-javascript-for-ssr-applications.md
 - _posts/Javascript/2019-05-04-class-es6-template-use-at-dam.md
 - _posts/CSS/2019-03-21-css-3d-scrolling-on-the-z-axis.md
 - _posts/CSS/2019-02-20-css-customs-properties.md
