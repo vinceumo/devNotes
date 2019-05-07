@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Webpack 4 - Bundle SCSS and JavaScript for SSR applications
-date: 2019-05-05 23:00:00 +0000
+date: 2019-05-05T23:00:00.000+00:00
 categories:
 - Javascript
 canonical: ''
@@ -9,19 +9,17 @@ canonical: ''
 ---
 ## Project structure
 
-```
-Proj:
-| \---Content
-|     +---js
-|     |   +---index.js
-|     +---scss
-|     |   +---screen.scss
-| \---Dist
-|     +---css
-|     |   +---screen.css
-|     +---js
-|     |   +---index.js
-```
+    Proj:
+    | \---Content
+    |     +---js
+    |     |   +---index.js
+    |     +---scss
+    |     |   +---screen.scss
+    | \---Dist
+    |     +---css
+    |     |   +---screen.css
+    |     +---js
+    |     |   +---index.js
 
 ## `package.json`
 
@@ -129,31 +127,14 @@ module.exports = {
 };
 ```
 
-## `postcss.config.js`
-
-```js
-module.exports = {
-  modules: false,
-  plugins: {
-    autoprefixer: {
-      grid: true
-    }
-  }
-};
-```
-
 ## `.browserslistrc`
 
-```
-> 1%
-last 2 versions
-ie 11
-```
+    > 1%
+    last 2 versions
+    ie 11
 
 ## `.babelrc`
 
-```
-{
-  "presets": ["@babel/preset-env"]
-}
-```
+    {
+      "presets": ["@babel/preset-env"]
+    }
