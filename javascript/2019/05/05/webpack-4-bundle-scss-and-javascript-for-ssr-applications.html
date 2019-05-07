@@ -93,6 +93,7 @@
   </span><span class="s2">"private"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"@babel/core"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.4.4"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"@fullhuman/postcss-purgecss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1.2.0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"@babel/preset-env"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^7.4.3"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"babel-loader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^8.0.5"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"cssnano"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^4.1.10"</span><span class="p">,</span><span class="w">
@@ -119,6 +120,7 @@
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"path"</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">MiniCssExtractPlugin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"mini-css-extract-plugin"</span><span class="p">);</span>
 <span class="kd">const</span> <span class="nx">devMode</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">!==</span> <span class="s2">"production"</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">purgecss</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'@fullhuman/postcss-purgecss'</span><span class="p">);</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">mode</span><span class="p">:</span> <span class="nx">devMode</span> <span class="p">?</span> <span class="s2">"development"</span> <span class="p">:</span> <span class="s2">"production"</span><span class="p">,</span>
@@ -153,7 +155,11 @@
             <span class="na">loader</span><span class="p">:</span> <span class="s2">"postcss-loader"</span><span class="p">,</span>
             <span class="na">options</span><span class="p">:</span> <span class="p">{</span>
               <span class="na">ident</span><span class="p">:</span> <span class="s2">"postcss"</span><span class="p">,</span>
-              <span class="na">plugins</span><span class="p">:</span> <span class="nx">devMode</span> <span class="p">?</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">[]</span> <span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">require</span><span class="p">(</span><span class="s2">"cssnano"</span><span class="p">)()]</span>
+              <span class="na">plugins</span><span class="p">:</span> <span class="nx">devMode</span> <span class="p">?</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">require</span><span class="p">(</span><span class="s2">"autoprefixer"</span><span class="p">)({</span> <span class="na">grid</span><span class="p">:</span> <span class="kc">true</span><span class="p">})]</span> <span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">require</span><span class="p">(</span><span class="s2">"autoprefixer"</span><span class="p">)({</span> <span class="na">grid</span><span class="p">:</span> <span class="kc">true</span><span class="p">}),</span>          <span class="nx">require</span><span class="p">(</span><span class="s2">"cssnano"</span><span class="p">)(),</span>
+              <span class="nx">purgecss</span><span class="p">({</span>
+                <span class="na">content</span><span class="p">:</span> <span class="p">[</span><span class="s1">'./Views/**/*.cshtml'</span><span class="p">,</span> <span class="s1">'./Content/js/**/*.js'</span><span class="p">,</span> <span class="p">,</span> <span class="s1">'./Content/apps/**/*.vue'</span><span class="p">]</span>
+              <span class="p">})</span>
+            <span class="p">]</span>
             <span class="p">}</span>
           <span class="p">},</span>
           <span class="p">{</span>
