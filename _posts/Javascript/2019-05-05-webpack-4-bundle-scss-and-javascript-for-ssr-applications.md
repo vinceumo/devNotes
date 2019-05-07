@@ -46,7 +46,7 @@ canonical: ''
     "webpack-cli": "^3.3.2"
   },
   "scripts": {
-    "dev": "webpack --watch",
+    "serve": "webpack --watch",
     "build": "cross-env NODE_ENV=production webpack"
   }
 }
