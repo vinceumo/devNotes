@@ -32,6 +32,7 @@ Proj:
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.4.4",
+    "@fullhuman/postcss-purgecss": "^1.2.0",
     "@babel/preset-env": "^7.4.3",
     "babel-loader": "^8.0.5",
     "cssnano": "^4.1.10",
@@ -59,6 +60,7 @@ Proj:
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== "production";
+const purgecss = require('@fullhuman/postcss-purgecss');
 
 module.exports = {
   mode: devMode ? "development" : "production",
@@ -93,7 +95,11 @@ module.exports = {
             loader: "postcss-loader",
             options: {
               ident: "postcss",
-              plugins: devMode ? () => [] : () => [require("cssnano")()]
+              plugins: devMode ? () => [require("autoprefixer")({ grid: true})] : () => [require("autoprefixer")({ grid: true}),          require("cssnano")(),
+              purgecss({
+                content: ['./Views/**/*.cshtml', './Content/js/**/*.js', , './Content/apps/**/*.vue']
+              })
+            ]
             }
           },
           {
