@@ -1,10 +1,13 @@
 ---
 layout: post
-title:  "Vue - SCSS set up with Vue CLI 3"
-date:   2018-08-13 09:50:00 +0100
-categories: Javascript
----
+title: Vue - SCSS set up with Vue CLI 3
+date: 2018-08-13T08:50:00.000+00:00
+categories:
+- Javascript
+post_type: snippet
+canonical: ''
 
+---
 ## Setup Vue CLI 3
 
 When creating a new project with `vue create my-vue-project`, pick `Manually select features` and check `CSS Pre-processors`.
