@@ -27,6 +27,20 @@ fields:
   type: text
   hidden: false
   default: ''
+- name: post_type
+  type: select
+  default: snippet
+  config:
+    required: true
+    options:
+    - snippet
+    - post
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Post type
 pages:
 - _posts/Javascript/2019-05-05-webpack-4-bundle-scss-and-javascript-for-ssr-applications.md
 - _posts/Javascript/2019-05-04-class-es6-template-use-at-dam.md
