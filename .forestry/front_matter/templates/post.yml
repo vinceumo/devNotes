@@ -42,6 +42,7 @@ fields:
       path: 
   label: Post type
 pages:
+- _posts/CSS/2018-08-17-hsl.md
 - _posts/dotnet/2018-10-29-signalR.md
 - _posts/Javascript/2018-07-21-IIFEE-template-dam.md
 - _posts/Javascript/2018-07-31-hoisting.md
