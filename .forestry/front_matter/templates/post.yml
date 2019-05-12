@@ -42,6 +42,7 @@ fields:
       path: 
   label: Post type
 pages:
+- _posts/Tools/2018-07-21-ngrok.md
 - _posts/Tools/2018-07-21-youtube-thumbnails.md
 - _posts/dotnet/2019-05-11-c-practice.md
 - _posts/Javascript/2018-08-24-vue-props-events.md
