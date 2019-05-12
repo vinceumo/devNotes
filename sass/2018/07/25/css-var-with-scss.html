@@ -110,7 +110,7 @@ _z-index.scss
 <span class="c1">// ------------------------------</span>
 <span class="c1">// Set variable function</span>
 <span class="c1">// ------------------------------</span>
-<span class="k">@function</span> <span class="nf">myVariable</span><span class="p">(</span><span class="nv">$variable</span><span class="o">,</span> <span class="nv">$true-val</span><span class="o">:</span><span class="bp">false</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">@function</span> <span class="nf">myVariable</span><span class="p">(</span><span class="nv">$variable</span><span class="o">,</span> <span class="nv">$true-val</span><span class="o">:</span> <span class="bp">false</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">@if</span> <span class="nv">$use-css-var</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
     <span class="k">@if</span> <span class="nv">$true-val</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
       <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$variables</span><span class="o">,</span> <span class="nv">$variable</span><span class="p">);</span> <span class="c1">//True Val</span>
@@ -122,32 +122,31 @@ _z-index.scss
   <span class="p">}</span>
 <span class="p">}</span>
 
-  <span class="c1">// If $use-css-var == true</span>
-    <span class="c1">// myVariable(val1) =&gt; var(--variable-val1)</span>
-    <span class="c1">// myVariable(val2, true) =&gt; 2</span>
-  <span class="c1">// If $use-css-var == false</span>
-    <span class="c1">// myVariable(val3) =&gt; 3</span>
-    <span class="c1">// myVariable(val2, true) =&gt; 2</span>
+<span class="c1">// If $use-css-var == true</span>
+<span class="c1">// myVariable(val1) =&gt; var(--variable-val1)</span>
+<span class="c1">// myVariable(val2, true) =&gt; 2</span>
+<span class="c1">// If $use-css-var == false</span>
+<span class="c1">// myVariable(val3) =&gt; 3</span>
+<span class="c1">// myVariable(val2, true) =&gt; 2</span>
 
 <span class="c1">// ------------------------------</span>
 <span class="c1">// Set root variables</span>
 <span class="c1">// ------------------------------</span>
 <span class="k">@if</span> <span class="nv">$use-css-var</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
-  <span class="nd">:root</span><span class="p">{</span>
+  <span class="nd">:root</span> <span class="p">{</span>
     <span class="k">@each</span> <span class="nv">$name</span><span class="o">,</span> <span class="nv">$variable</span> <span class="n">in</span> <span class="nv">$variables</span> <span class="p">{</span>
       <span class="si">#{</span><span class="nv">$variable-prefix</span><span class="si">}#{</span><span class="nv">$name</span><span class="si">}</span><span class="nd">:</span> <span class="err">$</span><span class="nt">variable</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-  <span class="c1">// Output if $use-css-var == true</span>
-  <span class="c1">// :root{</span>
-  <span class="c1">//   --variable-val1: 1;</span>
-  <span class="c1">//   --variable-val2: 2;</span>
-  <span class="c1">//   --variable-val3: 3;</span>
-  <span class="c1">//   /*etc.*/</span>
-  <span class="c1">// }</span>
-
+<span class="c1">// Output if $use-css-var == true</span>
+<span class="c1">// :root{</span>
+<span class="c1">//   --variable-val1: 1;</span>
+<span class="c1">//   --variable-val2: 2;</span>
+<span class="c1">//   --variable-val3: 3;</span>
+<span class="c1">//   /*etc.*/</span>
+<span class="c1">// }</span>
 </code></pre></div></div>
 
 <p>Example for spacer variables:</p>
@@ -159,21 +158,37 @@ _z-index.scss
 <span class="nv">$spacer-prefix</span><span class="p">:</span> <span class="o">--</span><span class="n">spacer-</span><span class="p">;</span>
 <span class="nv">$spacers</span><span class="p">:</span> <span class="p">(</span>
   <span class="m">0</span><span class="o">:</span> <span class="m">0</span><span class="o">,</span>
-  <span class="m">1</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">0</span><span class="mi">.25</span><span class="p">)</span><span class="o">,</span>
-  <span class="m">2</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+  <span class="m">1</span><span class="o">:</span> <span class="p">(</span>
+    <span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">0</span><span class="mi">.25</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="m">2</span><span class="o">:</span> <span class="p">(</span>
+    <span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">0</span><span class="mi">.5</span>
+  <span class="p">)</span><span class="o">,</span>
   <span class="m">3</span><span class="o">:</span> <span class="nv">$spacer-reference</span><span class="o">,</span>
-  <span class="m">4</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">1</span><span class="mi">.25</span><span class="p">)</span><span class="o">,</span>
-  <span class="m">5</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">1</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
-  <span class="m">6</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">3</span><span class="p">)</span><span class="o">,</span>
-  <span class="m">7</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">6</span><span class="p">)</span><span class="o">,</span>
-  <span class="m">8</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">9</span><span class="p">)</span><span class="o">,</span>
-  <span class="m">9</span><span class="o">:</span> <span class="p">(</span><span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">12</span><span class="p">)</span>
+  <span class="m">4</span><span class="o">:</span> <span class="p">(</span>
+    <span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">1</span><span class="mi">.25</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="m">5</span><span class="o">:</span> <span class="p">(</span>
+    <span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">1</span><span class="mi">.5</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="m">6</span><span class="o">:</span> <span class="p">(</span>
+    <span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">3</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="m">7</span><span class="o">:</span> <span class="p">(</span>
+    <span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">6</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="m">8</span><span class="o">:</span> <span class="p">(</span>
+    <span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">9</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="m">9</span><span class="o">:</span> <span class="p">(</span>
+    <span class="nv">$spacer-reference</span> <span class="o">*</span> <span class="m">12</span>
+  <span class="p">)</span>
 <span class="p">);</span>
 
 <span class="c1">// ------------------------------</span>
 <span class="c1">// Set spacer function</span>
 <span class="c1">// ------------------------------</span>
-<span class="k">@function</span> <span class="nf">spacer</span><span class="p">(</span><span class="nv">$spacer</span><span class="o">,</span> <span class="nv">$true-val</span><span class="o">:</span><span class="bp">false</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">@function</span> <span class="nf">spacer</span><span class="p">(</span><span class="nv">$spacer</span><span class="o">,</span> <span class="nv">$true-val</span><span class="o">:</span> <span class="bp">false</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">@if</span> <span class="nv">$use-css-var</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
     <span class="k">@if</span> <span class="nv">$true-val</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
       <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$spacers</span><span class="o">,</span> <span class="nv">$spacer</span><span class="p">);</span> <span class="c1">//True Val</span>
@@ -189,7 +204,7 @@ _z-index.scss
 <span class="c1">// Set root variables</span>
 <span class="c1">// ------------------------------</span>
 <span class="k">@if</span> <span class="nv">$use-css-var</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
-  <span class="nd">:root</span><span class="p">{</span>
+  <span class="nd">:root</span> <span class="p">{</span>
     <span class="k">@each</span> <span class="nv">$name</span><span class="o">,</span> <span class="nv">$spacer</span> <span class="n">in</span> <span class="nv">$spacers</span> <span class="p">{</span>
       <span class="si">#{</span><span class="nv">$spacer-prefix</span><span class="si">}#{</span><span class="nv">$name</span><span class="si">}</span><span class="nd">:</span> <span class="err">$</span><span class="nt">spacer</span><span class="p">;</span>
     <span class="p">}</span>
@@ -204,86 +219,76 @@ _z-index.scss
 <span class="c1">// ------------------------------</span>
 <span class="nv">$color-prefix</span><span class="p">:</span> <span class="o">--</span><span class="n">color-</span><span class="p">;</span>
 <span class="nv">$color-themes</span><span class="p">:</span> <span class="p">(</span>
-  <span class="n">primary</span><span class="o">:</span>
-    <span class="p">(</span>
-      <span class="n">base</span><span class="o">:</span> <span class="mh">#4c5c8c</span><span class="o">,</span>
-      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#4c5c8c</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#4c5c8c</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#4c5c8c</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
-    <span class="p">)</span><span class="o">,</span>
-  <span class="n">secondary</span><span class="o">:</span>
-    <span class="p">(</span>
-      <span class="n">base</span><span class="o">:</span> <span class="mh">#212529</span><span class="o">,</span>
-      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
-    <span class="p">)</span><span class="o">,</span>
-  <span class="nb">text</span><span class="o">:</span>
-    <span class="p">(</span>
-      <span class="n">base</span><span class="o">:</span> <span class="mh">#212529</span><span class="o">,</span>
-      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
-    <span class="p">)</span><span class="o">,</span>
-  <span class="n">link</span><span class="o">:</span>
-    <span class="p">(</span>
-      <span class="n">base</span><span class="o">:</span> <span class="mh">#4b7e9e</span><span class="o">,</span>
-      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#4b7e9e</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#4b7e9e</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#4b7e9e</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
-    <span class="p">)</span><span class="o">,</span>
-  <span class="n">success</span><span class="o">:</span>
-    <span class="p">(</span>
-      <span class="n">base</span><span class="o">:</span> <span class="mh">#4b9b50</span><span class="o">,</span>
-      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#4b9b50</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#4b9b50</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#4b9b50</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
-    <span class="p">)</span><span class="o">,</span>
-  <span class="n">danger</span><span class="o">:</span>
-    <span class="p">(</span>
-      <span class="n">base</span><span class="o">:</span> <span class="mh">#c65556</span><span class="o">,</span>
-      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#c65556</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#c65556</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#c65556</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
-    <span class="p">)</span><span class="o">,</span>
-  <span class="n">warning</span><span class="o">:</span>
-    <span class="p">(</span>
-      <span class="n">base</span><span class="o">:</span> <span class="mh">#d3b354</span><span class="o">,</span>
-      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#d3b354</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#d3b354</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#d3b354</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
-    <span class="p">)</span><span class="o">,</span>
-  <span class="n">light</span><span class="o">:</span>
-    <span class="p">(</span>
-      <span class="n">base</span><span class="o">:</span> <span class="mh">#efe5cf</span><span class="o">,</span>
-      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#efe5cf</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#efe5cf</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#efe5cf</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#343a40</span>
-    <span class="p">)</span><span class="o">,</span>
-  <span class="n">dark</span><span class="o">:</span>
-    <span class="p">(</span>
-      <span class="n">base</span><span class="o">:</span> <span class="mh">#343a40</span><span class="o">,</span>
-      <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#343a40</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#343a40</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
-      <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#343a40</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
-      <span class="n">contrast</span><span class="o">:</span> <span class="mh">#efe5cf</span>
-    <span class="p">)</span>
+  <span class="n">primary</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">base</span><span class="o">:</span> <span class="mh">#4c5c8c</span><span class="o">,</span>
+    <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#4c5c8c</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#4c5c8c</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#4c5c8c</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="n">secondary</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">base</span><span class="o">:</span> <span class="mh">#212529</span><span class="o">,</span>
+    <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="nb">text</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">base</span><span class="o">:</span> <span class="mh">#212529</span><span class="o">,</span>
+    <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#212529</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="n">link</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">base</span><span class="o">:</span> <span class="mh">#4b7e9e</span><span class="o">,</span>
+    <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#4b7e9e</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#4b7e9e</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#4b7e9e</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="n">success</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">base</span><span class="o">:</span> <span class="mh">#4b9b50</span><span class="o">,</span>
+    <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#4b9b50</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#4b9b50</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#4b9b50</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="n">danger</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">base</span><span class="o">:</span> <span class="mh">#c65556</span><span class="o">,</span>
+    <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#c65556</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#c65556</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#c65556</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="n">warning</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">base</span><span class="o">:</span> <span class="mh">#d3b354</span><span class="o">,</span>
+    <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#d3b354</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#d3b354</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#d3b354</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">contrast</span><span class="o">:</span> <span class="mh">#ffffff</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="n">light</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">base</span><span class="o">:</span> <span class="mh">#efe5cf</span><span class="o">,</span>
+    <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#efe5cf</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#efe5cf</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#efe5cf</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">contrast</span><span class="o">:</span> <span class="mh">#343a40</span>
+  <span class="p">)</span><span class="o">,</span>
+  <span class="n">dark</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">base</span><span class="o">:</span> <span class="mh">#343a40</span><span class="o">,</span>
+    <span class="n">dark</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#343a40</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">light</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="mh">#343a40</span><span class="o">,</span> <span class="m">15%</span><span class="p">)</span><span class="o">,</span>
+    <span class="nb">transparent</span><span class="o">:</span> <span class="nf">transparentize</span><span class="p">(</span><span class="mh">#343a40</span><span class="o">,</span> <span class="m">0</span><span class="mi">.5</span><span class="p">)</span><span class="o">,</span>
+    <span class="n">contrast</span><span class="o">:</span> <span class="mh">#efe5cf</span>
+  <span class="p">)</span>
 <span class="p">);</span>
-
 
 <span class="c1">// ------------------------------</span>
 <span class="c1">// Set color function</span>
 <span class="c1">// ------------------------------</span>
 <span class="c1">// retrieve color from map with Sass ie. `color(primary, base)`</span>
-<span class="k">@function</span> <span class="nf">color</span><span class="p">(</span><span class="nv">$color-name</span><span class="o">,</span> <span class="nv">$color-variant</span><span class="o">:</span><span class="n">null</span><span class="o">,</span> <span class="nv">$true-val</span><span class="o">:</span><span class="bp">false</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">@function</span> <span class="nf">color</span><span class="p">(</span><span class="nv">$color-name</span><span class="o">,</span> <span class="nv">$color-variant</span><span class="o">:</span> <span class="n">null</span><span class="o">,</span> <span class="nv">$true-val</span><span class="o">:</span> <span class="bp">false</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// if we enable css var</span>
   <span class="k">@if</span> <span class="nv">$use-css-var</span> <span class="o">==</span> <span class="bp">true</span> <span class="p">{</span>
     <span class="c1">// we need to return the color value</span>
@@ -291,10 +296,10 @@ _z-index.scss
       <span class="c1">// color variant is optional</span>
       <span class="k">@if</span> <span class="p">(</span><span class="nv">$color-variant</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// map inception, need two deep</span>
-        <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nf">map-get</span><span class="p">(</span><span class="nv">$color-themes</span><span class="o">,</span><span class="nv">$color-name</span><span class="p">)</span><span class="o">,</span><span class="nv">$color-variant</span><span class="p">);</span>
+        <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nf">map-get</span><span class="p">(</span><span class="nv">$color-themes</span><span class="o">,</span> <span class="nv">$color-name</span><span class="p">)</span><span class="o">,</span> <span class="nv">$color-variant</span><span class="p">);</span>
       <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
         <span class="c1">// Default color</span>
-        <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nf">map-get</span><span class="p">(</span><span class="nv">$color-themes</span><span class="o">,</span><span class="nv">$color-name</span><span class="p">)</span><span class="o">,</span> <span class="n">base</span><span class="p">);</span>
+        <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nf">map-get</span><span class="p">(</span><span class="nv">$color-themes</span><span class="o">,</span> <span class="nv">$color-name</span><span class="p">)</span><span class="o">,</span> <span class="n">base</span><span class="p">);</span>
       <span class="p">}</span> <span class="c1">// if we're only returning the CSS4 variable</span>
     <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
       <span class="c1">// color variant is optional</span>
@@ -310,10 +315,10 @@ _z-index.scss
     <span class="c1">// color variant is optional</span>
     <span class="k">@if</span> <span class="p">(</span><span class="nv">$color-variant</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
       <span class="c1">// map inception, need two deep</span>
-      <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nf">map-get</span><span class="p">(</span><span class="nv">$color-themes</span><span class="o">,</span><span class="nv">$color-name</span><span class="p">)</span><span class="o">,</span><span class="nv">$color-variant</span><span class="p">);</span>
+      <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nf">map-get</span><span class="p">(</span><span class="nv">$color-themes</span><span class="o">,</span> <span class="nv">$color-name</span><span class="p">)</span><span class="o">,</span> <span class="nv">$color-variant</span><span class="p">);</span>
     <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
       <span class="c1">// Default color</span>
-      <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nf">map-get</span><span class="p">(</span><span class="nv">$color-themes</span><span class="o">,</span><span class="nv">$color-name</span><span class="p">)</span><span class="o">,</span> <span class="n">base</span><span class="p">);</span>
+      <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nf">map-get</span><span class="p">(</span><span class="nv">$color-themes</span><span class="o">,</span> <span class="nv">$color-name</span><span class="p">)</span><span class="o">,</span> <span class="n">base</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>

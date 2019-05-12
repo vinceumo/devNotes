@@ -72,69 +72,74 @@
   <div class="post-content" itemprop="articleBody">
     <p>Exemple on how to get the user current postcode using Google map Geocoding API and HTML5 Geolocation (Navigator.geolocation).</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maps.googleapis.com/maps/api/js?key=[Your Key]"</span>
-            <span class="na">async</span> <span class="na">defer</span><span class="nt">&gt;&lt;/script&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script
+  </span><span class="na">src=</span><span class="s">"https://maps.googleapis.com/maps/api/js?key=[Your Key]"</span>
+  <span class="na">async</span>
+  <span class="na">defer</span>
+<span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre></div></div>
 
 <hr />
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nb">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">getCurrentLocation</span><span class="p">.</span><span class="nx">location</span><span class="p">();</span>
-        <span class="p">}</span>
-    <span class="p">});</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="nx">event</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">getCurrentLocation</span><span class="p">.</span><span class="nx">location</span><span class="p">();</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
 
-    <span class="kd">const</span> <span class="nx">getCurrentLocation</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="na">success</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">const</span> <span class="nx">_this</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-            <span class="kd">const</span> <span class="nx">geocoder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Geocoder</span><span class="p">;</span>
-            <span class="kd">const</span> <span class="nx">latlng</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="na">lat</span><span class="p">:</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">,</span>
-                <span class="na">lng</span><span class="p">:</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span>
-            <span class="p">};</span>
-            <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">{</span>
-                <span class="na">error</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-                <span class="na">value</span><span class="p">:</span> <span class="s2">""</span>
-            <span class="p">};</span>
+  <span class="kd">const</span> <span class="nx">getCurrentLocation</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">position</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">_this</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+      <span class="kd">const</span> <span class="nx">geocoder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Geocoder</span><span class="p">();</span>
+      <span class="kd">const</span> <span class="nx">latlng</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">lat</span><span class="p">:</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">latitude</span><span class="p">,</span>
+        <span class="na">lng</span><span class="p">:</span> <span class="nx">position</span><span class="p">.</span><span class="nx">coords</span><span class="p">.</span><span class="nx">longitude</span>
+      <span class="p">};</span>
+      <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">error</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="na">value</span><span class="p">:</span> <span class="s2">""</span>
+      <span class="p">};</span>
 
-            <span class="nx">geocoder</span><span class="p">.</span><span class="nx">geocode</span><span class="p">({</span> <span class="s2">"location"</span><span class="p">:</span> <span class="nx">latlng</span> <span class="p">},</span> <span class="p">(</span><span class="nx">results</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                <span class="k">if</span> <span class="p">(</span><span class="nx">status</span> <span class="o">===</span> <span class="s1">'OK'</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="k">if</span> <span class="p">(</span><span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
-                        <span class="kd">const</span> <span class="nx">resultsData</span> <span class="o">=</span> <span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">address_components</span><span class="p">;</span>
+      <span class="nx">geocoder</span><span class="p">.</span><span class="nx">geocode</span><span class="p">({</span> <span class="na">location</span><span class="p">:</span> <span class="nx">latlng</span> <span class="p">},</span> <span class="p">(</span><span class="nx">results</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">status</span> <span class="o">===</span> <span class="s2">"OK"</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+            <span class="kd">const</span> <span class="nx">resultsData</span> <span class="o">=</span> <span class="nx">results</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">address_components</span><span class="p">;</span>
 
-                        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">addressComponent</span> <span class="k">of</span> <span class="nx">resultsData</span><span class="p">)</span> <span class="p">{</span>
-                            <span class="k">if</span> <span class="p">(</span><span class="nx">addressComponent</span><span class="p">.</span><span class="nx">types</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"postal_code"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-                                <span class="nx">result</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">addressComponent</span><span class="p">.</span><span class="nx">long_name</span><span class="p">;</span>
-                                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
-                            <span class="p">}</span>
-                        <span class="p">}</span>
-
-                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                        <span class="nx">result</span><span class="p">.</span><span class="nx">error</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-                        <span class="nx">_this</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
-                    <span class="p">}</span>
-                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                    <span class="nx">result</span><span class="p">.</span><span class="nx">error</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-                    <span class="nx">_this</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
-                <span class="p">}</span>
-            <span class="p">});</span>
-        <span class="p">},</span>
-        <span class="na">error</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">error</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">code</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">error</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Sorry we couldn't find your current location"</span><span class="p">);</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">addressComponent</span> <span class="k">of</span> <span class="nx">resultsData</span><span class="p">)</span> <span class="p">{</span>
+              <span class="k">if</span> <span class="p">(</span><span class="nx">addressComponent</span><span class="p">.</span><span class="nx">types</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">"postal_code"</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">result</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">addressComponent</span><span class="p">.</span><span class="nx">long_name</span><span class="p">;</span>
+                <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+              <span class="p">}</span>
             <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="na">location</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-            <span class="kd">const</span> <span class="nx">_this</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-
-			<span class="nb">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">((</span><span class="nx">position</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                <span class="nx">_this</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">position</span><span class="p">);</span>
-            <span class="p">},</span> <span class="p">(</span><span class="nx">positionError</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-                <span class="nx">_this</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">positionError</span><span class="p">);</span>
-            <span class="p">});</span>
+          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">result</span><span class="p">.</span><span class="nx">error</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="nx">_this</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">result</span><span class="p">.</span><span class="nx">error</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+          <span class="nx">_this</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">result</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
         <span class="p">}</span>
-    <span class="p">};</span>
+      <span class="p">});</span>
+    <span class="p">},</span>
+    <span class="na">error</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">error</span><span class="p">.</span><span class="nx">code</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">error</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Sorry we couldn't find your current location"</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="na">location</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">_this</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+
+      <span class="nb">navigator</span><span class="p">.</span><span class="nx">geolocation</span><span class="p">.</span><span class="nx">getCurrentPosition</span><span class="p">(</span>
+        <span class="nx">position</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="nx">_this</span><span class="p">.</span><span class="nx">success</span><span class="p">(</span><span class="nx">position</span><span class="p">);</span>
+        <span class="p">},</span>
+        <span class="nx">positionError</span> <span class="o">=&gt;</span> <span class="p">{</span>
+          <span class="nx">_this</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">positionError</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
 <span class="p">})();</span>
 </code></pre></div></div>
 

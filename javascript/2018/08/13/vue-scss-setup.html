@@ -115,26 +115,29 @@
 
 <p>Add your shared SCSS files to this one so your components can use variables, mixins, functions etc.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'path'</span><span class="p">)</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">"path"</span><span class="p">);</span>
 
 <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">chainWebpack</span><span class="p">:</span> <span class="nx">config</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">types</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'vue-modules'</span><span class="p">,</span> <span class="s1">'vue'</span><span class="p">,</span> <span class="s1">'normal-modules'</span><span class="p">,</span> <span class="s1">'normal'</span><span class="p">]</span>
-    <span class="nx">types</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">type</span> <span class="o">=&gt;</span> <span class="nx">addStyleResource</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">module</span><span class="p">.</span><span class="nx">rule</span><span class="p">(</span><span class="s1">'scss'</span><span class="p">).</span><span class="nx">oneOf</span><span class="p">(</span><span class="nx">type</span><span class="p">)))</span>
-  <span class="p">},</span>
-<span class="p">}</span>
+    <span class="kd">const</span> <span class="nx">types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"vue-modules"</span><span class="p">,</span> <span class="s2">"vue"</span><span class="p">,</span> <span class="s2">"normal-modules"</span><span class="p">,</span> <span class="s2">"normal"</span><span class="p">];</span>
+    <span class="nx">types</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">type</span> <span class="o">=&gt;</span>
+      <span class="nx">addStyleResource</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">module</span><span class="p">.</span><span class="nx">rule</span><span class="p">(</span><span class="s2">"scss"</span><span class="p">).</span><span class="nx">oneOf</span><span class="p">(</span><span class="nx">type</span><span class="p">))</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
 
-<span class="kd">function</span> <span class="nx">addStyleResource</span> <span class="p">(</span><span class="nx">rule</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">rule</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'style-resource'</span><span class="p">)</span>
-    <span class="p">.</span><span class="nx">loader</span><span class="p">(</span><span class="s1">'style-resources-loader'</span><span class="p">)</span>
+<span class="kd">function</span> <span class="nx">addStyleResource</span><span class="p">(</span><span class="nx">rule</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">rule</span>
+    <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s2">"style-resource"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">loader</span><span class="p">(</span><span class="s2">"style-resources-loader"</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">options</span><span class="p">({</span>
       <span class="na">patterns</span><span class="p">:</span> <span class="p">[</span>
-        <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'./src/styles/settings/*.scss'</span><span class="p">),</span>
-        <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'./src/styles/functions/*.scss'</span><span class="p">),</span>
-        <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'./src/styles/mixins/*.scss'</span><span class="p">),</span>
-        <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">'./src/styles/variables/*.scss'</span><span class="p">)</span>
-      <span class="p">],</span>
-    <span class="p">})</span>
+        <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">"./src/styles/settings/*.scss"</span><span class="p">),</span>
+        <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">"./src/styles/functions/*.scss"</span><span class="p">),</span>
+        <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">"./src/styles/mixins/*.scss"</span><span class="p">),</span>
+        <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">"./src/styles/variables/*.scss"</span><span class="p">)</span>
+      <span class="p">]</span>
+    <span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -142,7 +145,7 @@
 
 <p>in <code class="highlighter-rouge">main.js</code> we want to have our <code class="highlighter-rouge">global.scss</code>, to do so add:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="s1">'./styles/global.scss'</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="s2">"./styles/global.scss"</span><span class="p">;</span>
 </code></pre></div></div>
 
   </div>

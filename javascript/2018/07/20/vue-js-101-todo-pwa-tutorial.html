@@ -121,7 +121,7 @@
 <p>In <code class="highlighter-rouge">index.html</code>, we will dynamically pass <code class="highlighter-rouge">.is-open</code> using <code class="highlighter-rouge">v-bind:class</code>. If <code class="highlighter-rouge">isNavOpen</code> is true, then we will add our class.</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;nav</span> <span class="na">v-bind:class=</span><span class="s">"{'is-open': isNavOpen}"</span><span class="nt">&gt;</span>
-<span class="c">&lt;!-- ... --&gt;</span>
+  <span class="c">&lt;!-- ... --&gt;</span>
 <span class="nt">&lt;/nav&gt;</span>
 </code></pre></div></div>
 
@@ -260,7 +260,9 @@
 
 <p>As we bind our keyword inside an attribute, we are using <code class="highlighter-rouge">v-bind</code></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;header</span> <span class="na">v-bind:style=</span><span class="s">"'background-image: url(https://source.unsplash.com/featured/?' + todoLists[currentListIndex].keyword + ')'"</span><span class="nt">&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;header</span>
+  <span class="na">v-bind:style=</span><span class="s">"'background-image: url(https://source.unsplash.com/featured/?' + todoLists[currentListIndex].keyword + ')'"</span>
+<span class="nt">&gt;</span>
   <span class="c">&lt;!-- ... --&gt;</span>
 <span class="nt">&lt;/header&gt;</span>
 </code></pre></div></div>
@@ -276,14 +278,18 @@
 <p>The <code class="highlighter-rouge">v-model</code> directive creates a two-way data bindings, meaning when the value gets updated the UI will be updated as well.</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;ul&gt;</span>
-  <span class="nt">&lt;li</span> <span class="na">v-for=</span><span class="s">"(todo, index) in todoLists[currentListIndex].items"</span> <span class="na">v-bind:class=</span><span class="s">"{'is-completed': todo.isCompleted}"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span>
+    <span class="na">v-for=</span><span class="s">"(todo, index) in todoLists[currentListIndex].items"</span>
+    <span class="na">v-bind:class=</span><span class="s">"{'is-completed': todo.isCompleted}"</span>
+  <span class="nt">&gt;</span>
     <span class="nt">&lt;label</span> <span class="na">v-bind:for=</span><span class="s">"'todo' + index"</span><span class="nt">&gt;</span>
       <span class="nt">&lt;input</span>
-      <span class="na">type=</span><span class="s">"checkbox"</span>
-      <span class="na">v-bind:name=</span><span class="s">"'todo' + index"</span>
-      <span class="na">v-bind:id=</span><span class="s">"'todo' + index"</span>
-      <span class="na">v-bind:checked=</span><span class="s">"todo.isCompleted"</span>
-      <span class="na">v-model=</span><span class="s">"todo.isCompleted"</span><span class="nt">&gt;</span>
+        <span class="na">type=</span><span class="s">"checkbox"</span>
+        <span class="na">v-bind:name=</span><span class="s">"'todo' + index"</span>
+        <span class="na">v-bind:id=</span><span class="s">"'todo' + index"</span>
+        <span class="na">v-bind:checked=</span><span class="s">"todo.isCompleted"</span>
+        <span class="na">v-model=</span><span class="s">"todo.isCompleted"</span>
+      <span class="nt">/&gt;</span>
       
     <span class="nt">&lt;/label&gt;</span>
     <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-danger"</span><span class="nt">&gt;</span>Edit todo<span class="nt">&lt;/button&gt;</span>
@@ -307,13 +313,16 @@
 
 <p>We need as well, to show the user the current list being displayed, to do so, we are adding the class <code class="highlighter-rouge">.is-active</code> if <code class="highlighter-rouge">currentListIndex === index</code>.</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;li</span> <span class="na">v-for=</span><span class="s">"(todoList, index) in todoLists"</span>  <span class="na">v-bind:class=</span><span class="s">"{'is-active' : currentListIndex === index}"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">v-on:click=</span><span class="s">"currentListIndex = index; isNavOpen = false"</span><span class="nt">&gt;</span>
-        
-        <span class="nt">&lt;span&gt;</span>
-            
-        <span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;/button&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;li</span>
+  <span class="na">v-for=</span><span class="s">"(todoList, index) in todoLists"</span>
+  <span class="na">v-bind:class=</span><span class="s">"{'is-active' : currentListIndex === index}"</span>
+<span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">v-on:click=</span><span class="s">"currentListIndex = index; isNavOpen = false"</span><span class="nt">&gt;</span>
+    
+    <span class="nt">&lt;span&gt;</span>
+      
+    <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/li&gt;</span>
 </code></pre></div></div>
 
@@ -339,20 +348,24 @@
 <p>Now let’s bind our class <code class="highlighter-rouge">.is-open</code> to our <code class="highlighter-rouge">.sidebar</code>:</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"sidebar"</span> <span class="na">v-bind:class=</span><span class="s">"{'is-open' : isSidebarOpen}"</span><span class="nt">&gt;</span>
- <span class="c">&lt;!-- ... --&gt;</span>
+  <span class="c">&lt;!-- ... --&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div></div>
 
 <p>We need to add an event handler on click on <strong>Create a new list</strong>, that will open the sidebar and close the navigation on mobile:</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-add"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = true; isNavOpen = false;"</span><span class="nt">&gt;</span>Create a new list<span class="nt">&lt;/button&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-add"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = true; isNavOpen = false;"</span><span class="nt">&gt;</span>
+  Create a new list
+<span class="nt">&lt;/button&gt;</span>
 </code></pre></div></div>
 
 <p>Nice, now we can open our sidebar 🎉.</p>
 
 <p>Now let’s close the sidebar when we click on <strong>cancel</strong>:</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>Cancel<span class="nt">&lt;/button&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>
+  Cancel
+<span class="nt">&lt;/button&gt;</span>
 </code></pre></div></div>
 
 <h3 id="add-the-new-list">Add the new list</h3>
@@ -383,12 +396,26 @@
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form&gt;</span>
   <span class="nt">&lt;h3&gt;</span>Create a new list<span class="nt">&lt;/h3&gt;</span>
   <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"listTitle"</span><span class="nt">&gt;</span>Title:<span class="nt">&lt;/label&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"listTitle"</span> <span class="na">name=</span><span class="s">"listTitle"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"My amazing next trip to south america"</span> <span class="na">v-model=</span><span class="s">"tempNewList.title"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span>
+    <span class="na">id=</span><span class="s">"listTitle"</span>
+    <span class="na">name=</span><span class="s">"listTitle"</span>
+    <span class="na">type=</span><span class="s">"text"</span>
+    <span class="na">placeholder=</span><span class="s">"My amazing next trip to south america"</span>
+    <span class="na">v-model=</span><span class="s">"tempNewList.title"</span>
+  <span class="nt">/&gt;</span>
   <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"listKeyword"</span><span class="nt">&gt;</span>Keyword:<span class="nt">&lt;/label&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"listKeyword"</span> <span class="na">name=</span><span class="s">"listKeyword"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Colombia"</span> <span class="na">v-model=</span><span class="s">"tempNewList.keyword"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span>
+    <span class="na">id=</span><span class="s">"listKeyword"</span>
+    <span class="na">name=</span><span class="s">"listKeyword"</span>
+    <span class="na">type=</span><span class="s">"text"</span>
+    <span class="na">placeholder=</span><span class="s">"Colombia"</span>
+    <span class="na">v-model=</span><span class="s">"tempNewList.keyword"</span>
+  <span class="nt">/&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>Cancel<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span><span class="nt">&gt;</span>Create List<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>
+      Cancel
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span><span class="nt">&gt;</span>Create List<span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 </code></pre></div></div>
@@ -439,7 +466,9 @@
 
 <p>Finally, we are going to bind our method to our <strong>Create list</strong> button.</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span> <span class="na">v-on:click=</span><span class="s">"addNewList"</span><span class="nt">&gt;</span>Create List<span class="nt">&lt;/button&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span> <span class="na">v-on:click=</span><span class="s">"addNewList"</span><span class="nt">&gt;</span>
+  Create List
+<span class="nt">&lt;/button&gt;</span>
 </code></pre></div></div>
 
 <h3 id="documentation-references-3">Documentation references</h3>
@@ -492,22 +521,22 @@
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"sidebar"</span> <span class="na">v-bind:class=</span><span class="s">"{'is-open' : isSidebarOpen}"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"sidebar-content"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'createNewList'"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;h3&gt;</span>Create a new list<span class="nt">&lt;/h3&gt;</span>
-          <span class="c">&lt;!-- ... --&gt;</span>
-      <span class="nt">&lt;/form&gt;</span>
-      <span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'editList'"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;h3&gt;</span>Edit list<span class="nt">&lt;/h3&gt;</span>
-          <span class="c">&lt;!-- ... --&gt;</span>
-      <span class="nt">&lt;/form&gt;</span>
-      <span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'createNewTodo'"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;h3&gt;</span>Create a new todo<span class="nt">&lt;/h3&gt;</span>
-          <span class="c">&lt;!-- ... --&gt;</span>
-      <span class="nt">&lt;/form&gt;</span>
-      <span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'editTodo'"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;h3&gt;</span>Edit todo<span class="nt">&lt;/h3&gt;</span>
-          <span class="c">&lt;!-- ... --&gt;</span>
-      <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'createNewList'"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h3&gt;</span>Create a new list<span class="nt">&lt;/h3&gt;</span>
+      <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'editList'"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h3&gt;</span>Edit list<span class="nt">&lt;/h3&gt;</span>
+      <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'createNewTodo'"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h3&gt;</span>Create a new todo<span class="nt">&lt;/h3&gt;</span>
+      <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'editTodo'"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h3&gt;</span>Edit todo<span class="nt">&lt;/h3&gt;</span>
+      <span class="c">&lt;!-- ... --&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div></div>
@@ -534,12 +563,16 @@
 
 <p>Now we can change <strong>Create a new list</strong> so we can use <code class="highlighter-rouge">openSidebar</code></p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-add"</span> <span class="na">v-on:click=</span><span class="s">"openSidebar('createNewList')"</span><span class="nt">&gt;</span>Create a new list<span class="nt">&lt;/button&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-add"</span> <span class="na">v-on:click=</span><span class="s">"openSidebar('createNewList')"</span><span class="nt">&gt;</span>
+  Create a new list
+<span class="nt">&lt;/button&gt;</span>
 </code></pre></div></div>
 
 <p>And ta-dah we are now rendering the <strong>create a new list form</strong>. As you may have already guessed we will reuse our method with the <strong>Edit list</strong> button.</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-primary"</span> <span class="na">v-on:click=</span><span class="s">"openSidebar('editList')"</span><span class="nt">&gt;</span>Edit list<span class="nt">&lt;/button&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-primary"</span> <span class="na">v-on:click=</span><span class="s">"openSidebar('editList')"</span><span class="nt">&gt;</span>
+  Edit list
+<span class="nt">&lt;/button&gt;</span>
 </code></pre></div></div>
 
 <h3 id="edit-list-form">Edit list form</h3>
@@ -557,7 +590,9 @@
 <span class="c1">//...</span>
 </code></pre></div></div>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"deleteList"</span><span class="nt">&gt;</span>Delete list<span class="nt">&lt;/button&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"deleteList"</span><span class="nt">&gt;</span>
+  Delete list
+<span class="nt">&lt;/button&gt;</span>
 </code></pre></div></div>
 
 <p>Now we can remove lists, but if we try to remove all lists we get an error and our app stop to work.</p>
@@ -571,11 +606,15 @@
   <span class="c">&lt;!-- ... --&gt;</span>
 <span class="nt">&lt;/main&gt;</span>
 <span class="nt">&lt;main</span> <span class="na">v-else</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;header</span> <span class="na">style=</span><span class="s">"background-image: url(https://source.unsplash.com/featured/?cat"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"header-content"</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;h1&gt;</span>Please create a new list<span class="nt">&lt;/h1&gt;</span>
-          <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-add"</span> <span class="na">v-on:click=</span><span class="s">"openSidebar('createNewList')"</span><span class="nt">&gt;</span>Create a new list<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;header</span>
+    <span class="na">style=</span><span class="s">"background-image: url(https://source.unsplash.com/featured/?cat"</span>
+  <span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"header-content"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Please create a new list<span class="nt">&lt;/h1&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-add"</span> <span class="na">v-on:click=</span><span class="s">"openSidebar('createNewList')"</span><span class="nt">&gt;</span>
+        Create a new list
+      <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
   <span class="nt">&lt;/header&gt;</span>
 <span class="nt">&lt;/main&gt;</span>
 </code></pre></div></div>
@@ -591,15 +630,31 @@
 </ul>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'editList' &amp;&amp; todoLists.length &gt; 0"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>Edit list<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"listTitle"</span><span class="nt">&gt;</span>Title:<span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"listTitle"</span> <span class="na">name=</span><span class="s">"listTitle"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"My amazing next trip to south america"</span> <span class="na">v-model=</span><span class="s">"todoLists[currentListIndex].title"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"listKeyword"</span><span class="nt">&gt;</span>Keyword:<span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"listKeyword"</span> <span class="na">name=</span><span class="s">"listKeyword"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Colombia"</span> <span class="na">v-model=</span><span class="s">"todoLists[currentListIndex].keyword"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"deleteList"</span><span class="nt">&gt;</span>Delete list<span class="nt">&lt;/button&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>Done<span class="nt">&lt;/button&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;h3&gt;</span>Edit list<span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"listTitle"</span><span class="nt">&gt;</span>Title:<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span>
+    <span class="na">id=</span><span class="s">"listTitle"</span>
+    <span class="na">name=</span><span class="s">"listTitle"</span>
+    <span class="na">type=</span><span class="s">"text"</span>
+    <span class="na">placeholder=</span><span class="s">"My amazing next trip to south america"</span>
+    <span class="na">v-model=</span><span class="s">"todoLists[currentListIndex].title"</span>
+  <span class="nt">/&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"listKeyword"</span><span class="nt">&gt;</span>Keyword:<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span>
+    <span class="na">id=</span><span class="s">"listKeyword"</span>
+    <span class="na">name=</span><span class="s">"listKeyword"</span>
+    <span class="na">type=</span><span class="s">"text"</span>
+    <span class="na">placeholder=</span><span class="s">"Colombia"</span>
+    <span class="na">v-model=</span><span class="s">"todoLists[currentListIndex].keyword"</span>
+  <span class="nt">/&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"deleteList"</span><span class="nt">&gt;</span>
+      Delete list
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>
+      Done
+    <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 </code></pre></div></div>
 
@@ -656,20 +711,41 @@
 
 <p>We need to open the sidebar with the <strong>createNewTodo</strong> form.</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-add"</span> <span class="na">v-on:click=</span><span class="s">"openSidebar('createNewTodo')"</span><span class="nt">&gt;</span>New Todo<span class="nt">&lt;/button&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-add"</span> <span class="na">v-on:click=</span><span class="s">"openSidebar('createNewTodo')"</span><span class="nt">&gt;</span>
+  New Todo
+<span class="nt">&lt;/button&gt;</span>
 </code></pre></div></div>
 
 <p>As we did before, we will bind our inputs using <code class="highlighter-rouge">v-model</code> and use the <code class="highlighter-rouge">addNewTodo</code> method to push our new values.</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'createNewTodo'"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;h3&gt;</span>Create a new todo<span class="nt">&lt;/h3&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"todoName"</span><span class="nt">&gt;</span>Name:<span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"todoName"</span> <span class="na">name=</span><span class="s">"todoName"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Do things..."</span> <span class="na">v-model=</span><span class="s">"tempNewTodo.name"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"todoCompleted"</span><span class="nt">&gt;&lt;input</span> <span class="na">name=</span><span class="s">"todoCompleted"</span> <span class="na">id=</span><span class="s">"todoCompleted"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">v-bind:checked=</span><span class="s">"tempNewTodo.isCompleted"</span> <span class="na">v-model=</span><span class="s">"tempNewTodo.isCompleted"</span><span class="nt">&gt;</span> Is completed<span class="nt">&lt;/label&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>Cancel<span class="nt">&lt;/button&gt;</span>
-        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span> <span class="na">v-on:click=</span><span class="s">"addNewTodo"</span><span class="nt">&gt;</span>Create todo<span class="nt">&lt;/button&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;h3&gt;</span>Create a new todo<span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"todoName"</span><span class="nt">&gt;</span>Name:<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span>
+    <span class="na">id=</span><span class="s">"todoName"</span>
+    <span class="na">name=</span><span class="s">"todoName"</span>
+    <span class="na">type=</span><span class="s">"text"</span>
+    <span class="na">placeholder=</span><span class="s">"Do things..."</span>
+    <span class="na">v-model=</span><span class="s">"tempNewTodo.name"</span>
+  <span class="nt">/&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"todoCompleted"</span>
+    <span class="nt">&gt;&lt;input</span>
+      <span class="na">name=</span><span class="s">"todoCompleted"</span>
+      <span class="na">id=</span><span class="s">"todoCompleted"</span>
+      <span class="na">type=</span><span class="s">"checkbox"</span>
+      <span class="na">v-bind:checked=</span><span class="s">"tempNewTodo.isCompleted"</span>
+      <span class="na">v-model=</span><span class="s">"tempNewTodo.isCompleted"</span>
+    <span class="nt">/&gt;</span>
+    Is completed<span class="nt">&lt;/label</span>
+  <span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>
+      Cancel
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span> <span class="na">v-on:click=</span><span class="s">"addNewTodo"</span><span class="nt">&gt;</span>
+      Create todo
+    <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 </code></pre></div></div>
 
@@ -690,13 +766,16 @@
 
 <p>And now in our <code class="highlighter-rouge">navigation</code>, we are going to use our new method to return the total of completed todos.</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;li</span> <span class="na">v-for=</span><span class="s">"(todoList, index) in todoLists"</span> <span class="na">v-bind:class=</span><span class="s">"{'is-active' : currentListIndex === index}"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;button</span> <span class="na">v-on:click=</span><span class="s">"currentListIndex = index; isNavOpen = false"</span><span class="nt">&gt;</span>
-        
-        <span class="nt">&lt;span&gt;</span>
-             / 
-        <span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;/button&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;li</span>
+  <span class="na">v-for=</span><span class="s">"(todoList, index) in todoLists"</span>
+  <span class="na">v-bind:class=</span><span class="s">"{'is-active' : currentListIndex === index}"</span>
+<span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">v-on:click=</span><span class="s">"currentListIndex = index; isNavOpen = false"</span><span class="nt">&gt;</span>
+    
+    <span class="nt">&lt;span&gt;</span>
+       / 
+    <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
 <span class="nt">&lt;/li&gt;</span>
 </code></pre></div></div>
 
@@ -720,7 +799,12 @@
 
 <p>First, we want to open our slider and change the value of <code class="highlighter-rouge">currentTodoIndex</code>.</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"is-primary"</span> <span class="na">v-on:click=</span><span class="s">"openSidebar('editTodo'); currentTodoIndex = index"</span><span class="nt">&gt;</span>Edit todo<span class="nt">&lt;/button&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;button</span>
+  <span class="na">class=</span><span class="s">"is-primary"</span>
+  <span class="na">v-on:click=</span><span class="s">"openSidebar('editTodo'); currentTodoIndex = index"</span>
+<span class="nt">&gt;</span>
+  Edit todo
+<span class="nt">&lt;/button&gt;</span>
 </code></pre></div></div>
 
 <p>In our <strong>editTodo</strong> form we will:</p>
@@ -732,14 +816,35 @@
   <li>When we click on <em>Done</em>, close our sidebar</li>
 </ul>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'editTodo' &amp;&amp; todoLists[currentListIndex].items.length &gt; 0"</span><span class="nt">&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span>
+  <span class="na">v-if=</span><span class="s">"sidebarContentToShow === 'editTodo' &amp;&amp; todoLists[currentListIndex].items.length &gt; 0"</span>
+<span class="nt">&gt;</span>
   <span class="nt">&lt;h3&gt;</span>Edit todo<span class="nt">&lt;/h3&gt;</span>
   <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"todoName"</span><span class="nt">&gt;</span>Todo:<span class="nt">&lt;/label&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"todoName"</span> <span class="na">name=</span><span class="s">"todoName"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Do things..."</span> <span class="na">v-model=</span><span class="s">"todoLists[currentListIndex].items[currentTodoIndex].name"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"todoCompleted"</span><span class="nt">&gt;&lt;input</span> <span class="na">name=</span><span class="s">"todoCompleted"</span> <span class="na">id=</span><span class="s">"todoCompleted"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">v-bind:checked=</span><span class="s">"todoLists[currentListIndex].items[currentTodoIndex].isCompleted"</span> <span class="na">v-model=</span><span class="s">"todoLists[currentListIndex].items[currentTodoIndex].isCompleted"</span><span class="nt">&gt;</span> Is completed<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span>
+    <span class="na">id=</span><span class="s">"todoName"</span>
+    <span class="na">name=</span><span class="s">"todoName"</span>
+    <span class="na">type=</span><span class="s">"text"</span>
+    <span class="na">placeholder=</span><span class="s">"Do things..."</span>
+    <span class="na">v-model=</span><span class="s">"todoLists[currentListIndex].items[currentTodoIndex].name"</span>
+  <span class="nt">/&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"todoCompleted"</span>
+    <span class="nt">&gt;&lt;input</span>
+      <span class="na">name=</span><span class="s">"todoCompleted"</span>
+      <span class="na">id=</span><span class="s">"todoCompleted"</span>
+      <span class="na">type=</span><span class="s">"checkbox"</span>
+      <span class="na">v-bind:checked=</span><span class="s">"todoLists[currentListIndex].items[currentTodoIndex].isCompleted"</span>
+      <span class="na">v-model=</span><span class="s">"todoLists[currentListIndex].items[currentTodoIndex].isCompleted"</span>
+    <span class="nt">/&gt;</span>
+    Is completed<span class="nt">&lt;/label</span>
+  <span class="nt">&gt;</span>
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"buttons"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"deleteTodo"</span><span class="nt">&gt;</span>Delete todo<span class="nt">&lt;/button&gt;</span>
-      <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>Done<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-danger"</span> <span class="na">v-on:click=</span><span class="s">"deleteTodo"</span><span class="nt">&gt;</span>
+      Delete todo
+    <span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"is-confirm"</span> <span class="na">v-on:click=</span><span class="s">"isSidebarOpen = false"</span><span class="nt">&gt;</span>
+      Done
+    <span class="nt">&lt;/button&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
 </code></pre></div></div>
@@ -860,14 +965,32 @@
 
 <p>In the head of our HTML we want to include:</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"apple-touch-icon"</span> <span class="na">sizes=</span><span class="s">"180x180"</span> <span class="na">href=</span><span class="s">"content/img/apple-touch-icon.png"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"icon"</span> <span class="na">type=</span><span class="s">"image/png"</span> <span class="na">sizes=</span><span class="s">"32x32"</span> <span class="na">href=</span><span class="s">"content/img/favicon-32x32.png"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"icon"</span> <span class="na">type=</span><span class="s">"image/png"</span> <span class="na">sizes=</span><span class="s">"16x16"</span> <span class="na">href=</span><span class="s">"content/img/favicon-16x16.png"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"mask-icon"</span> <span class="na">href=</span><span class="s">"content/img/safari-pinned-tab.svg"</span> <span class="na">color=</span><span class="s">"#5bbad5"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"shortcut icon"</span> <span class="na">href=</span><span class="s">"content/img/favicon.ico"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"msapplication-TileColor"</span> <span class="na">content=</span><span class="s">"#ffffff"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"msapplication-config"</span> <span class="na">content=</span><span class="s">"content/img/browserconfig.xml"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"theme-color"</span> <span class="na">content=</span><span class="s">"#77c4d3"</span><span class="nt">&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span>
+  <span class="na">rel=</span><span class="s">"apple-touch-icon"</span>
+  <span class="na">sizes=</span><span class="s">"180x180"</span>
+  <span class="na">href=</span><span class="s">"content/img/apple-touch-icon.png"</span>
+<span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span>
+  <span class="na">rel=</span><span class="s">"icon"</span>
+  <span class="na">type=</span><span class="s">"image/png"</span>
+  <span class="na">sizes=</span><span class="s">"32x32"</span>
+  <span class="na">href=</span><span class="s">"content/img/favicon-32x32.png"</span>
+<span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span>
+  <span class="na">rel=</span><span class="s">"icon"</span>
+  <span class="na">type=</span><span class="s">"image/png"</span>
+  <span class="na">sizes=</span><span class="s">"16x16"</span>
+  <span class="na">href=</span><span class="s">"content/img/favicon-16x16.png"</span>
+<span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span>
+  <span class="na">rel=</span><span class="s">"mask-icon"</span>
+  <span class="na">href=</span><span class="s">"content/img/safari-pinned-tab.svg"</span>
+  <span class="na">color=</span><span class="s">"#5bbad5"</span>
+<span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"shortcut icon"</span> <span class="na">href=</span><span class="s">"content/img/favicon.ico"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"msapplication-TileColor"</span> <span class="na">content=</span><span class="s">"#ffffff"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"msapplication-config"</span> <span class="na">content=</span><span class="s">"content/img/browserconfig.xml"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"theme-color"</span> <span class="na">content=</span><span class="s">"#77c4d3"</span> <span class="nt">/&gt;</span>
 </code></pre></div></div>
 
 <h3 id="web-app-manifest">Web App Manifest</h3>
@@ -904,7 +1027,7 @@
 
 <p>In our HTML file, we want to include it.</p>
 
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"manifest"</span> <span class="na">href=</span><span class="s">"manifest.json"</span><span class="nt">&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"manifest"</span> <span class="na">href=</span><span class="s">"manifest.json"</span> <span class="nt">/&gt;</span>
 </code></pre></div></div>
 
 <h3 id="service-workers">Service workers</h3>
@@ -934,11 +1057,11 @@
 <p>In our <strong>index.html</strong>:</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="s1">'serviceWorker'</span> <span class="k">in</span> <span class="nb">navigator</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'load'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-            <span class="nb">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s1">'sw.js'</span><span class="p">);</span>
-        <span class="p">});</span>
-    <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="s2">"serviceWorker"</span> <span class="k">in</span> <span class="nb">navigator</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"load"</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nb">navigator</span><span class="p">.</span><span class="nx">serviceWorker</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="s2">"sw.js"</span><span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
 <span class="nt">&lt;/script&gt;</span>
 </code></pre></div></div>
 

@@ -89,15 +89,21 @@
 <span class="p">}</span>
 
 <span class="nv">$breakpoints</span><span class="p">:</span> <span class="p">(</span>
-  <span class="n">na</span><span class="o">:</span> <span class="m">0px</span><span class="o">,</span> <span class="o">//</span> <span class="n">For</span> <span class="n">BS</span> <span class="n">grid</span>
-  <span class="n">xs</span><span class="o">:</span> <span class="m">320px</span><span class="o">,</span> <span class="o">//</span> <span class="n">Smartphone</span>
-  <span class="n">sm</span><span class="o">:</span> <span class="m">600px</span><span class="o">,</span> <span class="o">//</span> <span class="n">Tablets</span>
-  <span class="n">md</span><span class="o">:</span> <span class="m">900px</span><span class="o">,</span> <span class="o">//</span> <span class="n">Tablets</span> <span class="n">Landscape</span> <span class="ow">and</span> <span class="n">small</span> <span class="n">desktops</span>
-  <span class="n">lg</span><span class="o">:</span> <span class="m">1200px</span><span class="o">,</span> <span class="o">//</span> <span class="n">Desktops</span>
-  <span class="n">xl</span><span class="o">:</span> <span class="m">1800px</span><span class="o">,</span> <span class="o">//</span> <span class="n">Large</span> <span class="n">Desktop</span>
+  <span class="n">na</span><span class="o">:</span> <span class="m">0px</span><span class="o">,</span>
+  <span class="o">//</span> <span class="n">For</span> <span class="n">BS</span> <span class="n">grid</span>
+    <span class="n">xs</span><span class="o">:</span> <span class="m">320px</span><span class="o">,</span>
+  <span class="o">//</span> <span class="n">Smartphone</span>
+    <span class="n">sm</span><span class="o">:</span> <span class="m">600px</span><span class="o">,</span>
+  <span class="o">//</span> <span class="n">Tablets</span>
+    <span class="n">md</span><span class="o">:</span> <span class="m">900px</span><span class="o">,</span>
+  <span class="o">//</span> <span class="n">Tablets</span> <span class="n">Landscape</span> <span class="ow">and</span> <span class="n">small</span> <span class="n">desktops</span>
+    <span class="n">lg</span><span class="o">:</span> <span class="m">1200px</span><span class="o">,</span>
+  <span class="o">//</span> <span class="n">Desktops</span>
+    <span class="n">xl</span><span class="o">:</span> <span class="m">1800px</span><span class="o">,</span>
+  <span class="o">//</span> <span class="n">Large</span> <span class="n">Desktop</span>
 <span class="p">);</span>
 
-<span class="k">@function</span> <span class="nf">container</span><span class="p">(</span><span class="nv">$container-size</span><span class="o">,</span> <span class="nv">$true-val</span><span class="o">:</span><span class="bp">false</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">@function</span> <span class="nf">container</span><span class="p">(</span><span class="nv">$container-size</span><span class="o">,</span> <span class="nv">$true-val</span><span class="o">:</span> <span class="bp">false</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">@return</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$container-sizes</span><span class="o">,</span> <span class="nv">$container-size</span><span class="p">);</span>
 <span class="p">}</span>
 
@@ -109,36 +115,36 @@
 <span class="p">);</span>
 
 <span class="nc">.container</span> <span class="p">{</span>
-    <span class="nl">padding-right</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
-    <span class="nl">padding-left</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+  <span class="nl">padding-right</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+  <span class="nl">padding-left</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
 
-    <span class="k">&amp;</span><span class="nd">:not</span><span class="o">(</span><span class="nc">.is-fluid</span><span class="o">)</span> <span class="p">{</span>
-        <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+  <span class="k">&amp;</span><span class="nd">:not</span><span class="o">(</span><span class="nc">.is-fluid</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
 
-        <span class="k">@each</span> <span class="nv">$bp</span><span class="o">,</span> <span class="nv">$container-size</span> <span class="n">in</span> <span class="nv">$container-sizes</span> <span class="p">{</span>
-            <span class="k">@include</span> <span class="nd">min</span><span class="p">(</span><span class="si">#{</span><span class="nf">bp</span><span class="p">(</span><span class="si">#{</span><span class="nv">$bp</span><span class="si">}</span><span class="p">)</span><span class="si">}</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-                <span class="nl">max-width</span><span class="p">:</span> <span class="nf">container</span><span class="p">(</span><span class="si">#{</span><span class="nv">$bp</span><span class="si">}</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
+    <span class="k">@each</span> <span class="nv">$bp</span><span class="o">,</span> <span class="nv">$container-size</span> <span class="n">in</span> <span class="nv">$container-sizes</span> <span class="p">{</span>
+      <span class="k">@include</span> <span class="nd">min</span><span class="p">(</span><span class="si">#{</span><span class="nf">bp</span><span class="p">(</span><span class="si">#{</span><span class="nv">$bp</span><span class="si">}</span><span class="p">)</span><span class="si">}</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+        <span class="nl">max-width</span><span class="p">:</span> <span class="nf">container</span><span class="p">(</span><span class="si">#{</span><span class="nv">$bp</span><span class="si">}</span><span class="p">);</span>
+      <span class="p">}</span>
     <span class="p">}</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="k">@each</span> <span class="nv">$bp</span><span class="o">,</span> <span class="nv">$container-size</span> <span class="n">in</span> <span class="nv">$container-sizes</span> <span class="p">{</span>
-    <span class="nc">.container-</span><span class="si">#{</span><span class="nv">$bp</span><span class="si">}</span> <span class="p">{</span>
-        <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
-        <span class="nl">padding-right</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
-        <span class="nl">padding-left</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
-        <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
+  <span class="nc">.container-</span><span class="si">#{</span><span class="nv">$bp</span><span class="si">}</span> <span class="p">{</span>
+    <span class="nl">margin</span><span class="p">:</span> <span class="m">0</span> <span class="nb">auto</span><span class="p">;</span>
+    <span class="nl">padding-right</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+    <span class="nl">padding-left</span><span class="p">:</span> <span class="m">1rem</span><span class="p">;</span>
+    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
 
-        <span class="nv">$i</span><span class="p">:</span> <span class="nf">index</span><span class="p">(</span><span class="nv">$container-sizes</span><span class="o">,</span> <span class="nv">$bp</span> <span class="nv">$container-size</span><span class="p">);</span>
+    <span class="nv">$i</span><span class="p">:</span> <span class="nf">index</span><span class="p">(</span><span class="nv">$container-sizes</span><span class="o">,</span> <span class="nv">$bp</span> <span class="nv">$container-size</span><span class="p">);</span>
 
-        <span class="k">@for</span> <span class="nv">$j</span> <span class="ow">from</span> <span class="nv">$i</span> <span class="ow">through</span> <span class="nf">length</span><span class="p">(</span><span class="nv">$container-sizes</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">@include</span> <span class="nd">min</span><span class="p">(</span><span class="si">#{</span><span class="nf">bp</span><span class="p">(</span><span class="nf">nth</span><span class="p">(</span><span class="nf">nth</span><span class="p">(</span><span class="nv">$container-sizes</span><span class="o">,</span> <span class="nv">$j</span><span class="p">)</span><span class="o">,</span> <span class="m">1</span><span class="p">))</span><span class="si">}</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nl">max-width</span><span class="p">:</span> <span class="nf">container</span><span class="p">(</span><span class="si">#{</span><span class="nf">nth</span><span class="p">(</span><span class="nf">nth</span><span class="p">(</span><span class="nv">$container-sizes</span><span class="o">,</span> <span class="nv">$j</span><span class="p">)</span><span class="o">,</span> <span class="m">1</span><span class="p">)</span><span class="si">}</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
+    <span class="k">@for</span> <span class="nv">$j</span> <span class="ow">from</span> <span class="nv">$i</span> <span class="ow">through</span> <span class="nf">length</span><span class="p">(</span><span class="nv">$container-sizes</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">@include</span> <span class="nd">min</span><span class="p">(</span><span class="si">#{</span><span class="nf">bp</span><span class="p">(</span><span class="nf">nth</span><span class="p">(</span><span class="nf">nth</span><span class="p">(</span><span class="nv">$container-sizes</span><span class="o">,</span> <span class="nv">$j</span><span class="p">)</span><span class="o">,</span> <span class="m">1</span><span class="p">))</span><span class="si">}</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nl">max-width</span><span class="p">:</span> <span class="nf">container</span><span class="p">(</span><span class="si">#{</span><span class="nf">nth</span><span class="p">(</span><span class="nf">nth</span><span class="p">(</span><span class="nv">$container-sizes</span><span class="o">,</span> <span class="nv">$j</span><span class="p">)</span><span class="o">,</span> <span class="m">1</span><span class="p">)</span><span class="si">}</span><span class="p">);</span>
+      <span class="p">}</span>
     <span class="p">}</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 

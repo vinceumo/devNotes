@@ -178,23 +178,28 @@
 <p>Above our script let’s add our app markup:</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"chatApp"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;form&gt;</span>
-            <span class="nt">&lt;div&gt;</span>
-                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"userName"</span><span class="nt">&gt;</span>Your Name<span class="nt">&lt;/label&gt;</span>
-                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"Name"</span> <span class="na">id=</span><span class="s">"userName"</span> <span class="na">v-model=</span><span class="s">"userName"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;div&gt;</span>
-                <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"userMessage"</span><span class="nt">&gt;</span>Message<span class="nt">&lt;/label&gt;</span>
-                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"Message"</span> <span class="na">id=</span><span class="s">"userMessage"</span> <span class="na">v-model=</span><span class="s">"userMessage"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;/div&gt;</span>
-            <span class="nt">&lt;button</span> <span class="na">v-on:click=</span><span class="s">"submitCard"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
-        <span class="nt">&lt;/form&gt;</span>
-        <span class="nt">&lt;ul</span> <span class="na">v-for=</span><span class="s">"(item, index) in messages"</span> <span class="na">v-bind:key=</span><span class="s">"index + 'itemMessage'"</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;li&gt;&lt;b&gt;</span>Name: <span class="nt">&lt;/b&gt;&lt;/li&gt;</span>
-            <span class="nt">&lt;li&gt;&lt;b&gt;</span>Message: <span class="nt">&lt;/b&gt;&lt;/li&gt;</span>
-        <span class="nt">&lt;/ul&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;form&gt;</span>
+      <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"userName"</span><span class="nt">&gt;</span>Your Name<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"Name"</span> <span class="na">id=</span><span class="s">"userName"</span> <span class="na">v-model=</span><span class="s">"userName"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"userMessage"</span><span class="nt">&gt;</span>Message<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span>
+          <span class="na">type=</span><span class="s">"text"</span>
+          <span class="na">name=</span><span class="s">"Message"</span>
+          <span class="na">id=</span><span class="s">"userMessage"</span>
+          <span class="na">v-model=</span><span class="s">"userMessage"</span>
+        <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;button</span> <span class="na">v-on:click=</span><span class="s">"submitCard"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;ul</span> <span class="na">v-for=</span><span class="s">"(item, index) in messages"</span> <span class="na">v-bind:key=</span><span class="s">"index + 'itemMessage'"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;b&gt;</span>Name: <span class="nt">&lt;/b&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;b&gt;</span>Message: <span class="nt">&lt;/b&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div></div>
 

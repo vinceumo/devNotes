@@ -72,46 +72,46 @@
   <div class="post-content" itemprop="articleBody">
     <p>An IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. All the functions and variables are scoped inside the IIFE, meaning they can’t be access outside this one.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">ctas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">"button.cta"</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"DOMContentLoaded"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">ctas</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">"button.cta"</span><span class="p">);</span>
 
-        <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">ctas</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">currentCta</span> <span class="o">=</span> <span class="nx">ctas</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+    <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">forEach</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">ctas</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">currentCta</span> <span class="o">=</span> <span class="nx">ctas</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
 
-            <span class="c1">//Event handler 1 for exemple click</span>
-            <span class="nx">currentCta</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-                <span class="nx">functionEventHandlerBehavior1</span><span class="p">(</span><span class="nx">ctas</span><span class="p">,</span> <span class="nx">currentCta</span><span class="p">);</span>
-            <span class="p">});</span>
+      <span class="c1">//Event handler 1 for exemple click</span>
+      <span class="nx">currentCta</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">functionEventHandlerBehavior1</span><span class="p">(</span><span class="nx">ctas</span><span class="p">,</span> <span class="nx">currentCta</span><span class="p">);</span>
+      <span class="p">});</span>
 
-            <span class="c1">//Event handler 2 for exemple touchstart</span>
-            <span class="nx">currentCta</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"touchstart"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-                <span class="nx">functionEventHandlerBehavior2</span><span class="p">(</span><span class="nx">ctas</span><span class="p">,</span> <span class="nx">currentCta</span><span class="p">);</span>
-            <span class="p">});</span>
+      <span class="c1">//Event handler 2 for exemple touchstart</span>
+      <span class="nx">currentCta</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"touchstart"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">functionEventHandlerBehavior2</span><span class="p">(</span><span class="nx">ctas</span><span class="p">,</span> <span class="nx">currentCta</span><span class="p">);</span>
+      <span class="p">});</span>
 
-            <span class="c1">//Event handler 3 for exemple mouseover</span>
-            <span class="nx">currentCta</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"mouseover"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-                <span class="nx">functionEventHandlerBehavior3</span><span class="p">(</span><span class="nx">ctas</span><span class="p">,</span> <span class="nx">currentCta</span><span class="p">);</span>
-            <span class="p">});</span>
-        <span class="p">});</span>
-
+      <span class="c1">//Event handler 3 for exemple mouseover</span>
+      <span class="nx">currentCta</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"mouseover"</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">functionEventHandlerBehavior3</span><span class="p">(</span><span class="nx">ctas</span><span class="p">,</span> <span class="nx">currentCta</span><span class="p">);</span>
+      <span class="p">});</span>
     <span class="p">});</span>
+  <span class="p">});</span>
 
-    <span class="kd">function</span> <span class="nx">functionEventHandlerBehavior1</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span> <span class="nx">currentElement</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Do things</span>
-    <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">functionEventHandlerBehavior1</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span> <span class="nx">currentElement</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Do things</span>
+  <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">functionEventHandlerBehavior2</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span> <span class="nx">currentElement</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Do things</span>
-    <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">functionEventHandlerBehavior2</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span> <span class="nx">currentElement</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Do things</span>
+  <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">functionEventHandlerBehavior3</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span> <span class="nx">currentElement</span><span class="p">)</span> <span class="p">{</span>
-        <span class="c1">// Do things</span>
-    <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">functionEventHandlerBehavior3</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span> <span class="nx">currentElement</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Do things</span>
+  <span class="p">}</span>
 <span class="p">})();</span>
 </code></pre></div></div>
 
 <h2 id="more-about-iife">More about IIFE</h2>
+
 <ul>
   <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/IIFE">IIFE - MDN</a></li>
   <li><a href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/">IIFE - Ben Alman</a></li>
