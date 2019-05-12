@@ -42,6 +42,7 @@ fields:
       path: 
   label: Post type
 pages:
+- _posts/Javascript/2018-07-21-cosoleLogArgInObject.md
 - _posts/Javascript/2019-05-04-class-es6-template-use-at-dam.md
 - _posts/Sass/2018-11-19-z-index-management-with-scss.md
 - _posts/Sass/2018-07-25-css-var-with-scss.md
