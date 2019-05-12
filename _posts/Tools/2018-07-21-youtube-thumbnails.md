@@ -1,10 +1,13 @@
 ---
 layout: post
-title:  "Youtube thumbnails"
-date:   2018-07-25 10:00:00 +0100
-categories: Tools
----
+title: Youtube thumbnails
+date: 2018-07-25T09:00:00.000+00:00
+categories:
+- Tools
+post_type: snippet
+canonical: ''
 
+---
 Youtube thumbnails in different resolution, just replace `e7AzBqt4_p0` by your youtube video code.
 
 - [https://youtu.be/e7AzBqt4_p0](https://youtu.be/e7AzBqt4_p0)
