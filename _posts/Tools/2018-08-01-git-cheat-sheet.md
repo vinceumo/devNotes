@@ -2,15 +2,14 @@
 layout: post
 title: Git - Cheat sheet
 date: 2018-08-01T08:00:00.000+00:00
-categories:
-- Tools
+category: Tools
 post_type: snippet
-canonical: ''
-
+canonical: ""
 ---
+
 ## Create a repository
 
-`git init [project-name]` - Creates a new, empty local *[project-name]* repository
+`git init [project-name]` - Creates a new, empty local _[project-name]_ repository
 
 `git clone [url]` - Downloads a project and its entire version history
 

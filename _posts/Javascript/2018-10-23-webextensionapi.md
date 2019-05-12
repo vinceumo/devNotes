@@ -2,12 +2,11 @@
 layout: post
 title: Cross Browser extensions with WebExtensions API - 101
 date: 2018-10-23T08:25:00.000+00:00
-categories:
-- Javascript
+category: Javascript
 post_type: snippet
-canonical: ''
-
+canonical: ""
 ---
+
 Browser extensions add features and functionalities to a browser. It uses web technologies such as HTML, CSS, and JS.
 
 ## Manifest.json
@@ -122,7 +121,7 @@ Brave and Vivaldi can download extensions from the [Chrome web store](https://ch
 
 - Create a zip file of your extension (Manifest file need to be at the root of this file)
 - Connect/Create an account on the [Google developer dashboard](https://chrome.google.com/webstore/developer/dashboard)
-  - If you submit an extension for the first time you will need to pay a $5 fee
+  - If you submit an extension for the first time you will need to pay a \$5 fee
 - Upload the zip file
 
 ### Firefox

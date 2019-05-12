@@ -2,12 +2,11 @@
 layout: post
 title: CSS 3D - Scrolling on the z-axis
 date: 2019-03-21T00:00:00.000+00:00
-categories:
-- CSS
-canonical: ''
+category: CSS
+canonical: ""
 post_type: post
-
 ---
+
 ![Demo gif]({{ site.baseurl }}/dist/img/css3d-z-scroll-demo.gif)
 
 In this article, we are going to create a small 3D scene, where the user can scroll on the z-axis. You can find the final code of this tutorial on [github](https://github.com/vinceumo/CSS-3D-Scrolling-z-axis-demo/), and the demo if you follow this [link](https://vinceumo.github.io/CSS-3D-Scrolling-z-axis-demo/).
@@ -24,9 +23,9 @@ When speaking of CSS 3D, we really speak about CSS3 transform 3D. This method al
 
 To be allowed to render our Dom elements in a 3D space we need to have a look in the following properties:
 
-* Perspective
-* Perspective origin
-* Transform Z
+- Perspective
+- Perspective origin
+- Transform Z
 
 ### Perspective
 
@@ -84,14 +83,14 @@ This property basically allows us to move the vanishing point of our 3D scene.
 
 For both x and y we can set the position using percentages. but we can as well use the following values:
 
-* x position:
-  * `left` = 0%
-  * `center` = 50%
-  * `right` = 100%
-* y position
-  * `top` = 0%
-  * `center` = 50%
-  * `bottom` = 50%
+- x position:
+  - `left` = 0%
+  - `center` = 50%
+  - `right` = 100%
+- y position
+  - `top` = 0%
+  - `center` = 50%
+  - `bottom` = 50%
 
 ![Perspective origin illustration]({{ site.baseurl }}/dist/img/css3d-z-scroll-perspective-origin.png)
 
@@ -109,11 +108,11 @@ We already mentioned earlier that the `transform` CSS property allows us to set 
 
 Transform comes with different functions to transform our elements in 3D:
 
-* rotateX(angle) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateX)
-* rotateY(angle) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateY)
-* rotateZ(angle) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateZ)
-* translateZ(tz) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateZ)
-* scaleZ(sz) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleZ)
+- rotateX(angle) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateX)
+- rotateY(angle) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateY)
+- rotateZ(angle) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateZ)
+- translateZ(tz) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateZ)
+- scaleZ(sz) - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleZ)
 
 As we saw in the illustration in the `perspective` section. `translateZ()` allows us to position an element along the z-axis of the 3D space. Alternately we can use the `translate3D(x, y, z)` CSS function.
 
@@ -256,12 +255,12 @@ To be able to scroll, we need first to set the value of `--viewportHeight` which
 
 The depth of the scene is equal to the addition of the following:
 
-* The height of the user window
-  * window.innerHeight
-* The `.scene3D-container` perspective
-  * `var(--scenePerspective) * var(--cameraSpeed)`
-* The translate z value of our last item
-  * `var(--itemZ) * var(--cameraSpeed) * items.length`
+- The height of the user window
+  - window.innerHeight
+- The `.scene3D-container` perspective
+  - `var(--scenePerspective) * var(--cameraSpeed)`
+- The translate z value of our last item
+  - `var(--itemZ) * var(--cameraSpeed) * items.length`
 
 Let's create a `setSceneHeight()` function that will update the value of `--viewportHeight` on load.
 
@@ -339,8 +338,8 @@ If the user cursor is at the centre of the screen, we will set the values of `--
 
 The `moveCameraAngle()` function is going to update the values:
 
-* `xGap` and `yGap` return the mouse position of the user in percentage on the X and Y axis, compare to the centre of the window.
-* `newPerspectiveOriginX` and `newPerspectiveOriginY` return the new perspective origin.
+- `xGap` and `yGap` return the mouse position of the user in percentage on the X and Y axis, compare to the centre of the window.
+- `newPerspectiveOriginX` and `newPerspectiveOriginY` return the new perspective origin.
 
 ```js
 document.addEventListener("DOMContentLoaded", function() {
@@ -380,15 +379,15 @@ Our scene is now finished 🎉. I hope you enjoyed this article 😃
 
 ## Resources
 
-* [perspective - Codrops](https://tympanus.net/codrops/css_reference/perspective/)
-* [perspective - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective)
-* [transform-style - Codrops](https://tympanus.net/codrops/css_reference/transform-style/)
-* [transform-style - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style)
-* [perspective-origin - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin)
-* [Things to Watch Out for When Working with CSS 3D - CSS-tricks](https://css-tricks.com/things-watch-working-css-3d/)
+- [perspective - Codrops](https://tympanus.net/codrops/css_reference/perspective/)
+- [perspective - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective)
+- [transform-style - Codrops](https://tympanus.net/codrops/css_reference/transform-style/)
+- [transform-style - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style)
+- [perspective-origin - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin)
+- [Things to Watch Out for When Working with CSS 3D - CSS-tricks](https://css-tricks.com/things-watch-working-css-3d/)
 
-***
+---
 
-* [Follow me on twitter](https://twitter.com/vince_umo)
-* [Follow me on Github](https://github.com/vinceumo)
-* [Follow me on dev.to](https://dev.to/vinceumo)
+- [Follow me on twitter](https://twitter.com/vince_umo)
+- [Follow me on Github](https://github.com/vinceumo)
+- [Follow me on dev.to](https://dev.to/vinceumo)
