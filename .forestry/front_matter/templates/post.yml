@@ -42,6 +42,7 @@ fields:
       path: 
   label: Post type
 pages:
+- _posts/dotnet/2018-10-29-signalR.md
 - _posts/Javascript/2018-07-21-IIFEE-template-dam.md
 - _posts/Javascript/2018-07-31-hoisting.md
 - _posts/Javascript/2019-01-14-get-address--postode--city-with-google-map-geocoding-api-and-html5-geolocation.md
