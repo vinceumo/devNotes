@@ -4,6 +4,8 @@ date: 2018-11-19 20:22
 layout: post
 categories:
 - Sass
+canonical: ''
+post_type: snippet
 
 ---
 ```scss

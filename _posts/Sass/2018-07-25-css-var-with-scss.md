@@ -1,10 +1,13 @@
 ---
 layout: post
-title:  "CSS custom properties (CSS variables) with SCSS"
-date:   2018-07-25 10:00:00 +0100
-categories: Sass
----
+title: CSS custom properties (CSS variables) with SCSS
+date: 2018-07-25T09:00:00.000+00:00
+categories:
+- Sass
+post_type: snippet
+canonical: ''
 
+---
 While working on my personal SCSS boilerplate, [Atomic Bulldog](https://github.com/vinceumo/atomic-bulldog). I wanted to implement a strict set of variables using maps. The goal is to create a consistent design system and to be able to use CSS variables for easy theming.
 
 The base structure of my variable folder:

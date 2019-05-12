@@ -1,10 +1,11 @@
 ---
 layout: post
 title: Class (ES6) template use at DAM
-date: 2019-05-04 23:00:00 +0000
+date: 2019-05-04T23:00:00.000+00:00
 categories:
 - Javascript
 canonical: ''
+post_type: snippet
 
 ---
 Javascript (Class based) project structure use at Dam Digital for SSR (server-side rendering) applications. You can use [webpack](https://webpack.js.org/) or [parcel](https://parceljs.org/) to bundle your js project.
