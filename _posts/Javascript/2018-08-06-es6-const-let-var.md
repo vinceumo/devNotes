@@ -1,8 +1,11 @@
 ---
 layout: post
 title: ES6 - const | let | var
-date: 2018-08-06 22:13:00 +0000
-categories: Javascript
+date: 2018-08-06T22:13:00.000+00:00
+categories:
+- Javascript
+post_type: snippet
+canonical: ''
 
 ---
 ES6 introduced two new kinds of variables in Javascript, `const` and `let`. They are block scoped variables, meaning they are scope inside `{}`, where `var` is [hoisted](/devNotes/javascript/2018/07/31/hoisting.html "hoisted") to the global or functional scope.

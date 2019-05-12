@@ -42,6 +42,8 @@ fields:
       path: 
   label: Post type
 pages:
+- _posts/Javascript/2018-08-06-es6-const-let-var.md
+- _posts/Javascript/2018-08-07-es6-arrow-functions.md
 - _posts/Javascript/2018-10-23-webextensionapi.md
 - _posts/Javascript/2018-07-21-cosoleLogArgInObject.md
 - _posts/Javascript/2019-05-04-class-es6-template-use-at-dam.md
