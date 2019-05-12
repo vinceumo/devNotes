@@ -1,13 +1,13 @@
 ---
 layout: post
-title: CSS customs properties - Cheatsheet
+title: CSS custom properties - Cheatsheet
 date: 2019-02-20 00:00:00 +0000
 categories:
 - CSS
 canonical: ''
 
 ---
-CSS customs properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.
+CSS custom properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.
 
 ## Declare a custom property in CSS
 
@@ -45,7 +45,7 @@ body {
 }
 ```
 
-In this case, `body` will have a background colour of `tomato`. But `body.theme-dark` of `lime`.
+In this case, `body` will have a background colour of `tomato`. But `body.theme-dark` of `lime`. 
 
 ## Use custom properties without units
 
