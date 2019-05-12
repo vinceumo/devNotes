@@ -42,6 +42,7 @@ fields:
       path: 
   label: Post type
 pages:
+- _posts/Tools/2018-07-22-photoshop-101-introduction-for-web-developers.md
 - _posts/Tools/2018-08-01-git-cheat-sheet.md
 - _posts/Tools/2019-01-14-regex-101.md
 - _posts/Tools/2018-07-21-ngrok.md
@@ -54,6 +55,5 @@ pages:
 - _posts/Sass/2018-11-19-z-index-management-with-scss.md
 - _posts/Sass/2018-11-22-responsive-container-classes-with-scss.md
 - _posts/Javascript/2018-07-20-vue-js-101-todo-pwa-tutorial.md
-- _posts/Tools/2018-07-22-photoshop-101-introduction-for-web-developers.md
 - _posts/CSS/2019-02-20-css-customs-properties.md
 - _posts/CSS/2019-03-21-css-3d-scrolling-on-the-z-axis.md
