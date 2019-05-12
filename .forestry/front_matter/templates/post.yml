@@ -35,16 +35,6 @@ fields:
       file: 
       path: 
   label: Section
-- name: categories
-  label: Categories
-  type: tag_list
-  hidden: false
-  default: ''
-- name: canonical
-  label: Canonical
-  type: text
-  hidden: false
-  default: ''
 - name: post_type
   type: select
   default: snippet
@@ -59,6 +49,16 @@ fields:
       file: 
       path: 
   label: Post type
+- name: categories
+  label: Categories
+  type: tag_list
+  hidden: false
+  default: ''
+- name: canonical
+  label: Canonical
+  type: text
+  hidden: false
+  default: ''
 pages:
 - _posts/a11y/2018-08-21-avoid-keyboard-trap.md
 - _posts/a11y/2018-08-04-screen-reader-nvda.md
