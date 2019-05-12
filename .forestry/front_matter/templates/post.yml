@@ -61,6 +61,10 @@ fields:
   default: ''
 pages:
 - _posts/a11y/2018-08-21-avoid-keyboard-trap.md
+- _posts/Sass/2018-11-19-z-index-management-with-scss.md
+- _posts/Javascript/2018-07-31-hoisting.md
+- _posts/Javascript/2019-05-04-class-es6-template-use-at-dam.md
+- _posts/Javascript/2019-01-14-get-address--postode--city-with-google-map-geocoding-api-and-html5-geolocation.md
 - _posts/a11y/2018-08-04-screen-reader-nvda.md
 - _posts/a11y/2018-08-03-wcag.md
 - _posts/a11y/2018-08-13-screen-reader-talkback.md
@@ -71,14 +75,10 @@ pages:
 - _posts/CSS/2018-08-17-hsl.md
 - _posts/dotnet/2018-10-29-signalR.md
 - _posts/Javascript/2018-07-21-IIFEE-template-dam.md
-- _posts/Javascript/2018-07-31-hoisting.md
-- _posts/Javascript/2019-01-14-get-address--postode--city-with-google-map-geocoding-api-and-html5-geolocation.md
 - _posts/Javascript/2018-08-06-es6-const-let-var.md
 - _posts/Javascript/2018-08-07-es6-arrow-functions.md
 - _posts/Javascript/2018-10-23-webextensionapi.md
 - _posts/Javascript/2018-07-21-cosoleLogArgInObject.md
-- _posts/Javascript/2019-05-04-class-es6-template-use-at-dam.md
-- _posts/Sass/2018-11-19-z-index-management-with-scss.md
 - _posts/Sass/2018-07-25-css-var-with-scss.md
 - _posts/Tools/2018-07-22-photoshop-101-introduction-for-web-developers.md
 - _posts/Tools/2018-08-01-git-cheat-sheet.md
