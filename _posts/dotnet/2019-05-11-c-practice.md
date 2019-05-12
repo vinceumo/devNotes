@@ -74,7 +74,7 @@ canonical: ''
   * [Exercise 60](#exercise-60)
   * [Exercise 61](#exercise-61)
   * [Exercise 62](#exercise-62)
-    </details>
+</details>
 
 ## C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution
 
