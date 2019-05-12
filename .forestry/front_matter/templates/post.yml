@@ -17,6 +17,24 @@ fields:
   type: datetime
   hidden: false
   default: ''
+- name: section
+  type: select
+  default: A11Y
+  config:
+    required: true
+    options:
+    - A11Y
+    - CSS
+    - Dotnet
+    - Javascript
+    - Sass
+    - Tools
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Section
 - name: categories
   label: Categories
   type: tag_list
@@ -41,24 +59,6 @@ fields:
       file: 
       path: 
   label: Post type
-- name: section
-  type: select
-  default: A11Y
-  config:
-    required: true
-    options:
-    - A11Y
-    - CSS
-    - Dotnet
-    - Javascript
-    - Sass
-    - Tools
-    source:
-      type: simple
-      section: 
-      file: 
-      path: 
-  label: Section
 pages:
 - _posts/a11y/2018-08-21-avoid-keyboard-trap.md
 - _posts/a11y/2018-08-04-screen-reader-nvda.md
