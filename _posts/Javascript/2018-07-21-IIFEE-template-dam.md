@@ -1,10 +1,13 @@
 ---
 layout: post
-title:  "IIFE template use at DAM"
-date:   2018-07-21 20:32:19 +0100
-categories: Javascript
----
+title: IIFE template use at DAM
+date: 2018-07-21T19:32:19.000+00:00
+categories:
+- Javascript
+post_type: snippet
+canonical: ''
 
+---
 An IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. All the functions and variables are scoped inside the IIFE, meaning they can't be access outside this one.
 
 ```js
