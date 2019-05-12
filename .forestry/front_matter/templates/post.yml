@@ -42,6 +42,7 @@ fields:
       path: 
   label: Post type
 pages:
+- _posts/Javascript/2019-01-14-get-address--postode--city-with-google-map-geocoding-api-and-html5-geolocation.md
 - _posts/Javascript/2018-08-06-es6-const-let-var.md
 - _posts/Javascript/2018-08-07-es6-arrow-functions.md
 - _posts/Javascript/2018-10-23-webextensionapi.md

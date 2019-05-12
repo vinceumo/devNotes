@@ -1,9 +1,11 @@
 ---
 layout: post
 title: Get Address || Postode || City with Google map Geocoding API and HTML5 Geolocation
-date: 2019-01-14 00:00:00 +0000
+date: 2019-01-14T00:00:00.000+00:00
 categories:
 - Javascript
+post_type: snippet
+canonical: ''
 
 ---
 Exemple on how to get the user current postcode using Google map Geocoding API and HTML5 Geolocation (Navigator.geolocation).
