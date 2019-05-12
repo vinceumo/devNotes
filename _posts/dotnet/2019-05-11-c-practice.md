@@ -10,7 +10,6 @@ canonical: ''
 ---
 <details>
 <summary>Table of contents</summary>
-
 * [C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution](#c-sharp-basic-declarations-and-expressions--exercises-practice-solution)
   * [Exercise 1](#exercise-1)
   * [Exercise 2](#exercise-2)
