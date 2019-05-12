@@ -1,0 +1,2161 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>
+    devNotes | C# - Practice
+  </title>
+  <meta name="description" content="Collection of things I learned around web development.
+" />
+  <meta name="author" content="Vincent Humeau" />
+  <link rel="manifest" href="/devNotes/manifest.json" />
+  
+  <link rel="canonical" href="" />
+  
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/devNotes/dist/img/icons/apple-touch-icon.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/devNotes/dist/img/icons/favicon-32x32.png"
+  />
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/devNotes/dist/img/icons/favicon-16x16.png"
+  />
+  <link
+    rel="mask-icon"
+    href="/devNotes/dist/img/icons/safari-pinned-tab.svg"
+    color="#212121"
+  />
+  <link
+    rel="shortcut icon"
+    href="/devNotes/dist/img/icons/favicon.ico"
+  />
+  <meta name="msapplication-TileColor" content="#212121" />
+  <meta
+    name="msapplication-config"
+    content="/devNotes/dist/img/icons/browserconfig.xml"
+  />
+  <meta name="theme-color" content="#212121" />
+
+  <link rel="stylesheet" href="/devNotes/dist/css/screen.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Asap:400,700"
+    rel="stylesheet"
+  />
+</head>
+<body>
+    <div class="page-wrapper">
+      <header class="page-header">
+        <p>
+          <a class="site-title" href="/devNotes/">devNotes</a> <small>by <a href="https://www.vincent-humeau.com" rel="author">Vincent Humeau</a></small>
+        </p>
+      </header>
+      <main class="page-content" aria-label="Content">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 itemprop="name headline">C# - Practice</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-05-11T23:00:00+00:00" itemprop="datePublished">May 11, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <details>
+<summary>Table of contents</summary>
+
+* [C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution](#c-sharp-basic-declarations-and-expressions--exercises-practice-solution)
+  * [Exercise 1](#exercise-1)
+  * [Exercise 2](#exercise-2)
+  * [Exercise 3](#exercise-3)
+  * [Exercise 4](#exercise-4)
+  * [Exercise 5](#exercise-5)
+  * [Exercise 6](#exercise-6)
+  * [Exercise 7](#exercise-7)
+  * [Exercise 8](#exercise-8)
+  * [Exercise 9](#exercise-9)
+  * [Exercise 10](#exercise-10)
+  * [Exercise 11](#exercise-11)
+  * [Exercise 12](#exercise-12)
+  * [Exercise 13](#exercise-13)
+  * [Exercise 14](#exercise-14)
+  * [Exercise 15](#exercise-15)
+  * [Exercise 16](#exercise-16)
+  * [Exercise 17](#exercise-17)
+  * [Exercise 18](#exercise-18)
+  * [Exercise 19](#exercise-19)
+  * [Exercise 20](#exercise-20)
+  * [Exercise 21](#exercise-21)
+  * [Exercise 22](#exercise-22)
+  * [Exercise 23](#exercise-23)
+  * [Exercise 24](#exercise-24)
+  * [Exercise 25](#exercise-25)
+  * [Exercise 26](#exercise-26)
+  * [Exercise 27](#exercise-27)
+  * [Exercise 28](#exercise-28)
+  * [Exercise 29](#exercise-29)
+  * [Exercise 30](#exercise-30)
+  * [Exercise 31](#exercise-31)
+  * [Exercise 32](#exercise-32)
+  * [Exercise 33](#exercise-33)
+  * [Exercise 34](#exercise-34)
+  * [Exercise 35](#exercise-35)
+  * [Exercise 36](#exercise-36)
+  * [Exercise 37](#exercise-37)
+  * [Exercise 38](#exercise-38)
+  * [Exercise 39](#exercise-39)
+  * [Exercise 40](#exercise-40)
+  * [Exercise 41](#exercise-41)
+  * [Exercise 42](#exercise-42)
+  * [Exercise 43](#exercise-43)
+  * [Exercise 44](#exercise-44)
+  * [Exercise 45](#exercise-45)
+  * [Exercise 46](#exercise-46)
+  * [Exercise 47](#exercise-47)
+  * [Exercise 48](#exercise-48)
+  * [Exercise 49](#exercise-49)
+  * [Exercise 50](#exercise-50)
+  * [Exercise 51](#exercise-51)
+  * [Exercise 52](#exercise-52)
+  * [Exercise 53](#exercise-53)
+  * [Exercise 54](#exercise-54)
+  * [Exercise 55](#exercise-55)
+  * [Exercise 56](#exercise-56)
+  * [Exercise 57](#exercise-57)
+  * [Exercise 58](#exercise-58)
+  * [Exercise 59](#exercise-59)
+  * [Exercise 60](#exercise-60)
+  * [Exercise 61](#exercise-61)
+  * [Exercise 62](#exercise-62)
+    </details>
+
+<h2 id="c-sharp-basic-declarations-and-expressions--exercises-practice-solution">C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution</h2>
+
+<p><a href="https://www.w3resource.com/csharp-exercises/basic/index.php">Exercices link</a></p>
+
+<h3 id="exercise-1">Exercise 1</h3>
+
+<p>Write a C# Sharp program to print Hello and your name in a separate line.</p>
+
+<p>Expected Output :</p>
+
+<ul>
+  <li>Hello</li>
+  <li>Alexandra Abramov</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Vince"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-2">Exercise 2</h3>
+
+<p>Write a C# Sharp program to print the sum of two numbers</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">39</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">b</span> <span class="p">=</span> <span class="m">73</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">a</span> <span class="p">+</span> <span class="n">b</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-3">Exercise 3</h3>
+
+<p>Write a C# Sharp program to print the result of dividing two numbers.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">a</span> <span class="p">=</span> <span class="m">43</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">b</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">a</span> <span class="p">/</span> <span class="n">b</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-4">Exercise 4</h3>
+
+<p>Write a C# Sharp program to print the result of the specified operations:</p>
+
+<ul>
+  <li>-1 + 4 * 6</li>
+  <li>( 35+ 5 ) % 7</li>
+  <li>14 + -4 * 6 / 11</li>
+  <li>2 + 15 / 6 * 1 - 7 % 2</li>
+</ul>
+
+<p>Expected Output:</p>
+
+<ul>
+  <li>23</li>
+  <li>5</li>
+  <li>12</li>
+  <li>3</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(-</span><span class="m">1</span> <span class="p">+</span> <span class="m">4</span> <span class="p">*</span> <span class="m">6</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">((</span><span class="m">35</span> <span class="p">+</span> <span class="m">5</span><span class="p">)</span> <span class="p">%</span> <span class="m">7</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="m">14</span> <span class="p">+</span> <span class="p">-</span><span class="m">4</span> <span class="p">*</span> <span class="m">6</span> <span class="p">/</span> <span class="m">11</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="m">2</span> <span class="p">+</span> <span class="m">15</span> <span class="p">/</span> <span class="m">6</span> <span class="p">*</span> <span class="m">1</span> <span class="p">-</span> <span class="m">7</span> <span class="p">%</span> <span class="m">2</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-5">Exercise 5</h3>
+
+<p>Write a C# Sharp program to swap two numbers.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Input the First Number : 5</li>
+  <li>Input the Second Number : 6</li>
+  <li>Expected Output:</li>
+  <li>After Swapping :</li>
+  <li>First Number : 6</li>
+  <li>Second Number : 5</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input the First Number: "</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">a</span> <span class="p">=</span> <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input the Second Number: "</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">b</span> <span class="p">=</span> <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"After Swapping: "</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"First Number: "</span> <span class="p">+</span> <span class="n">b</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Second Number: "</span> <span class="p">+</span> <span class="n">a</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-6">Exercise 6</h3>
+
+<p>Write a C# Sharp program to print the output of multiplication of three numbers which will be entered by the user.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Input the first number to multiply: 2</li>
+  <li>Input the second number to multiply: 3</li>
+  <li>Input the third number to multiply: 6</li>
+</ul>
+
+<p>Expected Output:</p>
+
+<ul>
+  <li>2 x 3 x 6 = 36</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+  <span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input the first number to multiply: "</span><span class="p">);</span>
+      <span class="kt">double</span> <span class="n">a</span> <span class="p">=</span> <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input the second number to multiply: "</span><span class="p">);</span>
+      <span class="kt">double</span> <span class="n">b</span> <span class="p">=</span> <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input the third number to multiply: "</span><span class="p">);</span>
+      <span class="kt">double</span> <span class="n">c</span> <span class="p">=</span> <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">a</span><span class="p">}</span><span class="s"> x </span><span class="p">{</span><span class="n">b</span><span class="p">}</span><span class="s"> x </span><span class="p">{</span><span class="n">c</span><span class="p">}</span><span class="s"> = </span><span class="p">{</span><span class="n">a</span> <span class="p">*</span> <span class="n">b</span> <span class="p">*</span> <span class="n">c</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-7">Exercise 7</h3>
+
+<p>Write a C# Sharp program to print on screen the output of adding, subtracting, multiplying and dividing of two numbers which will be entered by the user.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Input the first number: 25</li>
+  <li>Input the second number: 4</li>
+</ul>
+
+<p>Expected Output:</p>
+
+<ul>
+  <li>25 + 4 = 29</li>
+  <li>25 - 4 = 21</li>
+  <li>25 x 4 = 100</li>
+  <li>25 / 4 = 6</li>
+  <li>25 mod 4 = 1</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input the first number to multiply: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input the second number to multiply: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">b</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">a</span><span class="p">}</span><span class="s"> + </span><span class="p">{</span><span class="n">b</span><span class="p">}</span><span class="s"> = </span><span class="p">{</span><span class="n">a</span> <span class="p">+</span> <span class="n">b</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">a</span><span class="p">}</span><span class="s"> - </span><span class="p">{</span><span class="n">b</span><span class="p">}</span><span class="s"> = </span><span class="p">{</span><span class="n">a</span> <span class="p">-</span> <span class="n">b</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">a</span><span class="p">}</span><span class="s"> x </span><span class="p">{</span><span class="n">b</span><span class="p">}</span><span class="s"> = </span><span class="p">{</span><span class="n">a</span> <span class="p">*</span> <span class="n">b</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">a</span><span class="p">}</span><span class="s"> / </span><span class="p">{</span><span class="n">b</span><span class="p">}</span><span class="s"> = </span><span class="p">{</span><span class="n">a</span> <span class="p">/</span> <span class="n">b</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">a</span><span class="p">}</span><span class="s"> mod </span><span class="p">{</span><span class="n">b</span><span class="p">}</span><span class="s"> = </span><span class="p">{</span><span class="n">a</span> <span class="p">%</span> <span class="n">b</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-8">Exercise 8</h3>
+
+<p>Write a C# Sharp program that takes a number as input and print its multiplication table.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Enter the number: 5</li>
+</ul>
+
+<p>Expected Output:</p>
+
+<ul>
+  <li>5 * 0 = 0</li>
+  <li>5 * 1 = 5</li>
+  <li>5 * 2 = 10</li>
+  <li>5 * 3 = 15</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter the number: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;=</span> <span class="m">10</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+    <span class="p">{</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">a</span><span class="p">}</span><span class="s"> x </span><span class="p">{</span><span class="n">i</span><span class="p">}</span><span class="s"> = </span><span class="p">{</span><span class="n">a</span> <span class="p">*</span> <span class="n">i</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-9">Exercise 9</h3>
+
+<p>Write a C# Sharp program that takes four numbers as input to calculate and print the average.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Enter the First number: 10</li>
+  <li>Enter the Second number: 15</li>
+  <li>Enter the third number: 20</li>
+  <li>Enter the four number: 30</li>
+</ul>
+
+<p>Expected Output:</p>
+
+<ul>
+  <li>The average of 10 , 15 , 20 , 30 is: 18</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter the first number: "</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">a</span> <span class="p">=</span> <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter the second number: "</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">b</span> <span class="p">=</span> <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter the third number: "</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">c</span> <span class="p">=</span> <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter the four number: "</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">d</span> <span class="p">=</span> <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="kt">double</span> <span class="n">average</span> <span class="p">=</span> <span class="p">(</span><span class="n">a</span> <span class="p">+</span> <span class="n">b</span> <span class="p">+</span> <span class="n">c</span> <span class="p">+</span> <span class="n">d</span><span class="p">)</span> <span class="p">/</span> <span class="m">4</span><span class="p">;</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"The average of  </span><span class="p">{</span><span class="n">a</span><span class="p">}</span><span class="s">, </span><span class="p">{</span><span class="n">b</span><span class="p">}</span><span class="s">, </span><span class="p">{</span><span class="n">c</span><span class="p">}</span><span class="s">, </span><span class="p">{</span><span class="n">d</span><span class="p">}</span><span class="s"> is: </span><span class="p">{</span><span class="n">average</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-10">Exercise 10</h3>
+
+<p>Write a C# Sharp program to that takes three numbers(x,y,z) as input and print the output of (x+y).z and x.y + y.z</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Enter first number - 5</li>
+  <li>Enter second number - 6</li>
+  <li>Enter third number - 7</li>
+</ul>
+
+<p>Expected Output:</p>
+
+<ul>
+  <li>Result of specified numbers 5, 6 and 7, (x+y).z is 77 and x.y + y.z is 72</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter the first number: "</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">x</span> <span class="p">=</span> <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter the second number: "</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">y</span> <span class="p">=</span> <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter the third number: "</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">z</span> <span class="p">=</span> <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="kt">double</span> <span class="n">result1</span> <span class="p">=</span> <span class="p">(</span><span class="n">x</span> <span class="p">+</span> <span class="n">y</span><span class="p">)</span> <span class="p">*</span> <span class="n">z</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">result2</span> <span class="p">=</span> <span class="n">x</span> <span class="p">*</span> <span class="n">y</span> <span class="p">+</span> <span class="n">y</span> <span class="p">*</span> <span class="n">z</span><span class="p">;</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Result of specified numbers </span><span class="p">{</span><span class="n">x</span><span class="p">}</span><span class="s">, </span><span class="p">{</span><span class="n">y</span><span class="p">}</span><span class="s"> and </span><span class="p">{</span><span class="n">z</span><span class="p">}</span><span class="s">, (x+y).z is </span><span class="p">{</span><span class="n">result1</span><span class="p">}</span><span class="s"> and x.y + y.z is </span><span class="p">{</span><span class="n">result2</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-11">Exercise 11</h3>
+
+<p>Write a C# Sharp program that takes an age (for example 20) as input and prints something as “You look older than 20”</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Enter your age - 25</li>
+</ul>
+
+<p>Expected Output:</p>
+
+<ul>
+  <li>You look older than 25</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter your age: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"You look older than </span><span class="p">{</span><span class="n">x</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-12">Exercise 12</h3>
+
+<p>Write a C# program to that takes a number as input and display it four times in a row (separated by blank spaces), and then four times in the next row, with no separation. You should do it two times: Use Console. Write and then use {0}.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Enter a digit: 25</li>
+</ul>
+
+<p>Expected Output:</p>
+
+<ul>
+  <li>25 25 25 25</li>
+  <li>25252525</li>
+  <li>25 25 25 25</li>
+  <li>25252525</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter a digit: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">2</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+    <span class="p">{</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">x</span><span class="p">}</span><span class="s"> </span><span class="p">{</span><span class="n">x</span><span class="p">}</span><span class="s"> </span><span class="p">{</span><span class="n">x</span><span class="p">}</span><span class="s"> </span><span class="p">{</span><span class="n">x</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">x</span><span class="p">}{</span><span class="n">x</span><span class="p">}{</span><span class="n">x</span><span class="p">}{</span><span class="n">x</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-13">Exercise 13</h3>
+
+<p>Write a C# program that takes a number as input and then displays a rectangle of 3 columns wide and 5 rows tall using that digit.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Enter a number: 5</li>
+</ul>
+
+<p>Expected Output:</p>
+
+<ul>
+  <li>555</li>
+  <li>5 5</li>
+  <li>5 5</li>
+  <li>5 5</li>
+  <li>555</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter a digit: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">x</span><span class="p">}{</span><span class="n">x</span><span class="p">}{</span><span class="n">x</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">x</span><span class="p">}</span><span class="s"> </span><span class="p">{</span><span class="n">x</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">x</span><span class="p">}</span><span class="s"> </span><span class="p">{</span><span class="n">x</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">x</span><span class="p">}</span><span class="s"> </span><span class="p">{</span><span class="n">x</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">x</span><span class="p">}{</span><span class="n">x</span><span class="p">}{</span><span class="n">x</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-14">Exercise 14</h3>
+
+<p>Write a C# program to convert from celsius degrees to Kelvin and Fahrenheit.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Enter the amount of celsius: 30</li>
+</ul>
+
+<p>Expected Output:</p>
+
+<ul>
+  <li>Kelvin = 303</li>
+  <li>Fahrenheit = 86</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter the amount of celsius: "</span><span class="p">);</span>
+    <span class="kt">double</span> <span class="n">celsius</span> <span class="p">=</span> <span class="kt">double</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="kt">double</span> <span class="n">kelvin</span> <span class="p">=</span> <span class="n">celsius</span> <span class="p">+</span> <span class="m">273.15</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">fahrenheit</span> <span class="p">=</span> <span class="p">(</span><span class="n">celsius</span> <span class="p">*</span> <span class="m">9</span> <span class="p">+</span> <span class="p">(</span><span class="m">32</span> <span class="p">*</span> <span class="m">5</span><span class="p">))</span> <span class="p">/</span> <span class="m">5</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Kelvin = </span><span class="p">{</span><span class="n">kelvin</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Fahrenheit = </span><span class="p">{</span><span class="n">fahrenheit</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-15">Exercise 15</h3>
+
+<p>Write a C# program remove specified a character from a non-empty string using index of a character.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>w3resource</li>
+</ul>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>wresource</li>
+  <li>w3resourc</li>
+  <li>3resource</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter your word: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">3</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+    <span class="p">{</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">RemoveRandomLetter</span><span class="p">(</span><span class="n">text</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="kt">string</span> <span class="nf">RemoveRandomLetter</span><span class="p">(</span><span class="kt">string</span> <span class="n">word</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">wordLength</span> <span class="p">=</span> <span class="n">word</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+    <span class="n">Random</span> <span class="n">random</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Random</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">indexToRemove</span> <span class="p">=</span> <span class="n">random</span><span class="p">.</span><span class="nf">Next</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">wordLength</span> <span class="p">-</span> <span class="m">1</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">word</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="n">indexToRemove</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-16">Exercise 16</h3>
+
+<p>Write a C# program to create a new string from a given string where the first and last characters will change their positions.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>w3resource</li>
+  <li>Python</li>
+</ul>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>e3resourcw</li>
+  <li>nythoP</li>
+  <li>x</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter your word: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">SwitchFirstLastLetter</span><span class="p">(</span><span class="n">text</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="kt">string</span> <span class="nf">SwitchFirstLastLetter</span><span class="p">(</span><span class="kt">string</span> <span class="n">word</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">wordLength</span> <span class="p">=</span> <span class="n">word</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">firstLetter</span> <span class="p">=</span> <span class="n">word</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+    <span class="kt">char</span> <span class="n">lastLetter</span> <span class="p">=</span> <span class="n">word</span><span class="p">[</span><span class="n">wordLength</span> <span class="p">-</span> <span class="m">1</span><span class="p">];</span>
+    <span class="kt">char</span><span class="p">[]</span> <span class="n">wordChars</span> <span class="p">=</span> <span class="n">word</span><span class="p">.</span><span class="nf">ToCharArray</span><span class="p">();</span>
+
+    <span class="n">wordChars</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="n">lastLetter</span><span class="p">;</span>
+    <span class="n">wordChars</span><span class="p">[</span><span class="n">wordLength</span> <span class="p">-</span> <span class="m">1</span><span class="p">]</span> <span class="p">=</span> <span class="n">firstLetter</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="n">wordChars</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Or other solution</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter your word: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">SwitchFirstLastLetter</span><span class="p">(</span><span class="n">text</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="kt">string</span> <span class="nf">SwitchFirstLastLetter</span><span class="p">(</span><span class="kt">string</span> <span class="n">word</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">wordLength</span> <span class="p">=</span> <span class="n">word</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">wordLength</span> <span class="p">&gt;</span> <span class="m">1</span><span class="p">)</span> <span class="p">?</span> <span class="n">word</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="n">wordLength</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span> <span class="p">+</span> <span class="n">word</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">wordLength</span> <span class="p">-</span> <span class="m">2</span><span class="p">)</span> <span class="p">+</span> <span class="n">word</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="p">:</span> <span class="n">word</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-17">Exercise 17</h3>
+
+<p>Write a C# program to create a new string from a given string (length 1 or more ) with the first character added at the front and back.</p>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>Input a string : The quick brown fox jumps over the lazy dog.</li>
+  <li>TThe quick brown fox jumps over the lazy dog.T</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input a string : "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="n">Length</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="p">+</span> <span class="n">text</span> <span class="p">+</span> <span class="n">text</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-18">Exercise 18</h3>
+
+<p>Write a C# program to check two given integers and return true if one is negative and one is positive</p>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>Input first integer: -5</li>
+  <li>Input second integer: 25</li>
+  <li>Check if one is negative and one is positive: True</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input first integer: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input second integer: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="kt">bool</span> <span class="n">test</span> <span class="p">=</span> <span class="p">(</span><span class="n">y</span> <span class="p">&lt;</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">x</span> <span class="p">&gt;=</span> <span class="m">0</span><span class="p">)</span> <span class="p">||</span> <span class="p">(</span><span class="n">x</span> <span class="p">&lt;</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">y</span> <span class="p">&gt;=</span> <span class="m">0</span><span class="p">);</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Check if one is negative and one is positive: </span><span class="p">{</span><span class="n">test</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-19">Exercise 19</h3>
+
+<p>Write a C# program to compute the sum of two given integers, if two values are equal then return the triple of their sum.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input first integer: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input second integer: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="p">(</span><span class="n">x</span> <span class="p">==</span> <span class="n">y</span><span class="p">)</span> <span class="p">?</span> <span class="p">(</span><span class="n">x</span> <span class="p">+</span> <span class="n">y</span><span class="p">)</span> <span class="p">*</span> <span class="m">3</span> <span class="p">:</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Result: </span><span class="p">{</span><span class="n">result</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-20">Exercise 20</h3>
+
+<p>Write a C# program to get the absolute value of the difference between two given numbers. Return double the absolute value of the difference if the first number is greater than second number.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+  <span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input first integer: "</span><span class="p">);</span>
+      <span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input second integer: "</span><span class="p">);</span>
+      <span class="kt">int</span> <span class="n">y</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+      <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="p">(</span><span class="n">x</span> <span class="p">&gt;</span> <span class="n">y</span><span class="p">)</span> <span class="p">?</span> <span class="p">(</span><span class="n">x</span> <span class="p">-</span> <span class="n">y</span><span class="p">)</span> <span class="p">*</span> <span class="m">2</span> <span class="p">:</span> <span class="n">x</span> <span class="p">-</span> <span class="n">y</span><span class="p">;</span>
+
+      <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Result: </span><span class="p">{</span><span class="n">result</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-21">Exercise 21</h3>
+
+<p>Write a C# program to check the sum of the two given integers and return true if one of the integer is 20 or if their sum is 20</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input first integer: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input second integer: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">y</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="kt">bool</span> <span class="n">test</span> <span class="p">=</span> <span class="n">x</span> <span class="p">==</span> <span class="m">20</span> <span class="p">||</span> <span class="n">y</span> <span class="p">==</span> <span class="m">20</span> <span class="p">||</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span> <span class="p">==</span> <span class="m">20</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Result: </span><span class="p">{</span><span class="n">test</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-22">Exercise 22</h3>
+
+<p>Write a C# program to check if an given integer is within 20 of 100 or 200. (Means 100+-10 or 200+-10)</p>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>Input an integer: 25</li>
+  <li>False</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input integer: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="kt">bool</span> <span class="n">test</span> <span class="p">=</span> <span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="n">x</span> <span class="p">-</span> <span class="m">100</span><span class="p">)</span> <span class="p">&lt;=</span> <span class="m">10</span> <span class="p">||</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="n">x</span> <span class="p">-</span> <span class="m">200</span><span class="p">)</span> <span class="p">&lt;=</span> <span class="m">10</span><span class="p">);</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Result: </span><span class="p">{</span><span class="n">test</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-23">Exercise 23</h3>
+
+<p>Write a C# program to convert a given string into lowercase.</p>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>write a c# sharp program to display the following pattern using the alphabet.</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input string: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="nf">ToLower</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-24">Exercise 24</h3>
+
+<p>Write a C# program to find the longest word in a string.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Write a C# Sharp Program to display the following pattern using the alphabet.</li>
+</ul>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>following</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input string: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+    <span class="kt">string</span><span class="p">[]</span> <span class="n">words</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">Split</span><span class="p">();</span>
+    <span class="kt">string</span> <span class="n">longestWord</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="kt">string</span> <span class="n">word</span> <span class="k">in</span> <span class="n">words</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">word</span><span class="p">.</span><span class="n">Length</span> <span class="p">&gt;</span> <span class="n">longestWord</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="n">longestWord</span> <span class="p">=</span> <span class="n">word</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">longestWord</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>or shorter solution using <code class="highlighter-rouge">OrderBy</code> (<code class="highlighter-rouge">System.Linq</code>)</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// using System.Linq;</span>
+
+<span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input string: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+    <span class="kt">string</span> <span class="n">longestWord</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="sc">' '</span><span class="p">).</span><span class="nf">OrderBy</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">Length</span><span class="p">).</span><span class="nf">Last</span><span class="p">();</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">longestWord</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-25">Exercise 25</h3>
+
+<p>Write a C# program to print the odd numbers from 1 to 99. Prints one number per line.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">100</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="p">%</span> <span class="m">2</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>or by increasing by 2</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="m">100</span><span class="p">;</span> <span class="n">i</span> <span class="p">+=</span> <span class="m">2</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-26">Exercise 26</h3>
+
+<p>Write a C# program to compute the sum of the first 500 prime numbers.</p>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>Sum of the first 500 prime numbers:</li>
+  <li>3682913</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter max number: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">maxNumber</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="kt">int</span> <span class="n">total</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">primeCounter</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">primeCounter</span> <span class="p">&lt;</span> <span class="n">maxNumber</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nf">IsPrime</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+      <span class="p">{</span>
+        <span class="n">total</span> <span class="p">+=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="n">primeCounter</span><span class="p">++;</span>
+      <span class="p">}</span>
+      <span class="n">i</span><span class="p">++;</span>
+    <span class="p">}</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Sum of the first </span><span class="p">{</span><span class="n">maxNumber</span><span class="p">}</span><span class="s"> prime numbers: </span><span class="p">{</span><span class="n">total</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="kt">bool</span> <span class="nf">IsPrime</span><span class="p">(</span><span class="kt">int</span> <span class="n">number</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">number</span> <span class="p">&lt;=</span> <span class="m">1</span><span class="p">)</span> <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">number</span> <span class="p">==</span> <span class="m">2</span><span class="p">)</span> <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">number</span> <span class="p">%</span> <span class="m">2</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span> <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+
+    <span class="kt">var</span> <span class="n">boundary</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">Math</span><span class="p">.</span><span class="nf">Floor</span><span class="p">(</span><span class="n">Math</span><span class="p">.</span><span class="nf">Sqrt</span><span class="p">(</span><span class="n">number</span><span class="p">));</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;=</span> <span class="n">boundary</span><span class="p">;</span> <span class="n">i</span> <span class="p">+=</span> <span class="m">2</span><span class="p">)</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">number</span> <span class="p">%</span> <span class="n">i</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-27">Exercise 27</h3>
+
+<p>Write a C# program and compute the sum of the digits of an integer.</p>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>Input a number(integer): 12</li>
+  <li>Sum of the digits of the said integer: 3</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input a number(integer): "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">numbers</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">total</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="kt">char</span> <span class="n">number</span> <span class="k">in</span> <span class="n">numbers</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">total</span> <span class="p">+=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">number</span><span class="p">.</span><span class="nf">ToString</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Sum of the digits of the </span><span class="p">{</span><span class="n">numbers</span><span class="p">}</span><span class="s"> integer: </span><span class="p">{</span><span class="n">total</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-28">Exercise 28</h3>
+
+<p>Write a C# program to reverse the words of a sentence</p>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>Original String: Display the pattern like pyramid using the alphabet.</li>
+  <li>Reverse String: alphabet. the using pyramid like pattern the Display</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Enter a string: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Reverse string: </span><span class="p">{</span><span class="nf">ReverseStringWords</span><span class="p">(</span><span class="n">text</span><span class="p">)}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="kt">string</span> <span class="nf">ReverseStringWords</span><span class="p">(</span><span class="kt">string</span> <span class="n">text</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">string</span><span class="p">[]</span> <span class="n">words</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="sc">' '</span><span class="p">);</span>
+    <span class="n">Array</span><span class="p">.</span><span class="nf">Reverse</span><span class="p">(</span><span class="n">words</span><span class="p">);</span>
+    <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="s">" "</span><span class="p">,</span> <span class="n">words</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-29">Exercise 29</h3>
+
+<p>Write a C# program to find the size of a specified file in bytes.</p>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>Size of a file: 31</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// using System.IO;</span>
+
+<span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">double</span> <span class="n">fileSizeBytes</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">FileInfo</span><span class="p">(</span><span class="s">"testFile.txt"</span><span class="p">).</span><span class="n">Length</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"File size: </span><span class="p">{</span><span class="n">fileSizeBytes</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-30">Exercise 30</h3>
+
+<p>Write a C# program to convert a hexadecimal number to decimal number.</p>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>Hexadecimal number: 4B0</li>
+  <li>Decimal number: 1200</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Hexadecimal number: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">hexNumber</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">decimalNumber</span> <span class="p">=</span> <span class="n">Convert</span><span class="p">.</span><span class="nf">ToInt32</span><span class="p">(</span><span class="n">hexNumber</span><span class="p">,</span> <span class="m">16</span><span class="p">);</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Decimal number: </span><span class="p">{</span><span class="n">decimalNumber</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-31">Exercise 31</h3>
+
+<p>Write a C# program to multiply corresponding elements of two arrays of integers.</p>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>Array1: [1, 3, -5, 4]</li>
+  <li>Array2: [1, 4, -5, -2]</li>
+  <li>Multiply corresponding elements of two arrays: 1 12 25 -8</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">array1</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="p">-</span><span class="m">5</span><span class="p">,</span> <span class="m">4</span> <span class="p">};</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">array2</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="p">-</span><span class="m">5</span><span class="p">,</span> <span class="p">-</span><span class="m">2</span> <span class="p">};</span>
+    <span class="kt">int</span> <span class="n">shortestArrLength</span> <span class="p">=</span> <span class="p">(</span><span class="n">array1</span><span class="p">.</span><span class="n">Length</span> <span class="p">&gt;</span> <span class="n">array2</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span> <span class="p">?</span> <span class="n">array2</span><span class="p">.</span><span class="n">Length</span> <span class="p">:</span> <span class="n">array1</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">multiplyArr</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">shortestArrLength</span><span class="p">];</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">shortestArrLength</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+    <span class="p">{</span>
+      <span class="n">multiplyArr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">array1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">*</span> <span class="n">array2</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="kt">string</span> <span class="n">result</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="s">", "</span><span class="p">,</span> <span class="n">multiplyArr</span><span class="p">);</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Multiply corresponding elements of two arraysDecimal number: </span><span class="p">{</span><span class="n">result</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-32">Exercise 32</h3>
+
+<p>Write a C# program to create a new string of four copies, taking last four characters from a given string. If the length of the given string is less than 4 return the original one</p>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>Input a string : The quick brown fox jumps over the lazy dog.</li>
+  <li>dog.dog.dog.dog.</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input a string: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+    <span class="kt">string</span> <span class="n">last4Chars</span> <span class="p">=</span> <span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="n">Length</span> <span class="p">&gt;</span> <span class="m">4</span><span class="p">)</span> <span class="p">?</span> <span class="n">text</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">4</span><span class="p">)</span> <span class="p">:</span> <span class="n">text</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">last4Chars</span><span class="p">}{</span><span class="n">last4Chars</span><span class="p">}{</span><span class="n">last4Chars</span><span class="p">}{</span><span class="n">last4Chars</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-33">Exercise 33</h3>
+
+<p>Write a C# program to check if a given positive number is a multiple of 3 or a multiple of 7.</p>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>Input first integer:</li>
+  <li>15</li>
+  <li>True</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input integer: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">number</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+
+    <span class="kt">bool</span> <span class="n">test</span> <span class="p">=</span> <span class="p">(</span><span class="n">number</span> <span class="p">%</span> <span class="m">3</span> <span class="p">==</span> <span class="m">0</span> <span class="p">||</span> <span class="n">number</span> <span class="p">%</span> <span class="m">7</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="k">true</span> <span class="p">:</span> <span class="k">false</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">test</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-34">Exercise 34</h3>
+
+<p>Write a C# program to check if a string starts with a specified word</p>
+
+<ul>
+  <li>Note: Suppose the sentence starts with “Hello”</li>
+  <li>Sample Data: string1 = “Hello how are you?”</li>
+  <li>Result: Hello.</li>
+</ul>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>Input a string : Hello how are you?</li>
+  <li>True</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input a string: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+    <span class="kt">string</span><span class="p">[]</span> <span class="n">words</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="s">" "</span><span class="p">);</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Word to check: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">wordToCheck</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">((</span><span class="n">wordToCheck</span> <span class="p">==</span> <span class="n">words</span><span class="p">[</span><span class="m">0</span><span class="p">]));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-35">Exercise 35</h3>
+
+<p>Write a C# program to check two given numbers where one is less than 100 and other is greater than 200.</p>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>Input a first number(&lt;100): 75</li>
+  <li>Input a second number(&gt;100): 250</li>
+  <li>True</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input a first number(&lt;100): "</span><span class="p">);</span>
+    <span class="n">numbers</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input a second number(&gt;100): "</span><span class="p">);</span>
+    <span class="n">numbers</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">((</span><span class="n">numbers</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">&lt;</span> <span class="m">100</span> <span class="p">&amp;&amp;</span> <span class="n">numbers</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">&gt;</span> <span class="m">100</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-36">Exercise 36</h3>
+
+<p>Write a C# program to check if an integer (from the two given integers) is in the range -10 to 10.</p>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>Input a first number: -5</li>
+  <li>Input a second number: 8</li>
+  <li>True</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input a first number: "</span><span class="p">);</span>
+    <span class="n">numbers</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input a second number: "</span><span class="p">);</span>
+    <span class="n">numbers</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">((</span><span class="n">Math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="m">0</span><span class="p">])</span> <span class="p">&lt;=</span> <span class="m">10</span> <span class="p">||</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="m">1</span><span class="p">])</span> <span class="p">&lt;=</span> <span class="m">10</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-37">Exercise 37</h3>
+
+<p>Write a C# program to check if “HP” appears at second position in a string and returns the string without “HP”.</p>
+
+<ul>
+  <li>
+    <p>Test Data: PHP Tutorial</p>
+
+    <p>Sample Output:</p>
+  </li>
+  <li>
+    <p>P Tutorial</p>
+  </li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="s">"PHP Tutorial"</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">((</span><span class="n">text</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="p">==</span> <span class="s">"HP"</span><span class="p">)</span> <span class="p">?</span> <span class="n">text</span><span class="p">.</span><span class="nf">Remove</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="p">:</span> <span class="n">text</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-38">Exercise 38</h3>
+
+<p>Write a C# program to get a new string of two characters from a given string. The first and second character of the given string must be “P” and “H”, so PHP will be “PH”.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>PHP</li>
+</ul>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>PH</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="s">"PHP Tutorial"</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="n">firstLetters</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">firstLetters</span> <span class="p">==</span> <span class="s">"PH"</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">firstLetters</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-39">Exercise 39</h3>
+
+<p>Write a C# program to find the largest and lowest values from three integer values.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Input first integer: 15</li>
+  <li>Input second integer: 25</li>
+  <li>Input third integer: 30</li>
+</ul>
+
+<p>Sample Output</p>
+
+<ul>
+  <li>Largest of three: 30</li>
+  <li>Lowest of three: 15</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">3</span><span class="p">];</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input first integer: "</span><span class="p">);</span>
+    <span class="n">numbers</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input second integer: "</span><span class="p">);</span>
+    <span class="n">numbers</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input third integer: "</span><span class="p">);</span>
+    <span class="n">numbers</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+
+    <span class="n">Array</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="n">numbers</span><span class="p">);</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Largest of three: </span><span class="p">{</span><span class="n">numbers</span><span class="p">[</span><span class="m">2</span><span class="p">]}</span><span class="s">"</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Lowest of three: </span><span class="p">{</span><span class="n">numbers</span><span class="p">[</span><span class="m">0</span><span class="p">]}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-40">Exercise 40</h3>
+
+<p>Write a C# program to check the nearest value of 20 of two given integers and return 0 if two numbers are same.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Input first integer: 15</li>
+  <li>Input second integer: 12</li>
+</ul>
+
+<p>Sample Output</p>
+
+<ul>
+  <li>15</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="m">2</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">numberToCompare</span> <span class="p">=</span> <span class="m">20</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input first integer: "</span><span class="p">);</span>
+    <span class="n">numbers</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input second integer: "</span><span class="p">);</span>
+    <span class="n">numbers</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">difference</span> <span class="p">=</span> <span class="p">{</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="n">numberToCompare</span> <span class="p">-</span> <span class="n">numbers</span><span class="p">[</span><span class="m">0</span><span class="p">]),</span> <span class="n">Math</span><span class="p">.</span><span class="nf">Abs</span><span class="p">(</span><span class="n">numberToCompare</span> <span class="p">-</span> <span class="n">numbers</span><span class="p">[</span><span class="m">1</span><span class="p">])</span> <span class="p">};</span>
+
+    <span class="kt">int</span> <span class="n">closestNumber</span> <span class="p">=</span> <span class="p">(</span><span class="n">difference</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">==</span> <span class="n">difference</span><span class="p">[</span><span class="m">1</span><span class="p">])</span> <span class="p">?</span> <span class="m">0</span> <span class="p">:</span> <span class="p">(</span><span class="n">difference</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">&gt;</span> <span class="n">difference</span><span class="p">[</span><span class="m">1</span><span class="p">])</span> <span class="p">?</span> <span class="n">numbers</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">:</span> <span class="n">numbers</span><span class="p">[</span><span class="m">0</span><span class="p">];</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">closestNumber</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-41">Exercise 41</h3>
+
+<p>Write a C# program to check if a given string contains ‘w’ character between 1 and 3 times.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Input a string (contains at least one ‘w’ char) : w3resource</li>
+  <li>Test the string contains ‘w’ character between 1 and 3 times:</li>
+</ul>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>True</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input a string (contains at least one 'w' char): "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">letterToCheck</span> <span class="p">=</span> <span class="sc">'w'</span><span class="p">;</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="kt">char</span> <span class="n">letter</span> <span class="k">in</span> <span class="n">text</span><span class="p">.</span><span class="nf">ToCharArray</span><span class="p">())</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">letter</span> <span class="p">==</span> <span class="n">letterToCheck</span><span class="p">)</span> <span class="n">count</span><span class="p">++;</span>
+    <span class="p">}</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">count</span> <span class="p">&gt;=</span> <span class="m">1</span> <span class="p">&amp;&amp;</span> <span class="n">count</span> <span class="p">&lt;=</span> <span class="m">3</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Or using <code class="highlighter-rouge">Linq</code></p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// using System.Linq;</span>
+
+<span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input a string (contains at least one 'w' char): "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+    <span class="kt">char</span> <span class="n">letterToCheck</span> <span class="p">=</span> <span class="sc">'w'</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">Count</span><span class="p">(</span><span class="n">letter</span> <span class="p">=&gt;</span> <span class="n">letter</span> <span class="p">==</span> <span class="n">letterToCheck</span><span class="p">);</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">count</span> <span class="p">&gt;=</span> <span class="m">1</span> <span class="p">&amp;&amp;</span> <span class="n">count</span> <span class="p">&lt;=</span> <span class="m">3</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-42">Exercise 42</h3>
+
+<p>Write a C# program to create a new string where the first 4 characters will be in lower case. If the string is less than 4 characters then make the whole string in upper case.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Input a string: w3r</li>
+</ul>
+
+<p>Sample Output</p>
+
+<ul>
+  <li>W3R</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input a string: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+    <span class="kt">string</span> <span class="n">newString</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="n">Length</span> <span class="p">&lt;=</span> <span class="m">4</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">newString</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">ToUpper</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+      <span class="n">newString</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">4</span><span class="p">).</span><span class="nf">ToLower</span><span class="p">()</span> <span class="p">+</span> <span class="n">text</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="m">4</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">newString</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-43">Exercise 43</h3>
+
+<p>Write a C# program to check if a given string starts with “w” and immediately followed by two “ww”.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Input a string : www</li>
+</ul>
+
+<p>Sample Output</p>
+
+<ul>
+  <li>True</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input a string: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+    <span class="kt">string</span> <span class="n">testString</span> <span class="p">=</span> <span class="s">"www"</span><span class="p">;</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span> <span class="p">==</span> <span class="n">testString</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-44">Exercise 44</h3>
+
+<p>Write a C# program to create a new string of every other character (odd position) from the first position of a given string.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Input a string : w3resource</li>
+</ul>
+
+<p>Sample Output</p>
+
+<ul>
+  <li>wrsuc</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input a string: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+    <span class="kt">string</span> <span class="n">textResult</span> <span class="p">=</span> <span class="s">""</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">text</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span> <span class="p">+=</span> <span class="m">2</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">textResult</span> <span class="p">+=</span> <span class="n">text</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">textResult</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-45">Exercise 45</h3>
+
+<p>Write a C# program to count a specified number in a given array of integers.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Input an integer: 5</li>
+</ul>
+
+<p>Sample Output</p>
+
+<ul>
+  <li>Number of 5 present in the said array: 2</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">2</span> <span class="p">};</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input an integer: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">numToCount</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">num</span> <span class="k">in</span> <span class="n">numbers</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">num</span> <span class="p">==</span> <span class="n">numToCount</span><span class="p">)</span> <span class="n">count</span><span class="p">++;</span>
+    <span class="p">}</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Number of </span><span class="p">{</span><span class="n">numToCount</span><span class="p">}</span><span class="s"> present in the said array: </span><span class="p">{</span><span class="n">count</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Or using <code class="highlighter-rouge">Linq</code></p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// using System.Linq;</span>
+
+<span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">2</span> <span class="p">};</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input an integer: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">numToCount</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="p">=</span> <span class="n">numbers</span><span class="p">.</span><span class="nf">Count</span><span class="p">(</span><span class="n">num</span> <span class="p">=&gt;</span> <span class="n">num</span> <span class="p">==</span> <span class="n">numToCount</span><span class="p">);</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Number of </span><span class="p">{</span><span class="n">numToCount</span><span class="p">}</span><span class="s"> present in the said array: </span><span class="p">{</span><span class="n">count</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-46">Exercise 46</h3>
+
+<p>Write a C# program to check if a number appears as either the first or last element of an array of integers and the length is 1 or more.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Input an integer: 25</li>
+</ul>
+
+<p>Sample Output</p>
+
+<ul>
+  <li>False</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">2</span> <span class="p">};</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Input an integer: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">numToTest</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="kt">bool</span> <span class="n">test</span> <span class="p">=</span> <span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="n">Length</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">==</span> <span class="n">numToTest</span> <span class="p">||</span> <span class="n">numbers</span><span class="p">[</span><span class="n">numbers</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">]</span> <span class="p">==</span> <span class="n">numToTest</span><span class="p">)</span> <span class="p">:</span> <span class="k">false</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">test</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-47">Exercise 47</h3>
+
+<p>Write a C# program to compute the sum of all the elements of an array of integers.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Array1: [1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1]</li>
+</ul>
+
+<p>Sample Output</p>
+
+<ul>
+  <li>Sum: 69</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">1</span> <span class="p">};</span>
+    <span class="kt">int</span> <span class="n">sum</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">num</span> <span class="k">in</span> <span class="n">numbers</span><span class="p">)</span> <span class="n">sum</span> <span class="p">+=</span> <span class="n">num</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">sum</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Or using <code class="highlighter-rouge">Linq</code></p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// using System.Linq;</span>
+<span class="k">class</span> <span class="nc">Program</span>
+  <span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">1</span> <span class="p">};</span>
+
+      <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="nf">Sum</span><span class="p">());</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-48">Exercise 48</h3>
+
+<p>Write a C# program to check if the first element and the last element are equal of an array of integers and the length is 1 or more.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Array1: [1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1]</li>
+</ul>
+
+<p>Sample Output</p>
+
+<ul>
+  <li>True</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">1</span> <span class="p">};</span>
+    <span class="kt">bool</span> <span class="n">test</span> <span class="p">=</span> <span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="n">Length</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">==</span> <span class="n">numbers</span><span class="p">[</span><span class="n">numbers</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">])</span> <span class="p">:</span> <span class="k">false</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">test</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-49">Exercise 49</h3>
+
+<p>Write a C# program to check if the first element or the last element of the two arrays ( length 1 or more) are equal.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Array1: [1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1]</li>
+  <li>Array2: [1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 5]</li>
+  <li>Check if the first element or the last element of the two arrays ( leng th 1 or more) are equal.</li>
+</ul>
+
+<p>Sample Output:</p>
+
+<ul>
+  <li>True</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers1</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">1</span> <span class="p">};</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers2</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">5</span> <span class="p">};</span>
+    <span class="kt">bool</span> <span class="n">test</span> <span class="p">=</span> <span class="p">(</span><span class="n">numbers1</span><span class="p">.</span><span class="n">Length</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">numbers2</span><span class="p">.</span><span class="n">Length</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">?</span> <span class="p">(</span><span class="n">numbers1</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="nf">Equals</span><span class="p">(</span><span class="n">numbers2</span><span class="p">[</span><span class="m">0</span><span class="p">])</span> <span class="p">||</span> <span class="n">numbers1</span><span class="p">[</span><span class="n">numbers1</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">].</span><span class="nf">Equals</span><span class="p">(</span><span class="n">numbers2</span><span class="p">[</span><span class="n">numbers2</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">]))</span> <span class="p">:</span> <span class="k">false</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">test</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-50">Exercise 50</h3>
+
+<p>Write a C# program to rotate an array (length 3) of integers in left direction.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Array1: [1, 2, 8]</li>
+  <li>After rotating array becomes: [2, 8, 1]</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">1</span> <span class="p">};</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">newNumbers</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">numbers</span><span class="p">.</span><span class="n">Length</span><span class="p">];</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">numbers</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+    <span class="p">{</span>
+      <span class="kt">int</span> <span class="n">index</span> <span class="p">=</span> <span class="p">(</span><span class="n">i</span> <span class="p">-</span> <span class="m">1</span> <span class="p">==</span> <span class="p">-</span><span class="m">1</span><span class="p">)</span> <span class="p">?</span> <span class="n">numbers</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span> <span class="p">:</span> <span class="n">i</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span>
+      <span class="n">newNumbers</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">=</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"After rotating array becomes: [</span><span class="p">{</span><span class="kt">string</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="s">", "</span><span class="p">,</span> <span class="n">newNumbers</span><span class="p">)}</span><span class="s">]"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-51">Exercise 51</h3>
+
+<p>Write a C# program to get the larger value between first and last element of an array (length 3) of integers.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Array1: [1, 2, 5, 7, 8]</li>
+  <li>Highest value between first and last values of the said array: 8</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span> <span class="p">};</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="p">=</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">&gt;</span> <span class="n">numbers</span><span class="p">[</span><span class="n">numbers</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">])</span> <span class="p">?</span> <span class="n">numbers</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">:</span> <span class="n">numbers</span><span class="p">[</span><span class="n">numbers</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">];</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Highest value between first and last values of the said array: </span><span class="p">{</span><span class="n">result</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-52">Exercise 52</h3>
+
+<p>Write a C# program to create a new array of length containing the middle elements of three arrays (each length 3) of integers.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Array1: [1, 2, 5]</li>
+  <li>Array2: [0, 3, 8]</li>
+  <li>Array3: [-1, 0, 2]</li>
+  <li>New array: [2, 3, 0]</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//using System.Collections.Generic;</span>
+
+<span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers1</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">5</span> <span class="p">};</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers2</span> <span class="p">=</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">8</span> <span class="p">};</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers3</span> <span class="p">=</span> <span class="p">{</span> <span class="p">-</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">2</span> <span class="p">};</span>
+    <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">[</span><span class="k">]&gt;</span> <span class="n">numbersList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">[</span><span class="k">]&gt;</span>
+    <span class="p">{</span>
+      <span class="n">numbers1</span><span class="p">,</span> <span class="n">numbers2</span><span class="p">,</span> <span class="n">numbers3</span>
+    <span class="p">};</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">medianValues</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">numbersList</span><span class="p">.</span><span class="n">Count</span><span class="p">];</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">numbersList</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+    <span class="p">{</span>
+      <span class="kt">int</span> <span class="n">medianIndex</span> <span class="p">=</span> <span class="p">(</span><span class="n">numbersList</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span> <span class="p">/</span> <span class="m">2</span><span class="p">;</span>
+      <span class="n">medianValues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="n">numbersList</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">medianIndex</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"New array: [</span><span class="p">{</span><span class="kt">string</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="s">", "</span><span class="p">,</span> <span class="n">medianValues</span><span class="p">)}</span><span class="s">]"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-53">Exercise 53</h3>
+
+<p>Write a C# program to check if an array contains an odd number.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Original array: [2, 4, 7, 8, 6]</li>
+  <li>Check if an array contains an odd number? True</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="p">{</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">6</span> <span class="p">};</span>
+    <span class="kt">bool</span> <span class="n">hasOddNum</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="p">&lt;</span> <span class="n">numbers</span><span class="p">.</span><span class="n">Length</span> <span class="p">&amp;&amp;</span> <span class="p">!</span><span class="n">hasOddNum</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">%</span> <span class="m">2</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span> <span class="n">hasOddNum</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+      <span class="n">i</span><span class="p">++;</span>
+    <span class="p">}</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Check if an array contains an odd number? </span><span class="p">{</span><span class="n">hasOddNum</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-54">Exercise 54</h3>
+
+<p>Write a C# program to get the century from a year.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Year: "</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">year</span> <span class="p">=</span> <span class="kt">int</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">());</span>
+    <span class="kt">int</span> <span class="n">century</span> <span class="p">=</span> <span class="p">(</span><span class="n">year</span> <span class="p">-</span> <span class="m">1</span><span class="p">)</span> <span class="p">/</span> <span class="m">100</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">((</span><span class="n">year</span> <span class="p">&lt;</span> <span class="m">1</span><span class="p">)</span> <span class="p">?</span> <span class="s">"Please enter starting from 1 AD"</span> <span class="p">:</span> <span class="s">$"Century: </span><span class="p">{</span><span class="n">century</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-55">Exercise 55</h3>
+
+<p>Write a C# program to find the pair of adjacent elements that has the largest product of an given array.</p>
+
+<p>Test Data:</p>
+
+<ul>
+  <li>Original array: [ 0, -1, -1, -2 ]</li>
+  <li>Biggest pair product: 2;</li>
+  <li>Original array: [ 6, 1, 12, 3, 1, 4 ]</li>
+  <li>Biggest pair product: 36;</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">BiggestPairProduct</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> <span class="m">3</span> <span class="p">}));</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">BiggestPairProduct</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="p">-</span><span class="m">1</span><span class="p">,</span> <span class="p">-</span><span class="m">1</span><span class="p">,</span> <span class="p">-</span><span class="m">2</span> <span class="p">}));</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">BiggestPairProduct</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">6</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">4</span> <span class="p">}));</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">BiggestPairProduct</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">0</span> <span class="p">}));</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="kt">int</span> <span class="nf">BiggestPairProduct</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">totalProduct</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">args</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+    <span class="p">{</span>
+      <span class="kt">int</span> <span class="n">pairProduct</span> <span class="p">=</span> <span class="n">args</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">*</span> <span class="n">args</span><span class="p">[</span><span class="n">i</span> <span class="p">+</span> <span class="m">1</span><span class="p">];</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">pairProduct</span> <span class="p">&gt;</span> <span class="n">totalProduct</span><span class="p">)</span> <span class="n">totalProduct</span> <span class="p">=</span> <span class="n">pairProduct</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">totalProduct</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-56">Exercise 56</h3>
+
+<p>Write a C# program to check if a given string is a palindrome or not.</p>
+
+<p>Sample Example:</p>
+
+<ul>
+  <li>For ‘aaa’ the output should be true</li>
+  <li>For ‘abcd’ the output should be false</li>
+  <li>‘A car, a man, a maraca’ should be true</li>
+  <li>‘A but tuba’ should be true</li>
+</ul>
+
+<p>http://www.palindromelist.net/</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// using System.Text.RegularExpressions;</span>
+
+<span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="s">"Text: "</span><span class="p">);</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="nf">ReadLine</span><span class="p">();</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">IsPalindrome</span><span class="p">(</span><span class="n">text</span><span class="p">));</span>
+  <span class="p">}</span>
+  <span class="k">static</span> <span class="kt">bool</span> <span class="nf">IsPalindrome</span><span class="p">(</span><span class="kt">string</span> <span class="n">text</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">string</span> <span class="n">letters</span> <span class="p">=</span> <span class="n">Regex</span><span class="p">.</span><span class="nf">Replace</span><span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="nf">ToLower</span><span class="p">(),</span> <span class="s">@"[^A-Za-z0-9]+"</span><span class="p">,</span> <span class="n">String</span><span class="p">.</span><span class="n">Empty</span><span class="p">);</span>
+    <span class="kt">char</span><span class="p">[]</span> <span class="n">chars</span> <span class="p">=</span> <span class="n">letters</span><span class="p">.</span><span class="nf">ToCharArray</span><span class="p">();</span>
+    <span class="n">Array</span><span class="p">.</span><span class="nf">Reverse</span><span class="p">(</span><span class="n">chars</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">letters</span><span class="p">.</span><span class="nf">Equals</span><span class="p">(</span><span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="n">chars</span><span class="p">)));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-57">Exercise 57</h3>
+
+<p>(Same as 55)</p>
+
+<p>Write a C# program to find the pair of adjacent elements that has the highest product of an given array of integers</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">BiggestPairProduct</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">9</span><span class="p">,</span> <span class="m">3</span> <span class="p">}));</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">BiggestPairProduct</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="p">-</span><span class="m">1</span><span class="p">,</span> <span class="p">-</span><span class="m">1</span><span class="p">,</span> <span class="p">-</span><span class="m">2</span> <span class="p">}));</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">BiggestPairProduct</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">6</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">12</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">4</span> <span class="p">}));</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">BiggestPairProduct</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">0</span> <span class="p">}));</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="kt">int</span> <span class="nf">BiggestPairProduct</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">totalProduct</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">args</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+    <span class="p">{</span>
+      <span class="kt">int</span> <span class="n">pairProduct</span> <span class="p">=</span> <span class="n">args</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">*</span> <span class="n">args</span><span class="p">[</span><span class="n">i</span> <span class="p">+</span> <span class="m">1</span><span class="p">];</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">pairProduct</span> <span class="p">&gt;</span> <span class="n">totalProduct</span><span class="p">)</span> <span class="n">totalProduct</span> <span class="p">=</span> <span class="n">pairProduct</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">totalProduct</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-58">Exercise 58</h3>
+
+<p>Write a C# program which will accept a list of integers and checks how many integers are needed to complete the range.</p>
+
+<p>Sample Example [1, 3, 4, 7, 9], between 1-9 -&gt; 2, 5, 6, 8 are not present in the list. So output will be 4.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">99</span> <span class="p">};</span>
+    <span class="n">Array</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="n">numbers</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">rangeLength</span> <span class="p">=</span> <span class="n">numbers</span><span class="p">[</span><span class="n">numbers</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">]</span> <span class="p">-</span> <span class="n">numbers</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">+</span> <span class="m">1</span><span class="p">;</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"</span><span class="p">{</span><span class="n">rangeLength</span> <span class="p">-</span> <span class="n">numbers</span><span class="p">.</span><span class="n">Length</span><span class="p">}</span><span class="s"> integers are missing to complete the list"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-59">Exercise 59</h3>
+
+<p>Write a C# program to check whether it is possible to create a strictly increasing sequence from a given sequence of integers as an array.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">IsIncreasingSequence</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">9</span> <span class="p">}));</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">IsIncreasingSequence</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">10</span> <span class="p">}));</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">IsIncreasingSequence</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">3</span> <span class="p">}));</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">IsIncreasingSequence</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span> <span class="p">}));</span>
+  <span class="p">}</span>
+  <span class="k">static</span> <span class="kt">bool</span> <span class="nf">IsIncreasingSequence</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">bool</span> <span class="n">isIncreasing</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">i</span> <span class="p">&lt;</span> <span class="n">args</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span> <span class="p">&amp;&amp;</span> <span class="n">isIncreasing</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">&gt;</span> <span class="n">args</span><span class="p">[</span><span class="n">i</span> <span class="p">+</span> <span class="m">1</span><span class="p">])</span> <span class="n">isIncreasing</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+      <span class="n">i</span><span class="p">++;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">isIncreasing</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Or using <code class="highlighter-rouge">SequenceEqual</code> (<code class="highlighter-rouge">System.Linq</code>)</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//using System.Linq;</span>
+<span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">IsIncreasingSequence</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">9</span> <span class="p">}));</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">IsIncreasingSequence</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">10</span> <span class="p">}));</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">IsIncreasingSequence</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">3</span> <span class="p">}));</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">IsIncreasingSequence</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span> <span class="p">}));</span>
+  <span class="p">}</span>
+  <span class="k">static</span> <span class="kt">bool</span> <span class="nf">IsIncreasingSequence</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">sortArgs</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">[])</span><span class="n">args</span><span class="p">.</span><span class="nf">Clone</span><span class="p">();</span>
+    <span class="n">Array</span><span class="p">.</span><span class="nf">Sort</span><span class="p">(</span><span class="n">sortArgs</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">args</span><span class="p">.</span><span class="nf">SequenceEqual</span><span class="p">(</span><span class="n">sortArgs</span><span class="p">));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-60">Exercise 60</h3>
+
+<p>Write a C# program to calculate the sum of all the integers of a rectangular matrix except those integers which are located below an integer of value 0.</p>
+
+<p>Sample Example:</p>
+
+<ul>
+  <li>matrix = [[0, 2, 3, 2], [0, 6, 0, 1], [4, 0, 3, 0]]</li>
+  <li>Eligible integers which will be participated to calculate the sum -</li>
+  <li>matrix = [[X, 2, 3, 2], [X, 6, X, 1], [X, X, X, X]]</li>
+  <li>Therefore sum will be: 2 + 3 + 2 + 6 + 1 = 14</li>
+</ul>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[][]</span> <span class="n">numbers</span> <span class="p">=</span>
+    <span class="p">{</span>
+      <span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">2</span> <span class="p">},</span>
+      <span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">0</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span> <span class="p">},</span>
+      <span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">4</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">0</span> <span class="p">},</span>
+    <span class="p">};</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="nf">SumMatrix</span><span class="p">(</span><span class="n">numbers</span><span class="p">));</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="kt">int</span> <span class="nf">SumMatrix</span><span class="p">(</span><span class="kt">int</span><span class="p">[][]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">bool</span><span class="p">[]</span> <span class="n">template</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">bool</span><span class="p">[</span><span class="n">args</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">Length</span><span class="p">];</span>
+    <span class="n">template</span> <span class="p">=</span> <span class="n">Array</span><span class="p">.</span><span class="n">ConvertAll</span><span class="p">&lt;</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;(</span><span class="n">template</span><span class="p">,</span> <span class="n">b</span> <span class="p">=&gt;</span> <span class="n">b</span> <span class="p">=</span> <span class="k">true</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">sum</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">row</span> <span class="k">in</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">row</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+      <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">template</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span>
+          <span class="p">{</span>
+            <span class="n">template</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+          <span class="p">}</span>
+          <span class="k">else</span>
+          <span class="p">{</span>
+            <span class="n">sum</span> <span class="p">+=</span> <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-61">Exercise 61</h3>
+
+<p>Write a C# program to sort the integers in ascending order without moving the number -5.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// using System.Linq;</span>
+<span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">arr</span> <span class="p">=</span> <span class="nf">sortArrWithException</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">77</span><span class="p">,</span> <span class="p">-</span><span class="m">5</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="p">-</span><span class="m">99</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="p">-</span><span class="m">5</span><span class="p">,</span> <span class="m">3</span> <span class="p">},</span> <span class="p">-</span><span class="m">5</span><span class="p">);</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="s">", "</span><span class="p">,</span> <span class="n">arr</span><span class="p">));</span>
+  <span class="p">}</span>
+  <span class="k">static</span> <span class="kt">int</span><span class="p">[]</span> <span class="nf">sortArrWithException</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">args</span><span class="p">,</span> <span class="kt">int</span> <span class="n">exception</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">int</span><span class="p">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="n">args</span><span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span> <span class="p">!=</span> <span class="n">exception</span><span class="p">).</span><span class="nf">OrderBy</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">).</span><span class="nf">ToArray</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="n">args</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span> <span class="p">!=</span> <span class="n">exception</span> <span class="p">?</span> <span class="n">numbers</span><span class="p">[</span><span class="n">i</span><span class="p">++]</span> <span class="p">:</span> <span class="n">exception</span><span class="p">).</span><span class="nf">ToArray</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="exercise-62">Exercise 62</h3>
+
+<p>Write a C# program to reverse the strings contained in each pair of matching parentheses in a given string and also remove the parentheses within the given string.</p>
+
+<div class="language-cs highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="kt">string</span> <span class="n">text</span> <span class="p">=</span> <span class="s">"the quick (brown (test)) fox (jumps over) the lazy dog"</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">text</span><span class="p">.</span><span class="nf">LastIndexOf</span><span class="p">(</span><span class="s">"("</span><span class="p">)</span> <span class="p">&gt;=</span> <span class="m">0</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">int</span> <span class="n">openParenIndex</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">LastIndexOf</span><span class="p">(</span><span class="s">"("</span><span class="p">);</span>
+      <span class="kt">int</span> <span class="n">closeParenIndex</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">IndexOf</span><span class="p">(</span><span class="s">")"</span><span class="p">,</span> <span class="n">openParenIndex</span><span class="p">);</span>
+
+      <span class="kt">string</span> <span class="n">textFirst</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">openParenIndex</span><span class="p">);</span>
+      <span class="kt">string</span> <span class="n">textLast</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="n">closeParenIndex</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
+      <span class="kt">string</span> <span class="n">textInParen</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="nf">Substring</span><span class="p">(</span><span class="n">openParenIndex</span> <span class="p">+</span> <span class="m">1</span><span class="p">,</span> <span class="n">closeParenIndex</span> <span class="p">-</span> <span class="n">openParenIndex</span> <span class="p">-</span> <span class="m">1</span><span class="p">);</span>
+      <span class="kt">char</span><span class="p">[]</span> <span class="n">textInParenReverse</span> <span class="p">=</span> <span class="n">textInParen</span><span class="p">.</span><span class="nf">ToCharArray</span><span class="p">();</span>
+      <span class="n">Array</span><span class="p">.</span><span class="nf">Reverse</span><span class="p">(</span><span class="n">textInParenReverse</span><span class="p">);</span>
+
+      <span class="n">text</span> <span class="p">=</span> <span class="n">textFirst</span> <span class="p">+</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="n">textInParenReverse</span><span class="p">)</span> <span class="p">+</span> <span class="n">textLast</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="n">text</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+  </div>
+
+  <a class="u-url" href="/devNotes/dotnet/2019/05/11/c-practice.html" hidden></a>
+</article>
+      </main>
+      <footer>
+        <p>🌍 London, UK</p>
+        <ul class="links">
+          <li><a href="/devNotes/feed.xml">RSS</a></li>
+          <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+          <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+        </ul>
+        <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+        <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+      </footer>
+    </div>
+    <script src="/devNotes/dist/js/scriptsBundleMain.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/devNotes/sw.js');
+        });
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+  </body>
+</html>
