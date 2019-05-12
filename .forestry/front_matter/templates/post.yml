@@ -42,7 +42,7 @@ fields:
       path: 
   label: Post type
 pages:
-- _posts/dotnet/c-practice.md
+- _posts/dotnet/2019-05-11-c-practice.md
 - _posts/Javascript/2018-08-24-vue-props-events.md
 - _posts/Javascript/2018-08-13-vue-scss-setup.md
 - _posts/Javascript/2019-05-05-webpack-4-bundle-scss-and-javascript-for-ssr-applications.md
