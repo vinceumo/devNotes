@@ -1,9 +1,11 @@
 ---
 layout: post
 title: Git - Cheat sheet
-date: 2018-08-01 08:00:00 +0000
+date: 2018-08-01T08:00:00.000+00:00
 categories:
 - Tools
+post_type: snippet
+canonical: ''
 
 ---
 ## Create a repository

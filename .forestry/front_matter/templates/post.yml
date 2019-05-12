@@ -42,6 +42,7 @@ fields:
       path: 
   label: Post type
 pages:
+- _posts/Tools/2018-08-01-git-cheat-sheet.md
 - _posts/Tools/2019-01-14-regex-101.md
 - _posts/Tools/2018-07-21-ngrok.md
 - _posts/Tools/2018-07-21-youtube-thumbnails.md
