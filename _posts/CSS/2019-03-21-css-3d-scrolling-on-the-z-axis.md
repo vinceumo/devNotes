@@ -1,10 +1,11 @@
 ---
 layout: post
 title: CSS 3D - Scrolling on the z-axis
-date: 2019-03-21 00:00:00 +0000
+date: 2019-03-21T00:00:00.000+00:00
 categories:
 - CSS
 canonical: ''
+post_type: post
 
 ---
 ![Demo gif]({{ site.baseurl }}/dist/img/css3d-z-scroll-demo.gif)

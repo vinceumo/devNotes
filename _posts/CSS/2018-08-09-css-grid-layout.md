@@ -1,10 +1,13 @@
 ---
 layout: post
-title:  "CSS Grid Layout"
-date:   2018-08-09 14:37:19 +0100
-categories: CSS
----
+title: CSS Grid Layout
+date: 2018-08-09T13:37:19.000+00:00
+categories:
+- CSS
+post_type: snippet
+canonical: ''
 
+---
 CSS grid is a two dimensional CSS layout system where is flexbox a one dimensional one.
 
 ## Examples

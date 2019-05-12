@@ -1,10 +1,11 @@
 ---
 layout: post
 title: CSS custom properties - Cheatsheet
-date: 2019-02-20 00:00:00 +0000
+date: 2019-02-20T00:00:00.000+00:00
 categories:
 - CSS
 canonical: ''
+post_type: post
 
 ---
 CSS custom properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.

@@ -1,10 +1,13 @@
 ---
 layout: post
-title:  "Screen reader - NVDA (Non-Visual Desktop Access) (Windows)"
-date:   2018-08-04 20:51:00 +0100
-categories: A11Y
----
+title: Screen reader - NVDA (Non-Visual Desktop Access) (Windows)
+date: 2018-08-04T19:51:00.000+00:00
+categories:
+- A11Y
+post_type: snippet
+canonical: ''
 
+---
 > NVDA allows blind and vision impaired people to access and interact with the Windows operating system and many third party applications.
 
 NVDA is a free and open source screen reader, it can be download on the [NV access website](https://www.nvaccess.org/download/)

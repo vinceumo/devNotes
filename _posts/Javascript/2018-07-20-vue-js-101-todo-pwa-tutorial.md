@@ -1,10 +1,11 @@
 ---
 layout: post
 title: 'Vue - 101 todo PWA tutorial '
-date: 2018-07-20 23:00:00 +0000
+date: 2018-07-20T23:00:00.000+00:00
 categories:
 - Javascript
 canonical: https://medium.com/@vince_umo_34593/vue-js-101-todo-pwa-tutorial-ea96eb4e64b1
+post_type: post
 
 ---
 The goal of this tutorial is to give an introduction to vue.js ❤.

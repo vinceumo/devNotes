@@ -1,10 +1,11 @@
 ---
 layout: post
 title: Adobe Photoshop - 101 introduction for web developers
-date: 2018-07-22 23:00:00 +0000
+date: 2018-07-22T23:00:00.000+00:00
 categories:
 - Tools
 canonical: https://medium.com/@vince_umo_34593/photoshop-101-introduction-for-web-developers-62d55232e62b
+post_type: post
 
 ---
 ## Introduction

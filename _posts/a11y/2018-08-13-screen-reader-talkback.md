@@ -1,10 +1,13 @@
 ---
 layout: post
-title:  "Screen reader - TalkBack (Android)"
-date:   2018-08-13 14:25:19 +0100
-categories: A11Y
----
+title: Screen reader - TalkBack (Android)
+date: 2018-08-13T13:25:19.000+00:00
+categories:
+- A11Y
+post_type: snippet
+canonical: ''
 
+---
 > TalkBack is the Google screen reader included on Android devices. TalkBack gives you spoken feedback so that you can use your device without looking at the screen.
 >
 > *[Android Accessibility Help](https://support.google.com/accessibility/android/answer/6283677?hl=en)*

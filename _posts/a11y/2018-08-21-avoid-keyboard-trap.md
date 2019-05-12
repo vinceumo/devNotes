@@ -1,10 +1,13 @@
 ---
 layout: post
-title:  "Inert - Avoid keyboard trap"
-date:   2018-08-21 15:49:19 +0100
-categories: A11Y
----
+title: Inert - Avoid keyboard trap
+date: 2018-08-21T14:49:19.000+00:00
+categories:
+- A11Y
+post_type: snippet
+canonical: ''
 
+---
 The `inert` attribute is still into draft and no browser currently support it. The current draft currently states:
 
 > A node (in particular elements and text nodes) can be marked as inert. When a node is inert, then the user agent must act as if the node was absent for the purposes of targeting user interaction events, may ignore the node for the purposes of text search user interfaces (commonly known as "find in page"), and may prevent the user from selecting text in that node.
