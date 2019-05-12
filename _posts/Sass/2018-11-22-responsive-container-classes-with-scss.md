@@ -2,12 +2,11 @@
 title: Responsive container classes with SCSS
 layout: post
 date: 2018-11-22T10:51:05.000+00:00
-categories:
-- Sass
-canonical: ''
+category: Sass
+canonical: ""
 post_type: snippet
-
 ---
+
 ## SCSS input:
 
 ```scss
@@ -28,15 +27,21 @@ post_type: snippet
 }
 
 $breakpoints: (
-  na: 0px, // For BS grid
-  xs: 320px, // Smartphone
-  sm: 600px, // Tablets
-  md: 900px, // Tablets Landscape and small desktops
-  lg: 1200px, // Desktops
-  xl: 1800px, // Large Desktop
+  na: 0px,
+  // For BS grid
+    xs: 320px,
+  // Smartphone
+    sm: 600px,
+  // Tablets
+    md: 900px,
+  // Tablets Landscape and small desktops
+    lg: 1200px,
+  // Desktops
+    xl: 1800px,
+  // Large Desktop
 );
 
-@function container($container-size, $true-val:false) {
+@function container($container-size, $true-val: false) {
   @return map-get($container-sizes, $container-size);
 }
 
@@ -48,36 +53,36 @@ $container-sizes: (
 );
 
 .container {
-    padding-right: 1rem;
-    padding-left: 1rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
 
-    &:not(.is-fluid) {
-        margin: 0 auto;
+  &:not(.is-fluid) {
+    margin: 0 auto;
 
-        @each $bp, $container-size in $container-sizes {
-            @include min(#{bp(#{$bp})}) {
-                width: 100%;
-                max-width: container(#{$bp});
-            }
-        }
+    @each $bp, $container-size in $container-sizes {
+      @include min(#{bp(#{$bp})}) {
+        width: 100%;
+        max-width: container(#{$bp});
+      }
     }
+  }
 }
 
 @each $bp, $container-size in $container-sizes {
-    .container-#{$bp} {
-        margin: 0 auto;
-        padding-right: 1rem;
-        padding-left: 1rem;
-        width: 100%;
+  .container-#{$bp} {
+    margin: 0 auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    width: 100%;
 
-        $i: index($container-sizes, $bp $container-size);
+    $i: index($container-sizes, $bp $container-size);
 
-        @for $j from $i through length($container-sizes) {
-            @include min(#{bp(nth(nth($container-sizes, $j), 1))}) {
-                max-width: container(#{nth(nth($container-sizes, $j), 1)});
-            }
-        }
+    @for $j from $i through length($container-sizes) {
+      @include min(#{bp(nth(nth($container-sizes, $j), 1))}) {
+        max-width: container(#{nth(nth($container-sizes, $j), 1)});
+      }
     }
+  }
 }
 ```
 

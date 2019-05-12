@@ -2,12 +2,11 @@
 layout: post
 title: Adobe Photoshop - 101 introduction for web developers
 date: 2018-07-22T23:00:00.000+00:00
-categories:
-- Tools
+category: Tools
 canonical: https://medium.com/@vince_umo_34593/photoshop-101-introduction-for-web-developers-62d55232e62b
 post_type: post
-
 ---
+
 ## Introduction
 
 Often, when working as web developer, we need to integrate templates. They can be from Photoshop or other software. In this article, we will have a look at the basics of Photoshop for a web developer.

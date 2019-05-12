@@ -3,11 +3,10 @@ layout: post
 post_type: snippet
 title: C# - Practice
 date: 2019-05-11 23:00:00 +0000
-categories:
-- Dotnet
-canonical: ''
-
+category: Dotnet
+canonical: ""
 ---
+
 ## C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution
 
 [Exercices link](https://www.w3resource.com/csharp-exercises/basic/index.php)
@@ -18,8 +17,8 @@ Write a C# Sharp program to print Hello and your name in a separate line.
 
 Expected Output :
 
-* Hello
-* Alexandra Abramov
+- Hello
+- Alexandra Abramov
 
 ```cs
 class Program
@@ -70,17 +69,17 @@ class Program
 
 Write a C# Sharp program to print the result of the specified operations:
 
-* -1 + 4 * 6
-* ( 35+ 5 ) % 7
-* 14 + -4 * 6 / 11
-* 2 + 15 / 6 * 1 - 7 % 2
+- -1 + 4 \* 6
+- ( 35+ 5 ) % 7
+- 14 + -4 \* 6 / 11
+- 2 + 15 / 6 \* 1 - 7 % 2
 
 Expected Output:
 
-* 23
-* 5
-* 12
-* 3
+- 23
+- 5
+- 12
+- 3
 
 ```cs
 class Program
@@ -101,12 +100,12 @@ Write a C# Sharp program to swap two numbers.
 
 Test Data:
 
-* Input the First Number : 5
-* Input the Second Number : 6
-* Expected Output:
-* After Swapping :
-* First Number : 6
-* Second Number : 5
+- Input the First Number : 5
+- Input the Second Number : 6
+- Expected Output:
+- After Swapping :
+- First Number : 6
+- Second Number : 5
 
 ```cs
 class Program
@@ -130,13 +129,13 @@ Write a C# Sharp program to print the output of multiplication of three numbers 
 
 Test Data:
 
-* Input the first number to multiply: 2
-* Input the second number to multiply: 3
-* Input the third number to multiply: 6
+- Input the first number to multiply: 2
+- Input the second number to multiply: 3
+- Input the third number to multiply: 6
 
 Expected Output:
 
-* 2 x 3 x 6 = 36
+- 2 x 3 x 6 = 36
 
 ```cs
 class Program
@@ -160,16 +159,16 @@ Write a C# Sharp program to print on screen the output of adding, subtracting, m
 
 Test Data:
 
-* Input the first number: 25
-* Input the second number: 4
+- Input the first number: 25
+- Input the second number: 4
 
 Expected Output:
 
-* 25 + 4 = 29
-* 25 - 4 = 21
-* 25 x 4 = 100
-* 25 / 4 = 6
-* 25 mod 4 = 1
+- 25 + 4 = 29
+- 25 - 4 = 21
+- 25 x 4 = 100
+- 25 / 4 = 6
+- 25 mod 4 = 1
 
 ```cs
 class Program
@@ -195,14 +194,14 @@ Write a C# Sharp program that takes a number as input and print its multiplicati
 
 Test Data:
 
-* Enter the number: 5
+- Enter the number: 5
 
 Expected Output:
 
-* 5 * 0 = 0
-* 5 * 1 = 5
-* 5 * 2 = 10
-* 5 * 3 = 15
+- 5 \* 0 = 0
+- 5 \* 1 = 5
+- 5 \* 2 = 10
+- 5 \* 3 = 15
 
 ```cs
 class Program
@@ -226,14 +225,14 @@ Write a C# Sharp program that takes four numbers as input to calculate and print
 
 Test Data:
 
-* Enter the First number: 10
-* Enter the Second number: 15
-* Enter the third number: 20
-* Enter the four number: 30
+- Enter the First number: 10
+- Enter the Second number: 15
+- Enter the third number: 20
+- Enter the four number: 30
 
 Expected Output:
 
-* The average of 10 , 15 , 20 , 30 is: 18
+- The average of 10 , 15 , 20 , 30 is: 18
 
 ```cs
 class Program
@@ -260,13 +259,13 @@ Write a C# Sharp program to that takes three numbers(x,y,z) as input and print t
 
 Test Data:
 
-* Enter first number - 5
-* Enter second number - 6
-* Enter third number - 7
+- Enter first number - 5
+- Enter second number - 6
+- Enter third number - 7
 
 Expected Output:
 
-* Result of specified numbers 5, 6 and 7, (x+y).z is 77 and x.y + y.z is 72
+- Result of specified numbers 5, 6 and 7, (x+y).z is 77 and x.y + y.z is 72
 
 ```cs
 class Program
@@ -292,11 +291,11 @@ Write a C# Sharp program that takes an age (for example 20) as input and prints 
 
 Test Data:
 
-* Enter your age - 25
+- Enter your age - 25
 
 Expected Output:
 
-* You look older than 25
+- You look older than 25
 
 ```cs
 class Program
@@ -316,14 +315,14 @@ Write a C# program to that takes a number as input and display it four times in 
 
 Test Data:
 
-* Enter a digit: 25
+- Enter a digit: 25
 
 Expected Output:
 
-* 25 25 25 25
-* 25252525
-* 25 25 25 25
-* 25252525
+- 25 25 25 25
+- 25252525
+- 25 25 25 25
+- 25252525
 
 ```cs
 class Program
@@ -348,15 +347,15 @@ Write a C# program that takes a number as input and then displays a rectangle of
 
 Test Data:
 
-* Enter a number: 5
+- Enter a number: 5
 
 Expected Output:
 
-* 555
-* 5 5
-* 5 5
-* 5 5
-* 555
+- 555
+- 5 5
+- 5 5
+- 5 5
+- 555
 
 ```cs
 class Program
@@ -381,12 +380,12 @@ Write a C# program to convert from celsius degrees to Kelvin and Fahrenheit.
 
 Test Data:
 
-* Enter the amount of celsius: 30
+- Enter the amount of celsius: 30
 
 Expected Output:
 
-* Kelvin = 303
-* Fahrenheit = 86
+- Kelvin = 303
+- Fahrenheit = 86
 
 ```cs
 class Program
@@ -410,13 +409,13 @@ Write a C# program remove specified a character from a non-empty string using in
 
 Test Data:
 
-* w3resource
+- w3resource
 
 Sample Output:
 
-* wresource
-* w3resourc
-* 3resource
+- wresource
+- w3resourc
+- 3resource
 
 ```cs
 class Program
@@ -449,14 +448,14 @@ Write a C# program to create a new string from a given string where the first an
 
 Test Data:
 
-* w3resource
-* Python
+- w3resource
+- Python
 
 Sample Output:
 
-* e3resourcw
-* nythoP
-* x
+- e3resourcw
+- nythoP
+- x
 
 ```cs
 class Program
@@ -510,8 +509,8 @@ Write a C# program to create a new string from a given string (length 1 or more 
 
 Sample Output:
 
-* Input a string : The quick brown fox jumps over the lazy dog.
-* TThe quick brown fox jumps over the lazy dog.T
+- Input a string : The quick brown fox jumps over the lazy dog.
+- TThe quick brown fox jumps over the lazy dog.T
 
 ```cs
 class Program
@@ -535,9 +534,9 @@ Write a C# program to check two given integers and return true if one is negativ
 
 Sample Output:
 
-* Input first integer: -5
-* Input second integer: 25
-* Check if one is negative and one is positive: True
+- Input first integer: -5
+- Input second integer: 25
+- Check if one is negative and one is positive: True
 
 ```cs
 class Program
@@ -621,8 +620,8 @@ Write a C# program to check if an given integer is within 20 of 100 or 200. (Mea
 
 Sample Output:
 
-* Input an integer: 25
-* False
+- Input an integer: 25
+- False
 
 ```cs
 class Program
@@ -644,7 +643,7 @@ Write a C# program to convert a given string into lowercase.
 
 Sample Output:
 
-* write a c# sharp program to display the following pattern using the alphabet.
+- write a c# sharp program to display the following pattern using the alphabet.
 
 ```cs
 class Program
@@ -665,11 +664,11 @@ Write a C# program to find the longest word in a string.
 
 Test Data:
 
-* Write a C# Sharp Program to display the following pattern using the alphabet.
+- Write a C# Sharp Program to display the following pattern using the alphabet.
 
 Sample Output:
 
-* following
+- following
 
 ```cs
 class Program
@@ -753,8 +752,8 @@ Write a C# program to compute the sum of the first 500 prime numbers.
 
 Sample Output:
 
-* Sum of the first 500 prime numbers:
-* 3682913
+- Sum of the first 500 prime numbers:
+- 3682913
 
 ```cs
 class Program
@@ -803,8 +802,8 @@ Write a C# program and compute the sum of the digits of an integer.
 
 Sample Output:
 
-* Input a number(integer): 12
-* Sum of the digits of the said integer: 3
+- Input a number(integer): 12
+- Sum of the digits of the said integer: 3
 
 ```cs
 class Program
@@ -831,8 +830,8 @@ Write a C# program to reverse the words of a sentence
 
 Sample Output:
 
-* Original String: Display the pattern like pyramid using the alphabet.
-* Reverse String: alphabet. the using pyramid like pattern the Display
+- Original String: Display the pattern like pyramid using the alphabet.
+- Reverse String: alphabet. the using pyramid like pattern the Display
 
 ```cs
 class Program
@@ -860,7 +859,7 @@ Write a C# program to find the size of a specified file in bytes.
 
 Sample Output:
 
-* Size of a file: 31
+- Size of a file: 31
 
 ```cs
 // using System.IO;
@@ -882,8 +881,8 @@ Write a C# program to convert a hexadecimal number to decimal number.
 
 Sample Output:
 
-* Hexadecimal number: 4B0
-* Decimal number: 1200
+- Hexadecimal number: 4B0
+- Decimal number: 1200
 
 ```cs
 class Program
@@ -905,9 +904,9 @@ Write a C# program to multiply corresponding elements of two arrays of integers.
 
 Sample Output:
 
-* Array1: \[1, 3, -5, 4\]
-* Array2: \[1, 4, -5, -2\]
-* Multiply corresponding elements of two arrays: 1 12 25 -8
+- Array1: \[1, 3, -5, 4\]
+- Array2: \[1, 4, -5, -2\]
+- Multiply corresponding elements of two arrays: 1 12 25 -8
 
 ```cs
 class Program
@@ -937,8 +936,8 @@ Write a C# program to create a new string of four copies, taking last four chara
 
 Sample Output:
 
-* Input a string : The quick brown fox jumps over the lazy dog.
-* dog.dog.dog.dog.
+- Input a string : The quick brown fox jumps over the lazy dog.
+- dog.dog.dog.dog.
 
 ```cs
 class Program
@@ -960,9 +959,9 @@ Write a C# program to check if a given positive number is a multiple of 3 or a m
 
 Sample Output:
 
-* Input first integer:
-* 15
-* True
+- Input first integer:
+- 15
+- True
 
 ```cs
 class Program
@@ -983,14 +982,14 @@ class Program
 
 Write a C# program to check if a string starts with a specified word
 
-* Note: Suppose the sentence starts with "Hello"
-* Sample Data: string1 = "Hello how are you?"
-* Result: Hello.
+- Note: Suppose the sentence starts with "Hello"
+- Sample Data: string1 = "Hello how are you?"
+- Result: Hello.
 
 Sample Output:
 
-* Input a string : Hello how are you?
-* True
+- Input a string : Hello how are you?
+- True
 
 ```cs
 class Program
@@ -1015,9 +1014,9 @@ Write a C# program to check two given numbers where one is less than 100 and oth
 
 Sample Output:
 
-* Input a first number(<100): 75
-* Input a second number(>100): 250
-* True
+- Input a first number(<100): 75
+- Input a second number(>100): 250
+- True
 
 ```cs
 class Program
@@ -1041,9 +1040,9 @@ Write a C# program to check if an integer (from the two given integers) is in th
 
 Sample Output:
 
-* Input a first number: -5
-* Input a second number: 8
-* True
+- Input a first number: -5
+- Input a second number: 8
+- True
 
 ```cs
 class Program
@@ -1065,10 +1064,11 @@ class Program
 
 Write a C# program to check if "HP" appears at second position in a string and returns the string without "HP".
 
-* Test Data: PHP Tutorial
+- Test Data: PHP Tutorial
 
   Sample Output:
-* P Tutorial
+
+- P Tutorial
 
 ```cs
 class Program
@@ -1088,11 +1088,11 @@ Write a C# program to get a new string of two characters from a given string. Th
 
 Test Data:
 
-* PHP
+- PHP
 
 Sample Output:
 
-* PH
+- PH
 
 ```cs
 class Program
@@ -1116,14 +1116,14 @@ Write a C# program to find the largest and lowest values from three integer valu
 
 Test Data:
 
-* Input first integer: 15
-* Input second integer: 25
-* Input third integer: 30
+- Input first integer: 15
+- Input second integer: 25
+- Input third integer: 30
 
 Sample Output
 
-* Largest of three: 30
-* Lowest of three: 15
+- Largest of three: 30
+- Lowest of three: 15
 
 ```cs
 class Program
@@ -1152,12 +1152,12 @@ Write a C# program to check the nearest value of 20 of two given integers and re
 
 Test Data:
 
-* Input first integer: 15
-* Input second integer: 12
+- Input first integer: 15
+- Input second integer: 12
 
 Sample Output
 
-* 15
+- 15
 
 ```cs
 class Program
@@ -1187,12 +1187,12 @@ Write a C# program to check if a given string contains ‘w’ character between
 
 Test Data:
 
-* Input a string (contains at least one 'w' char) : w3resource
-* Test the string contains 'w' character between 1 and 3 times:
+- Input a string (contains at least one 'w' char) : w3resource
+- Test the string contains 'w' character between 1 and 3 times:
 
 Sample Output:
 
-* True
+- True
 
 ```cs
 class Program
@@ -1239,11 +1239,11 @@ Write a C# program to create a new string where the first 4 characters will be i
 
 Test Data:
 
-* Input a string: w3r
+- Input a string: w3r
 
 Sample Output
 
-* W3R
+- W3R
 
 ```cs
 class Program
@@ -1274,11 +1274,11 @@ Write a C# program to check if a given string starts with "w" and immediately fo
 
 Test Data:
 
-* Input a string : www
+- Input a string : www
 
 Sample Output
 
-* True
+- True
 
 ```cs
 class Program
@@ -1299,11 +1299,11 @@ Write a C# program to create a new string of every other character (odd position
 
 Test Data:
 
-* Input a string : w3resource
+- Input a string : w3resource
 
 Sample Output
 
-* wrsuc
+- wrsuc
 
 ```cs
 class Program
@@ -1330,11 +1330,11 @@ Write a C# program to count a specified number in a given array of integers.
 
 Test Data:
 
-* Input an integer: 5
+- Input an integer: 5
 
 Sample Output
 
-* Number of 5 present in the said array: 2
+- Number of 5 present in the said array: 2
 
 ```cs
 class Program
@@ -1381,11 +1381,11 @@ Write a C# program to check if a number appears as either the first or last elem
 
 Test Data:
 
-* Input an integer: 25
+- Input an integer: 25
 
 Sample Output
 
-* False
+- False
 
 ```cs
 class Program
@@ -1408,11 +1408,11 @@ Write a C# program to compute the sum of all the elements of an array of integer
 
 Test Data:
 
-* Array1: \[1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1\]
+- Array1: \[1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1\]
 
 Sample Output
 
-* Sum: 69
+- Sum: 69
 
 ```cs
 class Program
@@ -1450,11 +1450,11 @@ Write a C# program to check if the first element and the last element are equal 
 
 Test Data:
 
-* Array1: \[1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1\]
+- Array1: \[1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1\]
 
 Sample Output
 
-* True
+- True
 
 ```cs
 class Program
@@ -1475,13 +1475,13 @@ Write a C# program to check if the first element or the last element of the two 
 
 Test Data:
 
-* Array1: \[1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1\]
-* Array2: \[1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 5\]
-* Check if the first element or the last element of the two arrays ( leng th 1 or more) are equal.
+- Array1: \[1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 1\]
+- Array2: \[1, 2, 2, 3, 3, 4, 5, 6, 5, 7, 7, 7, 8, 8, 5\]
+- Check if the first element or the last element of the two arrays ( leng th 1 or more) are equal.
 
 Sample Output:
 
-* True
+- True
 
 ```cs
 class Program
@@ -1503,8 +1503,8 @@ Write a C# program to rotate an array (length 3) of integers in left direction.
 
 Test Data:
 
-* Array1: \[1, 2, 8\]
-* After rotating array becomes: \[2, 8, 1\]
+- Array1: \[1, 2, 8\]
+- After rotating array becomes: \[2, 8, 1\]
 
 ```cs
 class Program
@@ -1531,8 +1531,8 @@ Write a C# program to get the larger value between first and last element of an 
 
 Test Data:
 
-* Array1: \[1, 2, 5, 7, 8\]
-* Highest value between first and last values of the said array: 8
+- Array1: \[1, 2, 5, 7, 8\]
+- Highest value between first and last values of the said array: 8
 
 ```cs
 class Program
@@ -1553,10 +1553,10 @@ Write a C# program to create a new array of length containing the middle element
 
 Test Data:
 
-* Array1: \[1, 2, 5\]
-* Array2: \[0, 3, 8\]
-* Array3: \[-1, 0, 2\]
-* New array: \[2, 3, 0\]
+- Array1: \[1, 2, 5\]
+- Array2: \[0, 3, 8\]
+- Array3: \[-1, 0, 2\]
+- New array: \[2, 3, 0\]
 
 ```cs
 //using System.Collections.Generic;
@@ -1591,8 +1591,8 @@ Write a C# program to check if an array contains an odd number.
 
 Test Data:
 
-* Original array: \[2, 4, 7, 8, 6\]
-* Check if an array contains an odd number? True
+- Original array: \[2, 4, 7, 8, 6\]
+- Check if an array contains an odd number? True
 
 ```cs
 class Program
@@ -1636,10 +1636,10 @@ Write a C# program to find the pair of adjacent elements that has the largest pr
 
 Test Data:
 
-* Original array: \[ 0, -1, -1, -2 \]
-* Biggest pair product: 2;
-* Original array: \[ 6, 1, 12, 3, 1, 4 \]
-* Biggest pair product: 36;
+- Original array: \[ 0, -1, -1, -2 \]
+- Biggest pair product: 2;
+- Original array: \[ 6, 1, 12, 3, 1, 4 \]
+- Biggest pair product: 36;
 
 ```cs
 class Program
@@ -1673,10 +1673,10 @@ Write a C# program to check if a given string is a palindrome or not.
 
 Sample Example:
 
-* For 'aaa' the output should be true
-* For 'abcd' the output should be false
-* 'A car, a man, a maraca' should be true
-* 'A but tuba' should be true
+- For 'aaa' the output should be true
+- For 'abcd' the output should be false
+- 'A car, a man, a maraca' should be true
+- 'A but tuba' should be true
 
 http://www.palindromelist.net/
 
@@ -1813,10 +1813,10 @@ Write a C# program to calculate the sum of all the integers of a rectangular mat
 
 Sample Example:
 
-* matrix = \[\[0, 2, 3, 2\], \[0, 6, 0, 1\], \[4, 0, 3, 0\]\]
-* Eligible integers which will be participated to calculate the sum -
-* matrix = \[\[X, 2, 3, 2\], \[X, 6, X, 1\], \[X, X, X, X\]\]
-* Therefore sum will be: 2 + 3 + 2 + 6 + 1 = 14
+- matrix = \[\[0, 2, 3, 2\], \[0, 6, 0, 1\], \[4, 0, 3, 0\]\]
+- Eligible integers which will be participated to calculate the sum -
+- matrix = \[\[X, 2, 3, 2\], \[X, 6, X, 1\], \[X, X, X, X\]\]
+- Therefore sum will be: 2 + 3 + 2 + 6 + 1 = 14
 
 ```cs
 class Program

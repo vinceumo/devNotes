@@ -2,12 +2,11 @@
 layout: post
 title: CSS Grid Layout
 date: 2018-08-09T13:37:19.000+00:00
-categories:
-- CSS
+category: CSS
 post_type: snippet
-canonical: ''
-
+canonical: ""
 ---
+
 CSS grid is a two dimensional CSS layout system where is flexbox a one dimensional one.
 
 ## Examples
@@ -31,7 +30,6 @@ CSS (SCSS) grid, based on CSS grid layout with @supports fallback to flexbox (pa
 
 - [Open in codepen](https://codepen.io/vinceumo/pen/ZrMKYb)
 - [Atomic Bulldog Grid - Github](https://github.com/vinceumo/atomic-bulldog-grid)
-
 
 ## Support
 

@@ -2,12 +2,11 @@
 layout: post
 title: Vue - SCSS set up with Vue CLI 3
 date: 2018-08-13T08:50:00.000+00:00
-categories:
-- Javascript
+category: Javascript
 post_type: snippet
-canonical: ''
-
+canonical: ""
 ---
+
 ## Setup Vue CLI 3
 
 When creating a new project with `vue create my-vue-project`, pick `Manually select features` and check `CSS Pre-processors`.
@@ -57,26 +56,29 @@ If you don't already have a `vue.config.js` file at the root of your project, cr
 Add your shared SCSS files to this one so your components can use variables, mixins, functions etc.
 
 ```js
-const path = require('path')
+const path = require("path");
 
 module.exports = {
   chainWebpack: config => {
-    const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-    types.forEach(type => addStyleResource(config.module.rule('scss').oneOf(type)))
-  },
-}
+    const types = ["vue-modules", "vue", "normal-modules", "normal"];
+    types.forEach(type =>
+      addStyleResource(config.module.rule("scss").oneOf(type))
+    );
+  }
+};
 
-function addStyleResource (rule) {
-  rule.use('style-resource')
-    .loader('style-resources-loader')
+function addStyleResource(rule) {
+  rule
+    .use("style-resource")
+    .loader("style-resources-loader")
     .options({
       patterns: [
-        path.resolve(__dirname, './src/styles/settings/*.scss'),
-        path.resolve(__dirname, './src/styles/functions/*.scss'),
-        path.resolve(__dirname, './src/styles/mixins/*.scss'),
-        path.resolve(__dirname, './src/styles/variables/*.scss')
-      ],
-    })
+        path.resolve(__dirname, "./src/styles/settings/*.scss"),
+        path.resolve(__dirname, "./src/styles/functions/*.scss"),
+        path.resolve(__dirname, "./src/styles/mixins/*.scss"),
+        path.resolve(__dirname, "./src/styles/variables/*.scss")
+      ]
+    });
 }
 ```
 
@@ -85,5 +87,5 @@ function addStyleResource (rule) {
 in `main.js` we want to have our `global.scss`, to do so add:
 
 ```js
-import './styles/global.scss'
+import "./styles/global.scss";
 ```

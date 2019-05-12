@@ -2,12 +2,11 @@
 layout: post
 title: Webpack 4 - Bundle SCSS and JavaScript for SSR applications
 date: 2019-05-05T23:00:00.000+00:00
-categories:
-- Javascript
-canonical: ''
+category: Javascript
+canonical: ""
 post_type: snippet
-
 ---
+
 ## Project structure
 
     Proj:
@@ -59,7 +58,7 @@ post_type: snippet
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== "production";
-const purgecss = require('@fullhuman/postcss-purgecss');
+const purgecss = require("@fullhuman/postcss-purgecss");
 
 module.exports = {
   mode: devMode ? "development" : "production",
@@ -94,11 +93,20 @@ module.exports = {
             loader: "postcss-loader",
             options: {
               ident: "postcss",
-              plugins: devMode ? () => [require("autoprefixer")({ grid: true})] : () => [require("autoprefixer")({ grid: true}),          require("cssnano")(),
-              purgecss({
-                content: ['./Views/**/*.cshtml', './Content/js/**/*.js', , './Content/apps/**/*.vue']
-              })
-            ]
+              plugins: devMode
+                ? () => [require("autoprefixer")({ grid: true })]
+                : () => [
+                    require("autoprefixer")({ grid: true }),
+                    require("cssnano")(),
+                    purgecss({
+                      content: [
+                        "./Views/**/*.cshtml",
+                        "./Content/js/**/*.js",
+                        ,
+                        "./Content/apps/**/*.vue"
+                      ]
+                    })
+                  ]
             }
           },
           {

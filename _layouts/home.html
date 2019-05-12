@@ -17,7 +17,7 @@ layout: default
   <ul class="list-unstyled">
     {% for post in sorted_posts %} {%- assign date_format =
     site.minima.date_format | default: "%b %Y"-%}
-    <li>
+    <li class="{{ post.post_type }}">
       <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{
         post.title
       }}</a

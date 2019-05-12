@@ -17,7 +17,7 @@ fields:
   type: datetime
   hidden: false
   default: ''
-- name: section
+- name: category
   type: select
   default: A11Y
   config:
@@ -31,10 +31,10 @@ fields:
     - Tools
     source:
       type: simple
-      section: 
+      category: 
       file: 
       path: 
-  label: Section
+  label: Category
 - name: post_type
   type: select
   default: snippet
@@ -45,14 +45,14 @@ fields:
     - post
     source:
       type: simple
-      section: 
+      category: 
       file: 
       path: 
   label: Post type
 - name: categories
   label: Categories
   type: tag_list
-  hidden: false
+  hidden: true
   default: ''
 - name: canonical
   label: Canonical

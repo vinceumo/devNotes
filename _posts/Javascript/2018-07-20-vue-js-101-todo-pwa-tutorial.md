@@ -1,13 +1,12 @@
 ---
 layout: post
-title: 'Vue - 101 todo PWA tutorial '
+title: "Vue - 101 todo PWA tutorial "
 date: 2018-07-20T23:00:00.000+00:00
-categories:
-- Javascript
+category: Javascript
 canonical: https://medium.com/@vince_umo_34593/vue-js-101-todo-pwa-tutorial-ea96eb4e64b1
 post_type: post
-
 ---
+
 The goal of this tutorial is to give an introduction to vue.js ❤.
 
 This content was initially written for a workshop for [DAM Digital London](https://www.damdigital.com/).
@@ -36,7 +35,6 @@ We are going to create a todo application with the ability to have multiple list
 
 ![todo app screenshot](https://image.ibb.co/g3g8Gy/Screenshot_2018_07_17_Todo_list.png)
 
-
 ## Getting started
 
 Clone the [starter materials from github](https://github.com/vinceumo/todo-vue-starter-materials). It includes the base HTML, CSS and JS.
@@ -59,7 +57,7 @@ In `index.html`, we will dynamically pass `.is-open` using `v-bind:class`. If `i
 
 ```html
 <nav v-bind:class="{'is-open': isNavOpen}">
-<!-- ... -->
+  <!-- ... -->
 </nav>
 ```
 
@@ -202,7 +200,9 @@ https://source.unsplash.com/featured/?{KEYWORD},{KEYWORD}
 As we bind our keyword inside an attribute, we are using `v-bind`
 
 ```html
-<header v-bind:style="'background-image: url(https://source.unsplash.com/featured/?' + todoLists[currentListIndex].keyword + ')'">
+<header
+  v-bind:style="'background-image: url(https://source.unsplash.com/featured/?' + todoLists[currentListIndex].keyword + ')'"
+>
   <!-- ... -->
 </header>
 ```
@@ -217,17 +217,20 @@ We are using `v-model` to update the value of `isCompleted` from our todos when 
 
 The `v-model` directive creates a two-way data bindings, meaning when the value gets updated the UI will be updated as well.
 
-
 ```html
 <ul>
-  <li v-for="(todo, index) in todoLists[currentListIndex].items" v-bind:class="{'is-completed': todo.isCompleted}">
+  <li
+    v-for="(todo, index) in todoLists[currentListIndex].items"
+    v-bind:class="{'is-completed': todo.isCompleted}"
+  >
     <label v-bind:for="'todo' + index">
       <input
-      type="checkbox"
-      v-bind:name="'todo' + index"
-      v-bind:id="'todo' + index"
-      v-bind:checked="todo.isCompleted"
-      v-model="todo.isCompleted">
+        type="checkbox"
+        v-bind:name="'todo' + index"
+        v-bind:id="'todo' + index"
+        v-bind:checked="todo.isCompleted"
+        v-model="todo.isCompleted"
+      />
       {{todo.name}}
     </label>
     <button class="is-danger">Edit todo</button>
@@ -250,13 +253,16 @@ We want to be able to change the current list being displayed. This one is set b
 We need as well, to show the user the current list being displayed, to do so, we are adding the class `.is-active` if `currentListIndex === index`.
 
 ```html
-<li v-for="(todoList, index) in todoLists"  v-bind:class="{'is-active' : currentListIndex === index}">
-    <button v-on:click="currentListIndex = index; isNavOpen = false">
-        {{todoList.title}}
-        <span>
-            {{todoList.items.length}}
-        </span>
-    </button>
+<li
+  v-for="(todoList, index) in todoLists"
+  v-bind:class="{'is-active' : currentListIndex === index}"
+>
+  <button v-on:click="currentListIndex = index; isNavOpen = false">
+    {{todoList.title}}
+    <span>
+      {{todoList.items.length}}
+    </span>
+  </button>
 </li>
 ```
 
@@ -284,14 +290,16 @@ Now let's bind our class `.is-open` to our `.sidebar`:
 
 ```html
 <div class="sidebar" v-bind:class="{'is-open' : isSidebarOpen}">
- <!-- ... -->
+  <!-- ... -->
 </div>
 ```
 
 We need to add an event handler on click on **Create a new list**, that will open the sidebar and close the navigation on mobile:
 
 ```html
-<button class="is-add" v-on:click="isSidebarOpen = true; isNavOpen = false;">Create a new list</button>
+<button class="is-add" v-on:click="isSidebarOpen = true; isNavOpen = false;">
+  Create a new list
+</button>
 ```
 
 Nice, now we can open our sidebar 🎉.
@@ -299,7 +307,9 @@ Nice, now we can open our sidebar 🎉.
 Now let's close the sidebar when we click on **cancel**:
 
 ```html
-<button type="button" class="is-danger" v-on:click="isSidebarOpen = false">Cancel</button>
+<button type="button" class="is-danger" v-on:click="isSidebarOpen = false">
+  Cancel
+</button>
 ```
 
 ### Add the new list
@@ -332,12 +342,26 @@ Now we will bind our inputs using `v-model`.
 <form>
   <h3>Create a new list</h3>
   <label for="listTitle">Title:</label>
-  <input id="listTitle" name="listTitle" type="text" placeholder="My amazing next trip to south america" v-model="tempNewList.title">
+  <input
+    id="listTitle"
+    name="listTitle"
+    type="text"
+    placeholder="My amazing next trip to south america"
+    v-model="tempNewList.title"
+  />
   <label for="listKeyword">Keyword:</label>
-  <input id="listKeyword" name="listKeyword" type="text" placeholder="Colombia" v-model="tempNewList.keyword">
+  <input
+    id="listKeyword"
+    name="listKeyword"
+    type="text"
+    placeholder="Colombia"
+    v-model="tempNewList.keyword"
+  />
   <div class="buttons">
-      <button type="button" class="is-danger" v-on:click="isSidebarOpen = false">Cancel</button>
-      <button type="button" class="is-confirm">Create List</button>
+    <button type="button" class="is-danger" v-on:click="isSidebarOpen = false">
+      Cancel
+    </button>
+    <button type="button" class="is-confirm">Create List</button>
   </div>
 </form>
 ```
@@ -388,7 +412,9 @@ var app = new Vue({
 Finally, we are going to bind our method to our **Create list** button.
 
 ```html
-<button type="button" class="is-confirm" v-on:click="addNewList">Create List</button>
+<button type="button" class="is-confirm" v-on:click="addNewList">
+  Create List
+</button>
 ```
 
 ### Documentation references
@@ -437,22 +463,22 @@ In our HTML, we will conditionally render our forms depending on the value of `s
 ```html
 <div class="sidebar" v-bind:class="{'is-open' : isSidebarOpen}">
   <div class="sidebar-content">
-      <form v-if="sidebarContentToShow === 'createNewList'">
-          <h3>Create a new list</h3>
-          <!-- ... -->
-      </form>
-      <form v-if="sidebarContentToShow === 'editList'">
-        <h3>Edit list</h3>
-          <!-- ... -->
-      </form>
-      <form v-if="sidebarContentToShow === 'createNewTodo'">
-        <h3>Create a new todo</h3>
-          <!-- ... -->
-      </form>
-      <form v-if="sidebarContentToShow === 'editTodo'">
-        <h3>Edit todo</h3>
-          <!-- ... -->
-      </form>
+    <form v-if="sidebarContentToShow === 'createNewList'">
+      <h3>Create a new list</h3>
+      <!-- ... -->
+    </form>
+    <form v-if="sidebarContentToShow === 'editList'">
+      <h3>Edit list</h3>
+      <!-- ... -->
+    </form>
+    <form v-if="sidebarContentToShow === 'createNewTodo'">
+      <h3>Create a new todo</h3>
+      <!-- ... -->
+    </form>
+    <form v-if="sidebarContentToShow === 'editTodo'">
+      <h3>Edit todo</h3>
+      <!-- ... -->
+    </form>
   </div>
 </div>
 ```
@@ -481,13 +507,17 @@ var app = new Vue({
 Now we can change **Create a new list** so we can use `openSidebar`
 
 ```html
-<button class="is-add" v-on:click="openSidebar('createNewList')">Create a new list</button>
+<button class="is-add" v-on:click="openSidebar('createNewList')">
+  Create a new list
+</button>
 ```
 
 And ta-dah we are now rendering the **create a new list form**. As you may have already guessed we will reuse our method with the **Edit list** button.
 
 ```html
-<button class="is-primary" v-on:click="openSidebar('editList')">Edit list</button>
+<button class="is-primary" v-on:click="openSidebar('editList')">
+  Edit list
+</button>
 ```
 
 ### Edit list form
@@ -507,7 +537,9 @@ deleteList: function() {
 ```
 
 ```html
-<button type="button" class="is-danger" v-on:click="deleteList">Delete list</button>
+<button type="button" class="is-danger" v-on:click="deleteList">
+  Delete list
+</button>
 ```
 
 Now we can remove lists, but if we try to remove all lists we get an error and our app stop to work.
@@ -523,11 +555,15 @@ As you might have guessed, we have this error because our `todoLists` is empty a
   <!-- ... -->
 </main>
 <main v-else>
-  <header style="background-image: url(https://source.unsplash.com/featured/?cat">
-      <div class="header-content">
-          <h1>Please create a new list</h1>
-          <button class="is-add" v-on:click="openSidebar('createNewList')">Create a new list</button>
-      </div>
+  <header
+    style="background-image: url(https://source.unsplash.com/featured/?cat"
+  >
+    <div class="header-content">
+      <h1>Please create a new list</h1>
+      <button class="is-add" v-on:click="openSidebar('createNewList')">
+        Create a new list
+      </button>
+    </div>
   </header>
 </main>
 ```
@@ -542,15 +578,31 @@ Let's get back to our **editList** form. We want to:
 
 ```html
 <form v-if="sidebarContentToShow === 'editList' && todoLists.length > 0">
-    <h3>Edit list</h3>
-    <label for="listTitle">Title:</label>
-    <input id="listTitle" name="listTitle" type="text" placeholder="My amazing next trip to south america" v-model="todoLists[currentListIndex].title">
-    <label for="listKeyword">Keyword:</label>
-    <input id="listKeyword" name="listKeyword" type="text" placeholder="Colombia" v-model="todoLists[currentListIndex].keyword">
-    <div class="buttons">
-        <button type="button" class="is-danger" v-on:click="deleteList">Delete list</button>
-        <button type="button" class="is-confirm" v-on:click="isSidebarOpen = false">Done</button>
-    </div>
+  <h3>Edit list</h3>
+  <label for="listTitle">Title:</label>
+  <input
+    id="listTitle"
+    name="listTitle"
+    type="text"
+    placeholder="My amazing next trip to south america"
+    v-model="todoLists[currentListIndex].title"
+  />
+  <label for="listKeyword">Keyword:</label>
+  <input
+    id="listKeyword"
+    name="listKeyword"
+    type="text"
+    placeholder="Colombia"
+    v-model="todoLists[currentListIndex].keyword"
+  />
+  <div class="buttons">
+    <button type="button" class="is-danger" v-on:click="deleteList">
+      Delete list
+    </button>
+    <button type="button" class="is-confirm" v-on:click="isSidebarOpen = false">
+      Done
+    </button>
+  </div>
 </form>
 ```
 
@@ -606,21 +658,42 @@ Now let's dive in our HTML.
 We need to open the sidebar with the **createNewTodo** form.
 
 ```html
-<button class="is-add" v-on:click="openSidebar('createNewTodo')">New Todo</button>
+<button class="is-add" v-on:click="openSidebar('createNewTodo')">
+  New Todo
+</button>
 ```
 
 As we did before, we will bind our inputs using `v-model` and use the `addNewTodo` method to push our new values.
 
 ```html
 <form v-if="sidebarContentToShow === 'createNewTodo'">
-    <h3>Create a new todo</h3>
-    <label for="todoName">Name:</label>
-    <input id="todoName" name="todoName" type="text" placeholder="Do things..." v-model="tempNewTodo.name">
-    <label for="todoCompleted"><input name="todoCompleted" id="todoCompleted" type="checkbox" v-bind:checked="tempNewTodo.isCompleted" v-model="tempNewTodo.isCompleted"> Is completed</label>
-    <div class="buttons">
-        <button type="button" class="is-danger" v-on:click="isSidebarOpen = false">Cancel</button>
-        <button type="button" class="is-confirm" v-on:click="addNewTodo">Create todo</button>
-    </div>
+  <h3>Create a new todo</h3>
+  <label for="todoName">Name:</label>
+  <input
+    id="todoName"
+    name="todoName"
+    type="text"
+    placeholder="Do things..."
+    v-model="tempNewTodo.name"
+  />
+  <label for="todoCompleted"
+    ><input
+      name="todoCompleted"
+      id="todoCompleted"
+      type="checkbox"
+      v-bind:checked="tempNewTodo.isCompleted"
+      v-model="tempNewTodo.isCompleted"
+    />
+    Is completed</label
+  >
+  <div class="buttons">
+    <button type="button" class="is-danger" v-on:click="isSidebarOpen = false">
+      Cancel
+    </button>
+    <button type="button" class="is-confirm" v-on:click="addNewTodo">
+      Create todo
+    </button>
+  </div>
 </form>
 ```
 
@@ -643,13 +716,16 @@ totalTodosCompleted: function(i){
 And now in our `navigation`, we are going to use our new method to return the total of completed todos.
 
 ```html
-<li v-for="(todoList, index) in todoLists" v-bind:class="{'is-active' : currentListIndex === index}">
-    <button v-on:click="currentListIndex = index; isNavOpen = false">
-        {{todoList.title}}
-        <span>
-            {{totalTodosCompleted(index)}} / {{todoList.items.length}}
-        </span>
-    </button>
+<li
+  v-for="(todoList, index) in todoLists"
+  v-bind:class="{'is-active' : currentListIndex === index}"
+>
+  <button v-on:click="currentListIndex = index; isNavOpen = false">
+    {{todoList.title}}
+    <span>
+      {{totalTodosCompleted(index)}} / {{todoList.items.length}}
+    </span>
+  </button>
 </li>
 ```
 
@@ -676,7 +752,12 @@ Now let's have look at our HTML.
 First, we want to open our slider and change the value of `currentTodoIndex`.
 
 ```html
-<button class="is-primary" v-on:click="openSidebar('editTodo'); currentTodoIndex = index">Edit todo</button>
+<button
+  class="is-primary"
+  v-on:click="openSidebar('editTodo'); currentTodoIndex = index"
+>
+  Edit todo
+</button>
 ```
 
 In our **editTodo** form we will:
@@ -687,14 +768,35 @@ In our **editTodo** form we will:
 - When we click on _Done_, close our sidebar
 
 ```html
-<form v-if="sidebarContentToShow === 'editTodo' && todoLists[currentListIndex].items.length > 0">
+<form
+  v-if="sidebarContentToShow === 'editTodo' && todoLists[currentListIndex].items.length > 0"
+>
   <h3>Edit todo</h3>
   <label for="todoName">Todo:</label>
-  <input id="todoName" name="todoName" type="text" placeholder="Do things..." v-model="todoLists[currentListIndex].items[currentTodoIndex].name">
-  <label for="todoCompleted"><input name="todoCompleted" id="todoCompleted" type="checkbox" v-bind:checked="todoLists[currentListIndex].items[currentTodoIndex].isCompleted" v-model="todoLists[currentListIndex].items[currentTodoIndex].isCompleted"> Is completed</label>
+  <input
+    id="todoName"
+    name="todoName"
+    type="text"
+    placeholder="Do things..."
+    v-model="todoLists[currentListIndex].items[currentTodoIndex].name"
+  />
+  <label for="todoCompleted"
+    ><input
+      name="todoCompleted"
+      id="todoCompleted"
+      type="checkbox"
+      v-bind:checked="todoLists[currentListIndex].items[currentTodoIndex].isCompleted"
+      v-model="todoLists[currentListIndex].items[currentTodoIndex].isCompleted"
+    />
+    Is completed</label
+  >
   <div class="buttons">
-      <button type="button" class="is-danger" v-on:click="deleteTodo">Delete todo</button>
-      <button type="button" class="is-confirm" v-on:click="isSidebarOpen = false">Done</button>
+    <button type="button" class="is-danger" v-on:click="deleteTodo">
+      Delete todo
+    </button>
+    <button type="button" class="is-confirm" v-on:click="isSidebarOpen = false">
+      Done
+    </button>
   </div>
 </form>
 ```
@@ -808,14 +910,32 @@ First, include all the icon assets in our project. The icons have already been g
 In the head of our HTML we want to include:
 
 ```html
-<link rel="apple-touch-icon" sizes="180x180" href="content/img/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="content/img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="content/img/favicon-16x16.png">
-<link rel="mask-icon" href="content/img/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="shortcut icon" href="content/img/favicon.ico">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-config" content="content/img/browserconfig.xml">
-<meta name="theme-color" content="#77c4d3">
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="content/img/apple-touch-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="content/img/favicon-32x32.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="content/img/favicon-16x16.png"
+/>
+<link
+  rel="mask-icon"
+  href="content/img/safari-pinned-tab.svg"
+  color="#5bbad5"
+/>
+<link rel="shortcut icon" href="content/img/favicon.ico" />
+<meta name="msapplication-TileColor" content="#ffffff" />
+<meta name="msapplication-config" content="content/img/browserconfig.xml" />
+<meta name="theme-color" content="#77c4d3" />
 ```
 
 ### Web App Manifest
@@ -854,7 +974,7 @@ Create this file at the root of our project.
 In our HTML file, we want to include it.
 
 ```html
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="manifest.json" />
 ```
 
 ### Service workers
@@ -881,11 +1001,11 @@ In our **index.html**:
 
 ```html
 <script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('sw.js');
-        });
-    }
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js");
+    });
+  }
 </script>
 ```
 

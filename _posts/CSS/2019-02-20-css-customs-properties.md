@@ -2,12 +2,11 @@
 layout: post
 title: CSS custom properties - Cheatsheet
 date: 2019-02-20T00:00:00.000+00:00
-categories:
-- CSS
-canonical: ''
+category: CSS
+canonical: ""
 post_type: post
-
 ---
+
 CSS custom properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.
 
 ## Declare a custom property in CSS
@@ -46,7 +45,7 @@ body {
 }
 ```
 
-In this case, `body` will have a background colour of `tomato`. But `body.theme-dark` of `lime`. 
+In this case, `body` will have a background colour of `tomato`. But `body.theme-dark` of `lime`.
 
 ## Use custom properties without units
 
@@ -93,7 +92,7 @@ on <a href="https://codepen.io">CodePen</a>.</span>
 
 ## Resources
 
-* [Defining Custom Properties: the --* family of properties](https://drafts.csswg.org/css-variables/#defining-variables)
-* [Custom properties: CSS variables - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
-* [var() - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/var)
-* [Using CSS custom properties (variables) - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)
+- [Defining Custom Properties: the --\* family of properties](https://drafts.csswg.org/css-variables/#defining-variables)
+- [Custom properties: CSS variables - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)
+- [var() - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/var)
+- [Using CSS custom properties (variables) - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables)

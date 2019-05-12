@@ -2,14 +2,12 @@
 layout: post
 title: Vue - Components props and events examples
 date: 2018-08-24T10:07:00.000+00:00
-categories:
-- Javascript
+category: Javascript
 post_type: snippet
-canonical: ''
-
+canonical: ""
 ---
-The following examples show how to pass data between components in vue js, using [props](https://vuejs.org/v2/guide/components-props.html) and [custom events](https://vuejs.org/v2/guide/components-custom-events.html).
 
+The following examples show how to pass data between components in vue js, using [props](https://vuejs.org/v2/guide/components-props.html) and [custom events](https://vuejs.org/v2/guide/components-custom-events.html).
 
 ## Example 1: Props
 

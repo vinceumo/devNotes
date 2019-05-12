@@ -2,12 +2,11 @@
 layout: post
 title: ES6 - const | let | var
 date: 2018-08-06T22:13:00.000+00:00
-categories:
-- Javascript
+category: Javascript
 post_type: snippet
-canonical: ''
-
+canonical: ""
 ---
+
 ES6 introduced two new kinds of variables in Javascript, `const` and `let`. They are block scoped variables, meaning they are scope inside `{}`, where `var` is [hoisted](/devNotes/javascript/2018/07/31/hoisting.html "hoisted") to the global or functional scope.
 
 ## `const` vs `let` vs `var`
@@ -19,7 +18,7 @@ Let's compare some small code snippets and their outputs:
 ```js
 // var
 // console.log(i); // undefined
-for (var i = 0; i < 3; i++){
+for (var i = 0; i < 3; i++) {
   console.log(i); // 0; 1; 2
 }
 console.log(i); // 3
@@ -28,7 +27,7 @@ console.log(i); // 3
 
 // let
 // console.log(i); // ReferenceError: i is not defined
-for (let i = 0; i < 3; i++){
+for (let i = 0; i < 3; i++) {
   console.log(i); // 0; 1; 2
 }
 console.log(i); // ReferenceError: i is not defined
@@ -37,7 +36,7 @@ console.log(i); // ReferenceError: i is not defined
 
 // const
 // console.log(i); // ReferenceError: i is not defined
-for (const i = 0; i < 3; i++){
+for (const i = 0; i < 3; i++) {
   console.log(i); // 0; ReferenceError: i is not defined
 }
 console.log(i);
@@ -118,7 +117,7 @@ console.log(test); // 1
 
 // let
 let test = 1;
-if(test > 0) {
+if (test > 0) {
   let test = 2;
   console.log(test); // 2
 }
@@ -128,7 +127,7 @@ console.log(test); // 1
 
 // const
 const test = 1;
-if(test > 0) {
+if (test > 0) {
   const test = 2;
   console.log(test); // 2
 }
@@ -201,9 +200,9 @@ This last example shows us that with `const` we can mutate properties in our var
 
 ## Resources
 
-* [Variable declaration: var, const, let - Modern JS Cheatsheet](https://mbeaudru.github.io/modern-js-cheatsheet/#variable-declaration-var-const-let)
-* [var, let, or const?](https://hackernoon.com/js-var-let-or-const-67e51dbb716f)
-* [Var, let and const- what's the difference?](https://duckduckgo.com/?q=const+let+var+es6&t=ffab&atb=v123-1&ia=web)
-* [const - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
-* [let - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
-* [var - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
+- [Variable declaration: var, const, let - Modern JS Cheatsheet](https://mbeaudru.github.io/modern-js-cheatsheet/#variable-declaration-var-const-let)
+- [var, let, or const?](https://hackernoon.com/js-var-let-or-const-67e51dbb716f)
+- [Var, let and const- what's the difference?](https://duckduckgo.com/?q=const+let+var+es6&t=ffab&atb=v123-1&ia=web)
+- [const - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+- [let - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)
+- [var - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var)
