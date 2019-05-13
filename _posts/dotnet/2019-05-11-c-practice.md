@@ -1299,6 +1299,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-41)
+
 Or using `Linq`
 
 ```cs
@@ -1317,6 +1319,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-41-2)
 
 ### Exercise 42
 
@@ -1353,6 +1357,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-42)
+
 ### Exercise 43
 
 Write a C# program to check if a given string starts with "w" and immediately followed by two "ww".
@@ -1377,6 +1383,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-43)
 
 ### Exercise 44
 
@@ -1408,6 +1416,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-44)
 
 ### Exercise 45
 
@@ -1441,6 +1451,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-45)
+
 Or using `Linq`
 
 ```cs
@@ -1459,6 +1471,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-45-2)
 
 ### Exercise 46
 
@@ -1487,6 +1501,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-46)
+
 ### Exercise 47
 
 Write a C# program to compute the sum of all the elements of an array of integers.
@@ -1514,6 +1530,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-47)
+
 Or using `Linq`
 
 ```cs
@@ -1528,6 +1546,8 @@ class Program
     }
   }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-47-2)
 
 ### Exercise 48
 
@@ -1553,6 +1573,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-48)
 
 ### Exercise 49
 
@@ -1581,6 +1603,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-49)
 
 ### Exercise 50
 
