@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-05-13T17:28:33+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-05-13T17:49:01+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
 </subtitle><author><name>Vincent Humeau</name></author><entry><title type="html">C# - Practice</title><link href="/devNotes/dotnet/2019/05/11/c-practice.html" rel="alternate" type="text/html" title="C# - Practice" /><published>2019-05-11T23:00:00+00:00</published><updated>2019-05-11T23:00:00+00:00</updated><id>/devNotes/dotnet/2019/05/11/c-practice</id><content type="html" xml:base="/devNotes/dotnet/2019/05/11/c-practice.html">&lt;h2 id=&quot;c-sharp-basic-declarations-and-expressions--exercises-practice-solution&quot;&gt;C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.w3resource.com/csharp-exercises/basic/index.php&quot;&gt;Exercices link&lt;/a&gt;&lt;/p&gt;
@@ -812,6 +812,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-25&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;or by increasing by 2&lt;/p&gt;
 
 &lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Program&lt;/span&gt;
@@ -825,6 +827,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-25-2&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-26&quot;&gt;Exercise 26&lt;/h3&gt;
 
@@ -877,6 +881,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-26&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-27&quot;&gt;Exercise 27&lt;/h3&gt;
 
 &lt;p&gt;Write a C# program and compute the sum of the digits of an integer.&lt;/p&gt;
@@ -905,6 +911,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-27&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-28&quot;&gt;Exercise 28&lt;/h3&gt;
 
@@ -936,6 +944,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-28&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-29&quot;&gt;Exercise 29&lt;/h3&gt;
 
 &lt;p&gt;Write a C# program to find the size of a specified file in bytes.&lt;/p&gt;
@@ -958,6 +968,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-29&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-30&quot;&gt;Exercise 30&lt;/h3&gt;
 
@@ -982,6 +994,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-30&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-31&quot;&gt;Exercise 31&lt;/h3&gt;
 
@@ -1015,6 +1029,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-31&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-32&quot;&gt;Exercise 32&lt;/h3&gt;
 
