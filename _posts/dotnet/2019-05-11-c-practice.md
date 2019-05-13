@@ -1021,6 +1021,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-32)
+
 ### Exercise 33
 
 Write a C# program to check if a given positive number is a multiple of 3 or a multiple of 7.
@@ -1045,6 +1047,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-33)
 
 ### Exercise 34
 
@@ -1076,6 +1080,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-34)
+
 ### Exercise 35
 
 Write a C# program to check two given numbers where one is less than 100 and other is greater than 200.
@@ -1101,6 +1107,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-35)
 
 ### Exercise 36
 
@@ -1128,6 +1136,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-36)
+
 ### Exercise 37
 
 Write a C# program to check if "HP" appears at second position in a string and returns the string without "HP".
@@ -1148,6 +1158,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-37)
 
 ### Exercise 38
 
@@ -1176,6 +1188,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-38)
 
 ### Exercise 39
 
@@ -1213,6 +1227,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-39)
+
 ### Exercise 40
 
 Write a C# program to check the nearest value of 20 of two given integers and return 0 if two numbers are same.
@@ -1247,6 +1263,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-40)
 
 ### Exercise 41
 
