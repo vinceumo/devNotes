@@ -1634,6 +1634,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-50)
+
 ### Exercise 51
 
 Write a C# program to get the larger value between first and last element of an array (length 3) of integers.
@@ -1655,6 +1657,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-51)
 
 ### Exercise 52
 
@@ -1694,6 +1698,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-52)
+
 ### Exercise 53
 
 Write a C# program to check if an array contains an odd number.
@@ -1721,6 +1727,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-53)
+
 ### Exercise 54
 
 Write a C# program to get the century from a year.
@@ -1738,6 +1746,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-54)
 
 ### Exercise 55
 
