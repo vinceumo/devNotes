@@ -783,6 +783,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-25)
+
 or by increasing by 2
 
 ```cs
@@ -797,6 +799,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-25-2)
 
 ### Exercise 26
 
@@ -848,6 +852,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-26)
+
 ### Exercise 27
 
 Write a C# program and compute the sum of the digits of an integer.
@@ -875,6 +881,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-27)
 
 ### Exercise 28
 
@@ -905,6 +913,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-28)
+
 ### Exercise 29
 
 Write a C# program to find the size of a specified file in bytes.
@@ -926,6 +936,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-29)
 
 ### Exercise 30
 
@@ -949,6 +961,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-30)
 
 ### Exercise 31
 
@@ -981,6 +995,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-31)
 
 ### Exercise 32
 
