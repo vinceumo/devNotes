@@ -69,6 +69,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-3)
+
 ### Exercise 4
 
 Write a C# Sharp program to print the result of the specified operations:
@@ -97,6 +99,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-4)
 
 ### Exercise 5
 
@@ -127,6 +131,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-5)
+
 ### Exercise 6
 
 Write a C# Sharp program to print the output of multiplication of three numbers which will be entered by the user.
@@ -156,6 +162,8 @@ class Program
     }
   }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-6)
 
 ### Exercise 7
 
@@ -192,6 +200,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-7)
+
 ### Exercise 8
 
 Write a C# Sharp program that takes a number as input and print its multiplication table.
@@ -222,6 +232,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-8)
 
 ### Exercise 9
 
@@ -257,6 +269,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-9)
+
 ### Exercise 10
 
 Write a C# Sharp program to that takes three numbers(x,y,z) as input and print the output of (x+y).z and x.y + y.z
@@ -289,6 +303,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-10)
+
 ### Exercise 11
 
 Write a C# Sharp program that takes an age (for example 20) as input and prints something as "You look older than 20"
@@ -312,6 +328,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-11)
 
 ### Exercise 12
 
@@ -344,6 +362,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-12)
 
 ### Exercise 13
 
@@ -378,6 +398,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-13)
+
 ### Exercise 14
 
 Write a C# program to convert from celsius degrees to Kelvin and Fahrenheit.
@@ -406,6 +428,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-14)
 
 ### Exercise 15
 
@@ -445,6 +469,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-15)
 
 ### Exercise 16
 
