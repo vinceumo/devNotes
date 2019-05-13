@@ -1786,6 +1786,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-55)
+
 ### Exercise 56
 
 Write a C# program to check if a given string is a palindrome or not.
@@ -1822,6 +1824,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-56)
+
 ### Exercise 57
 
 (Same as 55)
@@ -1854,6 +1858,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-57)
+
 ### Exercise 58
 
 Write a C# program which will accept a list of integers and checks how many integers are needed to complete the range.
@@ -1873,6 +1879,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-58)
 
 ### Exercise 59
 
@@ -1903,6 +1911,8 @@ class Program
   }
 }
 ```
+[Edit in repl](https://repl.it/@vinceumo/Exercise-59)
+
 
 Or using `SequenceEqual` (`System.Linq`)
 
@@ -1925,6 +1935,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-59-2)
 
 ### Exercise 60
 
@@ -1981,6 +1993,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-60)
+
 ### Exercise 61
 
 Write a C# program to sort the integers in ascending order without moving the number -5.
@@ -2003,6 +2017,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-61)
 
 ### Exercise 62
 
@@ -2033,3 +2049,5 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-62)
