@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-05-13T17:49:01+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-05-13T17:57:24+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
 </subtitle><author><name>Vincent Humeau</name></author><entry><title type="html">C# - Practice</title><link href="/devNotes/dotnet/2019/05/11/c-practice.html" rel="alternate" type="text/html" title="C# - Practice" /><published>2019-05-11T23:00:00+00:00</published><updated>2019-05-11T23:00:00+00:00</updated><id>/devNotes/dotnet/2019/05/11/c-practice</id><content type="html" xml:base="/devNotes/dotnet/2019/05/11/c-practice.html">&lt;h2 id=&quot;c-sharp-basic-declarations-and-expressions--exercises-practice-solution&quot;&gt;C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.w3resource.com/csharp-exercises/basic/index.php&quot;&gt;Exercices link&lt;/a&gt;&lt;/p&gt;
@@ -1056,6 +1056,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-32&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-33&quot;&gt;Exercise 33&lt;/h3&gt;
 
 &lt;p&gt;Write a C# program to check if a given positive number is a multiple of 3 or a multiple of 7.&lt;/p&gt;
@@ -1081,6 +1083,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-33&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-34&quot;&gt;Exercise 34&lt;/h3&gt;
 
@@ -1115,6 +1119,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-34&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-35&quot;&gt;Exercise 35&lt;/h3&gt;
 
 &lt;p&gt;Write a C# program to check two given numbers where one is less than 100 and other is greater than 200.&lt;/p&gt;
@@ -1141,6 +1147,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-35&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-36&quot;&gt;Exercise 36&lt;/h3&gt;
 
@@ -1169,6 +1177,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-36&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-37&quot;&gt;Exercise 37&lt;/h3&gt;
 
 &lt;p&gt;Write a C# program to check if “HP” appears at second position in a string and returns the string without “HP”.&lt;/p&gt;
@@ -1194,6 +1204,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-37&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-38&quot;&gt;Exercise 38&lt;/h3&gt;
 
@@ -1225,6 +1237,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-38&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-39&quot;&gt;Exercise 39&lt;/h3&gt;
 
@@ -1265,6 +1279,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-39&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-40&quot;&gt;Exercise 40&lt;/h3&gt;
 
 &lt;p&gt;Write a C# program to check the nearest value of 20 of two given integers and return 0 if two numbers are same.&lt;/p&gt;
@@ -1302,6 +1318,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-40&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-41&quot;&gt;Exercise 41&lt;/h3&gt;
 
