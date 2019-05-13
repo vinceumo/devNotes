@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-05-13T19:05:22+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-05-13T19:08:57+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
 </subtitle><author><name>Vincent Humeau</name></author><entry><title type="html">C# - Practice</title><link href="/devNotes/dotnet/2019/05/11/c-practice.html" rel="alternate" type="text/html" title="C# - Practice" /><published>2019-05-11T23:00:00+00:00</published><updated>2019-05-11T23:00:00+00:00</updated><id>/devNotes/dotnet/2019/05/11/c-practice</id><content type="html" xml:base="/devNotes/dotnet/2019/05/11/c-practice.html">&lt;h2 id=&quot;c-sharp-basic-declarations-and-expressions--exercises-practice-solution&quot;&gt;C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.w3resource.com/csharp-exercises/basic/index.php&quot;&gt;Exercices link&lt;/a&gt;&lt;/p&gt;
@@ -1714,6 +1714,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-50&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-51&quot;&gt;Exercise 51&lt;/h3&gt;
 
 &lt;p&gt;Write a C# program to get the larger value between first and last element of an array (length 3) of integers.&lt;/p&gt;
@@ -1736,6 +1738,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-51&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-52&quot;&gt;Exercise 52&lt;/h3&gt;
 
@@ -1776,6 +1780,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-52&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-53&quot;&gt;Exercise 53&lt;/h3&gt;
 
 &lt;p&gt;Write a C# program to check if an array contains an odd number.&lt;/p&gt;
@@ -1804,6 +1810,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-53&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-54&quot;&gt;Exercise 54&lt;/h3&gt;
 
 &lt;p&gt;Write a C# program to get the century from a year.&lt;/p&gt;
@@ -1820,6 +1828,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-54&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-55&quot;&gt;Exercise 55&lt;/h3&gt;
 
