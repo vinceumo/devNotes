@@ -512,6 +512,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-16)
+
 Or other solution
 
 ```cs
@@ -532,6 +534,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-16-2)
 
 ### Exercise 17
 
@@ -557,6 +561,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-17)
 
 ### Exercise 18
 
@@ -584,6 +590,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-18)
+
 ### Exercise 19
 
 Write a C# program to compute the sum of two given integers, if two values are equal then return the triple of their sum.
@@ -603,6 +611,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-19)
 
 ### Exercise 20
 
@@ -624,6 +634,8 @@ class Program
   }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-20)
+
 ### Exercise 21
 
 Write a C# program to check the sum of the two given integers and return true if one of the integer is 20 or if their sum is 20
@@ -643,6 +655,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-21)
 
 ### Exercise 22
 
@@ -667,6 +681,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-22)
+
 ### Exercise 23
 
 Write a C# program to convert a given string into lowercase.
@@ -687,6 +703,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-23)
 
 ### Exercise 24
 
@@ -723,6 +741,8 @@ class Program
 }
 ```
 
+[Edit in repl](https://repl.it/@vinceumo/Exercise-24)
+
 or shorter solution using `OrderBy` (`System.Linq`)
 
 ```cs
@@ -740,6 +760,8 @@ class Program
   }
 }
 ```
+
+[Edit in repl](https://repl.it/@vinceumo/Exercise-24-2)
 
 ### Exercise 25
 
