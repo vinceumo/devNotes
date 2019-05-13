@@ -49,11 +49,6 @@ fields:
       file: 
       path: 
   label: Post type
-- name: categories
-  label: Categories
-  type: tag_list
-  hidden: true
-  default: ''
 - name: canonical
   label: Canonical
   type: text
