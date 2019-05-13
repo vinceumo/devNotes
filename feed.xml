@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-05-13T18:52:44+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-05-13T19:05:22+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
 </subtitle><author><name>Vincent Humeau</name></author><entry><title type="html">C# - Practice</title><link href="/devNotes/dotnet/2019/05/11/c-practice.html" rel="alternate" type="text/html" title="C# - Practice" /><published>2019-05-11T23:00:00+00:00</published><updated>2019-05-11T23:00:00+00:00</updated><id>/devNotes/dotnet/2019/05/11/c-practice</id><content type="html" xml:base="/devNotes/dotnet/2019/05/11/c-practice.html">&lt;h2 id=&quot;c-sharp-basic-declarations-and-expressions--exercises-practice-solution&quot;&gt;C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.w3resource.com/csharp-exercises/basic/index.php&quot;&gt;Exercices link&lt;/a&gt;&lt;/p&gt;
@@ -1357,6 +1357,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-41&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;Or using &lt;code class=&quot;highlighter-rouge&quot;&gt;Linq&lt;/code&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// using System.Linq;&lt;/span&gt;
@@ -1374,6 +1376,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-41-2&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-42&quot;&gt;Exercise 42&lt;/h3&gt;
 
@@ -1413,6 +1417,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-42&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-43&quot;&gt;Exercise 43&lt;/h3&gt;
 
 &lt;p&gt;Write a C# program to check if a given string starts with “w” and immediately followed by two “ww”.&lt;/p&gt;
@@ -1440,6 +1446,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-43&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-44&quot;&gt;Exercise 44&lt;/h3&gt;
 
@@ -1474,6 +1482,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-44&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-45&quot;&gt;Exercise 45&lt;/h3&gt;
 
@@ -1510,6 +1520,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-45&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;Or using &lt;code class=&quot;highlighter-rouge&quot;&gt;Linq&lt;/code&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// using System.Linq;&lt;/span&gt;
@@ -1527,6 +1539,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-45-2&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-46&quot;&gt;Exercise 46&lt;/h3&gt;
 
@@ -1558,6 +1572,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-46&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-47&quot;&gt;Exercise 47&lt;/h3&gt;
 
 &lt;p&gt;Write a C# program to compute the sum of all the elements of an array of integers.&lt;/p&gt;
@@ -1588,6 +1604,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-47&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;Or using &lt;code class=&quot;highlighter-rouge&quot;&gt;Linq&lt;/code&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-cs highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// using System.Linq;&lt;/span&gt;
@@ -1601,6 +1619,8 @@
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-47-2&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-48&quot;&gt;Exercise 48&lt;/h3&gt;
 
@@ -1629,6 +1649,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-48&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-49&quot;&gt;Exercise 49&lt;/h3&gt;
 
@@ -1660,6 +1682,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-49&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-50&quot;&gt;Exercise 50&lt;/h3&gt;
 
