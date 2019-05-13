@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-05-13T19:08:57+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/devNotes/feed.xml" rel="self" type="application/atom+xml" /><link href="/devNotes/" rel="alternate" type="text/html" /><updated>2019-05-13T19:16:09+00:00</updated><id>/devNotes/</id><title type="html">devNotes</title><subtitle>Collection of things I learned around web development.
 </subtitle><author><name>Vincent Humeau</name></author><entry><title type="html">C# - Practice</title><link href="/devNotes/dotnet/2019/05/11/c-practice.html" rel="alternate" type="text/html" title="C# - Practice" /><published>2019-05-11T23:00:00+00:00</published><updated>2019-05-11T23:00:00+00:00</updated><id>/devNotes/dotnet/2019/05/11/c-practice</id><content type="html" xml:base="/devNotes/dotnet/2019/05/11/c-practice.html">&lt;h2 id=&quot;c-sharp-basic-declarations-and-expressions--exercises-practice-solution&quot;&gt;C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.w3resource.com/csharp-exercises/basic/index.php&quot;&gt;Exercices link&lt;/a&gt;&lt;/p&gt;
@@ -1869,6 +1869,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-55&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-56&quot;&gt;Exercise 56&lt;/h3&gt;
 
 &lt;p&gt;Write a C# program to check if a given string is a palindrome or not.&lt;/p&gt;
@@ -1906,6 +1908,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-56&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-57&quot;&gt;Exercise 57&lt;/h3&gt;
 
 &lt;p&gt;(Same as 55)&lt;/p&gt;
@@ -1937,6 +1941,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-57&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-58&quot;&gt;Exercise 58&lt;/h3&gt;
 
 &lt;p&gt;Write a C# program which will accept a list of integers and checks how many integers are needed to complete the range.&lt;/p&gt;
@@ -1955,6 +1961,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-58&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-59&quot;&gt;Exercise 59&lt;/h3&gt;
 
@@ -1984,6 +1992,7 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-59&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Or using &lt;code class=&quot;highlighter-rouge&quot;&gt;SequenceEqual&lt;/code&gt; (&lt;code class=&quot;highlighter-rouge&quot;&gt;System.Linq&lt;/code&gt;)&lt;/p&gt;
 
@@ -2005,6 +2014,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-59-2&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-60&quot;&gt;Exercise 60&lt;/h3&gt;
 
@@ -2062,6 +2073,8 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-60&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3 id=&quot;exercise-61&quot;&gt;Exercise 61&lt;/h3&gt;
 
 &lt;p&gt;Write a C# program to sort the integers in ascending order without moving the number -5.&lt;/p&gt;
@@ -2083,6 +2096,8 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-61&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;exercise-62&quot;&gt;Exercise 62&lt;/h3&gt;
 
@@ -2111,7 +2126,9 @@
     &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Vincent Humeau</name></author><category term="Dotnet" /><summary type="html">C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution</summary></entry><entry><title type="html">Webpack 4 - Bundle SCSS and JavaScript for SSR applications</title><link href="/devNotes/javascript/2019/05/05/webpack-4-bundle-scss-and-javascript-for-ssr-applications.html" rel="alternate" type="text/html" title="Webpack 4 - Bundle SCSS and JavaScript for SSR applications" /><published>2019-05-05T23:00:00+00:00</published><updated>2019-05-05T23:00:00+00:00</updated><id>/devNotes/javascript/2019/05/05/webpack-4-bundle-scss-and-javascript-for-ssr-applications</id><content type="html" xml:base="/devNotes/javascript/2019/05/05/webpack-4-bundle-scss-and-javascript-for-ssr-applications.html">&lt;h2 id=&quot;project-structure&quot;&gt;Project structure&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://repl.it/@vinceumo/Exercise-62&quot;&gt;Edit in repl&lt;/a&gt;&lt;/p&gt;</content><author><name>Vincent Humeau</name></author><category term="Dotnet" /><summary type="html">C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution</summary></entry><entry><title type="html">Webpack 4 - Bundle SCSS and JavaScript for SSR applications</title><link href="/devNotes/javascript/2019/05/05/webpack-4-bundle-scss-and-javascript-for-ssr-applications.html" rel="alternate" type="text/html" title="Webpack 4 - Bundle SCSS and JavaScript for SSR applications" /><published>2019-05-05T23:00:00+00:00</published><updated>2019-05-05T23:00:00+00:00</updated><id>/devNotes/javascript/2019/05/05/webpack-4-bundle-scss-and-javascript-for-ssr-applications</id><content type="html" xml:base="/devNotes/javascript/2019/05/05/webpack-4-bundle-scss-and-javascript-for-ssr-applications.html">&lt;h2 id=&quot;project-structure&quot;&gt;Project structure&lt;/h2&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Proj:
 | \---Content
