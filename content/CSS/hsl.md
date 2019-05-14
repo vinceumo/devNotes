@@ -18,7 +18,7 @@ canonical: ''
 color: hsl(`hue from 0 to 360`, `saturation from 0% to 100%`, `lightness from 0% to 100%` [`Alpha from 0% to1 100%`])
 ```
 
-![HSL color wheel]({{ site.baseurl }}/dist/img/hsl.jpg)
+![HSL color wheel]({{< static "images/hsl.jpg" >}})
 
 ## `H` Hue - test
 

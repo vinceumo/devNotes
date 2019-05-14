@@ -7,7 +7,7 @@ canonical: ""
 post_type: post
 ---
 
-![Demo gif]({{ site.baseurl }}/dist/img/css3d-z-scroll-demo.gif)
+![Demo gif]({{< static "images/css3d-z-scroll-demo.gif" >}})
 
 In this article, we are going to create a small 3D scene, where the user can scroll on the z-axis. You can find the final code of this tutorial on [github](https://github.com/vinceumo/CSS-3D-Scrolling-z-axis-demo/), and the demo if you follow this [link](https://vinceumo.github.io/CSS-3D-Scrolling-z-axis-demo/).
 
@@ -39,7 +39,7 @@ To be allowed to render our Dom elements in a 3D space we need to have a look in
 
 The value of `perspective` is a [length unit](https://developer.mozilla.org/en-US/docs/Web/CSS/length).
 
-![perspective illustration]({{ site.baseurl }}/dist/img/css3d-z-scroll-perspective1.png)
+![perspective illustration]({{< static "images/css3d-z-scroll-perspective1.png" >}})
 
 Try to set the value of `scenePerspective` to 0 and 70 in the example below. You can notice that our cube get no perspective at all if its value is set to 0. If the value is set to 70, you can see a really strong distortion of the cube perspective. The smaller the perspective value is, the deeper it is.
 
@@ -92,7 +92,7 @@ For both x and y we can set the position using percentages. but we can as well u
   - `center` = 50%
   - `bottom` = 50%
 
-![Perspective origin illustration]({{ site.baseurl }}/dist/img/css3d-z-scroll-perspective-origin.png)
+![Perspective origin illustration]({{< static "images/css3d-z-scroll-perspective-origin.png" >}})
 
 In the following example, you can change the value of `perspectiveOriginX` and `perspectiveOriginY`.
 

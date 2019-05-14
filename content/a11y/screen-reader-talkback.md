@@ -22,7 +22,7 @@ To start TalkBack:
 
 I would recommend setting TalkBack as your **Accessibility shortcut**. Turn on **Accessibility shortcut** and select TalkBack as the shortcut service. The shortcut depends on your device.
 
-![Android TalkBack Accessibility shortcut screenshot]({{ site.baseurl }}/dist/img/a11y-talkback-shortcurt.jpg)
+![Android TalkBack Accessibility shortcut screenshot]({{< static "images/a11y-talkback-shortcurt.jpg" >}})
 
 ## How to use TalkBack
 

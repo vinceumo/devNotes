@@ -9,6 +9,8 @@ disableKinds:
 pygmentsCodefences: true
 pygmentsCodefencesGuessSyntax: true
 pygmentsStyle: "dracula"
+RelativeURLs: true
+CanonifyURLs: true
 params:
   description: "Collection of things I learned around web development"
   author: "Vincent Humeau"

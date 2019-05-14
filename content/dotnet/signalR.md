@@ -18,7 +18,7 @@ I build a small demo using SignalR with Vue.js:
 
 [SignalR-Vuejs--Demo - Github](https://github.com/vinceumo/SignalR-Vuejs--Demo)
 
-![demo]({{ site.baseurl }}/dist/img/signalR.gif)
+![demo]({{< static "images/signalR.gif" >}})
 
 ## Create a new .NET core MVC project
 
