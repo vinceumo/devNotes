@@ -1,0 +1,18 @@
+<!-- {{ define "main" }}
+    <div class="container">
+        <h1 class="title">{{ .Title }}</h1>
+        <ul>
+            {{ $thisPage := .CurrentSection }}
+            {{ range .Site.RegularPages }}
+                {{ if .IsDescendant $thisPage}}
+                <li>
+                    <a href="{{ .URL }}">
+                        <b>{{ .Title }}</b> | {{ .Params.country }}, {{ .Params.region }} | <i>{{ dateFormat "Monday, Jan 2, 2006" .Date }}</i>
+                    </a>
+                </li>
+                {{ end }}
+            {{ end }}
+        </ul>
+         {{ .Content }}
+      </div>
+{{ end }} -->

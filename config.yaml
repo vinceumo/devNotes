@@ -1,0 +1,8 @@
+baseURL: "https://vinceumo.github.io/devNotes"
+disablePathToLower: true
+languageCode: en-gb
+title: devNotes
+theme: "devNotes"
+disableKinds: 
+  - taxonomy
+  - taxonomyTerm
