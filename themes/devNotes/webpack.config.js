@@ -1,7 +1,6 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== "production";
-const purgecss = require("@fullhuman/postcss-purgecss");
 
 module.exports = {
   mode: devMode ? "development" : "production",
@@ -40,10 +39,7 @@ module.exports = {
                 ? () => [require("autoprefixer")({ grid: true })]
                 : () => [
                     require("autoprefixer")({ grid: true }),
-                    require("cssnano")(),
-                    purgecss({
-                      content: ["./layouts/**/*.html", "./src/js/**/*.js"]
-                    })
+                    require("cssnano")()
                   ]
             }
           },

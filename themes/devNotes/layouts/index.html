@@ -1,23 +1,27 @@
 {{ define "main" }}
-    <div class="container">
-        <div class="has-mt-6">
-            {{ .Content }}
-        </div>
+    <div class="home">
+        {{ .Content }}
+        {{ $posts := (where .Site.RegularPages "Type" "==" "post") }}
+        {{ $postCount := len $posts }}
+        Currently: <b>{{ $postCount }}</b> devNotes.
+
+        <hr>
+
         {{ range .Site.Pages.GroupByParam "category" "title"}}
         {{ $categoryId := .Key | urlize}}
-        <h2 class="has-pt-7" id="{{ $categoryId }}">{{ .Key }}</h2>
-        <ul class="list-unstyle">
+        <h2 id="{{ $categoryId }}">{{ .Key }}</h2>
+        <ul class="list-unstyled">
             {{ range .Pages.GroupByParam "post_type" "title"}}
             {{ $post_typeId := .Key | urlize}}
             <li id="{{ $categoryId }}_{{ $post_typeId }}">
-                <h3 class="has-pt-6">{{ .Key }}</h3>
                 <ul
-                    class="list-unstyle grid has-cols-2 has-cols-md-3 has-cols-lg-4 has-cols-xl-5 has-grid-gap-2 has-grid-gap-sm-3">
+                    class="list-unstyled">
                     {{ range .Pages.ByTitle }}
-                    <li class="thumbnail">
-                        <a href="{{ .RelPermalink }}" class="post__title">
-                            <b>{{ .Title }}</b><br>
+                    <li>
+                        <a href="{{ .RelPermalink }}">
+                            {{ .Title }}
                         </a>
+                        <i><small>, {{ dateFormat "Jan, 2006" .Date }} | {{ .Params.Post_type }}</small></i>
                     </li>
                     {{ end }}
                 </ul>

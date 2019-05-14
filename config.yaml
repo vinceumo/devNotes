@@ -6,3 +6,10 @@ theme: "devNotes"
 disableKinds: 
   - taxonomy
   - taxonomyTerm
+pygmentsCodefences: true
+pygmentsCodefencesGuessSyntax: true
+pygmentsStyle: "dracula"
+params:
+  description: "Collection of things I learned around web development"
+  author: "Vincent Humeau"
+  authorUrl: "https:www.vincent-humeau.com"

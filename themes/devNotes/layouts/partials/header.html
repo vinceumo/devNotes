@@ -1,0 +1,15 @@
+<header class="page-header">
+  <p>
+    <a class="site-title" href="{{ $.Site.BaseURL }}">
+      {{ .Site.Title }}
+    </a> 
+    {{if (and (isset .Site.Params "author") (isset .Site.Params "author"))}}
+    <small>by 
+      <a
+        href="{{ .Site.Params.AuthorUrl }}" rel="author">
+        {{ .Site.Params.Author }}
+      </a>
+    </small>
+    {{ end }}
+  </p>
+</header>

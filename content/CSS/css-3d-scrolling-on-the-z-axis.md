@@ -48,11 +48,11 @@ Try to set the value of `scenePerspective` to 0 and 70 in the example below. You
 CSS 3D perspective</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
 on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
 To be able to render a 3D space, we need to specify `transform-style: preserve-3d;` on the child elements. In the above example, it set to our `.cube`. By default, the elements are flattened.
 
-```css
+
+```scss
 .container-scene {
   perspective: 400px;
 }
