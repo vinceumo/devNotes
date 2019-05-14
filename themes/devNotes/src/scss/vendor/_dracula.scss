@@ -17,17 +17,17 @@
  * Variables
  */
 
-$dt-gray-dark: hsl(231, 15%, 18%); // Background
-$dt-gray: hsl(232, 14%, 31%); // Current Line & Selection
-$dt-gray-light: hsl(60, 30%, 96%); // Foreground
-$dt-blue: hsl(225, 27%, 51%); // Comment
-$dt-cyan: hsl(191, 97%, 77%);
-$dt-green: hsl(135, 94%, 65%);
-$dt-orange: hsl(31, 100%, 71%);
-$dt-pink: hsl(326, 100%, 74%);
-$dt-purple: hsl(265, 89%, 78%);
-$dt-red: hsl(0, 100%, 67%);
-$dt-yellow: hsl(65, 92%, 76%);
+$dt-gray-dark: #282a36;  // Background
+$dt-gray: #44475a;       // Current Line & Selection
+$dt-gray-light: #f8f8f2; // Foreground
+$dt-blue: #6272a4;       // Comment
+$dt-cyan: #8be9fd;
+$dt-green: #50fa7b;
+$dt-orange: #ffb86c;
+$dt-pink: #ff79c6;
+$dt-purple: #bd93f9;
+$dt-red: #ff5555;
+$dt-yellow: #f1fa8c;
 
 /*
  * Styles

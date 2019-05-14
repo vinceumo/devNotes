@@ -7,8 +7,8 @@ disableKinds:
   - taxonomy
   - taxonomyTerm
 pygmentsCodefences: true
-pygmentsCodefencesGuessSyntax: true
-pygmentsStyle: "dracula"
+pygmentsCodefencesGuessSyntax: false
+pygmentsUseClasses: true
 RelativeURLs: true
 CanonifyURLs: true
 params:

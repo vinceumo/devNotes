@@ -13,8 +13,8 @@ post_type: snippet
 
 ## Cheat sheet
 
-| Description |
-| ----------- |
+| Description |  |
+| ----------- | --- |
 | `abc…`      | Letters |
 | `123…`      | Digits |
 | `\d`        | Any Digit |
