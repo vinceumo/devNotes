@@ -57,6 +57,7 @@ fields:
   hidden: false
   default: ''
 pages:
+- content/Javascript/class-es6-template-use-at-dam.md
 - content/CSS/hsl.md
 - content/CSS/ie-media-query.md
 - content/CSS/css-grid-layout.md
