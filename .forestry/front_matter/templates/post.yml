@@ -57,6 +57,7 @@ fields:
   hidden: false
   default: ''
 pages:
+- content/CSS/ie-media-query.md
 - content/CSS/css-grid-layout.md
 - content/CSS/css-customs-properties.md
 - content/CSS/css-3d-scrolling-on-the-z-axis.md

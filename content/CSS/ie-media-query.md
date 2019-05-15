@@ -4,9 +4,9 @@ title: Hack - CSS target only IE11 and IE10 (media query)
 date: 2018-08-08T10:57:19.000+00:00
 category: CSS
 post_type: note
-canonical: ""
----
+canonical: ''
 
+---
 Small hack, to apply CSS to only Internet Explorer 10 and 11, using media query:
 
 ```css
