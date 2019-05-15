@@ -57,6 +57,7 @@ fields:
   hidden: false
   default: ''
 pages:
+- content/Dotnet/c-101-cheat-sheet.md
 - content/Javascript/vue-js-101-todo-pwa-tutorial.md
 - content/Sass/responsive-container-classes-with-scss.md
 - content/Javascript/webpack-4-bundle-scss-and-javascript-for-ssr-applications.md
