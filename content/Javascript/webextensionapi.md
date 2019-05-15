@@ -4,9 +4,9 @@ title: Cross Browser extensions with WebExtensions API - 101
 date: 2018-10-23T08:25:00.000+00:00
 category: Javascript
 post_type: note
-canonical: ""
----
+canonical: ''
 
+---
 Browser extensions add features and functionalities to a browser. It uses web technologies such as HTML, CSS, and JS.
 
 ## Manifest.json
