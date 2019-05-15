@@ -37,11 +37,11 @@ fields:
   label: Category
 - name: post_type
   type: select
-  default: snippet
+  default: note
   config:
     required: true
     options:
-    - snippet
+    - note
     - post
     source:
       type: simple
