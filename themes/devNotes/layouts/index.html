@@ -7,23 +7,18 @@
 
         <hr>
 
-        {{ range .Site.Pages.GroupByParam "category" "title"}}
-        {{ $categoryId := .Key | urlize}}
-        <h2 id="{{ $categoryId }}">{{ .Key }}</h2>
-        <ul class="list-unstyled">
-            <li id="{{ $categoryId }}">
-                <ul class="list-unstyled">
-                    {{ range .Pages.ByTitle }}
+        {{ range .Data.Pages.GroupBy "Section" "title"}}
+            {{ $pages := where .Pages "Type" "post"}}
+            {{ if len $pages }}
+                <h2>{{ .Key }}</h2>
+                <ul>
+                    {{ range $pages.ByTitle }}
                     <li>
-                        <a href="{{ .RelPermalink }}">
-                            {{ .Title }}
-                        </a>
-                        <i><small>, {{ dateFormat "Jan, 2006" .Date }} | {{ .Params.Post_type }}</small></i>
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a><i><small>, {{ dateFormat "Jan, 2006" .Date }} | {{ .Params.Post_type }}</small></i>
                     </li>
                     {{ end }}
                 </ul>
-            </li>
-        </ul>
+            {{ end }}
         {{ end }}
     </div>
 {{ end }}
