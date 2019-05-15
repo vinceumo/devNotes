@@ -3,7 +3,7 @@ type: post
 title: Set up SignalR in a vue.js project
 date: 2018-10-29T16:50:00.000+00:00
 category: Dotnet
-post_type: snippet
+post_type: note
 canonical: ""
 ---
 

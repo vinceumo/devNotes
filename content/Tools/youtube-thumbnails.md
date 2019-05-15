@@ -3,7 +3,7 @@ type: post
 title: Youtube thumbnails
 date: 2018-07-25T09:00:00.000+00:00
 category: Tools
-post_type: snippet
+post_type: note
 canonical: ""
 ---
 

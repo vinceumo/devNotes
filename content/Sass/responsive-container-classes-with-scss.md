@@ -4,7 +4,7 @@ type: post
 date: 2018-11-22T10:51:05.000+00:00
 category: Sass
 canonical: ""
-post_type: snippet
+post_type: note
 ---
 
 ## SCSS input:

@@ -3,7 +3,7 @@ type: post
 title: ES6 - Arrow functions
 date: 2018-08-07T18:08:00.000+00:00
 category: Javascript
-post_type: snippet
+post_type: note
 canonical: ""
 ---
 

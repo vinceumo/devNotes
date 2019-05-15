@@ -1,10 +1,10 @@
 ---
 title: Z-index management with SCSS
-date: 2018-11-19 20:22
+date:  2018-11-19T10:51:05.000+00:00
 type: post
 category: Sass
 canonical: ""
-post_type: snippet
+post_type: note
 ---
 
 ```scss

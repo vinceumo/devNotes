@@ -3,7 +3,7 @@ type: post
 title: Bug - IE11, flexbox and min-height
 date: 2018-08-09T10:53:19.000+00:00
 category: CSS
-post_type: snippet
+post_type: note
 canonical: ""
 ---
 

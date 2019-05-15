@@ -3,7 +3,7 @@ type: post
 title: Hack - CSS target only IE11 and IE10 (media query)
 date: 2018-08-08T10:57:19.000+00:00
 category: CSS
-post_type: snippet
+post_type: note
 canonical: ""
 ---
 

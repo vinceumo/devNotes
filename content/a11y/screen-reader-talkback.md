@@ -3,7 +3,7 @@ type: post
 title: Screen reader - TalkBack (Android)
 date: 2018-08-13T13:25:19.000+00:00
 category: A11Y
-post_type: snippet
+post_type: note
 canonical: ""
 ---
 

@@ -3,7 +3,7 @@ type: post
 title: IIFE template use at DAM
 date: 2018-07-21T19:32:19.000+00:00
 category: Javascript
-post_type: snippet
+post_type: note
 canonical: ""
 ---
 

@@ -3,7 +3,7 @@ type: post
 title: Git - Cheat sheet
 date: 2018-08-01T08:00:00.000+00:00
 category: Tools
-post_type: snippet
+post_type: note
 canonical: ""
 ---
 

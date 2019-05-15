@@ -11,11 +11,8 @@
         {{ $categoryId := .Key | urlize}}
         <h2 id="{{ $categoryId }}">{{ .Key }}</h2>
         <ul class="list-unstyled">
-            {{ range .Pages.GroupByParam "post_type" "title"}}
-            {{ $post_typeId := .Key | urlize}}
-            <li id="{{ $categoryId }}_{{ $post_typeId }}">
-                <ul
-                    class="list-unstyled">
+            <li id="{{ $categoryId }}">
+                <ul class="list-unstyled">
                     {{ range .Pages.ByTitle }}
                     <li>
                         <a href="{{ .RelPermalink }}">
@@ -26,7 +23,6 @@
                     {{ end }}
                 </ul>
             </li>
-            {{ end }}
         </ul>
         {{ end }}
     </div>

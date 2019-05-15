@@ -4,7 +4,7 @@ title: Regex - 101
 date: 2019-01-14T00:00:00.000+00:00
 category: Tools
 canonical: ""
-post_type: snippet
+post_type: note
 ---
 
 > A regular expression, regex or regexp(sometimes called a rational expression) is a sequence of characters that define a search pattern. Usually this pattern is used by string searching algorithms for "find" or "find and replace" operations on strings, or for input validation
