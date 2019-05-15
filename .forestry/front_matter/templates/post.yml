@@ -57,6 +57,7 @@ fields:
   hidden: false
   default: ''
 pages:
+- content/Javascript/es6-arrow-functions.md
 - content/Javascript/webextensionapi.md
 - content/Javascript/cosoleLogArgInObject.md
 - content/Javascript/class-es6-template-use-at-dam.md
