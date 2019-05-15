@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dotnet (.Net) on devNotes</title>
-    <link>https://vinceumo.github.io/devNotes/dotnet/</link>
+    <link>https://vinceumo.github.io/devNotes/Dotnet/</link>
     <description>Recent content in Dotnet (.Net) on devNotes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
     <lastBuildDate>Wed, 07 Nov 2018 13:21:02 +0000</lastBuildDate>
     
-	<atom:link href="https://vinceumo.github.io/devNotes/dotnet/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vinceumo.github.io/devNotes/Dotnet/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>C# - Practice</title>
-      <link>https://vinceumo.github.io/devNotes/dotnet/c-practice/</link>
+      <link>https://vinceumo.github.io/devNotes/Dotnet/c-practice/</link>
       <pubDate>Sat, 11 May 2019 23:00:00 +0000</pubDate>
       
-      <guid>https://vinceumo.github.io/devNotes/dotnet/c-practice/</guid>
+      <guid>https://vinceumo.github.io/devNotes/Dotnet/c-practice/</guid>
       <description>C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution Exercices link
 Exercise 1 Write a C# Sharp program to print Hello and your name in a separate line.
 Expected Output :
@@ -27,10 +27,10 @@ class Program { static void Main(string[] args) { int a = 39; int b = 73; Consol
     
     <item>
       <title>Set up SignalR in a vue.js project</title>
-      <link>https://vinceumo.github.io/devNotes/dotnet/signalR/</link>
+      <link>https://vinceumo.github.io/devNotes/Dotnet/signalR/</link>
       <pubDate>Mon, 29 Oct 2018 16:50:00 +0000</pubDate>
       
-      <guid>https://vinceumo.github.io/devNotes/dotnet/signalR/</guid>
+      <guid>https://vinceumo.github.io/devNotes/Dotnet/signalR/</guid>
       <description>SignalR is an ASP.NET library for real-time applications. It uses the WebSockets API:
  The WebSocket API is an advanced technology that makes it possible to open a two-way interactive communication session between the user&amp;rsquo;s browser and a server. With this API, you can send messages to a server and receive event-driven responses without having to poll the server for a reply. The WebSocket API (WebSockets) - MDN
  SignalR comes pre instal with ASP.</description>
