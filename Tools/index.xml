@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on devNotes</title>
+    <link>https://vinceumo.github.io/devNotes/Tools/</link>
+    <description>Recent content in Tools on devNotes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 07 Nov 2018 13:21:02 +0000</lastBuildDate>
+    
+	<atom:link href="https://vinceumo.github.io/devNotes/Tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Regex - 101</title>
+      <link>https://vinceumo.github.io/devNotes/Tools/regex-101/</link>
+      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Tools/regex-101/</guid>
+      <description>A regular expression, regex or regexp(sometimes called a rational expression) is a sequence of characters that define a search pattern. Usually this pattern is used by string searching algorithms for &amp;ldquo;find&amp;rdquo; or &amp;ldquo;find and replace&amp;rdquo; operations on strings, or for input validation
+_Regular expression - Wikipedia_
+ Cheat sheet    Description      abc… Letters   123… Digits   \d Any Digit   \D Any Non-digit character   .</description>
+    </item>
+    
+    <item>
+      <title>Git - Cheat sheet</title>
+      <link>https://vinceumo.github.io/devNotes/Tools/git-cheat-sheet/</link>
+      <pubDate>Wed, 01 Aug 2018 08:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Tools/git-cheat-sheet/</guid>
+      <description>Create a repository git init [project-name] - Creates a new, empty local [project-name] repository
+git clone [url] - Downloads a project and its entire version history
+Stage files git status - Gives a list of all the uncommitted changes
+git diff - Shows file differences not yet staged
+git add [file] - Stages only [file]
+git add -A - Stages all files
+git reset [file] - Unstages a file</description>
+    </item>
+    
+    <item>
+      <title>Youtube thumbnails</title>
+      <link>https://vinceumo.github.io/devNotes/Tools/youtube-thumbnails/</link>
+      <pubDate>Wed, 25 Jul 2018 09:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Tools/youtube-thumbnails/</guid>
+      <description>Youtube thumbnails in different resolution, just replace e7AzBqt4_p0 by your youtube video code.
+ https://youtu.be/e7AzBqt4_p0 Default Thumb MaxRes Thumb HQ Thumb MQ Thumb SD Thumb  </description>
+    </item>
+    
+    <item>
+      <title>Adobe Photoshop - 101 introduction for web developers</title>
+      <link>https://vinceumo.github.io/devNotes/Tools/photoshop-101-introduction-for-web-developers/</link>
+      <pubDate>Sun, 22 Jul 2018 23:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Tools/photoshop-101-introduction-for-web-developers/</guid>
+      <description>Introduction Often, when working as web developer, we need to integrate templates. They can be from Photoshop or other software. In this article, we will have a look at the basics of Photoshop for a web developer.
+This content was initially written for a workshop for DAMDigital London.
+Adobe Photoshop is a raster graphics editor software, meaning it is a program that allows users to create and edit images.</description>
+    </item>
+    
+    <item>
+      <title>Ngrok - Public URLs for mobile testing</title>
+      <link>https://vinceumo.github.io/devNotes/Tools/ngrok/</link>
+      <pubDate>Sat, 21 Jul 2018 19:32:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Tools/ngrok/</guid>
+      <description> Download and run ngrok ngrok http -host-header=localhost:{num} {num} Replace {num} with the actual port number and get rid of the {} 😁  </description>
+    </item>
+    
+  </channel>
+</rss>

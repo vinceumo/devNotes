@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/dotnet/c-practice/</loc>
+    <lastmod>2019-05-11T23:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Javascript/webpack-4-bundle-scss-and-javascript-for-ssr-applications/</loc>
+    <lastmod>2019-05-05T23:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Javascript/class-es6-template-use-at-dam/</loc>
+    <lastmod>2019-05-04T23:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/CSS/css-3d-scrolling-on-the-z-axis/</loc>
+    <lastmod>2019-03-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/CSS/css-customs-properties/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Javascript/get-address-postode-city-with-google-map-geocoding-api-and-html5-geolocation/</loc>
+    <lastmod>2019-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Tools/regex-101/</loc>
+    <lastmod>2019-01-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Sass/responsive-container-classes-with-scss/</loc>
+    <lastmod>2018-11-22T10:51:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Sass/z-index-management-with-scss/</loc>
+    <lastmod>2018-11-19T10:51:05+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/a11y/</loc>
+    <lastmod>2018-11-07T13:21:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/CSS/</loc>
+    <lastmod>2018-11-07T13:21:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/dotnet/</loc>
+    <lastmod>2018-11-07T13:21:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/</loc>
+    <lastmod>2018-11-07T13:21:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Javascript/</loc>
+    <lastmod>2018-11-07T13:21:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Sass/</loc>
+    <lastmod>2018-11-07T13:21:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Tools/</loc>
+    <lastmod>2018-11-07T13:21:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/dotnet/signalR/</loc>
+    <lastmod>2018-10-29T16:50:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Javascript/webextensionapi/</loc>
+    <lastmod>2018-10-23T08:25:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Javascript/vue-props-events/</loc>
+    <lastmod>2018-08-24T10:07:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/a11y/avoid-keyboard-trap/</loc>
+    <lastmod>2018-08-21T14:49:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/CSS/hsl/</loc>
+    <lastmod>2018-08-17T08:42:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/a11y/screen-reader-talkback/</loc>
+    <lastmod>2018-08-13T13:25:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Javascript/vue-scss-setup/</loc>
+    <lastmod>2018-08-13T08:50:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/CSS/css-grid-layout/</loc>
+    <lastmod>2018-08-09T13:37:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/CSS/bug-ie-flexbox-min-height/</loc>
+    <lastmod>2018-08-09T10:53:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/CSS/ie-media-query/</loc>
+    <lastmod>2018-08-08T10:57:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Javascript/es6-arrow-functions/</loc>
+    <lastmod>2018-08-07T18:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Javascript/es6-const-let-var/</loc>
+    <lastmod>2018-08-06T22:13:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/a11y/screen-reader-nvda/</loc>
+    <lastmod>2018-08-04T19:51:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/a11y/wcag/</loc>
+    <lastmod>2018-08-03T11:50:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Tools/git-cheat-sheet/</loc>
+    <lastmod>2018-08-01T08:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Javascript/hoisting/</loc>
+    <lastmod>2018-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Sass/css-var-with-scss/</loc>
+    <lastmod>2018-07-25T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Tools/youtube-thumbnails/</loc>
+    <lastmod>2018-07-25T09:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Tools/photoshop-101-introduction-for-web-developers/</loc>
+    <lastmod>2018-07-22T23:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Javascript/cosoleLogArgInObject/</loc>
+    <lastmod>2018-07-21T19:32:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Javascript/IIFEE-template-dam/</loc>
+    <lastmod>2018-07-21T19:32:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Tools/ngrok/</loc>
+    <lastmod>2018-07-21T19:32:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/Javascript/vue-js-101-todo-pwa-tutorial/</loc>
+    <lastmod>2018-07-20T23:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vinceumo.github.io/devNotes/404/</loc>
+  </url>
+  
+</urlset>

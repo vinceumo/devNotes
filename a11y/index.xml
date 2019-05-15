@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>A11Y on devNotes</title>
+    <link>https://vinceumo.github.io/devNotes/a11y/</link>
+    <description>Recent content in A11Y on devNotes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 07 Nov 2018 13:21:02 +0000</lastBuildDate>
+    
+	<atom:link href="https://vinceumo.github.io/devNotes/a11y/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Inert - Avoid keyboard trap</title>
+      <link>https://vinceumo.github.io/devNotes/a11y/avoid-keyboard-trap/</link>
+      <pubDate>Tue, 21 Aug 2018 14:49:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/a11y/avoid-keyboard-trap/</guid>
+      <description>The inert attribute is still into draft and no browser currently support it. The current draft currently states:
+ A node (in particular elements and text nodes) can be marked as inert. When a node is inert, then the user agent must act as if the node was absent for the purposes of targeting user interaction events, may ignore the node for the purposes of text search user interfaces (commonly known as &amp;ldquo;find in page&amp;rdquo;), and may prevent the user from selecting text in that node.</description>
+    </item>
+    
+    <item>
+      <title>Screen reader - TalkBack (Android)</title>
+      <link>https://vinceumo.github.io/devNotes/a11y/screen-reader-talkback/</link>
+      <pubDate>Mon, 13 Aug 2018 13:25:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/a11y/screen-reader-talkback/</guid>
+      <description>TalkBack is the Google screen reader included on Android devices. TalkBack gives you spoken feedback so that you can use your device without looking at the screen.
+Android Accessibility Help
+ Start TalkBack To start TalkBack:
+ Go in your device settings Open Advanced Open Accessibility Turn on TalkBack  I would recommend setting TalkBack as your Accessibility shortcut. Turn on Accessibility shortcut and select TalkBack as the shortcut service.</description>
+    </item>
+    
+    <item>
+      <title>Screen reader - NVDA (Non-Visual Desktop Access) (Windows)</title>
+      <link>https://vinceumo.github.io/devNotes/a11y/screen-reader-nvda/</link>
+      <pubDate>Sat, 04 Aug 2018 19:51:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/a11y/screen-reader-nvda/</guid>
+      <description>NVDA allows blind and vision impaired people to access and interact with the Windows operating system and many third party applications.
+ NVDA is a free and open source screen reader, it can be download on the NV access website
+Once installed if you have created a shortcut on your desktop, you can use ctrl + alt + n to launch NVDA. The Welcome dialogue will appear, I use the CapsLock key as the NVDA modifier key as I&amp;rsquo;m on a laptop, by default the insert key is set as the NVDA modifier key.</description>
+    </item>
+    
+    <item>
+      <title>WCAG 2.0 &amp; 2.1 Checklist</title>
+      <link>https://vinceumo.github.io/devNotes/a11y/wcag/</link>
+      <pubDate>Fri, 03 Aug 2018 11:50:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/a11y/wcag/</guid>
+      <description>Web Content Accessibility Guidelines (WCAG) 2.0 covers a wide range of recommendations for making Web content more accessible. Following these guidelines will make content accessible to a wider range of people with disabilities, including blindness and low vision, deafness and hearing loss, learning disabilities, cognitive limitations, limited movement, speech disabilities, photosensitivity and combinations of these. Following these guidelines will also often make your Web content more usable to users in general.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> CSS custom properties - Cheatsheet | CSS  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">CSS custom properties - Cheatsheet</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2019-02-20 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+          Feb 02, 2019
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
+
+<p>CSS custom properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.</p>
+
+<h2 id="declare-a-custom-property-in-css">Declare a custom property in CSS</h2>
+
+<p>To declare a Custom property in your CSS, you need to use the <code>--</code> syntax:</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+  <span class="nv">--colorPrimary</span><span class="p">:</span> <span class="nb">hsla</span><span class="p">(</span><span class="mi">360</span><span class="p">,</span> <span class="mi">100</span><span class="kt">%</span><span class="p">,</span> <span class="mi">74</span><span class="kt">%</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+<p>Notice the <code>:root</code> pseudo-class selector, we can declare our variables globally using it. We can as well declare them using other selectors, they will be then be scoped in these ones.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">theme-dark</span> <span class="p">{</span>
+  <span class="nv">--colorPrimary</span><span class="p">:</span> <span class="nb">hsla</span><span class="p">(</span><span class="mi">360</span><span class="p">,</span> <span class="mi">100</span><span class="kt">%</span><span class="p">,</span> <span class="mi">24</span><span class="kt">%</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+<h2 id="use-a-custom-property-in-css">Use a custom property in CSS</h2>
+
+<p>To use a CSS custom property in your CSS you can use the <code>var()</code> function</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+  <span class="nv">--colorPrimary</span><span class="p">:</span> <span class="kc">tomato</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">theme-dark</span> <span class="p">{</span>
+  <span class="nv">--colorPrimary</span><span class="p">:</span> <span class="kc">lime</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">body</span> <span class="p">{</span>
+  <span class="k">background-color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">colorPrimary</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+<p>In this case, <code>body</code> will have a background colour of <code>tomato</code>. But <code>body.theme-dark</code> of <code>lime</code>.</p>
+
+<h2 id="use-custom-properties-without-units">Use custom properties without units</h2>
+
+<p>CSS custom properties can be declared without units if they are used with the <code>calc()</code> function.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
+  <span class="nv">--spacing</span><span class="p">:</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+  <span class="k">padding</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">spacing</span><span class="p">)</span> <span class="n">px</span><span class="p">;</span> <span class="c">/*Doesn&#39;t Work 😫*/</span>
+  <span class="k">padding</span><span class="p">:</span> <span class="nb">calc</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">spacing</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">);</span> <span class="c">/*Will output 2rem 😃*/</span>
+<span class="p">}</span></code></pre></div>
+<h2 id="use-custom-properties-with-javascript">Use custom properties with JavaScript</h2>
+
+<p>To get a custom property we can use the following:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">getComputedStyle</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">getPropertyValue</span><span class="p">(</span><span class="s2">&#34;--my-var&#34;</span><span class="p">);</span>
+
+<span class="c1">// Or if inline
+</span><span class="c1"></span><span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">getPropertyValue</span><span class="p">(</span><span class="s2">&#34;--my-var&#34;</span><span class="p">);</span>
+</code></pre></div>
+<p>To update the custom property value:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">setProperty</span><span class="p">(</span><span class="s2">&#34;--my-var&#34;</span><span class="p">,</span> <span class="nx">newVal</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="example-of-getting-and-replacing-values">Example of getting and replacing values:</h3>
+
+<p>In the following example, we use the <a href="https://workshop.chromeexperiments.com/examples/gui/">dat.gui controller library</a> to change the value of <code>--scenePerspective</code>, <code>--cubeRotateY</code>, <code>--cubeRotateX</code> custom properties. This method makes it easier to apply a new style, as do not have to apply inline style on each Dom elements.</p>
+
+<p><p class="codepen" data-height="456" data-theme-id="dark" data-default-tab="js,result" data-user="vinceumo" data-slug-hash="jdJLge" style="height: 456px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="CSS 3D perspective">
+<span>See the Pen <a href="https://codepen.io/vinceumo/pen/jdJLge/">
+CSS 3D perspective</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
+on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script></p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="https://drafts.csswg.org/css-variables/#defining-variables">Defining Custom Properties: the &ndash;* family of properties</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/--*">Custom properties: CSS variables - MDN</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/var">var() - MDN</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables">Using CSS custom properties (variables) - MDN</a></li>
+</ul>
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/CSS/css-customs-properties/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+

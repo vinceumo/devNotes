@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> hsl() &amp; hsla() | CSS  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">hsl() &amp; hsla()</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2018-08-17 08:42:00 &#43;0000 UTC" itemprop="datePublished">
+          Aug 08, 2018
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
+
+<p><code>hsl()</code> defines color using the HSL(A) model. It stands for hue, saturation and lightness.</p>
+
+<ul>
+<li><code>H</code>: Hue, this is a degree on the color wheel from 0 to 360. Red is a 0, yellow at 60, green at 120, cyan at 180, blue at 240 and magenta at 300.</li>
+<li><code>S</code>: Saturation, It is set from 0% to 100%, where 0% is a shade of grey and 100% is the full color vivid color.</li>
+<li><code>L</code>: Lightness, It is set from 0% to 100%, where 0% is black and 100% is white. Above 50% you add white to your color, bellow 50% you add black to your color.</li>
+<li><code>A</code>: Alpha (optional), the alpha channel set the opacity of the color, 0 is fully transparent and 1 is fully opaque.</li>
+</ul>
+
+<pre><code>color: hsl(`hue from 0 to 360`, `saturation from 0% to 100%`, `lightness from 0% to 100%` [`Alpha from 0% to1 100%`])
+</code></pre>
+
+<p><img src="../../images/hsl.jpg" alt="HSL color wheel" /></p>
+
+<h2 id="h-hue-test"><code>H</code> Hue - test</h2>
+
+<p><p data-height="500" data-theme-id="dark" data-slug-hash="zLgqZb" data-default-tab="result" data-user="vinceumo" data-pen-title="hsl() test - Hue" class="codepen">See the Pen <a href="https://codepen.io/vinceumo/pen/zLgqZb/">hsl() test - Hue</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script></p>
+
+<h2 id="s-saturation-test"><code>S</code> Saturation - test</h2>
+
+<p><p data-height="500" data-theme-id="dark" data-slug-hash="QBeNGa" data-default-tab="result" data-user="vinceumo" data-pen-title="hsl() test - Saturation" class="codepen">See the Pen <a href="https://codepen.io/vinceumo/pen/QBeNGa/">hsl() test - Saturation</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script></p>
+
+<h2 id="l-lightness-test"><code>L</code> Lightness - test</h2>
+
+<p><p data-height="500" data-theme-id="dark" data-slug-hash="XBvdJx" data-default-tab="result" data-user="vinceumo" data-pen-title="hsl() test - Lighteness" class="codepen">See the Pen <a href="https://codepen.io/vinceumo/pen/XBvdJx/">hsl() test - Lightness</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script></p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value">color - hsl and hsla - MDN</a></li>
+<li><a href="https://www.quackit.com/css/color/values/css_hsl_function.cfm">CSS hsl() Function - Quackit</a></li>
+<li><a href="https://tympanus.net/codrops/css_reference/hsl/">hsl() - codrops</a></li>
+<li><a href="https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/">On Switching from HEX &amp; RGB to HSL - Sara Soueidan</a></li>
+</ul>
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/CSS/hsl/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+

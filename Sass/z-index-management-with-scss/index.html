@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> Z-index management with SCSS | Sass  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">Z-index management with SCSS</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2018-11-19 10:51:05 &#43;0000 UTC" itemprop="datePublished">
+          Nov 11, 2018
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
+
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="c1">// Set our z-indexes map
+</span><span class="c1"></span><span class="nv">$z-indexes</span><span class="o">:</span> <span class="p">(</span>
+  <span class="s2">&#34;up-btn&#34;</span><span class="o">,</span>
+  <span class="c1">//60</span>
+    <span class="s2">&#34;cookies-info&#34;</span><span class="o">,</span>
+  <span class="c1">//50</span>
+    <span class="s2">&#34;left-nav&#34;</span><span class="o">,</span>
+  <span class="c1">//40</span>
+    <span class="s2">&#34;footer&#34;</span><span class="o">,</span>
+  <span class="c1">//30</span>
+    <span class="s2">&#34;top-nav&#34;</span><span class="o">,</span>
+  <span class="c1">//20</span>
+    <span class="s2">&#34;content&#34;</span><span class="o">,</span>
+  <span class="c1">//10</span>
+<span class="p">);</span>
+
+<span class="c1">// Z function return the z-index value
+</span><span class="c1"></span><span class="k">@function</span> <span class="nt">z</span><span class="o">(</span><span class="err">$</span><span class="nt">name</span><span class="o">)</span> <span class="p">{</span>
+  <span class="k">@if</span> <span class="nf">index</span><span class="p">(</span><span class="nv">$z-indexes</span><span class="o">,</span> <span class="nv">$name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">@return</span> <span class="o">((</span><span class="nt">length</span><span class="o">(</span><span class="err">$</span><span class="nt">z-indexes</span><span class="o">)</span> <span class="nt">-</span> <span class="nt">index</span><span class="o">(</span><span class="err">$</span><span class="nt">z-indexes</span><span class="o">,</span> <span class="err">$</span><span class="nt">name</span><span class="o">))</span> <span class="o">+</span> <span class="nt">1</span><span class="o">)</span> <span class="o">*</span> <span class="nt">10</span><span class="o">;</span>
+  <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
+    <span class="k">@warn</span> <span class="s1">&#39;</span><span class="s2">There is no item &#34;</span><span class="si">#{</span><span class="nv">$name</span><span class="si">}</span><span class="s2">&#34; in this list; choose one of: </span><span class="si">#{</span><span class="nv">$z-indexes</span><span class="si">}</span><span class="s2">&#39;</span><span class="p">;</span>
+    <span class="k">@return</span> <span class="nt">null</span><span class="o">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">//------
+</span><span class="c1"></span>
+<span class="nc">.content</span> <span class="p">{</span>
+  <span class="nt">z-index</span><span class="nd">:</span> <span class="nt">z</span><span class="o">(</span><span class="s2">&#34;content&#34;</span><span class="o">);</span>
+<span class="p">}</span>
+<span class="nc">.img-1</span> <span class="p">{</span>
+  <span class="nt">z-index</span><span class="nd">:</span> <span class="nt">z</span><span class="o">(</span><span class="s2">&#34;content&#34;</span><span class="o">)</span> <span class="o">+</span> <span class="nt">2</span><span class="o">;</span>
+<span class="p">}</span>
+<span class="nc">.img-2</span> <span class="p">{</span>
+  <span class="nt">z-index</span><span class="nd">:</span> <span class="nt">z</span><span class="o">(</span><span class="s2">&#34;content&#34;</span><span class="o">)</span> <span class="o">+</span> <span class="nt">1</span><span class="o">;</span>
+<span class="p">}</span>
+<span class="nc">.top-nav</span> <span class="p">{</span>
+  <span class="nt">z-index</span><span class="nd">:</span> <span class="nt">z</span><span class="o">(</span><span class="s2">&#34;top-nav&#34;</span><span class="o">);</span>
+<span class="p">}</span>
+<span class="nc">.mkt-flash</span> <span class="p">{</span>
+  <span class="nt">z-index</span><span class="nd">:</span> <span class="nt">z</span><span class="o">(</span><span class="s2">&#34;top-nav&#34;</span><span class="o">)</span> <span class="nt">-</span> <span class="nt">1</span><span class="o">;</span>
+<span class="p">}</span>
+<span class="nc">.left-nav</span> <span class="p">{</span>
+  <span class="nt">z-index</span><span class="nd">:</span> <span class="nt">z</span><span class="o">(</span><span class="s2">&#34;left-nav&#34;</span><span class="o">);</span>
+<span class="p">}</span>
+<span class="nc">.footer</span> <span class="p">{</span>
+  <span class="nt">z-index</span><span class="nd">:</span> <span class="nt">z</span><span class="o">(</span><span class="s2">&#34;footer&#34;</span><span class="o">);</span>
+<span class="p">}</span>
+<span class="nc">.cookies-info</span> <span class="p">{</span>
+  <span class="nt">z-index</span><span class="nd">:</span> <span class="nt">z</span><span class="o">(</span><span class="s2">&#34;cookies-info&#34;</span><span class="o">);</span>
+<span class="p">}</span>
+<span class="nc">.up-btn</span> <span class="p">{</span>
+  <span class="nt">z-index</span><span class="nd">:</span> <span class="nt">z</span><span class="o">(</span><span class="s2">&#34;up-btn&#34;</span><span class="o">);</span>
+<span class="p">}</span></code></pre></div>
+<h2 id="example">Example</h2>
+
+<p><p data-height="500" data-theme-id="0" data-slug-hash="MmQrbK" data-default-tab="css,result" data-user="vinceumo" data-pen-title="z-index Sass management" class="codepen">See the Pen <a href="https://codepen.io/vinceumo/pen/MmQrbK/">z-index Sass management</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script></p>
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/Sass/z-index-management-with-scss/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> Class (ES6) template use at DAM | Javascript  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">Class (ES6) template use at DAM</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2019-05-04 23:00:00 &#43;0000 UTC" itemprop="datePublished">
+          May 05, 2019
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
+
+<p>Javascript (Class based) project structure use at Dam Digital for SSR (server-side rendering) applications. You can use <a href="https://webpack.js.org/">webpack</a> or <a href="https://parceljs.org/">parcel</a> to bundle your js project.</p>
+
+<p>This project structure helps, developers, to write more modular/reusable code.</p>
+
+<h2 id="project-structure">Project structure</h2>
+
+<pre><code>js:
+| \---modules
+|     +---MyModule.js
+| +---vendors
+| +---index.js
+| +---global.js
+</code></pre>
+
+<h2 id="index-js"><code>index.js</code></h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">import</span> <span class="nx">MyModule</span> <span class="nx">from</span> <span class="s2">&#34;.modules/MyModule&#34;</span>
+
+<span class="k">const</span> <span class="nx">modules</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">MyModule</span><span class="o">:</span> <span class="k">new</span> <span class="nx">MyModule</span><span class="p">(),</span> <span class="c1">// Use default settings
+</span><span class="c1"></span>  <span class="nx">MyModule2</span><span class="o">:</span> <span class="k">new</span> <span class="nx">MyModule</span><span class="p">({</span>
+    <span class="c1">// Or use optional settings to overwrite default settings
+</span><span class="c1"></span>  <span class="p">})</span>
+<span class="p">};</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">modules</span><span class="p">.</span><span class="nx">MyModule</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+    <span class="nx">modules</span><span class="p">.</span><span class="nx">MyModule2</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+<span class="p">)}</span>
+</code></pre></div>
+<h2 id="mymodule-js"><code>MyModule.js</code></h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">export</span> <span class="k">default</span> <span class="k">class</span> <span class="nx">MyModule</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">options</span> <span class="o">=</span> <span class="nx">MyModule</span><span class="p">.</span><span class="nx">updateSettings</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">selector</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">selector</span> <span class="o">=</span>
+      <span class="k">typeof</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">selector</span> <span class="o">===</span> <span class="s2">&#34;string&#34;</span>
+        <span class="o">?</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">selector</span><span class="p">)</span>
+        <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">selector</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctas</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">selector</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="sb">`.</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">ctaClassName</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kr">static</span> <span class="nx">updateSettings</span><span class="p">(</span><span class="nx">userSettings</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="nx">defaultSettings</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">selector</span><span class="o">:</span> <span class="s2">&#34;.my-selector&#34;</span><span class="p">,</span> <span class="c1">// Dom El or string
+</span><span class="c1"></span>      <span class="nx">ctaClassName</span><span class="o">:</span> <span class="s2">&#34;cta&#34;</span><span class="p">,</span> <span class="c1">// String
+</span><span class="c1"></span>      <span class="nx">otherOption</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// Bool
+</span><span class="c1"></span>      <span class="nx">onInit</span><span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{}</span> <span class="c1">// Call back example
+</span><span class="c1"></span>    <span class="p">};</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="nx">attrName</span> <span class="k">in</span> <span class="nx">userSettings</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">defaultSettings</span><span class="p">[</span><span class="nx">attrName</span><span class="p">]</span> <span class="o">=</span> <span class="nx">userSettings</span><span class="p">[</span><span class="nx">attrName</span><span class="p">];</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">defaultSettings</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">init</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//Do things
+</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">onInit</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">Classes - MDN</a></li>
+<li><a href="https://javascriptplayground.com/introduction-to-es6-classes-tutorial/">An introduction to ES6 classes</a></li>
+<li><a href="https://medium.freecodecamp.org/a-guide-to-prototype-based-class-inheritance-in-javascript-84953db26df0">A guide to prototype-based class inheritance in JavaScript</a></li>
+<li><a href="https://www.youtube.com/watch?v=T-HGdc8L-7w">6.2: Classes in JavaScript with ES6 - p5.js Tutorial 📺</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS">Object-oriented Java​Script for beginners - MDN</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">import - MDN</a></li>
+</ul>
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/Javascript/class-es6-template-use-at-dam/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+

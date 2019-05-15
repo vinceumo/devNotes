@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> Bug - IE11, flexbox and min-height | CSS  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">Bug - IE11, flexbox and min-height</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2018-08-09 10:53:19 &#43;0000 UTC" itemprop="datePublished">
+          Aug 08, 2018
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      <p>On Internet Explorer 11, <code>align-items: center;</code> do not center vertically, if our flex container have a <code>min-height</code>.</p>
+
+<p>![IE11 flexbox center bug](/images/css-ie11-bug-flex-min-height.jpg)</p>
+
+<p>A small hack to fix this issue, is to use an after on our flex-container and give it an inherit min-height:</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.flex-container</span> <span class="p">{</span>
+  <span class="nt">min-height</span><span class="nd">:</span> <span class="nt">500px</span><span class="o">;</span>
+  <span class="nt">display</span><span class="nd">:</span> <span class="nt">flex</span><span class="o">;</span>
+  <span class="nt">align-items</span><span class="nd">:</span> <span class="nt">center</span><span class="o">;</span>
+
+  <span class="o">//</span> <span class="nt">See</span> <span class="nt">Hack</span> <span class="nt">-</span> <span class="nt">CSS</span> <span class="nt">target</span> <span class="nt">only</span> <span class="nt">IE11</span> <span class="nt">and</span> <span class="nt">IE10</span> <span class="o">(</span><span class="nt">media</span> <span class="nt">query</span><span class="o">)</span>
+
+  <span class="o">@</span><span class="nt">media</span> <span class="nt">all</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">-ms-high-contrast</span><span class="nd">:</span> <span class="nt">none</span><span class="o">),</span> <span class="o">(</span><span class="nt">-ms-high-contrast</span><span class="nd">:</span> <span class="nt">active</span><span class="o">)</span> <span class="p">{</span>
+    <span class="k">&amp;</span><span class="nd">:after</span> <span class="p">{</span>
+      <span class="nt">content</span><span class="nd">:</span> <span class="s2">&#34;&#34;</span><span class="o">;</span>
+      <span class="nt">display</span><span class="nd">:</span> <span class="nt">block</span><span class="o">;</span>
+      <span class="nt">min-height</span><span class="nd">:</span> <span class="nt">inherit</span><span class="o">;</span>
+      <span class="nt">font-size</span><span class="nd">:</span> <span class="nt">0</span><span class="o">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<p>Fix from <a href="https://github.com/philipwalton/flexbugs/issues/231">IE11: align-items: center with min-height workaround - Github/flexbugs</a></p>
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/CSS/bug-ie-flexbox-min-height/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> Set up SignalR in a vue.js project | Dotnet  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">Set up SignalR in a vue.js project</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2018-10-29 16:50:00 &#43;0000 UTC" itemprop="datePublished">
+          Oct 10, 2018
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
+
+<p>SignalR is an ASP.NET library for real-time applications. It uses the WebSockets API:</p>
+
+<blockquote>
+<p>The WebSocket API is an advanced technology that makes it possible to open a two-way interactive communication session between the user&rsquo;s browser and a server. With this API, you can send messages to a server and receive event-driven responses without having to poll the server for a reply.
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">The WebSocket API (WebSockets) - MDN</a></p>
+</blockquote>
+
+<p>SignalR comes pre instal with ASP.NET Core 2.1. If you don&rsquo;t have .NET core SDK on your machine, you can instal this one from the <a href="https://www.microsoft.com/net/download">microsoft website</a></p>
+
+<p>I build a small demo using SignalR with Vue.js:</p>
+
+<p><a href="https://github.com/vinceumo/SignalR-Vuejs--Demo">SignalR-Vuejs&ndash;Demo - Github</a></p>
+
+<p><img src="../../images/signalR.gif" alt="demo" /></p>
+
+<h2 id="create-a-new-net-core-mvc-project">Create a new .NET core MVC project</h2>
+
+<p>Create a new .NET core MVC project.</p>
+
+<p>If you are using the terminal run:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">dotnet new mvc</code></pre></div>
+<h2 id="set-up-our-hub">Set up our hub</h2>
+
+<p>First, we need to create a hub. The hub is a class used for persistent connections between the client and the server.</p>
+
+<p>At the root of our project lets create a <code>ChatHub.cs</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="k">using</span> <span class="nn">Microsoft.AspNetCore.SignalR</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Threading.Tasks</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">signalrChatApp</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">ChatHub</span> <span class="p">:</span> <span class="n">Hub</span>
+  <span class="p">{</span>
+    <span class="k">public</span> <span class="k">async</span> <span class="n">Task</span> <span class="n">SendMessage</span><span class="p">(</span><span class="kt">string</span> <span class="n">user</span><span class="p">,</span> <span class="kt">string</span> <span class="n">message</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="k">await</span> <span class="n">Clients</span><span class="p">.</span><span class="n">All</span><span class="p">.</span><span class="n">SendAsync</span><span class="p">(</span><span class="s">&#34;ReceiveMessage&#34;</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>In <code>Startup.cs</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="c1">//...
+</span><span class="c1"></span><span class="k">using</span> <span class="nn">signalrChatApp</span><span class="p">;</span>
+
+<span class="c1">//...
+</span><span class="c1"></span>
+<span class="k">namespace</span> <span class="nn">MyApp</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">class</span> <span class="nc">Startup</span>
+  <span class="p">{</span>
+    <span class="c1">//...
+</span><span class="c1"></span>    <span class="k">public</span> <span class="k">void</span> <span class="n">ConfigureServices</span><span class="p">(</span><span class="n">IServiceCollection</span> <span class="n">services</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">//...
+</span><span class="c1"></span>      <span class="n">services</span><span class="p">.</span><span class="n">AddSignalR</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="c1">//...
+</span><span class="c1"></span>
+    <span class="k">public</span> <span class="k">void</span> <span class="n">Configure</span><span class="p">(</span><span class="n">IApplicationBuilder</span> <span class="n">app</span><span class="p">,</span> <span class="n">IHostingEnvironment</span> <span class="n">env</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">//...
+</span><span class="c1"></span>      <span class="n">app</span><span class="p">.</span><span class="n">UseSignalR</span><span class="p">(</span><span class="n">routes</span> <span class="p">=&gt;</span>
+      <span class="p">{</span>
+        <span class="n">routes</span><span class="p">.</span><span class="n">MapHub</span><span class="p">&lt;</span><span class="n">ChatHub</span><span class="p">&gt;(</span><span class="s">&#34;/chatHub&#34;</span><span class="p">);</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="set-up-our-front-end-with-vue-js">Set up our front end with vue.js</h2>
+
+<p>We are going to use the <code>Views/Home/Index.cshtml</code> file to make our demo, I got rid of all the unused markup in this file and the <code>_lautout.cshtml</code> as well</p>
+
+<h2 id="add-our-dependencies">Add our dependencies</h2>
+
+<p>First, we need the <code>@aspnet/signalr</code> package. You can download it from npm</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm install @aspnet/signalr</code></pre></div>
+<p>Copy the file in <code>node_modules/@sapnet/signalr/dist/browser/signalr.js</code> into the <code>wwwroot</code> folder.</p>
+
+<p>Now we need the reference this file in our view</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;~/signalr.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></code></pre></div>
+<p>We are going to add vue.js with a CDN as well:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- (Developer version) --&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></code></pre></div>
+<h2 id="front-end">Front End</h2>
+
+<p>Now that our dependencies have been added, let&rsquo;s work on the Front End.</p>
+
+<p>Above our script let&rsquo;s add our app markup:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;chatApp&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-group&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#34;userName&#34;</span><span class="p">&gt;</span>Your Name<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;Name&#34;</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;userName&#34;</span> <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;userName&#34;</span> <span class="p">/&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&#34;userMessage&#34;</span><span class="p">&gt;</span>Message<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">input</span>
+          <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span>
+          <span class="na">name</span><span class="o">=</span><span class="s">&#34;Message&#34;</span>
+          <span class="na">id</span><span class="o">=</span><span class="s">&#34;userMessage&#34;</span>
+          <span class="na">v-model</span><span class="o">=</span><span class="s">&#34;userMessage&#34;</span>
+        <span class="p">/&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">v-on:click</span><span class="o">=</span><span class="s">&#34;submitCard&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;button&#34;</span><span class="p">&gt;</span>Submit<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ul</span> <span class="na">v-for</span><span class="o">=</span><span class="s">&#34;(item, index) in messages&#34;</span> <span class="na">v-bind:key</span><span class="o">=</span><span class="s">&#34;index + &#39;itemMessage&#39;&#34;</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Name: <span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>{{item.user}}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Message: <span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>{{item.message}}<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
+<p>Now lets set up our script:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+    <span class="nx">el</span><span class="o">:</span> <span class="s2">&#34;#chatApp&#34;</span><span class="p">,</span>
+    <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">userName</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+      <span class="nx">userMessage</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+      <span class="nx">connection</span><span class="o">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span>
+      <span class="nx">messages</span><span class="o">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="nx">methods</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">submitCard</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">userName</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">userMessage</span><span class="p">)</span> <span class="p">{</span>
+          <span class="c1">// ---------
+</span><span class="c1"></span>          <span class="c1">//  Call hub methods from client
+</span><span class="c1"></span>          <span class="c1">// ---------
+</span><span class="c1"></span>          <span class="k">this</span><span class="p">.</span><span class="nx">connection</span>
+            <span class="p">.</span><span class="nx">invoke</span><span class="p">(</span><span class="s2">&#34;SendMessage&#34;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">userName</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">userMessage</span><span class="p">)</span>
+            <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+              <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">toSting</span><span class="p">());</span>
+            <span class="p">});</span>
+
+          <span class="k">this</span><span class="p">.</span><span class="nx">userName</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">userMessage</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nx">created</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// ---------
+</span><span class="c1"></span>      <span class="c1">// Connect to our hub
+</span><span class="c1"></span>      <span class="c1">// ---------
+</span><span class="c1"></span>      <span class="k">this</span><span class="p">.</span><span class="nx">connection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">signalR</span><span class="p">.</span><span class="nx">HubConnectionBuilder</span><span class="p">()</span>
+        <span class="p">.</span><span class="nx">withUrl</span><span class="p">(</span><span class="s2">&#34;/chatHub&#34;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">configureLogging</span><span class="p">(</span><span class="nx">signalR</span><span class="p">.</span><span class="nx">LogLevel</span><span class="p">.</span><span class="nx">Information</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">build</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">start</span><span class="p">().</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">toSting</span><span class="p">());</span>
+      <span class="p">});</span>
+    <span class="p">},</span>
+    <span class="nx">mounted</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// ---------
+</span><span class="c1"></span>      <span class="c1">// Call client methods from hub
+</span><span class="c1"></span>      <span class="c1">// ---------
+</span><span class="c1"></span>      <span class="kd">var</span> <span class="nx">thisVue</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+      <span class="nx">thisVue</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+      <span class="nx">thisVue</span><span class="p">.</span><span class="nx">connection</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&#34;ReceiveMessage&#34;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">user</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">thisVue</span><span class="p">.</span><span class="nx">messages</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span> <span class="nx">user</span><span class="p">,</span> <span class="nx">message</span> <span class="p">});</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/aspnet/core/signalr/dotnet-client?view=aspnetcore-2.1">ASP.NET Core SignalR .NET Client</a></li>
+<li><a href="http://signalr.net/">ASP.NET SignalR</a></li>
+<li><a href="https://stackoverflow.com/questions/8929519/what-do-hub-represents-in-signalr#8929826">What do Hub represents in SignalR</a></li>
+<li><a href="https://docs.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-2.1">ASP.NET Core SignalR JavaScript client</a></li>
+</ul>
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/dotnet/signalR/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+

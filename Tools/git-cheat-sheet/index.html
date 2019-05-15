@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> Git - Cheat sheet | Tools  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">Git - Cheat sheet</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2018-08-01 08:00:00 &#43;0000 UTC" itemprop="datePublished">
+          Aug 08, 2018
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
+
+<h2 id="create-a-repository">Create a repository</h2>
+
+<p><code>git init [project-name]</code> - Creates a new, empty local <em>[project-name]</em> repository</p>
+
+<p><code>git clone [url]</code> - Downloads a project and its entire version history</p>
+
+<h2 id="stage-files">Stage files</h2>
+
+<p><code>git status</code> - Gives a list of all the uncommitted changes</p>
+
+<p><code>git diff</code> - Shows file differences not yet staged</p>
+
+<p><code>git add [file]</code> - Stages only [file]</p>
+
+<p><code>git add -A</code> - Stages all files</p>
+
+<p><code>git reset [file]</code> - Unstages a file</p>
+
+<h2 id="commit-and-push-changes">Commit and push changes</h2>
+
+<p><code>git commit -m &quot;message&quot;</code> - Commits staged filles</p>
+
+<p><code>git push</code> - Pushes changes</p>
+
+<p><code>git tag [tag-name]</code> - Allows to add a tag name, useful for releases</p>
+
+<h2 id="pull-changes-from-origin">Pull changes from origin</h2>
+
+<p><code>git fetch</code> - Gets latest changes from origin (don&rsquo;t merge)</p>
+
+<p><code>git pull</code> - Gets the latest changes from origin and merge</p>
+
+<p><code>git pull -rebase</code> - Gets the latest changes from origin and place changes on top</p>
+
+<h2 id="stash">Stash</h2>
+
+<p><code>git stash</code> - Temporarily saves all uncommitted tracked files</p>
+
+<p><code>git stash list</code> - Shows list of stashes</p>
+
+<p><code>git stash pop</code> - Restores the most recently stashed files and removed them from the list of stashes</p>
+
+<p><code>git stash apply [optional-id-from-list]</code> - Applies the latest stashed contents, or a specifics one if use [optional-id-from-list]</p>
+
+<p><code>git stash drop [optional-id-from-list]</code> - Discards the most recently stashed files, or a specifics one if use [optional-id-from-list]</p>
+
+<h2 id="branches">Branches</h2>
+
+<p><code>git branch</code> - Gives a list of all the local branches in the repo</p>
+
+<p><code>git branch -a</code> - Gives a list of all the local and remote branches in the repo</p>
+
+<p><code>git branch [new-branch]</code> - Creates a new branch named [new-branch]</p>
+
+<p><code>git checkout [branch-name]</code> - Switches to [branch-name]</p>
+
+<p><code>git merge [branch]</code> - Merges [branch] into the current branch</p>
+
+<p><code>git push origin --delete [branch-name]</code> - Deletes [branch-name] locally and remotely</p>
+
+<p><code>git push origin [branch1]:[branch2]</code> - Pushes [branch1] into [branch2]</p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf">GIT CHEAT SHEET - GitHub</a></li>
+<li><a href="https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet">Git cheat sheet - Bitbucket</a></li>
+<li><a href="https://git-scm.com/docs">Reference - git</a></li>
+<li><a href="https://scotch.io/bar-talk/git-cheat-sheet">Git Cheat sheet - schotch</a></li>
+</ul>
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/Tools/git-cheat-sheet/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+

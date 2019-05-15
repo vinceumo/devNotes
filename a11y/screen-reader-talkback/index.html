@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> Screen reader - TalkBack (Android) | A11Y  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">Screen reader - TalkBack (Android)</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2018-08-13 13:25:19 &#43;0000 UTC" itemprop="datePublished">
+          Aug 08, 2018
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
+
+<blockquote>
+<p>TalkBack is the Google screen reader included on Android devices. TalkBack gives you spoken feedback so that you can use your device without looking at the screen.</p>
+
+<p><em><a href="https://support.google.com/accessibility/android/answer/6283677?hl=en">Android Accessibility Help</a></em></p>
+</blockquote>
+
+<h2 id="start-talkback">Start TalkBack</h2>
+
+<p>To start TalkBack:</p>
+
+<ol>
+<li>Go in your device settings</li>
+<li>Open Advanced</li>
+<li>Open Accessibility</li>
+<li>Turn on TalkBack</li>
+</ol>
+
+<p>I would recommend setting TalkBack as your <strong>Accessibility shortcut</strong>. Turn on <strong>Accessibility shortcut</strong> and select TalkBack as the shortcut service. The shortcut depends on your device.</p>
+
+<p><img src="../../images/a11y-talkback-shortcurt.jpg" alt="Android TalkBack Accessibility shortcut screenshot" /></p>
+
+<h2 id="how-to-use-talkback">How to use TalkBack</h2>
+
+<p>TalkBack is a gesture-based screen reader. We are going to use our screen to navigate.</p>
+
+<p>Here is a list of the default gesture for navigating:</p>
+
+<table>
+<thead>
+<tr>
+<th>Gesture</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>Single tap</code> while talking</td>
+<td>Stop talking</td>
+</tr>
+
+<tr>
+<td><code>Single tap</code> on content</td>
+<td>Announce content (Explore by touch)</td>
+</tr>
+
+<tr>
+<td><code>Double tap</code> on link button etc.</td>
+<td>Activate/click link button</td>
+</tr>
+
+<tr>
+<td><code>Swipe Up</code></td>
+<td>Previous navigation setting</td>
+</tr>
+
+<tr>
+<td><code>Swipe Down</code></td>
+<td>Next navigation setting</td>
+</tr>
+
+<tr>
+<td><code>Swipe Left</code></td>
+<td>Previous item (Move backwards)</td>
+</tr>
+
+<tr>
+<td><code>Swipe Right</code></td>
+<td>Next item (Move forward)</td>
+</tr>
+
+<tr>
+<td><code>Scroll 2 finger</code></td>
+<td>Scroll the page</td>
+</tr>
+
+<tr>
+<td><code>Swipe down then right</code></td>
+<td>Open <a href="https://support.google.com/accessibility/android/answer/6007066">global context menu</a> <em>The global context menu contains commands that work anywhere</em></td>
+</tr>
+
+<tr>
+<td><code>Swipe up then right</code></td>
+<td>Open <a href="https://support.google.com/accessibility/android/answer/6007066">local context menu</a>, <em>The local context menu contains controls that relate to the focused item. The options available in the menu change depending on the item</em></td>
+</tr>
+
+<tr>
+<td><code>Swipe left then right</code></td>
+<td>Scroll back</td>
+</tr>
+
+<tr>
+<td><code>Swipe right then left</code></td>
+<td>Scroll forward</td>
+</tr>
+
+<tr>
+<td><code>Swipe up then down</code></td>
+<td>Focus first item on screen</td>
+</tr>
+
+<tr>
+<td><code>Swipe down then up</code></td>
+<td>Focus last item on screen</td>
+</tr>
+
+<tr>
+<td><code>Swipe down then left</code></td>
+<td>Back button</td>
+</tr>
+
+<tr>
+<td><code>Swipe left then up</code></td>
+<td>Overview button</td>
+</tr>
+
+<tr>
+<td><code>Swipe right then down</code></td>
+<td>Open notifications</td>
+</tr>
+
+<tr>
+<td><code>Swipe up then left</code></td>
+<td>Home button</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=QjKG4Tx9ER8">📺 How I Use Screen Reading And Magnification- Voice Over- Talk Back</a></li>
+<li><a href="https://youtu.be/0Zpzl4EKCco">📺 Assistive Tech: TalkBack</a></li>
+<li><a href="https://support.google.com/accessibility/android/answer/6283677?hl=en">Android Accessibility Help</a></li>
+<li><a href="https://www.youtube.com/watch?v=h5rRNXzy1xo">📺 What&rsquo;s New in Android Accessibility (Google I/O &lsquo;17)</a></li>
+</ul>
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/a11y/screen-reader-talkback/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> Vue - SCSS set up with Vue CLI 3 | Javascript  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">Vue - SCSS set up with Vue CLI 3</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2018-08-13 08:50:00 &#43;0000 UTC" itemprop="datePublished">
+          Aug 08, 2018
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
+
+<h2 id="setup-vue-cli-3">Setup Vue CLI 3</h2>
+
+<p>When creating a new project with <code>vue create my-vue-project</code>, pick <code>Manually select features</code> and check <code>CSS Pre-processors</code>.</p>
+
+<p>If you already have created your project without the previous steps, manually install sass-loader:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm install -D sass-loader node-sass</code></pre></div>
+<p>You will probably want, to import your SCSS functions, mixins and variables into your components as well. Add <a href="https://github.com/yenshih/style-resources-loader">style-resources-loader</a> to your project.</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">npm i style-resources-loader -D</code></pre></div>
+<h2 id="scss-project-structure">SCSS project structure</h2>
+
+<p>In most of my projects, I use the <a href="http://bradfrost.com/blog/post/atomic-web-design/">atomic design</a> methodology from <a href="http://bradfrost.com/">Brad Frost</a>. My SCSS project structure follow this structure:</p>
+
+<pre><code>my-vue-project/src/:
+| \---styles
+|     +---atoms
+|     |   +---forms
+|     |   +---modifiers
+|     |   \---typography
+|     +---functions // 🚩 Shared with vue components
+|     +---layouts
+|     +---mixins // 🚩 Shared with vue components
+|     +---molecules
+|     +---organisms
+|     +---settings // 🚩 Shared with vue components
+|     +---templates
+|     +---variables // 🚩 Shared with vue components
+|     \---vendors
+|         +---a11y
+|         \---normalize
+</code></pre>
+
+<p>All your SCSS get imported into <code>global.scss</code>.</p>
+
+<h2 id="make-variables-functions-and-mixins-accessible-to-component">Make variables functions and mixins accessible to component</h2>
+
+<p>If you don&rsquo;t already have a <code>vue.config.js</code> file at the root of your project, create it.</p>
+
+<p>Add your shared SCSS files to this one so your components can use variables, mixins, functions etc.</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;path&#34;</span><span class="p">);</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">chainWebpack</span><span class="o">:</span> <span class="nx">config</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="k">const</span> <span class="nx">types</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;vue-modules&#34;</span><span class="p">,</span> <span class="s2">&#34;vue&#34;</span><span class="p">,</span> <span class="s2">&#34;normal-modules&#34;</span><span class="p">,</span> <span class="s2">&#34;normal&#34;</span><span class="p">];</span>
+    <span class="nx">types</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">type</span> <span class="p">=&gt;</span>
+      <span class="nx">addStyleResource</span><span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">module</span><span class="p">.</span><span class="nx">rule</span><span class="p">(</span><span class="s2">&#34;scss&#34;</span><span class="p">).</span><span class="nx">oneOf</span><span class="p">(</span><span class="nx">type</span><span class="p">))</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kd">function</span> <span class="nx">addStyleResource</span><span class="p">(</span><span class="nx">rule</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">rule</span>
+    <span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s2">&#34;style-resource&#34;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">loader</span><span class="p">(</span><span class="s2">&#34;style-resources-loader&#34;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">options</span><span class="p">({</span>
+      <span class="nx">patterns</span><span class="o">:</span> <span class="p">[</span>
+        <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">&#34;./src/styles/settings/*.scss&#34;</span><span class="p">),</span>
+        <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">&#34;./src/styles/functions/*.scss&#34;</span><span class="p">),</span>
+        <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">&#34;./src/styles/mixins/*.scss&#34;</span><span class="p">),</span>
+        <span class="nx">path</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s2">&#34;./src/styles/variables/*.scss&#34;</span><span class="p">)</span>
+      <span class="p">]</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="add-your-global-scss-style-to-your-app">Add your <code>global.scss</code> style to your app</h2>
+
+<p>in <code>main.js</code> we want to have our <code>global.scss</code>, to do so add:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">import</span> <span class="s2">&#34;./styles/global.scss&#34;</span><span class="p">;</span>
+</code></pre></div>
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/Javascript/vue-scss-setup/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+

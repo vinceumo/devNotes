@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> Cross Browser extensions with WebExtensions API - 101 | Javascript  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">Cross Browser extensions with WebExtensions API - 101</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2018-10-23 08:25:00 &#43;0000 UTC" itemprop="datePublished">
+          Oct 10, 2018
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
+
+<p>Browser extensions add features and functionalities to a browser. It uses web technologies such as HTML, CSS, and JS.</p>
+
+<h2 id="manifest-json">Manifest.json</h2>
+
+<p>The only file that a browser extension need is the <code>manifest.json</code> file.</p>
+
+<blockquote>
+<p>Using manifest.json, you specify basic metadata about your extension such as the name and version, and can also specify aspects of your extension&rsquo;s functionality, such as background scripts, content scripts, and browser actions.
+<a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json">MDN</a></p>
+</blockquote>
+
+<p>The manifest.json keys dependent on the extension you are developing.</p>
+
+<p>You can find the available keys on <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json">manifest.json - MDN</a></p>
+
+<h3 id="example">Example:</h3>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="err">//Mandatory</span>
+  <span class="nt">&#34;manifest_version&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Name of your extension&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;1.0.0&#34;</span><span class="p">,</span>
+
+  <span class="err">//</span> <span class="err">Recommended</span>
+  <span class="nt">&#34;default_locale&#34;</span><span class="p">:</span> <span class="s2">&#34;en&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Extension description&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;author&#34;</span><span class="p">:</span> <span class="s2">&#34;Your Name&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;homepage_url&#34;</span><span class="p">:</span> <span class="s2">&#34;https://github.com/vinceumo&#34;</span><span class="p">,</span>
+  <span class="nt">&#34;icons&#34;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&#34;16&#34;</span><span class="p">:</span> <span class="s2">&#34;icons/icon16.png&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;32&#34;</span><span class="p">:</span> <span class="s2">&#34;icons/icon32.png&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;48&#34;</span><span class="p">:</span> <span class="s2">&#34;icons/icon48.png&#34;</span><span class="p">,</span>
+    <span class="nt">&#34;128&#34;</span><span class="p">:</span> <span class="s2">&#34;icons/icon128.png&#34;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h2 id="adding-and-debugging-a-browser-extension-locally">Adding and Debugging a browser extension locally</h2>
+
+<h3 id="firefox">Firefox</h3>
+
+<h4 id="add-extension">Add extension</h4>
+
+<ul>
+<li>Navigate to <code>about:debugging</code></li>
+<li>Check <strong>Enable add-on debugging</strong></li>
+<li>Click on <strong>Load Temporary Add-on</strong></li>
+<li>Select the <em>manifest.json</em> file</li>
+</ul>
+
+<h4 id="debugging-extension">Debugging extension</h4>
+
+<ul>
+<li>Navigate to <code>about:debugging</code></li>
+<li>Find your extension</li>
+<li>Click on <strong>Debug</strong></li>
+<li>Developer toll will open</li>
+</ul>
+
+<h3 id="chrome-opera">Chrome / Opera</h3>
+
+<h4 id="add-extension-1">Add extension</h4>
+
+<ul>
+<li>Navigate to <code>chrome://extensions/</code></li>
+<li>Click on <strong>Load unpacked</strong></li>
+<li>Select the extension folder</li>
+</ul>
+
+<h4 id="debugging-extension-1">Debugging extension</h4>
+
+<p>Background script errors can be shown when the package is loaded.</p>
+
+<ul>
+<li>Navigate to <code>chrome://extensions/</code></li>
+<li>Find your extension</li>
+<li>Click on the <strong>errors</strong> button (Will show only if errors)</li>
+<li>Click on <code>View in Developer Tools</code></li>
+</ul>
+
+<p>To debug a popup extension:</p>
+
+<ul>
+<li>Open the popup</li>
+<li>Right-click in the popup</li>
+<li>Click on Inspect</li>
+</ul>
+
+<p><a href="https://developer.chrome.com/extensions/tut_debugging">Chrome - Debugging Extensions</a></p>
+
+<h3 id="edge">Edge</h3>
+
+<h4 id="add-extension-2">Add extension</h4>
+
+<ul>
+<li>Navigate to <code>about:flags</code></li>
+<li>Check <strong>Enable extension developer features</strong></li>
+<li>Click on the <strong>Settings and More</strong> icon (3 dots icon on the right)</li>
+<li>Select <strong>Extensions</strong> from this menu</li>
+<li>Click on <strong>Load extension</strong></li>
+<li>Select the extension folder</li>
+</ul>
+
+<h4 id="debugging-extension-2">Debugging extension</h4>
+
+<p>To debug a popup extension:</p>
+
+<ul>
+<li>Open the popup</li>
+<li>Right-click in the popup</li>
+<li>Click on Inspect element</li>
+</ul>
+
+<p><a href="https://docs.microsoft.com/en-us/microsoft-edge/extensions/guides/debugging-extensions">Microsoft Edge - Debugging Extensions</a></p>
+
+<h2 id="cross-browser-extension-using-a-polyfill">Cross browser extension using a polyfill</h2>
+
+<p><a href="https://github.com/mozilla/webextension-polyfill">mozilla/webextension-polyfill</a> allows browsers to use Promise-based WebExtension APIs. Some browsers might style need some adjustments.</p>
+
+<p>Note that opera use Chromium as well as Vivaldi and Brave, your extension will work in all these browsers if it works in Chrome.</p>
+
+<h2 id="publish-an-extension">Publish an extension</h2>
+
+<h3 id="chrome-brave-vivaldi">Chrome / Brave / Vivaldi</h3>
+
+<p>Brave and Vivaldi can download extensions from the <a href="https://chrome.google.com/">Chrome web store</a>.</p>
+
+<ul>
+<li>Create a zip file of your extension (Manifest file need to be at the root of this file)</li>
+<li>Connect/Create an account on the <a href="https://chrome.google.com/webstore/developer/dashboard">Google developer dashboard</a>
+
+<ul>
+<li>If you submit an extension for the first time you will need to pay a \$5 fee</li>
+</ul></li>
+<li>Upload the zip file</li>
+</ul>
+
+<h3 id="firefox-1">Firefox</h3>
+
+<ul>
+<li>Create a zip file of your extension (Manifest file need to be at the root of this file)</li>
+<li>Connect/Create account on the <a href="https://addons.mozilla.org/en-US/developers/">Add-on developer hub</a></li>
+<li>Submit a new Add-on</li>
+</ul>
+
+<h3 id="opera">Opera</h3>
+
+<ul>
+<li>Create a zip file of your extension (Manifest file need to be at the root of this file)</li>
+<li>Connect/Create account on the <a href="https://addons.opera.com/developer/">opera add-ons platform</a></li>
+<li>Submit a new Add-on</li>
+<li>You will need to wait for moderation, could take up to a few weeks/months</li>
+</ul>
+
+<h2 id="example-of-a-popup-extension">Example of a popup extension</h2>
+
+<p>I developed recently the browser extension <a href="https://github.com/vinceumo/A11Y-Color-Blindness-Empathy-Test-browser-extensions">A11Y-Color-Blindness-Empathy-Test-browser-extensions</a>.</p>
+
+<p>This extension is a popup extension that injects an inline SVG for filtering colours, some style and changes the class of the <code>html</code> tag of the current tab open, depending on the picked radio button.</p>
+
+<p>The extension will follow the following APIs and structure:</p>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions">manifest.json - permissions</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action">manifest.json - Browser_action</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/tabs">WebExtensions API - tabs</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts">Content scripts</a></li>
+</ul>
+
+<pre><code>WebExtension
+|   manifest.json // Give permissions to the active Tab and reference the popup `choose_test.html`
+|
++---content_scripts
+|       runTest.js // Script interacting with the active tab
+|
++---icons
+|       icon128.png
+|       icon16.png
+|       icon32.png
+|       icon48.png
+|
++---polyfills
+|       browser-polyfill.js // Polyfill for chrome and opera
+|
+\---popup
+        choose_test.css // Style of the popup
+        choose_test.html // Markup of the popup
+        choose_test.js // Script of the popup, click handler
+</code></pre>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions">MDN - Browser Extensions</a></li>
+<li><a href="https://developer.chrome.com/extensions">Chrome - Browser Extensions</a></li>
+<li><a href="https://docs.microsoft.com/en-us/microsoft-edge/extensions/api-support/extension-api-roadmap">Microsoft Edge extension API roadmap</a></li>
+<li><a href="https://www.w3.org/community/browserext/">W3C - Browser extensions</a></li>
+<li><a href="https://github.com/mdn/webextensions-examples">webextensions-examples - Github</a></li>
+<li><a href="https://medium.freecodecamp.org/how-to-make-a-cross-browser-extension-using-javascript-and-browser-apis-355c001cebba">How to make a cross-browser extension using JavaScript and browser APIs - Medium</a></li>
+</ul>
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/Javascript/webextensionapi/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+

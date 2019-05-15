@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on devNotes</title>
+    <link>https://vinceumo.github.io/devNotes/Javascript/</link>
+    <description>Recent content in Javascript on devNotes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 07 Nov 2018 13:21:02 +0000</lastBuildDate>
+    
+	<atom:link href="https://vinceumo.github.io/devNotes/Javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Webpack 4 - Bundle SCSS and JavaScript for SSR applications</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/webpack-4-bundle-scss-and-javascript-for-ssr-applications/</link>
+      <pubDate>Sun, 05 May 2019 23:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/webpack-4-bundle-scss-and-javascript-for-ssr-applications/</guid>
+      <description>Project structure Proj: | \---Content | +---js | | +---index.js | +---scss | | +---screen.scss | \---Dist | +---css | | +---screen.css | +---js | | +---index.js  package.json { &amp;#34;version&amp;#34;: &amp;#34;1.0.0&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;my-app&amp;#34;, &amp;#34;private&amp;#34;: true, &amp;#34;devDependencies&amp;#34;: { &amp;#34;@babel/core&amp;#34;: &amp;#34;^7.4.4&amp;#34;, &amp;#34;@fullhuman/postcss-purgecss&amp;#34;: &amp;#34;^1.2.0&amp;#34;, &amp;#34;@babel/preset-env&amp;#34;: &amp;#34;^7.4.3&amp;#34;, &amp;#34;babel-loader&amp;#34;: &amp;#34;^8.0.5&amp;#34;, &amp;#34;cssnano&amp;#34;: &amp;#34;^4.1.10&amp;#34;, &amp;#34;css-loader&amp;#34;: &amp;#34;^1.0.1&amp;#34;, &amp;#34;cross-env&amp;#34;: &amp;#34;^5.2.0&amp;#34;, &amp;#34;file-loader&amp;#34;: &amp;#34;^3.0.1&amp;#34;, &amp;#34;mini-css-extract-plugin&amp;#34;: &amp;#34;^0.6.0&amp;#34;, &amp;#34;node-sass&amp;#34;: &amp;#34;^4.12.0&amp;#34;, &amp;#34;postcss-loader&amp;#34;: &amp;#34;^3.0.0&amp;#34;, &amp;#34;postcss-preset-env&amp;#34;: &amp;#34;^6.6.0&amp;#34;, &amp;#34;sass-loader&amp;#34;: &amp;#34;^7.1.0&amp;#34;, &amp;#34;webpack&amp;#34;: &amp;#34;^4.30.0&amp;#34;, &amp;#34;webpack-cli&amp;#34;: &amp;#34;^3.3.2&amp;#34; }, &amp;#34;scripts&amp;#34;: { &amp;#34;serve&amp;#34;: &amp;#34;webpack --watch&amp;#34;, &amp;#34;build&amp;#34;: &amp;#34;cross-env NODE_ENV=production webpack&amp;#34; } } webpack.</description>
+    </item>
+    
+    <item>
+      <title>Class (ES6) template use at DAM</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/class-es6-template-use-at-dam/</link>
+      <pubDate>Sat, 04 May 2019 23:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/class-es6-template-use-at-dam/</guid>
+      <description>Javascript (Class based) project structure use at Dam Digital for SSR (server-side rendering) applications. You can use webpack or parcel to bundle your js project.
+This project structure helps, developers, to write more modular/reusable code.
+Project structure js: | \---modules | +---MyModule.js | +---vendors | +---index.js | +---global.js  index.js import MyModule from &amp;#34;.modules/MyModule&amp;#34; const modules = { MyModule: new MyModule(), // Use default settings  MyModule2: new MyModule({ // Or use optional settings to overwrite default settings  }) }; document.</description>
+    </item>
+    
+    <item>
+      <title>Get Address || Postode || City with Google map Geocoding API and HTML5 Geolocation</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/get-address-postode-city-with-google-map-geocoding-api-and-html5-geolocation/</link>
+      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/get-address-postode-city-with-google-map-geocoding-api-and-html5-geolocation/</guid>
+      <description>Exemple on how to get the user current postcode using Google map Geocoding API and HTML5 Geolocation (Navigator.geolocation).
+&amp;lt;script src=&amp;#34;https://maps.googleapis.com/maps/api/js?key=[Your Key]&amp;#34; async defer &amp;gt;&amp;lt;/script&amp;gt; (function() { document.addEventListener(&amp;#34;DOMContentLoaded&amp;#34;, event =&amp;gt; { if (navigator.geolocation) { getCurrentLocation.location(); } }); const getCurrentLocation = { success: function(position) { const _this = this; const geocoder = new google.maps.Geocoder(); const latlng = { lat: position.coords.latitude, lng: position.coords.longitude }; let result = { error: false, value: &amp;#34;&amp;#34; }; geocoder.</description>
+    </item>
+    
+    <item>
+      <title>Cross Browser extensions with WebExtensions API - 101</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/webextensionapi/</link>
+      <pubDate>Tue, 23 Oct 2018 08:25:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/webextensionapi/</guid>
+      <description>Browser extensions add features and functionalities to a browser. It uses web technologies such as HTML, CSS, and JS.
+Manifest.json The only file that a browser extension need is the manifest.json file.
+ Using manifest.json, you specify basic metadata about your extension such as the name and version, and can also specify aspects of your extension&amp;rsquo;s functionality, such as background scripts, content scripts, and browser actions. MDN
+ The manifest.</description>
+    </item>
+    
+    <item>
+      <title>Vue - Components props and events examples</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/vue-props-events/</link>
+      <pubDate>Fri, 24 Aug 2018 10:07:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/vue-props-events/</guid>
+      <description>The following examples show how to pass data between components in vue js, using props and custom events.
+Example 1: Props ParentComponent ==&amp;gt; ChildComponent
+See the Pen Vue js - Props example by Vincent Humeau (@vinceumo) on CodePen.
+
+Example 2: Events ParentComponent &amp;lt;== ChildComponent
+See the Pen Vue js - Events example by Vincent Humeau (@vinceumo) on CodePen.
+
+Example 3: Props and events ParentComponent &amp;lt;==&amp;gt; ChildComponent
+See the Pen Vue js - Props and Event example by Vincent Humeau (@vinceumo) on CodePen.</description>
+    </item>
+    
+    <item>
+      <title>Vue - SCSS set up with Vue CLI 3</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/vue-scss-setup/</link>
+      <pubDate>Mon, 13 Aug 2018 08:50:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/vue-scss-setup/</guid>
+      <description>Setup Vue CLI 3 When creating a new project with vue create my-vue-project, pick Manually select features and check CSS Pre-processors.
+If you already have created your project without the previous steps, manually install sass-loader:
+npm install -D sass-loader node-sass You will probably want, to import your SCSS functions, mixins and variables into your components as well. Add style-resources-loader to your project.
+npm i style-resources-loader -D SCSS project structure In most of my projects, I use the atomic design methodology from Brad Frost.</description>
+    </item>
+    
+    <item>
+      <title>ES6 - Arrow functions</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/es6-arrow-functions/</link>
+      <pubDate>Tue, 07 Aug 2018 18:08:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/es6-arrow-functions/</guid>
+      <description>An arrow function expression has a shorter syntax than a function expression and does not have its own this, arguments, super, or new.target. These function expressions are best suited for non-method functions, and they cannot be used as constructors.
+_MDN_
+ Syntax Arrow functions basic syntax:
+(param1, param2, …, paramN) =&amp;gt; { statements } (param1, param2, …, paramN) =&amp;gt; expression // Same as: =&amp;gt; { return expression; }  If we only have one parameter, we do not need to use parentheses around the parameter.</description>
+    </item>
+    
+    <item>
+      <title>ES6 - const | let | var</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/es6-const-let-var/</link>
+      <pubDate>Mon, 06 Aug 2018 22:13:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/es6-const-let-var/</guid>
+      <description>ES6 introduced two new kinds of variables in Javascript, const and let. They are block scoped variables, meaning they are scope inside {}, where var is hoisted to the global or functional scope.
+const vs let vs var Let&amp;rsquo;s compare some small code snippets and their outputs:
+Snippet 1 - for loop // var // console.log(i); // undefined for (var i = 0; i &amp;lt; 3; i++) { console.log(i); // 0; 1; 2 } console.</description>
+    </item>
+    
+    <item>
+      <title>Hoisting</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/hoisting/</link>
+      <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/hoisting/</guid>
+      <description>In Javascript, hoisting refers to all functions and variable declarations treated as if they were declared at the top of a functional scope, or global scope, without taking into account when and where in the code these ones have been declared.
+Example: If we call our function before declaring this one, we do not get an error.
+myFavoriteColor(green); // Output: My favorite color is green  function myFavoriteColor(color) { console.</description>
+    </item>
+    
+    <item>
+      <title>Console.log argument in object</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/cosoleLogArgInObject/</link>
+      <pubDate>Sat, 21 Jul 2018 19:32:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/cosoleLogArgInObject/</guid>
+      <description>Wrap your console.log arguments in an object literal to print the variable name along with its value.
+console.log(isLoggedIn) console.log({ isLoggedIn })
+Still one of my favorite tips from @wesbos. So simple but effective 💪 pic.twitter.com/wMrDt4JDJ4
+&amp;mdash; Daniel Stefanovic (@DaniStefanovic) June 27, 2018</description>
+    </item>
+    
+    <item>
+      <title>IIFE template use at DAM</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/IIFEE-template-dam/</link>
+      <pubDate>Sat, 21 Jul 2018 19:32:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/IIFEE-template-dam/</guid>
+      <description>An IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. All the functions and variables are scoped inside the IIFE, meaning they can&amp;rsquo;t be access outside this one.
+(function() { document.addEventListener(&amp;#34;DOMContentLoaded&amp;#34;, function(event) { var ctas = document.querySelectorAll(&amp;#34;button.cta&amp;#34;); Array.prototype.forEach.call(ctas, function(el, i) { var currentCta = ctas[i]; //Event handler 1 for exemple click  currentCta.addEventListener(&amp;#34;click&amp;#34;, function() { functionEventHandlerBehavior1(ctas, currentCta); }); //Event handler 2 for exemple touchstart  currentCta.</description>
+    </item>
+    
+    <item>
+      <title>Vue - 101 todo PWA tutorial </title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/vue-js-101-todo-pwa-tutorial/</link>
+      <pubDate>Fri, 20 Jul 2018 23:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/vue-js-101-todo-pwa-tutorial/</guid>
+      <description>The goal of this tutorial is to give an introduction to vue.js ❤.
+This content was initially written for a workshop for DAM Digital London.
+Vue.js is a progressive framework for building user interfaces (UI).
+This tutorial assumes that you already have some intermediate knowledge about HTML, CSS and Javascript. If you don&amp;rsquo;t have any knowledge of these fields, check out freeCodeCamp, they have great resources to learn these topics 😉.</description>
+    </item>
+    
+  </channel>
+</rss>

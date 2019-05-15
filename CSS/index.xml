@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS on devNotes</title>
+    <link>https://vinceumo.github.io/devNotes/CSS/</link>
+    <description>Recent content in CSS on devNotes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 07 Nov 2018 13:21:02 +0000</lastBuildDate>
+    
+	<atom:link href="https://vinceumo.github.io/devNotes/CSS/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CSS 3D - Scrolling on the z-axis</title>
+      <link>https://vinceumo.github.io/devNotes/CSS/css-3d-scrolling-on-the-z-axis/</link>
+      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/CSS/css-3d-scrolling-on-the-z-axis/</guid>
+      <description>In this article, we are going to create a small 3D scene, where the user can scroll on the z-axis. You can find the final code of this tutorial on github, and the demo if you follow this link.
+This article assumes that you already have some knowledge about CSS and JS. We are going to use CSS custom properties, if you are not familiar with this you can read CSS custom properties - Cheatsheet.</description>
+    </item>
+    
+    <item>
+      <title>CSS custom properties - Cheatsheet</title>
+      <link>https://vinceumo.github.io/devNotes/CSS/css-customs-properties/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/CSS/css-customs-properties/</guid>
+      <description>CSS custom properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.
+Declare a custom property in CSS To declare a Custom property in your CSS, you need to use the -- syntax:
+:root { --colorPrimary: hsla(360, 100%, 74%, 0.6); } Notice the :root pseudo-class selector, we can declare our variables globally using it. We can as well declare them using other selectors, they will be then be scoped in these ones.</description>
+    </item>
+    
+    <item>
+      <title>hsl() &amp; hsla()</title>
+      <link>https://vinceumo.github.io/devNotes/CSS/hsl/</link>
+      <pubDate>Fri, 17 Aug 2018 08:42:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/CSS/hsl/</guid>
+      <description>hsl() defines color using the HSL(A) model. It stands for hue, saturation and lightness.
+ H: Hue, this is a degree on the color wheel from 0 to 360. Red is a 0, yellow at 60, green at 120, cyan at 180, blue at 240 and magenta at 300. S: Saturation, It is set from 0% to 100%, where 0% is a shade of grey and 100% is the full color vivid color.</description>
+    </item>
+    
+    <item>
+      <title>CSS Grid Layout</title>
+      <link>https://vinceumo.github.io/devNotes/CSS/css-grid-layout/</link>
+      <pubDate>Thu, 09 Aug 2018 13:37:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/CSS/css-grid-layout/</guid>
+      <description>CSS grid is a two dimensional CSS layout system where is flexbox a one dimensional one.
+Examples See the Pen CSS Grid Layout Experiment 1, Responsive Layout by Vincent Humeau (@vinceumo) on CodePen.
+ - [Open in codepen](https://codepen.io/vinceumo/pen/RxOygp) See the Pen CSS Grid Layout Experiment 2 by Vincent Humeau (@vinceumo) on CodePen.
+ - [Open in codepen](https://codepen.io/vinceumo/pen/gdxpwK) ## Atomic Bulldog Grid 💥 🐶 CSS (SCSS) grid, based on CSS grid layout with @supports fallback to flexbox (partial support).</description>
+    </item>
+    
+    <item>
+      <title>Bug - IE11, flexbox and min-height</title>
+      <link>https://vinceumo.github.io/devNotes/CSS/bug-ie-flexbox-min-height/</link>
+      <pubDate>Thu, 09 Aug 2018 10:53:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/CSS/bug-ie-flexbox-min-height/</guid>
+      <description>On Internet Explorer 11, align-items: center; do not center vertically, if our flex container have a min-height.
+![IE11 flexbox center bug](/images/css-ie11-bug-flex-min-height.jpg)
+A small hack to fix this issue, is to use an after on our flex-container and give it an inherit min-height:
+.flex-container { min-height: 500px; display: flex; align-items: center; // See Hack - CSS target only IE11 and IE10 (media query) @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { &amp;amp;:after { content: &amp;#34;&amp;#34;; display: block; min-height: inherit; font-size: 0; } } } Fix from IE11: align-items: center with min-height workaround - Github/flexbugs</description>
+    </item>
+    
+    <item>
+      <title>Hack - CSS target only IE11 and IE10 (media query)</title>
+      <link>https://vinceumo.github.io/devNotes/CSS/ie-media-query/</link>
+      <pubDate>Wed, 08 Aug 2018 10:57:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/CSS/ie-media-query/</guid>
+      <description> Small hack, to apply CSS to only Internet Explorer 10 and 11, using media query:
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { /* Your styles */ } Resources  How to Target Internet Explorer 10 and 11 in CSS Detecting IE11 using CSS Capability/Feature Detection - Stackoverflow  </description>
+    </item>
+    
+  </channel>
+</rss>

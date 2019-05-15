@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on devNotes</title>
+    <link>https://vinceumo.github.io/devNotes/</link>
+    <description>Recent content in Home on devNotes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 07 Nov 2018 13:21:02 +0000</lastBuildDate>
+    
+	<atom:link href="https://vinceumo.github.io/devNotes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>C# - Practice</title>
+      <link>https://vinceumo.github.io/devNotes/dotnet/c-practice/</link>
+      <pubDate>Sat, 11 May 2019 23:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/dotnet/c-practice/</guid>
+      <description>C# Sharp Basic Declarations and Expressions : Exercises, Practice, Solution Exercices link
+Exercise 1 Write a C# Sharp program to print Hello and your name in a separate line.
+Expected Output :
+ Hello Alexandra Abramov  class Program { static void Main(string[] args) { Console.WriteLine(&amp;#34;Hello&amp;#34;); Console.WriteLine(&amp;#34;Vince&amp;#34;); } }  Edit in repl
+Exercise 2 Write a C# Sharp program to print the sum of two numbers
+class Program { static void Main(string[] args) { int a = 39; int b = 73; Console.</description>
+    </item>
+    
+    <item>
+      <title>Webpack 4 - Bundle SCSS and JavaScript for SSR applications</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/webpack-4-bundle-scss-and-javascript-for-ssr-applications/</link>
+      <pubDate>Sun, 05 May 2019 23:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/webpack-4-bundle-scss-and-javascript-for-ssr-applications/</guid>
+      <description>Project structure Proj: | \---Content | +---js | | +---index.js | +---scss | | +---screen.scss | \---Dist | +---css | | +---screen.css | +---js | | +---index.js  package.json { &amp;#34;version&amp;#34;: &amp;#34;1.0.0&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;my-app&amp;#34;, &amp;#34;private&amp;#34;: true, &amp;#34;devDependencies&amp;#34;: { &amp;#34;@babel/core&amp;#34;: &amp;#34;^7.4.4&amp;#34;, &amp;#34;@fullhuman/postcss-purgecss&amp;#34;: &amp;#34;^1.2.0&amp;#34;, &amp;#34;@babel/preset-env&amp;#34;: &amp;#34;^7.4.3&amp;#34;, &amp;#34;babel-loader&amp;#34;: &amp;#34;^8.0.5&amp;#34;, &amp;#34;cssnano&amp;#34;: &amp;#34;^4.1.10&amp;#34;, &amp;#34;css-loader&amp;#34;: &amp;#34;^1.0.1&amp;#34;, &amp;#34;cross-env&amp;#34;: &amp;#34;^5.2.0&amp;#34;, &amp;#34;file-loader&amp;#34;: &amp;#34;^3.0.1&amp;#34;, &amp;#34;mini-css-extract-plugin&amp;#34;: &amp;#34;^0.6.0&amp;#34;, &amp;#34;node-sass&amp;#34;: &amp;#34;^4.12.0&amp;#34;, &amp;#34;postcss-loader&amp;#34;: &amp;#34;^3.0.0&amp;#34;, &amp;#34;postcss-preset-env&amp;#34;: &amp;#34;^6.6.0&amp;#34;, &amp;#34;sass-loader&amp;#34;: &amp;#34;^7.1.0&amp;#34;, &amp;#34;webpack&amp;#34;: &amp;#34;^4.30.0&amp;#34;, &amp;#34;webpack-cli&amp;#34;: &amp;#34;^3.3.2&amp;#34; }, &amp;#34;scripts&amp;#34;: { &amp;#34;serve&amp;#34;: &amp;#34;webpack --watch&amp;#34;, &amp;#34;build&amp;#34;: &amp;#34;cross-env NODE_ENV=production webpack&amp;#34; } } webpack.</description>
+    </item>
+    
+    <item>
+      <title>Class (ES6) template use at DAM</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/class-es6-template-use-at-dam/</link>
+      <pubDate>Sat, 04 May 2019 23:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/class-es6-template-use-at-dam/</guid>
+      <description>Javascript (Class based) project structure use at Dam Digital for SSR (server-side rendering) applications. You can use webpack or parcel to bundle your js project.
+This project structure helps, developers, to write more modular/reusable code.
+Project structure js: | \---modules | +---MyModule.js | +---vendors | +---index.js | +---global.js  index.js import MyModule from &amp;#34;.modules/MyModule&amp;#34; const modules = { MyModule: new MyModule(), // Use default settings  MyModule2: new MyModule({ // Or use optional settings to overwrite default settings  }) }; document.</description>
+    </item>
+    
+    <item>
+      <title>CSS 3D - Scrolling on the z-axis</title>
+      <link>https://vinceumo.github.io/devNotes/CSS/css-3d-scrolling-on-the-z-axis/</link>
+      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/CSS/css-3d-scrolling-on-the-z-axis/</guid>
+      <description>In this article, we are going to create a small 3D scene, where the user can scroll on the z-axis. You can find the final code of this tutorial on github, and the demo if you follow this link.
+This article assumes that you already have some knowledge about CSS and JS. We are going to use CSS custom properties, if you are not familiar with this you can read CSS custom properties - Cheatsheet.</description>
+    </item>
+    
+    <item>
+      <title>CSS custom properties - Cheatsheet</title>
+      <link>https://vinceumo.github.io/devNotes/CSS/css-customs-properties/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/CSS/css-customs-properties/</guid>
+      <description>CSS custom properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.
+Declare a custom property in CSS To declare a Custom property in your CSS, you need to use the -- syntax:
+:root { --colorPrimary: hsla(360, 100%, 74%, 0.6); } Notice the :root pseudo-class selector, we can declare our variables globally using it. We can as well declare them using other selectors, they will be then be scoped in these ones.</description>
+    </item>
+    
+    <item>
+      <title>Get Address || Postode || City with Google map Geocoding API and HTML5 Geolocation</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/get-address-postode-city-with-google-map-geocoding-api-and-html5-geolocation/</link>
+      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/get-address-postode-city-with-google-map-geocoding-api-and-html5-geolocation/</guid>
+      <description>Exemple on how to get the user current postcode using Google map Geocoding API and HTML5 Geolocation (Navigator.geolocation).
+&amp;lt;script src=&amp;#34;https://maps.googleapis.com/maps/api/js?key=[Your Key]&amp;#34; async defer &amp;gt;&amp;lt;/script&amp;gt; (function() { document.addEventListener(&amp;#34;DOMContentLoaded&amp;#34;, event =&amp;gt; { if (navigator.geolocation) { getCurrentLocation.location(); } }); const getCurrentLocation = { success: function(position) { const _this = this; const geocoder = new google.maps.Geocoder(); const latlng = { lat: position.coords.latitude, lng: position.coords.longitude }; let result = { error: false, value: &amp;#34;&amp;#34; }; geocoder.</description>
+    </item>
+    
+    <item>
+      <title>Regex - 101</title>
+      <link>https://vinceumo.github.io/devNotes/Tools/regex-101/</link>
+      <pubDate>Mon, 14 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Tools/regex-101/</guid>
+      <description>A regular expression, regex or regexp(sometimes called a rational expression) is a sequence of characters that define a search pattern. Usually this pattern is used by string searching algorithms for &amp;ldquo;find&amp;rdquo; or &amp;ldquo;find and replace&amp;rdquo; operations on strings, or for input validation
+_Regular expression - Wikipedia_
+ Cheat sheet    Description      abc… Letters   123… Digits   \d Any Digit   \D Any Non-digit character   .</description>
+    </item>
+    
+    <item>
+      <title>Responsive container classes with SCSS</title>
+      <link>https://vinceumo.github.io/devNotes/Sass/responsive-container-classes-with-scss/</link>
+      <pubDate>Thu, 22 Nov 2018 10:51:05 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Sass/responsive-container-classes-with-scss/</guid>
+      <description>SCSS input: @mixinmin($bp, $max: &amp;#34;null&amp;#34;, $device: &amp;#34;screen&amp;#34;) { @if $max == &amp;#34;null&amp;#34; { @media only #{$device} and (min-width: #{$bp}) { @content; } } @else { @media only #{$device} and (min-width: #{$bp}) and (max-width: #{$max}) { @content; } } } @function bp($bp) { @return map-get($breakpoints, $bp); } $breakpoints: ( na: 0px, // For BS grid xs: 320px, // Smartphone sm: 600px, // Tablets md: 900px, // Tablets Landscape and small desktops lg: 1200px, // Desktops xl: 1800px, // Large Desktop ); @function container($container-size, $true-val: false) { @return map-get($container-sizes, $container-size); } $container-sizes: ( sm: map-get($breakpoints, sm) - 30px, md: map-get($breakpoints, md) - 40px, lg: map-get($breakpoints, lg) - 50px, xl: map-get($breakpoints, xl) - 400px ); .</description>
+    </item>
+    
+    <item>
+      <title>Z-index management with SCSS</title>
+      <link>https://vinceumo.github.io/devNotes/Sass/z-index-management-with-scss/</link>
+      <pubDate>Mon, 19 Nov 2018 10:51:05 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Sass/z-index-management-with-scss/</guid>
+      <description>// Set our z-indexes map $z-indexes: ( &amp;#34;up-btn&amp;#34;, //60 &amp;#34;cookies-info&amp;#34;, //50 &amp;#34;left-nav&amp;#34;, //40 &amp;#34;footer&amp;#34;, //30 &amp;#34;top-nav&amp;#34;, //20 &amp;#34;content&amp;#34;, //10 ); // Z function return the z-index value @function z($name) { @if index($z-indexes, $name) { @return ((length($z-indexes) - index($z-indexes, $name)) + 1) * 10; } @else { @warn &amp;#39;There is no item &amp;#34;#{$name}&amp;#34; in this list; choose one of: #{$z-indexes}&amp;#39;; @return null; } } //------  .content { z-index: z(&amp;#34;content&amp;#34;); } .</description>
+    </item>
+    
+    <item>
+      <title>Set up SignalR in a vue.js project</title>
+      <link>https://vinceumo.github.io/devNotes/dotnet/signalR/</link>
+      <pubDate>Mon, 29 Oct 2018 16:50:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/dotnet/signalR/</guid>
+      <description>SignalR is an ASP.NET library for real-time applications. It uses the WebSockets API:
+ The WebSocket API is an advanced technology that makes it possible to open a two-way interactive communication session between the user&amp;rsquo;s browser and a server. With this API, you can send messages to a server and receive event-driven responses without having to poll the server for a reply. The WebSocket API (WebSockets) - MDN
+ SignalR comes pre instal with ASP.</description>
+    </item>
+    
+    <item>
+      <title>Cross Browser extensions with WebExtensions API - 101</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/webextensionapi/</link>
+      <pubDate>Tue, 23 Oct 2018 08:25:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/webextensionapi/</guid>
+      <description>Browser extensions add features and functionalities to a browser. It uses web technologies such as HTML, CSS, and JS.
+Manifest.json The only file that a browser extension need is the manifest.json file.
+ Using manifest.json, you specify basic metadata about your extension such as the name and version, and can also specify aspects of your extension&amp;rsquo;s functionality, such as background scripts, content scripts, and browser actions. MDN
+ The manifest.</description>
+    </item>
+    
+    <item>
+      <title>Vue - Components props and events examples</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/vue-props-events/</link>
+      <pubDate>Fri, 24 Aug 2018 10:07:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/vue-props-events/</guid>
+      <description>The following examples show how to pass data between components in vue js, using props and custom events.
+Example 1: Props ParentComponent ==&amp;gt; ChildComponent
+See the Pen Vue js - Props example by Vincent Humeau (@vinceumo) on CodePen.
+
+Example 2: Events ParentComponent &amp;lt;== ChildComponent
+See the Pen Vue js - Events example by Vincent Humeau (@vinceumo) on CodePen.
+
+Example 3: Props and events ParentComponent &amp;lt;==&amp;gt; ChildComponent
+See the Pen Vue js - Props and Event example by Vincent Humeau (@vinceumo) on CodePen.</description>
+    </item>
+    
+    <item>
+      <title>Inert - Avoid keyboard trap</title>
+      <link>https://vinceumo.github.io/devNotes/a11y/avoid-keyboard-trap/</link>
+      <pubDate>Tue, 21 Aug 2018 14:49:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/a11y/avoid-keyboard-trap/</guid>
+      <description>The inert attribute is still into draft and no browser currently support it. The current draft currently states:
+ A node (in particular elements and text nodes) can be marked as inert. When a node is inert, then the user agent must act as if the node was absent for the purposes of targeting user interaction events, may ignore the node for the purposes of text search user interfaces (commonly known as &amp;ldquo;find in page&amp;rdquo;), and may prevent the user from selecting text in that node.</description>
+    </item>
+    
+    <item>
+      <title>hsl() &amp; hsla()</title>
+      <link>https://vinceumo.github.io/devNotes/CSS/hsl/</link>
+      <pubDate>Fri, 17 Aug 2018 08:42:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/CSS/hsl/</guid>
+      <description>hsl() defines color using the HSL(A) model. It stands for hue, saturation and lightness.
+ H: Hue, this is a degree on the color wheel from 0 to 360. Red is a 0, yellow at 60, green at 120, cyan at 180, blue at 240 and magenta at 300. S: Saturation, It is set from 0% to 100%, where 0% is a shade of grey and 100% is the full color vivid color.</description>
+    </item>
+    
+    <item>
+      <title>Screen reader - TalkBack (Android)</title>
+      <link>https://vinceumo.github.io/devNotes/a11y/screen-reader-talkback/</link>
+      <pubDate>Mon, 13 Aug 2018 13:25:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/a11y/screen-reader-talkback/</guid>
+      <description>TalkBack is the Google screen reader included on Android devices. TalkBack gives you spoken feedback so that you can use your device without looking at the screen.
+Android Accessibility Help
+ Start TalkBack To start TalkBack:
+ Go in your device settings Open Advanced Open Accessibility Turn on TalkBack  I would recommend setting TalkBack as your Accessibility shortcut. Turn on Accessibility shortcut and select TalkBack as the shortcut service.</description>
+    </item>
+    
+    <item>
+      <title>Vue - SCSS set up with Vue CLI 3</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/vue-scss-setup/</link>
+      <pubDate>Mon, 13 Aug 2018 08:50:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/vue-scss-setup/</guid>
+      <description>Setup Vue CLI 3 When creating a new project with vue create my-vue-project, pick Manually select features and check CSS Pre-processors.
+If you already have created your project without the previous steps, manually install sass-loader:
+npm install -D sass-loader node-sass You will probably want, to import your SCSS functions, mixins and variables into your components as well. Add style-resources-loader to your project.
+npm i style-resources-loader -D SCSS project structure In most of my projects, I use the atomic design methodology from Brad Frost.</description>
+    </item>
+    
+    <item>
+      <title>CSS Grid Layout</title>
+      <link>https://vinceumo.github.io/devNotes/CSS/css-grid-layout/</link>
+      <pubDate>Thu, 09 Aug 2018 13:37:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/CSS/css-grid-layout/</guid>
+      <description>CSS grid is a two dimensional CSS layout system where is flexbox a one dimensional one.
+Examples See the Pen CSS Grid Layout Experiment 1, Responsive Layout by Vincent Humeau (@vinceumo) on CodePen.
+ - [Open in codepen](https://codepen.io/vinceumo/pen/RxOygp) See the Pen CSS Grid Layout Experiment 2 by Vincent Humeau (@vinceumo) on CodePen.
+ - [Open in codepen](https://codepen.io/vinceumo/pen/gdxpwK) ## Atomic Bulldog Grid 💥 🐶 CSS (SCSS) grid, based on CSS grid layout with @supports fallback to flexbox (partial support).</description>
+    </item>
+    
+    <item>
+      <title>Bug - IE11, flexbox and min-height</title>
+      <link>https://vinceumo.github.io/devNotes/CSS/bug-ie-flexbox-min-height/</link>
+      <pubDate>Thu, 09 Aug 2018 10:53:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/CSS/bug-ie-flexbox-min-height/</guid>
+      <description>On Internet Explorer 11, align-items: center; do not center vertically, if our flex container have a min-height.
+![IE11 flexbox center bug](/images/css-ie11-bug-flex-min-height.jpg)
+A small hack to fix this issue, is to use an after on our flex-container and give it an inherit min-height:
+.flex-container { min-height: 500px; display: flex; align-items: center; // See Hack - CSS target only IE11 and IE10 (media query) @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { &amp;amp;:after { content: &amp;#34;&amp;#34;; display: block; min-height: inherit; font-size: 0; } } } Fix from IE11: align-items: center with min-height workaround - Github/flexbugs</description>
+    </item>
+    
+    <item>
+      <title>Hack - CSS target only IE11 and IE10 (media query)</title>
+      <link>https://vinceumo.github.io/devNotes/CSS/ie-media-query/</link>
+      <pubDate>Wed, 08 Aug 2018 10:57:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/CSS/ie-media-query/</guid>
+      <description> Small hack, to apply CSS to only Internet Explorer 10 and 11, using media query:
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { /* Your styles */ } Resources  How to Target Internet Explorer 10 and 11 in CSS Detecting IE11 using CSS Capability/Feature Detection - Stackoverflow  </description>
+    </item>
+    
+    <item>
+      <title>ES6 - Arrow functions</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/es6-arrow-functions/</link>
+      <pubDate>Tue, 07 Aug 2018 18:08:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/es6-arrow-functions/</guid>
+      <description>An arrow function expression has a shorter syntax than a function expression and does not have its own this, arguments, super, or new.target. These function expressions are best suited for non-method functions, and they cannot be used as constructors.
+_MDN_
+ Syntax Arrow functions basic syntax:
+(param1, param2, …, paramN) =&amp;gt; { statements } (param1, param2, …, paramN) =&amp;gt; expression // Same as: =&amp;gt; { return expression; }  If we only have one parameter, we do not need to use parentheses around the parameter.</description>
+    </item>
+    
+    <item>
+      <title>ES6 - const | let | var</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/es6-const-let-var/</link>
+      <pubDate>Mon, 06 Aug 2018 22:13:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/es6-const-let-var/</guid>
+      <description>ES6 introduced two new kinds of variables in Javascript, const and let. They are block scoped variables, meaning they are scope inside {}, where var is hoisted to the global or functional scope.
+const vs let vs var Let&amp;rsquo;s compare some small code snippets and their outputs:
+Snippet 1 - for loop // var // console.log(i); // undefined for (var i = 0; i &amp;lt; 3; i++) { console.log(i); // 0; 1; 2 } console.</description>
+    </item>
+    
+    <item>
+      <title>Screen reader - NVDA (Non-Visual Desktop Access) (Windows)</title>
+      <link>https://vinceumo.github.io/devNotes/a11y/screen-reader-nvda/</link>
+      <pubDate>Sat, 04 Aug 2018 19:51:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/a11y/screen-reader-nvda/</guid>
+      <description>NVDA allows blind and vision impaired people to access and interact with the Windows operating system and many third party applications.
+ NVDA is a free and open source screen reader, it can be download on the NV access website
+Once installed if you have created a shortcut on your desktop, you can use ctrl + alt + n to launch NVDA. The Welcome dialogue will appear, I use the CapsLock key as the NVDA modifier key as I&amp;rsquo;m on a laptop, by default the insert key is set as the NVDA modifier key.</description>
+    </item>
+    
+    <item>
+      <title>WCAG 2.0 &amp; 2.1 Checklist</title>
+      <link>https://vinceumo.github.io/devNotes/a11y/wcag/</link>
+      <pubDate>Fri, 03 Aug 2018 11:50:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/a11y/wcag/</guid>
+      <description>Web Content Accessibility Guidelines (WCAG) 2.0 covers a wide range of recommendations for making Web content more accessible. Following these guidelines will make content accessible to a wider range of people with disabilities, including blindness and low vision, deafness and hearing loss, learning disabilities, cognitive limitations, limited movement, speech disabilities, photosensitivity and combinations of these. Following these guidelines will also often make your Web content more usable to users in general.</description>
+    </item>
+    
+    <item>
+      <title>Git - Cheat sheet</title>
+      <link>https://vinceumo.github.io/devNotes/Tools/git-cheat-sheet/</link>
+      <pubDate>Wed, 01 Aug 2018 08:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Tools/git-cheat-sheet/</guid>
+      <description>Create a repository git init [project-name] - Creates a new, empty local [project-name] repository
+git clone [url] - Downloads a project and its entire version history
+Stage files git status - Gives a list of all the uncommitted changes
+git diff - Shows file differences not yet staged
+git add [file] - Stages only [file]
+git add -A - Stages all files
+git reset [file] - Unstages a file</description>
+    </item>
+    
+    <item>
+      <title>Hoisting</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/hoisting/</link>
+      <pubDate>Tue, 31 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/hoisting/</guid>
+      <description>In Javascript, hoisting refers to all functions and variable declarations treated as if they were declared at the top of a functional scope, or global scope, without taking into account when and where in the code these ones have been declared.
+Example: If we call our function before declaring this one, we do not get an error.
+myFavoriteColor(green); // Output: My favorite color is green  function myFavoriteColor(color) { console.</description>
+    </item>
+    
+    <item>
+      <title>CSS custom properties (CSS variables) with SCSS</title>
+      <link>https://vinceumo.github.io/devNotes/Sass/css-var-with-scss/</link>
+      <pubDate>Wed, 25 Jul 2018 09:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Sass/css-var-with-scss/</guid>
+      <description>While working on my personal SCSS boilerplate, Atomic Bulldog. I wanted to implement a strict set of variables using maps. The goal is to create a consistent design system and to be able to use CSS variables for easy theming.
+The base structure of my variable folder:
+_aspect-ratios.scss _box-shadow.scss _breakpoints.scss _colors.scss _container-sizes.scss _font-families.scss _font-sizes.scss _grid.scss _root-classes.scss _spacers.scss _z-index.scss When looking on how to implement CSS variables in SASS, I found this great article, CSS4 Variables and Sass, from Jake Albaugh.</description>
+    </item>
+    
+    <item>
+      <title>Youtube thumbnails</title>
+      <link>https://vinceumo.github.io/devNotes/Tools/youtube-thumbnails/</link>
+      <pubDate>Wed, 25 Jul 2018 09:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Tools/youtube-thumbnails/</guid>
+      <description>Youtube thumbnails in different resolution, just replace e7AzBqt4_p0 by your youtube video code.
+ https://youtu.be/e7AzBqt4_p0 Default Thumb MaxRes Thumb HQ Thumb MQ Thumb SD Thumb  </description>
+    </item>
+    
+    <item>
+      <title>Adobe Photoshop - 101 introduction for web developers</title>
+      <link>https://vinceumo.github.io/devNotes/Tools/photoshop-101-introduction-for-web-developers/</link>
+      <pubDate>Sun, 22 Jul 2018 23:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Tools/photoshop-101-introduction-for-web-developers/</guid>
+      <description>Introduction Often, when working as web developer, we need to integrate templates. They can be from Photoshop or other software. In this article, we will have a look at the basics of Photoshop for a web developer.
+This content was initially written for a workshop for DAMDigital London.
+Adobe Photoshop is a raster graphics editor software, meaning it is a program that allows users to create and edit images.</description>
+    </item>
+    
+    <item>
+      <title>Console.log argument in object</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/cosoleLogArgInObject/</link>
+      <pubDate>Sat, 21 Jul 2018 19:32:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/cosoleLogArgInObject/</guid>
+      <description>Wrap your console.log arguments in an object literal to print the variable name along with its value.
+console.log(isLoggedIn) console.log({ isLoggedIn })
+Still one of my favorite tips from @wesbos. So simple but effective 💪 pic.twitter.com/wMrDt4JDJ4
+&amp;mdash; Daniel Stefanovic (@DaniStefanovic) June 27, 2018</description>
+    </item>
+    
+    <item>
+      <title>IIFE template use at DAM</title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/IIFEE-template-dam/</link>
+      <pubDate>Sat, 21 Jul 2018 19:32:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/IIFEE-template-dam/</guid>
+      <description>An IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. All the functions and variables are scoped inside the IIFE, meaning they can&amp;rsquo;t be access outside this one.
+(function() { document.addEventListener(&amp;#34;DOMContentLoaded&amp;#34;, function(event) { var ctas = document.querySelectorAll(&amp;#34;button.cta&amp;#34;); Array.prototype.forEach.call(ctas, function(el, i) { var currentCta = ctas[i]; //Event handler 1 for exemple click  currentCta.addEventListener(&amp;#34;click&amp;#34;, function() { functionEventHandlerBehavior1(ctas, currentCta); }); //Event handler 2 for exemple touchstart  currentCta.</description>
+    </item>
+    
+    <item>
+      <title>Ngrok - Public URLs for mobile testing</title>
+      <link>https://vinceumo.github.io/devNotes/Tools/ngrok/</link>
+      <pubDate>Sat, 21 Jul 2018 19:32:19 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Tools/ngrok/</guid>
+      <description> Download and run ngrok ngrok http -host-header=localhost:{num} {num} Replace {num} with the actual port number and get rid of the {} 😁  </description>
+    </item>
+    
+    <item>
+      <title>Vue - 101 todo PWA tutorial </title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/vue-js-101-todo-pwa-tutorial/</link>
+      <pubDate>Fri, 20 Jul 2018 23:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/vue-js-101-todo-pwa-tutorial/</guid>
+      <description>The goal of this tutorial is to give an introduction to vue.js ❤.
+This content was initially written for a workshop for DAM Digital London.
+Vue.js is a progressive framework for building user interfaces (UI).
+This tutorial assumes that you already have some intermediate knowledge about HTML, CSS and Javascript. If you don&amp;rsquo;t have any knowledge of these fields, check out freeCodeCamp, they have great resources to learn these topics 😉.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://vinceumo.github.io/devNotes/404/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/404/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

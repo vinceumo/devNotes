@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> Inert - Avoid keyboard trap | A11Y  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">Inert - Avoid keyboard trap</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2018-08-21 14:49:19 &#43;0000 UTC" itemprop="datePublished">
+          Aug 08, 2018
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
+
+<p>The <code>inert</code> attribute is still into draft and no browser currently support it. The current draft currently states:</p>
+
+<blockquote>
+<p>A node (in particular elements and text nodes) can be marked as inert. When a node is inert, then the user agent must act as if the node was absent for the purposes of targeting user interaction events, may ignore the node for the purposes of text search user interfaces (commonly known as &ldquo;find in page&rdquo;), and may prevent the user from selecting text in that node.</p>
+
+<p><em><a href="https://html.spec.whatwg.org/multipage/interaction.html#inert-subtrees">Inert subtrees - HTML- Living Standard — Last Updated 20 August 2018</a></em></p>
+</blockquote>
+
+<p><code>inert</code> allow us to prevent access to subtrees, so we do not activate now visible DOM elements such as form elements, links, buttons etc. It helps us as well to tell assistive technology, such as screen readers, to not read <code>inert</code> sections of your application.</p>
+
+<h2 id="example">Example</h2>
+
+<p>In this example, I use <a href="https://github.com/WICG/inert">Inert Polyfill from WICG</a>.</p>
+
+<p>Using this polyfill we can set a DOM element as inert by adding the <code>inert</code> attribute:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">inert</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;#&#34;</span><span class="p">&gt;</span>inert link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="c">&lt;!--  --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span></code></pre></div>
+<p>To remove the inert attribute with js we use:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">el</span><span class="p">.</span><span class="nx">inert</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</code></pre></div>
+<p>To add the inert attribute with js we use:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">el</span><span class="p">.</span><span class="nx">inert</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</code></pre></div>
+<p>Inert DOM elements have a red background in the following example.</p>
+
+<p><p data-height="500" data-theme-id="dark" data-slug-hash="BOaXLq" data-default-tab="result" data-user="vinceumo" data-pen-title="Inert Polyfill" class="codepen">See the Pen <a href="https://codepen.io/vinceumo/pen/BOaXLq/">Inert Polyfill</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script></p>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="https://github.com/WICG/inert">Inert Polyfill - WICG</a></li>
+<li><a href="https://www.chromestatus.com/feature/5703266176335872">inert attribute - Chrome Platform Status</a></li>
+<li><a href="https://dev.to/hybrid_alex/intro-to-the-inert-attribute-3d25">Intro to the inert attribute - dev.to</a></li>
+<li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=921504">implement the html5 inert attribute - bugzilla</a></li>
+<li><a href="http://robdodson.me/building-better-accessibility-primitives/">Building better accessibility primitives</a></li>
+<li><a href="https://www.youtube.com/watch?v=fGLp_gfMMGU">📺 Inert Polyfill &ndash; A11ycasts #02</a></li>
+</ul>
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/a11y/avoid-keyboard-trap/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+

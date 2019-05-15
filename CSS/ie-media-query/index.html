@@ -10,7 +10,7 @@
     <meta name="description" content="Collection of things I learned around web development">
   
   
-  <title> 404 Page not found  | devNotes</title>
+  <title> Hack - CSS target only IE11 and IE10 (media query) | CSS  | devNotes</title>
 
   <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
   <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
@@ -41,27 +41,35 @@
     
   </p>
 </header><main id="main-content" class="page-content">
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">Hack - CSS target only IE11 and IE10 (media query)</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2018-08-08 10:57:19 &#43;0000 UTC" itemprop="datePublished">
+          Aug 08, 2018
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
 
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+<p>Small hack, to apply CSS to only Internet Explorer 10 and 11, using media query:</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">@</span><span class="k">media</span> <span class="nt">all</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">-ms-high-contrast</span><span class="o">:</span> <span class="nt">none</span><span class="o">),</span> <span class="o">(</span><span class="nt">-ms-high-contrast</span><span class="o">:</span> <span class="nt">active</span><span class="o">)</span> <span class="p">{</span>
+  <span class="c">/* Your styles */</span>
+<span class="p">}</span></code></pre></div>
+<h2 id="resources">Resources</h2>
 
-<div class="container">
-  <h1>404</h1>
+<ul>
+<li><a href="https://philipnewcomer.net/2014/04/target-internet-explorer-10-11-css/">How to Target Internet Explorer 10 and 11 in CSS</a></li>
+<li><a href="https://stackoverflow.com/questions/18907131/detecting-ie11-using-css-capability-feature-detection">Detecting IE11 using CSS Capability/Feature Detection - Stackoverflow</a></li>
+</ul>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/CSS/ie-media-query/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
             </main><footer>
   <p>🌍 London, UK</p>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> Responsive container classes with SCSS | Sass  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">Responsive container classes with SCSS</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2018-11-22 10:51:05 &#43;0000 UTC" itemprop="datePublished">
+          Nov 11, 2018
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
+
+<h2 id="scss-input">SCSS input:</h2>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="k">@mixin</span><span class="nf"> min</span><span class="p">(</span><span class="nv">$bp</span><span class="o">,</span> <span class="nv">$max</span><span class="o">:</span> <span class="s2">&#34;null&#34;</span><span class="o">,</span> <span class="nv">$device</span><span class="o">:</span> <span class="s2">&#34;screen&#34;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">@if</span> <span class="nv">$max</span> <span class="o">==</span> <span class="s2">&#34;null&#34;</span> <span class="p">{</span>
+    <span class="k">@media</span> <span class="n">only</span> <span class="si">#{</span><span class="nv">$device</span><span class="si">}</span> <span class="ow">and</span> <span class="p">(</span><span class="no">min-width</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$bp</span><span class="si">}</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">@content</span><span class="o">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">@else</span> <span class="p">{</span>
+    <span class="k">@media</span> <span class="n">only</span> <span class="si">#{</span><span class="nv">$device</span><span class="si">}</span> <span class="ow">and</span> <span class="p">(</span><span class="no">min-width</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$bp</span><span class="si">}</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="no">max-width</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$max</span><span class="si">}</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">@content</span><span class="o">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">@function</span> <span class="nt">bp</span><span class="o">(</span><span class="err">$</span><span class="nt">bp</span><span class="o">)</span> <span class="p">{</span>
+  <span class="k">@return</span> <span class="nt">map-get</span><span class="o">(</span><span class="err">$</span><span class="nt">breakpoints</span><span class="o">,</span> <span class="err">$</span><span class="nt">bp</span><span class="o">);</span>
+<span class="p">}</span>
+
+<span class="nv">$breakpoints</span><span class="o">:</span> <span class="p">(</span>
+  <span class="n">na</span><span class="o">:</span> <span class="mi">0</span><span class="kt">px</span><span class="o">,</span>
+  <span class="c1">// For BS grid</span>
+    <span class="n">xs</span><span class="o">:</span> <span class="mi">320</span><span class="kt">px</span><span class="o">,</span>
+  <span class="c1">// Smartphone</span>
+    <span class="n">sm</span><span class="o">:</span> <span class="mi">600</span><span class="kt">px</span><span class="o">,</span>
+  <span class="c1">// Tablets</span>
+    <span class="n">md</span><span class="o">:</span> <span class="mi">900</span><span class="kt">px</span><span class="o">,</span>
+  <span class="c1">// Tablets Landscape and small desktops</span>
+    <span class="n">lg</span><span class="o">:</span> <span class="mi">1200</span><span class="kt">px</span><span class="o">,</span>
+  <span class="c1">// Desktops</span>
+    <span class="n">xl</span><span class="o">:</span> <span class="mi">1800</span><span class="kt">px</span><span class="o">,</span>
+  <span class="c1">// Large Desktop</span>
+<span class="p">);</span>
+
+<span class="k">@function</span> <span class="nt">container</span><span class="o">(</span><span class="err">$</span><span class="nt">container-size</span><span class="o">,</span> <span class="err">$</span><span class="nt">true-val</span><span class="nd">:</span> <span class="nt">false</span><span class="o">)</span> <span class="p">{</span>
+  <span class="k">@return</span> <span class="nt">map-get</span><span class="o">(</span><span class="err">$</span><span class="nt">container-sizes</span><span class="o">,</span> <span class="err">$</span><span class="nt">container-size</span><span class="o">);</span>
+<span class="p">}</span>
+
+<span class="nv">$container-sizes</span><span class="o">:</span> <span class="p">(</span>
+  <span class="n">sm</span><span class="o">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$breakpoints</span><span class="o">,</span> <span class="n">sm</span><span class="p">)</span> <span class="o">-</span> <span class="mi">30</span><span class="kt">px</span><span class="o">,</span>
+  <span class="n">md</span><span class="o">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$breakpoints</span><span class="o">,</span> <span class="n">md</span><span class="p">)</span> <span class="o">-</span> <span class="mi">40</span><span class="kt">px</span><span class="o">,</span>
+  <span class="n">lg</span><span class="o">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$breakpoints</span><span class="o">,</span> <span class="n">lg</span><span class="p">)</span> <span class="o">-</span> <span class="mi">50</span><span class="kt">px</span><span class="o">,</span>
+  <span class="n">xl</span><span class="o">:</span> <span class="nf">map-get</span><span class="p">(</span><span class="nv">$breakpoints</span><span class="o">,</span> <span class="n">xl</span><span class="p">)</span> <span class="o">-</span> <span class="mi">400</span><span class="kt">px</span>
+<span class="p">);</span>
+
+<span class="nc">.container</span> <span class="p">{</span>
+  <span class="nt">padding-right</span><span class="nd">:</span> <span class="nt">1rem</span><span class="o">;</span>
+  <span class="nt">padding-left</span><span class="nd">:</span> <span class="nt">1rem</span><span class="o">;</span>
+
+  <span class="k">&amp;</span><span class="nd">:not</span><span class="o">(</span><span class="nc">.is-fluid</span><span class="o">)</span> <span class="p">{</span>
+    <span class="nt">margin</span><span class="nd">:</span> <span class="nt">0</span> <span class="nt">auto</span><span class="o">;</span>
+
+    <span class="o">@</span><span class="nt">each</span> <span class="err">$</span><span class="nt">bp</span><span class="o">,</span> <span class="err">$</span><span class="nt">container-size</span> <span class="nt">in</span> <span class="err">$</span><span class="nt">container-sizes</span> <span class="p">{</span>
+      <span class="k">@include</span><span class="nd"> min</span><span class="p">(</span><span class="si">#{</span><span class="nf">bp</span><span class="p">(</span><span class="si">#{</span><span class="nv">$bp</span><span class="si">}</span><span class="p">)</span><span class="si">}</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nt">width</span><span class="nd">:</span> <span class="nt">100</span><span class="err">%</span><span class="o">;</span>
+        <span class="nt">max-width</span><span class="nd">:</span> <span class="nt">container</span><span class="o">(</span><span class="nn">#</span><span class="p">{</span><span class="err">$</span><span class="nt">bp</span><span class="p">}</span><span class="o">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">@each</span> <span class="err">$</span><span class="nt">bp</span><span class="o">,</span> <span class="err">$</span><span class="nt">container-size</span> <span class="nt">in</span> <span class="err">$</span><span class="nt">container-sizes</span> <span class="p">{</span>
+  <span class="nc">.container-</span><span class="si">#{</span><span class="nv">$bp</span><span class="si">}</span> <span class="p">{</span>
+    <span class="nt">margin</span><span class="nd">:</span> <span class="nt">0</span> <span class="nt">auto</span><span class="o">;</span>
+    <span class="nt">padding-right</span><span class="nd">:</span> <span class="nt">1rem</span><span class="o">;</span>
+    <span class="nt">padding-left</span><span class="nd">:</span> <span class="nt">1rem</span><span class="o">;</span>
+    <span class="nt">width</span><span class="nd">:</span> <span class="nt">100</span><span class="err">%</span><span class="o">;</span>
+
+    <span class="err">$</span><span class="nt">i</span><span class="nd">:</span> <span class="nt">index</span><span class="o">(</span><span class="err">$</span><span class="nt">container-sizes</span><span class="o">,</span> <span class="err">$</span><span class="nt">bp</span> <span class="err">$</span><span class="nt">container-size</span><span class="o">);</span>
+
+    <span class="o">@</span><span class="nt">for</span> <span class="err">$</span><span class="nt">j</span> <span class="nt">from</span> <span class="err">$</span><span class="nt">i</span> <span class="nt">through</span> <span class="nt">length</span><span class="o">(</span><span class="err">$</span><span class="nt">container-sizes</span><span class="o">)</span> <span class="p">{</span>
+      <span class="k">@include</span><span class="nd"> min</span><span class="p">(</span><span class="si">#{</span><span class="nf">bp</span><span class="p">(</span><span class="nf">nth</span><span class="p">(</span><span class="nf">nth</span><span class="p">(</span><span class="nv">$container-sizes</span><span class="o">,</span> <span class="nv">$j</span><span class="p">)</span><span class="o">,</span> <span class="mi">1</span><span class="p">))</span><span class="si">}</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nt">max-width</span><span class="nd">:</span> <span class="nt">container</span><span class="o">(</span><span class="nn">#</span><span class="p">{</span><span class="nt">nth</span><span class="o">(</span><span class="nt">nth</span><span class="o">(</span><span class="err">$</span><span class="nt">container-sizes</span><span class="o">,</span> <span class="err">$</span><span class="nt">j</span><span class="o">),</span> <span class="nt">1</span><span class="o">)</span><span class="p">}</span><span class="o">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+<h2 id="css-output">CSS output:</h2>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+  <span class="k">padding-right</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+  <span class="k">padding-left</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">container</span><span class="p">:</span><span class="nd">not</span><span class="o">(</span><span class="p">.</span><span class="nc">is-fluid</span><span class="o">)</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">600px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nc">container</span><span class="p">:</span><span class="nd">not</span><span class="o">(</span><span class="p">.</span><span class="nc">is-fluid</span><span class="o">)</span> <span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">570</span><span class="kt">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">900px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nc">container</span><span class="p">:</span><span class="nd">not</span><span class="o">(</span><span class="p">.</span><span class="nc">is-fluid</span><span class="o">)</span> <span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">860</span><span class="kt">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">1200px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nc">container</span><span class="p">:</span><span class="nd">not</span><span class="o">(</span><span class="p">.</span><span class="nc">is-fluid</span><span class="o">)</span> <span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">1150</span><span class="kt">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">1800px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nc">container</span><span class="p">:</span><span class="nd">not</span><span class="o">(</span><span class="p">.</span><span class="nc">is-fluid</span><span class="o">)</span> <span class="p">{</span>
+    <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">1400</span><span class="kt">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">container-sm</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
+  <span class="k">padding-right</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+  <span class="k">padding-left</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">600px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nc">container-sm</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">570</span><span class="kt">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">900px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nc">container-sm</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">860</span><span class="kt">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">1200px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nc">container-sm</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">1150</span><span class="kt">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">1800px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nc">container-sm</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">1400</span><span class="kt">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">container-md</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
+  <span class="k">padding-right</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+  <span class="k">padding-left</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">900px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nc">container-md</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">860</span><span class="kt">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">1200px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nc">container-md</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">1150</span><span class="kt">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">1800px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nc">container-md</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">1400</span><span class="kt">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">container-lg</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
+  <span class="k">padding-right</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+  <span class="k">padding-left</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">1200px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nc">container-lg</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">1150</span><span class="kt">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">1800px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nc">container-lg</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">1400</span><span class="kt">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">container-xl</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
+  <span class="k">padding-right</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+  <span class="k">padding-left</span><span class="p">:</span> <span class="mi">1</span><span class="kt">rem</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">@</span><span class="k">media</span> <span class="nt">only</span> <span class="nt">screen</span> <span class="nt">and</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">1800px</span><span class="o">)</span> <span class="p">{</span>
+  <span class="p">.</span><span class="nc">container-xl</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="p">:</span> <span class="mi">1400</span><span class="kt">px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/Sass/responsive-container-classes-with-scss/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+

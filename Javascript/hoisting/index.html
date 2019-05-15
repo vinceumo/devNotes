@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> Hoisting | Javascript  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">Hoisting</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2018-07-31 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+          Jul 07, 2018
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
+
+<p>In Javascript, hoisting refers to all functions and variable declarations treated as if they were declared at the top of a functional scope, or global scope, without taking into account when and where in the code these ones have been declared.</p>
+
+<p>Example: If we call our function before declaring this one, we do not get an error.</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">myFavoriteColor</span><span class="p">(</span><span class="nx">green</span><span class="p">);</span> <span class="c1">// Output: My favorite color is green
+</span><span class="c1"></span>
+<span class="kd">function</span> <span class="nx">myFavoriteColor</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;My favorite color is &#34;</span> <span class="o">+</span> <span class="nx">color</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The above code works the same way as bellow:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">myFavoriteColor</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;My favorite color is &#34;</span> <span class="o">+</span> <span class="nx">color</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">myFavoriteColor</span><span class="p">(</span><span class="nx">red</span><span class="p">);</span> <span class="c1">// Output: My favorite color is red
+</span></code></pre></div>
+<p>Now let&rsquo;s have a look at the variables.</p>
+
+<p>If we call a variable without defining this one we get an error:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">color</span><span class="p">);</span> <span class="c1">// Output: ReferenceError: color is not defined
+</span></code></pre></div>
+<p>But now if we define this one after our console.log we get an <code>undefined</code>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">color</span><span class="p">);</span> <span class="c1">//Output: undefined
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="s2">&#34;Yellow&#34;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">color</span><span class="p">);</span> <span class="c1">//Output: Yellow
+</span></code></pre></div>
+<p>In the above case Javascript <strong>hoists</strong> all our variable to the beginning of our code but the initialization stays at the same place.</p>
+
+<p>Inside a function our variable will be hoist at the beginning of our function:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">color</span><span class="p">);</span> <span class="c1">//Output: ReferenceError: color is not defined
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">returnColor</span><span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">color</span><span class="p">);</span> <span class="c1">//Output: undefined
+</span><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="s2">&#34;Pink&#34;</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">color</span><span class="p">);</span> <span class="c1">//Output: Pink
+</span><span class="c1"></span>    <span class="k">return</span> <span class="nx">color</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">color</span><span class="p">);</span> <span class="c1">//Output: undefined
+</span><span class="c1"></span>    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// returnColor(true/false);
+</span></code></pre></div>
+<p>In ES6 we cannot access variables declared with <code>let</code> and <code>const</code> before they are declared.</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">varColor</span><span class="p">);</span> <span class="c1">//Output: undefined
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">varColor</span> <span class="o">=</span> <span class="s2">&#34;Yellow&#34;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">varColor</span><span class="p">);</span> <span class="c1">//Output: Yellow
+</span><span class="c1"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">letColor</span><span class="p">);</span> <span class="c1">//Output: ReferenceError: can&#39;t access lexical declaration `letColor&#39; before initialization
+</span><span class="c1"></span><span class="kd">let</span> <span class="nx">letColor</span> <span class="o">=</span> <span class="s2">&#34;Yellow&#34;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">letColor</span><span class="p">);</span> <span class="c1">//Output: Yellow
+</span><span class="c1"></span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">constColor</span><span class="p">);</span> <span class="c1">//Output: ReferenceError: can&#39;t access lexical declaration `constColor&#39; before initialization
+</span><span class="c1"></span><span class="k">const</span> <span class="nx">constColor</span> <span class="o">=</span> <span class="s2">&#34;Yellow&#34;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">constColor</span><span class="p">);</span> <span class="c1">//Output: Yellow
+</span></code></pre></div>
+<h2 id="references">References:</h2>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting">Hoisting - MDN</a></li>
+<li><a href="https://medium.freecodecamp.org/what-is-variable-hoisting-differentiating-between-var-let-and-const-in-es6-f1a70bb43d">A guide to JavaScript variable hoisting 🚩 with let and const</a></li>
+<li><a href="https://github.com/charliegerard/dev-notes/blob/master/javascript/hoisting.md">Hoisting - charliegerard/dev-notes</a></li>
+<li><a href="https://scotch.io/tutorials/understanding-hoisting-in-javascript">Understanding Hoisting in JavaScript</a></li>
+</ul>
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/Javascript/hoisting/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+

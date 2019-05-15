@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> WCAG 2.0 &amp; 2.1 Checklist | A11Y  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">WCAG 2.0 &amp; 2.1 Checklist</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2018-08-03 11:50:00 &#43;0000 UTC" itemprop="datePublished">
+          Aug 08, 2018
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
+
+<blockquote>
+<p>Web Content Accessibility Guidelines (WCAG) 2.0 covers a wide range of recommendations for making Web content more accessible. Following these guidelines will make content accessible to a wider range of people with disabilities, including blindness and low vision, deafness and hearing loss, learning disabilities, cognitive limitations, limited movement, speech disabilities, photosensitivity and combinations of these. Following these guidelines will also often make your Web content more usable to users in general.
+<em><a href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines (WCAG) 2.0</a></em></p>
+</blockquote>
+
+<p><a href="../../downloads/wcag02_checklist.xlsx">Download wcag02_checklist.xlsx</a>. This Excel file comes with a pivot table that will give you a quick sum up of the passing level.</p>
+
+<table>
+<thead>
+<tr>
+<th>Guideline num</th>
+<th>Guideline</th>
+<th>Level</th>
+<th>Summary</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1.1.1</td>
+<td>Non-text Content</td>
+<td>A</td>
+<td>Provide text alternatives for non-text content</td>
+</tr>
+
+<tr>
+<td>1.2.1</td>
+<td>Audio-only and Video-only (Pre-recorded)</td>
+<td>A</td>
+<td>Provide an alternative to video-only and audio-only content</td>
+</tr>
+
+<tr>
+<td>1.2.2</td>
+<td>Captions (Pre-recorded)</td>
+<td>A</td>
+<td>Provide captions for videos with audio</td>
+</tr>
+
+<tr>
+<td>1.2.3</td>
+<td>Audio Description or Media Alternative (Pre-recorded)</td>
+<td>A</td>
+<td>Video with audio has a second alternative</td>
+</tr>
+
+<tr>
+<td>1.2.4</td>
+<td>Captions (Live)</td>
+<td>AA</td>
+<td>Live videos have captions</td>
+</tr>
+
+<tr>
+<td>1.2.5</td>
+<td>Audio Description (Pre-recorded)</td>
+<td>AA</td>
+<td>Users have access to audio description for video content</td>
+</tr>
+
+<tr>
+<td>1.2.6</td>
+<td>Sign Language (Pre-recorded)</td>
+<td>AAA</td>
+<td>Provide sign language translations for videos</td>
+</tr>
+
+<tr>
+<td>1.2.7</td>
+<td>Extended Audio description (Pre-recorded)</td>
+<td>AAA</td>
+<td>Provide extended audio description for videos</td>
+</tr>
+
+<tr>
+<td>1.2.8</td>
+<td>Media Alternative (Pre-recorded)</td>
+<td>AAA</td>
+<td>Provide a text alternative to videos</td>
+</tr>
+
+<tr>
+<td>1.2.9</td>
+<td>Audio Only (Live)</td>
+<td>AAA</td>
+<td>Provide alternatives for live audio</td>
+</tr>
+
+<tr>
+<td>1.3.1</td>
+<td>Info and Relationships</td>
+<td>A</td>
+<td>Logical structure</td>
+</tr>
+
+<tr>
+<td>1.3.2</td>
+<td>Meaningful Sequence</td>
+<td>A</td>
+<td>Present content in a meaningful order</td>
+</tr>
+
+<tr>
+<td>1.3.3</td>
+<td>Sensory Characteristics</td>
+<td>A</td>
+<td>Use more than one sense for instructions</td>
+</tr>
+
+<tr>
+<td>1.3.4</td>
+<td>Orientation (WCAG 2.1)</td>
+<td>AA</td>
+<td>Content can be display in portrait and landscape orientation</td>
+</tr>
+
+<tr>
+<td>1.3.5</td>
+<td>Identify Input Purpose (WCAG 2.1)</td>
+<td>AA</td>
+<td>Each input field must be able to be determined programmatically, a user should be able for example to autofill inputs</td>
+</tr>
+
+<tr>
+<td>1.3.6</td>
+<td>Identify Purpose (WCAG 2.1)</td>
+<td>AAA</td>
+<td>Interface components, icons and landmarks (sections, article, main, etc.) must be able to be identified programmatically to help navigation for assistive technologies</td>
+</tr>
+
+<tr>
+<td>1.4.1</td>
+<td>Use of Colour</td>
+<td>A</td>
+<td>Don’t use presentation that relies solely on colour</td>
+</tr>
+
+<tr>
+<td>1.4.2</td>
+<td>Audio Control</td>
+<td>A</td>
+<td>Don’t play audio automatically</td>
+</tr>
+
+<tr>
+<td>1.4.3</td>
+<td>Contrast (Minimum)</td>
+<td>AA</td>
+<td>Contrast ratio between text and background is at least 4.5:1</td>
+</tr>
+
+<tr>
+<td>1.4.4</td>
+<td>Resize Text</td>
+<td>AA</td>
+<td>Text can be resized to 200% without loss of content or function</td>
+</tr>
+
+<tr>
+<td>1.4.5</td>
+<td>Images of Text</td>
+<td>AA</td>
+<td>Don’t use images of text</td>
+</tr>
+
+<tr>
+<td>1.4.6</td>
+<td>Contrast (Enhanced)</td>
+<td>AAA</td>
+<td>Contrast ratio between text and background is at least 7:1</td>
+</tr>
+
+<tr>
+<td>1.4.7</td>
+<td>Low or No Background Audio</td>
+<td>AAA</td>
+<td>Audio is clear for listeners to hear</td>
+</tr>
+
+<tr>
+<td>1.4.8</td>
+<td>Visual Presentation</td>
+<td>AAA</td>
+<td>Offer users a range of presentation options</td>
+</tr>
+
+<tr>
+<td>1.4.9</td>
+<td>Images of Text (No Exception)</td>
+<td>AAA</td>
+<td>Don’t use images of text</td>
+</tr>
+
+<tr>
+<td>1.4.10</td>
+<td>Reflow (WCAG 2.1)</td>
+<td>AA</td>
+<td>User must be able to browse a website using a 320 pixel wide screen without having to scroll horizontally (There are some exceptions)</td>
+</tr>
+
+<tr>
+<td>1.4.11</td>
+<td>Non-Text Contrast (WCAG 2.1)</td>
+<td>AA</td>
+<td>Extend color contrast of at least 3:1 to non-text content such as infographics, diagrams, states, etc.</td>
+</tr>
+
+<tr>
+<td>1.4.12</td>
+<td>Text Spacing (WCAG 2.1)</td>
+<td>AA</td>
+<td>Changing text style properties shouldn&rsquo;t break the page (line height, spacing after paragraph, letter spacing, word spacing)</td>
+</tr>
+
+<tr>
+<td>1.4.13</td>
+<td>Content on Hover or Focus (WCAG 2.1)</td>
+<td>AA</td>
+<td>Elements that are being shown on focus or hover (skip navigation, tooltip) should be dismissible(Esc), hoverable, persistent</td>
+</tr>
+
+<tr>
+<td>2.1.1</td>
+<td>Keyboard</td>
+<td>A</td>
+<td>Accessible by keyboard only</td>
+</tr>
+
+<tr>
+<td>2.1.2</td>
+<td>No Keyboard Trap</td>
+<td>A</td>
+<td>Don’t trap keyboard users</td>
+</tr>
+
+<tr>
+<td>2.1.3</td>
+<td>Keyboard (No Exception)</td>
+<td>AAA</td>
+<td>Accessible by keyboard only, without exception</td>
+</tr>
+
+<tr>
+<td>2.1.4</td>
+<td>Character Key Shortcuts (WCAG 2.1)</td>
+<td>A</td>
+<td>If using single letter keyboard shortcut, the shortcut should be able to be turn off, or remap, or active only on focus</td>
+</tr>
+
+<tr>
+<td>2.2.1</td>
+<td>Timing Adjustable</td>
+<td>A</td>
+<td>Time limits have user controls</td>
+</tr>
+
+<tr>
+<td>2.2.2</td>
+<td>Pause, Stop, Hide</td>
+<td>A</td>
+<td>Provide user controls for moving content</td>
+</tr>
+
+<tr>
+<td>2.2.3</td>
+<td>No Timing</td>
+<td>AAA</td>
+<td>No time limits</td>
+</tr>
+
+<tr>
+<td>2.2.4</td>
+<td>Interruptions</td>
+<td>AAA</td>
+<td>Don’t interrupt users</td>
+</tr>
+
+<tr>
+<td>2.2.5</td>
+<td>Re-authenticating</td>
+<td>AAA</td>
+<td>Save user data when re-authenticating</td>
+</tr>
+
+<tr>
+<td>2.2.6</td>
+<td>Timeouts (WCAG 2.1)</td>
+<td>AAA</td>
+<td>Users should be warned if user inactivity could cause data loss, unless data is preserved for more than 20h</td>
+</tr>
+
+<tr>
+<td>2.3.1</td>
+<td>Three Flashes or Below</td>
+<td>A</td>
+<td>No content flashes more than three times per second</td>
+</tr>
+
+<tr>
+<td>2.3.2</td>
+<td>Three Flashes</td>
+<td>AAA</td>
+<td>No content flashes more than three times per second</td>
+</tr>
+
+<tr>
+<td>2.3.3</td>
+<td>Animation from Interactions (WCAG 2.1)</td>
+<td>AAA</td>
+<td>Motion animation triggered by interaction can be disabled</td>
+</tr>
+
+<tr>
+<td>2.4.1</td>
+<td>Bypass Blocks</td>
+<td>A</td>
+<td>Provide a ‘Skip to Content’ link</td>
+</tr>
+
+<tr>
+<td>2.4.10</td>
+<td>Section Headings</td>
+<td>AAA</td>
+<td>Break up content with headings</td>
+</tr>
+
+<tr>
+<td>2.4.2</td>
+<td>Page Titled</td>
+<td>A</td>
+<td>Use helpful and clear page titles</td>
+</tr>
+
+<tr>
+<td>2.4.3</td>
+<td>Focus Order</td>
+<td>A</td>
+<td>Logical order</td>
+</tr>
+
+<tr>
+<td>2.4.4</td>
+<td>Link Purpose (In Context)</td>
+<td>A</td>
+<td>Every link’s purpose is clear from its context</td>
+</tr>
+
+<tr>
+<td>2.4.5</td>
+<td>Multiple Ways</td>
+<td>AA</td>
+<td>Offer several ways to find pages</td>
+</tr>
+
+<tr>
+<td>2.4.6</td>
+<td>Headings and Labels</td>
+<td>AA</td>
+<td>Use clear headings and labels</td>
+</tr>
+
+<tr>
+<td>2.4.7</td>
+<td>Focus Visible</td>
+<td>AA</td>
+<td>Ensure keyboard focus is visible and clear</td>
+</tr>
+
+<tr>
+<td>2.4.8</td>
+<td>Location</td>
+<td>AAA</td>
+<td>Let users know where they are</td>
+</tr>
+
+<tr>
+<td>2.4.9</td>
+<td>Link Purpose (Link Only)</td>
+<td>AAA</td>
+<td>Every link’s purpose is clear from its text</td>
+</tr>
+
+<tr>
+<td>2.5.1</td>
+<td>Pointer Gestures (WCAG 2.1)</td>
+<td>A</td>
+<td>Complex gesture (Pinch, zooming, swiping) should have a simpler gesture alternative (Tap, double taps, long press)</td>
+</tr>
+
+<tr>
+<td>2.5.2</td>
+<td>Pointer Cancellation (WCAG 2.1)</td>
+<td>A</td>
+<td>When using single pointer events, one of the following should be true, No Down-Event, Abort or Undo, Up Reversal, Essential</td>
+</tr>
+
+<tr>
+<td>2.5.3</td>
+<td>Label in Name (WCAG 2.1)</td>
+<td>A</td>
+<td>Text in buttons or label should be readable by assistant technologies and can be used with Text-to-speech</td>
+</tr>
+
+<tr>
+<td>2.5.4</td>
+<td>Motion Actuation (WCAG 2.1)</td>
+<td>A</td>
+<td>Functionalities trigger by moving the device should have a fallback without (Eg some apps use shake to undo)</td>
+</tr>
+
+<tr>
+<td>2.5.5</td>
+<td>Target Size (WCAG 2.1)</td>
+<td>AAA</td>
+<td>The size of the target for pointer inputs is at least 44 by 44 CSS pixels</td>
+</tr>
+
+<tr>
+<td>2.5.6</td>
+<td>Concurrent Input Mechanisms (WCAG 2.1)</td>
+<td>AAA</td>
+<td>Inputs must to available to use with a different mechanism (Mouse, keyboard, stylus, touch, voice)</td>
+</tr>
+
+<tr>
+<td>3.1.1</td>
+<td>Language of Page</td>
+<td>A</td>
+<td>Page has a language assigned</td>
+</tr>
+
+<tr>
+<td>3.1.2</td>
+<td>Language of Parts</td>
+<td>AA</td>
+<td>Tell users when the language on a page changes</td>
+</tr>
+
+<tr>
+<td>3.1.3</td>
+<td>Unusual words</td>
+<td>AAA</td>
+<td>Explain any strange words</td>
+</tr>
+
+<tr>
+<td>3.1.4</td>
+<td>Abbreviations</td>
+<td>AAA</td>
+<td>Explain any abbreviations</td>
+</tr>
+
+<tr>
+<td>3.1.5</td>
+<td>Reading Level</td>
+<td>AAA</td>
+<td>Users with nine years of school can read your content</td>
+</tr>
+
+<tr>
+<td>3.1.6</td>
+<td>Pronunciation</td>
+<td>AAA</td>
+<td>Explain any words that are hard to pronounce</td>
+</tr>
+
+<tr>
+<td>3.2.1</td>
+<td>On Focus</td>
+<td>A</td>
+<td>Elements do not change when they receive focus</td>
+</tr>
+
+<tr>
+<td>3.2.2</td>
+<td>On Input</td>
+<td>A</td>
+<td>Elements do not change when they receive input</td>
+</tr>
+
+<tr>
+<td>3.2.3</td>
+<td>Consistent Navigation</td>
+<td>AA</td>
+<td>Use menus consistently</td>
+</tr>
+
+<tr>
+<td>3.2.4</td>
+<td>Consistent Identification</td>
+<td>AA</td>
+<td>Use icons and buttons consistently</td>
+</tr>
+
+<tr>
+<td>3.2.5</td>
+<td>Change on Request</td>
+<td>AAA</td>
+<td>Don’t change elements on your website until users ask</td>
+</tr>
+
+<tr>
+<td>3.3.1</td>
+<td>Error Identification</td>
+<td>A</td>
+<td>Clearly identify input errors</td>
+</tr>
+
+<tr>
+<td>3.3.2</td>
+<td>Labels or Instructions</td>
+<td>A</td>
+<td>Label elements and give instructions</td>
+</tr>
+
+<tr>
+<td>3.3.3</td>
+<td>Error Suggestion</td>
+<td>AA</td>
+<td>Suggest fixes when users make errors</td>
+</tr>
+
+<tr>
+<td>3.3.4</td>
+<td>Error Prevention (Legal, Financial, Data)</td>
+<td>AA</td>
+<td>Reduce the risk of input errors for sensitive data</td>
+</tr>
+
+<tr>
+<td>3.3.5</td>
+<td>Help</td>
+<td>AAA</td>
+<td>Provide detailed help and instructions</td>
+</tr>
+
+<tr>
+<td>3.3.6</td>
+<td>Error Prevention (All)</td>
+<td>AAA</td>
+<td>Reduce the risk of all input errors</td>
+</tr>
+
+<tr>
+<td>4.1.1</td>
+<td>Parsing</td>
+<td>A</td>
+<td>No major code errors</td>
+</tr>
+
+<tr>
+<td>4.1.2</td>
+<td>Name, Role, Value</td>
+<td>A</td>
+<td>Build all elements for accessibility</td>
+</tr>
+
+<tr>
+<td>4.1.3</td>
+<td>Status Messages (WCAG 2.1)</td>
+<td>AA</td>
+<td>Content that is updated dynamically must be notified to users of assistive technologies without getting visual focus</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="https://www.w3.org/TR/WCAG20/">Web Content Accessibility Guidelines (WCAG) 2.0</a></li>
+<li><a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines (WCAG) 2.1</a></li>
+<li><a href="https://blog.prototypr.io/the-new-guidelines-in-wcag-2-1-explained-c26e62b196f2">The new guidelines in WCAG 2.1 explained</a></li>
+<li><a href="http://accessibility.voxmedia.com/">Accessibility Guidelines - voxmedia</a></li>
+<li><a href="https://www.wuhcag.com/wcag-checklist/">WCAG 2.0 checklists - wuhcag</a></li>
+</ul>
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/a11y/wcag/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+
