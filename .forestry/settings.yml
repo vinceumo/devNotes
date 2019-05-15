@@ -4,25 +4,58 @@ auto_deploy: true
 admin_path: 
 webhook_url: 
 sections:
-- type: jekyll-pages
+- type: directory
+  path: content
   label: Pages
   create: all
-- type: jekyll-posts
-  label: Posts
+  match: "*"
+- type: directory
+  path: content/CSS
+  label: Css
   create: all
-upload_dir: dist/img
-public_path: "/dist/img"
+  match: "**/*"
+- type: directory
+  path: content/Javascript
+  label: Javascript
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/Tools
+  label: Tools
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/dotnet
+  label: Dotnet
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/a11y
+  label: A11Y
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/Sass
+  label: Sass
+  create: all
+  match: "**/*"
+upload_dir: static
+public_path: "/uploads"
 front_matter_path: ''
 use_front_matter_path: false
 file_template: ":filename:"
+instant_preview: true
 build:
-  preview_command: bundle exec jekyll build --drafts --unpublished --future -d _site
-  publish_command: bundle exec jekyll build -d _site
+  preview_command: hugo -E -F -D -b $DEPLOY_URL -d public
+  publish_command: hugo -d public
   preview_env:
-  - JEKYLL_ENV=staging
+  - HUGO_ENV=staging
+  - HUGO_VERSION=0.55.2
   publish_env:
-  - JEKYLL_ENV=production
-  preview_output_directory: _site
-  output_directory: _site
-  instant_preview_command: bundle exec jekyll serve --drafts --unpublished --future
-    --port 8080 --host 0.0.0.0 -d _site
+  - HUGO_ENV=production
+  - HUGO_VERSION=0.55.2
+  preview_output_directory: public
+  output_directory: public
+  instant_preview_command: hugo server -D -E -F --port 8080 --bind 0.0.0.0 --renderToDisk
+    -d public
+version: 0.55.2

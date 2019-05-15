@@ -1,0 +1,17 @@
+baseURL: "https://vinceumo.github.io/devNotes"
+disablePathToLower: true
+languageCode: en-gb
+title: devNotes
+theme: "devNotes"
+disableKinds: 
+  - taxonomy
+  - taxonomyTerm
+pygmentsCodefences: true
+pygmentsCodefencesGuessSyntax: false
+pygmentsUseClasses: true
+RelativeURLs: true
+CanonifyURLs: true
+params:
+  description: "Collection of things I learned around web development"
+  author: "Vincent Humeau"
+  authorUrl: "https:www.vincent-humeau.com"

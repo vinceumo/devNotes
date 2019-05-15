@@ -1,0 +1,26 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {{if isset .Site.Params "author" }}
+    <meta name="author" content="{{ .Site.Params.Author }}">
+  {{ end }}
+  {{if isset .Site.Params "description" }}
+    <meta name="description" content="{{ .Site.Params.Description }}">
+  {{ end }}
+  
+  <title>{{ block "title" . }} {{ .Title }} {{if isset .Params "category"}}| {{ .Params.Category }} {{ end }} | {{ .Site.Title }}{{ end }}</title>
+
+  <link rel="manifest" href="{{ $.Site.BaseURL }}/manifest.json">
+  <meta name="msapplication-config" content="{{ $.Site.BaseURL }}/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ $.Site.BaseURL }}/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ $.Site.BaseURL }}/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ $.Site.BaseURL }}/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="{{ $.Site.BaseURL }}/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="{{ $.Site.BaseURL }}/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="{{ $.Site.BaseURL }}/css/screen.min.css">  
+</head>

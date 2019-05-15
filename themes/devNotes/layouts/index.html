@@ -1,0 +1,29 @@
+{{ define "main" }}
+    <div class="home">
+        {{ .Content }}
+        {{ $posts := (where .Site.RegularPages "Type" "==" "post") }}
+        {{ $postCount := len $posts }}
+        Currently: <b>{{ $postCount }}</b> devNotes.
+
+        <hr>
+
+        {{ range .Site.Pages.GroupByParam "category" "title"}}
+        {{ $categoryId := .Key | urlize}}
+        <h2 id="{{ $categoryId }}">{{ .Key }}</h2>
+        <ul class="list-unstyled">
+            <li id="{{ $categoryId }}">
+                <ul class="list-unstyled">
+                    {{ range .Pages.ByTitle }}
+                    <li>
+                        <a href="{{ .RelPermalink }}">
+                            {{ .Title }}
+                        </a>
+                        <i><small>, {{ dateFormat "Jan, 2006" .Date }} | {{ .Params.Post_type }}</small></i>
+                    </li>
+                    {{ end }}
+                </ul>
+            </li>
+        </ul>
+        {{ end }}
+    </div>
+{{ end }}

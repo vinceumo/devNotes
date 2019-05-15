@@ -1,0 +1,17 @@
+{{ define "main" }}
+    <h1>{{ .Title }}</h1>
+    <ul>
+        {{ $thisPage := .CurrentSection }}
+        {{ range .Site.RegularPages }}
+        {{ if .IsDescendant $thisPage}}
+        <li>
+            <a href="{{ .RelPermalink }}">
+                {{ .Title }}
+            </a>
+            <i><small>, {{ dateFormat "Jan, 2006" .Date }}</small></i>
+        </li>
+        {{ end }}
+        {{ end }}
+    </ul>
+    {{ .Content }}
+{{ end }}
