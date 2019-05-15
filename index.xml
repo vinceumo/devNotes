@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>C# - 101 cheat sheet</title>
+      <link>https://vinceumo.github.io/devNotes/Dotnet/c-101-cheat-sheet/</link>
+      <pubDate>Tue, 14 May 2019 23:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Dotnet/c-101-cheat-sheet/</guid>
+      <description>Introduction C# is an objected oriented language that runs on Microsoft&amp;rsquo;s .NET Framework, C# can as well be run on other frameworks (E.g. Unity)
+.NET is an open source platform to develop application
+Set up dotnet core Install In this article, I will use .NET core 2.2 but you can use the latest version if available. .NET core can be run on Windows, Linux and macOS.
+You can install the dotnet core SDK from Microsoft</description>
+    </item>
+    
+    <item>
       <title>C# - Practice</title>
       <link>https://vinceumo.github.io/devNotes/Dotnet/c-practice/</link>
       <pubDate>Sat, 11 May 2019 23:00:00 +0000</pubDate>

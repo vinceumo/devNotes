@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> C# - 101 cheat sheet | Dotnet  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https:www.vincent-humeau.com" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">C# - 101 cheat sheet</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2019-05-14 23:00:00 &#43;0000 UTC" itemprop="datePublished">
+          May 05, 2019
+        </time></p>
+    </header>
+  
+    <div class="post-content" itemprop="articleBody">
+      
+
+<h2 id="introduction">Introduction</h2>
+
+<p>C# is an <a href="https://en.wikipedia.org/wiki/Object-oriented_programming">objected oriented</a> language that runs on Microsoft&rsquo;s <strong>.NET Framework</strong>, C# can as well be run on other frameworks (E.g. <a href="https://unity3d.com/learning-c-sharp-in-unity-for-beginners">Unity</a>)</p>
+
+<p>.NET is an open source platform to develop application</p>
+
+<h2 id="set-up-dotnet-core">Set up dotnet core</h2>
+
+<h3 id="install">Install</h3>
+
+<p>In this article, I will use .NET core 2.2 but you can use the latest version if available. .NET core can be run on Windows, Linux and macOS.</p>
+
+<p>You can install the dotnet core SDK from <a href="https://dotnet.microsoft.com/download">Microsoft</a></p>
+
+<p>Once .NET core is installed you can run this one using the CLI</p>
+
+<p>Run:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">dotnet --version</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">2</span>.2.202</code></pre></div>
+<h3 id="create-an-app">Create an app</h3>
+
+<p>Create a new project called <strong>myConsolApp</strong>. Open the folder in your terminal and run:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">dotnet new console</code></pre></div>
+<p>.NET core will create a basic program in the <strong>myConsolApp</strong> folder. You should have the two following files:</p>
+
+<ul>
+<li><strong>Program.cs</strong>: This file contains the basic default program, that will print &ldquo;Hello world!&rdquo;</li>
+<li><strong>myConsolApp.csproj</strong>: This file has the information needed to build and run our program</li>
+</ul>
+
+<p><strong>Program.cs</strong>:</p>
+
+<ul>
+<li><strong>Namespace</strong>: declare a scope that contains a set of related objects | <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/namespace">Microsoft - docs</a></li>
+<li><strong>Class</strong>: In object oriented programming, a class is a blueprint / template for data types. It encapsulates variables, methods and other types. | <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/class">Microsoft - docs</a></li>
+<li><strong>Method</strong>: A method is a code block that contains a series of statements. <code>static void</code> means that the <code>Main</code> method is not a return method | <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/methods">Microsoft - docs</a></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span> <span class="c1">// Include `System` namespace in the program
+</span><span class="c1"></span>
+<span class="k">namespace</span> <span class="nn">myConsolApp</span> <span class="c1">// Namespace declaration
+</span><span class="c1"></span><span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span> <span class="c1">// Class declaration
+</span><span class="c1"></span>    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="na">[]</span> <span class="n">args</span><span class="p">)</span> <span class="c1">// `Main` method declaration
+</span><span class="c1"></span>        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Let&rsquo;s try to run our program:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">dotnet run</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">Hello World!</code></pre></div>
+<p>When running <code>dotnet run</code>, by default .NET will look for the method <code>Main()</code>. This <code>Main()</code> method is the entry point of our console application. If we rename this one, the program will break.</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="c1">//Program.cs
+</span><span class="c1"></span>
+<span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">myConsolApp</span>
+<span class="p">{</span>
+    <span class="k">class</span> <span class="nc">Program</span>
+    <span class="p">{</span>
+        <span class="k">static</span> <span class="k">void</span> <span class="n">MainTest</span><span class="p">(</span><span class="kt">string</span><span class="na">[]</span> <span class="n">args</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Run:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">dotnet run</code></pre></div>
+<p>Output:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">CSC : error CS5001: Program does not contain a static <span class="s1">&#39;Main&#39;</span> method suitable <span class="k">for</span> an entry point <span class="o">[</span>C:<span class="se">\m</span>yConsolApp<span class="se">\m</span>yConsolApp.csproj<span class="o">]</span>
+
+The build failed. Please fix the build errors and run again.</code></pre></div>
+<p>Let&rsquo;s revert this last change 😬.</p>
+
+<p>We have now a basic project where we are going to be able to experiment with C#.</p>
+
+<h2 id="comments">Comments</h2>
+
+<p>In C# you can declare 2 kinds of comments:</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="c1">// One line comment
+</span><span class="c1"></span>
+<span class="cm">/* Multiple
+</span><span class="cm">lines
+</span><span class="cm">comments */</span>
+</code></pre></div>
+<h2 id="variables-constants-and-data-types">Variables, constants and data types</h2>
+
+<h3 id="types">Types</h3>
+
+<p>C# is a strongly-typed language. Every variable and constant has a type.</p>
+
+<p>When declaring a variable we need to set its type:</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span> <span class="c1">// variable a of type integer
+</span><span class="c1"></span><span class="kt">string</span> <span class="n">b</span> <span class="p">=</span> <span class="s">&#34;hello&#34;</span><span class="p">;</span> <span class="c1">// variable b of type string
+</span><span class="c1"></span><span class="kt">bool</span> <span class="n">c</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span> <span class="c1">// variable c of type boolean
+</span></code></pre></div>
+<p>When performing an operation with variables of different types, you need to be careful of their types, or you might get unexpected behaviour.</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="kt">int</span> <span class="n">a</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+<span class="kt">string</span> <span class="n">b</span> <span class="p">=</span> <span class="s">&#34;hello&#34;</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">c</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span> <span class="p">+</span> <span class="m">6</span><span class="p">);</span> <span class="c1">// 11
+</span><span class="c1"></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span> <span class="p">+</span> <span class="n">b</span><span class="p">);</span> <span class="c1">// 5hello
+</span><span class="c1"></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span> <span class="p">+</span> <span class="n">c</span><span class="p">);</span> <span class="c1">// error CS0019: Operator &#39;+&#39; cannot be applied to operands of type &#39;int&#39; and &#39;bool&#39;
+</span></code></pre></div>
+<p>Here are the default value types available by default in C#</p>
+
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Represents</th>
+<th>Range</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/bool">bool</a></td>
+<td>Boolean value</td>
+<td>True or False</td>
+</tr>
+
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/byte">byte</a></td>
+<td>8-bit unsigned integer</td>
+<td>0 to 255</td>
+</tr>
+
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/char">char</a></td>
+<td>16-bit Unicode character</td>
+<td>U +0000 to U +ffff</td>
+</tr>
+
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/decimal">decimal</a></td>
+<td>128-bit precise decimal values with 28-29 significant digits</td>
+<td>(-7.9 x 1028 to 7.9 x 1028) / 100to 28</td>
+</tr>
+
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/double">double</a></td>
+<td>64-bit double-precision floating point type</td>
+<td>(+/-)5.0 x 10-324 to (+/-)1.7 x 10308</td>
+</tr>
+
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/float">float</a></td>
+<td>32-bit single-precision floating point type</td>
+<td>-3.4 x 1038 to + 3.4 x 1038</td>
+</tr>
+
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/int">int</a></td>
+<td>32-bit signed integer type</td>
+<td>-2,147,483,648 to 2,147,483,647</td>
+</tr>
+
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/long">long</a></td>
+<td>64-bit signed integer type</td>
+<td>-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</td>
+</tr>
+
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/sbyte">sbyte</a></td>
+<td>8-bit signed integer type</td>
+<td>-128 to 127</td>
+</tr>
+
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/short">short</a></td>
+<td>16-bit signed integer type</td>
+<td>-32,768 to 32,767</td>
+</tr>
+
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/string">string</a></td>
+<td>Sequence of zero or more Unicode characters</td>
+<td></td>
+</tr>
+
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/uint">uint</a></td>
+<td>32-bit unsigned integer type</td>
+<td>0 to 4,294,967,295</td>
+</tr>
+
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ulong">ulong</a></td>
+<td>64-bit unsigned integer type</td>
+<td>0 to 18,446,744,073,709,551,615</td>
+</tr>
+
+<tr>
+<td><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/ushort">ushort</a></td>
+<td>16-bit unsigned integer type</td>
+<td>0 to 65,535</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/reference-tables-for-types">Reference tables for types (C# Reference) | Microsoft docs</a></p>
+</blockquote>
+
+<h3 id="var-keyword"><code>var</code> keyword</h3>
+
+<p>Variables of anonymous types can be declared using the <code>var</code> keyboard.</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="kt">var</span> <span class="n">test1</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span> <span class="c1">// Will be compiled as int
+</span><span class="c1"></span><span class="kt">var</span> <span class="n">test2</span> <span class="p">=</span> <span class="sc">&#39;d&#39;</span><span class="p">;</span> <span class="c1">// Will be compiled as char
+</span><span class="c1"></span><span class="kt">var</span> <span class="n">test3</span> <span class="p">=</span> <span class="s">&#34;test&#34;</span><span class="p">;</span> <span class="c1">// Will be compiled as string
+</span></code></pre></div>
+<h3 id="const-keyword"><code>const</code> keyword</h3>
+
+<p><code>const</code> is used de declare a constant, it can&rsquo;t be modified.</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="k">const</span> <span class="kt">double</span> <span class="n">pi</span> <span class="p">=</span> <span class="m">3.14</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">string</span> <span class="n">productName</span> <span class="p">=</span> <span class="s">&#34;My product&#34;</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="arrays">Arrays</h2>
+
+<p>An array can store multiple variables of the same type. An array has a fixed size.</p>
+
+<p><code>type[] myArray</code></p>
+
+<h3 id="single-dimensional-arrays">Single dimensional arrays</h3>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="c1">// Declare a single-dimensional array of length 5 of type int
+</span><span class="c1"></span><span class="kt">int</span><span class="na">[]</span> <span class="n">array1</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="na">[5]</span><span class="p">;</span>
+
+<span class="c1">// Declare and set array element values
+</span><span class="c1"></span><span class="kt">int</span><span class="na">[]</span> <span class="n">array2</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="na">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">9</span> <span class="p">};</span>
+
+<span class="c1">// Alternative syntax
+</span><span class="c1"></span><span class="kt">int</span><span class="na">[]</span> <span class="n">array3</span> <span class="p">=</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span> <span class="p">};</span>
+</code></pre></div>
+<p>You can access the value of an array item using its index:</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="kt">int</span><span class="na">[]</span> <span class="n">array</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="na">[]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">9</span> <span class="p">};</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">array</span><span class="na">[0]</span><span class="p">);</span> <span class="c1">// 1
+</span><span class="c1"></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">array</span><span class="na">[3]</span><span class="p">);</span> <span class="c1">// 7
+</span><span class="c1"></span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">array</span><span class="na">[2]</span><span class="p">);</span> <span class="c1">// 5
+</span></code></pre></div>
+<h3 id="multidimensional-arrays">Multidimensional  arrays</h3>
+
+<p>Array can have multiple dimensions, each array in the multidimensional arrays have the same length.</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="c1">// Declare a two dimensional array of length 2 and sub array of length 3
+</span><span class="c1"></span><span class="kt">int</span><span class="na">[,]</span> <span class="n">multiDimensionalArray1</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="na">[2, 3]</span><span class="p">;</span> 
+
+<span class="c1">// Declare and set array element values
+</span><span class="c1"></span><span class="kt">int</span><span class="na">[,]</span> <span class="n">multiDimensionalArray2</span> <span class="p">=</span> <span class="p">{</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span> <span class="p">},</span> <span class="p">{</span> <span class="m">4</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">6</span> <span class="p">}</span> <span class="p">};</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">multiDimensionalArray2</span><span class="na">[0][1]</span><span class="p">);</span> <span class="c1">// 2
+</span></code></pre></div>
+<h3 id="jagged-arrays">Jagged Arrays</h3>
+
+<p>Jagged arrays are similar to multidimensional ones, but all elements of this array can have different dimensions and sizes.</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="c1">// Declare a jagged array
+</span><span class="c1"></span><span class="kt">int</span><span class="na">[][]</span> <span class="n">jaggedArray</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="na">[6][]</span><span class="p">;</span>
+
+<span class="c1">// Set the values of the first array in the jagged array structure
+</span><span class="c1"></span><span class="n">jaggedArray</span><span class="na">[0]</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="na">[4]</span> <span class="p">{</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span> <span class="p">};</span>
+</code></pre></div>
+<h2 id="lists">Lists</h2>
+
+<p><em>Namespace:
+System.Collections.Generic</em></p>
+
+<p>A list represents a strongly typed list of objects that can be accessed by index. It is less performant than an array.  It doesn&rsquo;t have a fixed size.</p>
+
+<p><code>List&lt;type&gt; myList</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">foods</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;();</span>
+
+<span class="n">foods</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;Pizza&#34;</span><span class="p">);</span>
+<span class="n">foods</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;Pasta&#34;</span><span class="p">);</span>
+<span class="n">foods</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;Bread&#34;</span><span class="p">);</span>
+<span class="n">foods</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;Tomatoes&#34;</span><span class="p">);</span>
+<span class="n">foods</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&#34;Olives&#34;</span><span class="p">);</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">foods</span><span class="na">[1]</span><span class="p">);</span> <span class="c1">// Pasta
+</span><span class="c1"></span>
+<span class="k">foreach</span><span class="p">(</span><span class="kt">string</span> <span class="n">food</span> <span class="k">in</span> <span class="n">foods</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">food</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Output
+</span><span class="c1">//
+</span><span class="c1">// Pizza
+</span><span class="c1">// Pasta
+</span><span class="c1">// Bread
+</span><span class="c1">// ...
+</span></code></pre></div>
+<h2 id="methods">Methods</h2>
+
+<p>A method refers to a block of code, It executes a series of instruction.</p>
+
+<p>A method in C# can be declared in a <code>class</code> or a <code>struct</code>. Methods follow the following structure:</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="k">static</span> <span class="k">private</span> <span class="k">void</span> <span class="n">MyMethod</span><span class="p">(</span><span class="kt">string</span> <span class="n">arg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="p">&lt;</span><span class="n">Static</span> <span class="n">Modifier</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">Access</span> <span class="n">Specifier</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">Return</span> <span class="n">Type</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="n">Method</span> <span class="n">Name</span><span class="p">&gt;</span> <span class="p">(</span><span class="n">Parameters</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="p">&lt;</span><span class="n">Method</span> <span class="n">Body</span><span class="p">&gt;</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><strong>Static modifier</strong> is optional, a static method or variable is not associated with the instance (class or struct).</li>
+<li><strong>Access Specifier</strong> specifies how the method can be accessed from another class
+
+<ul>
+<li><em>public</em>: No access restrictions, the method can be accessed from other classes.</li>
+<li><em>private</em>: Access restricted, the method can be accessed only from the class it has been declared in.</li>
+</ul></li>
+<li><strong>Return Type</strong>, methods can return a value, if it is the case you need to specify the data type that the method will return (E.g. <code>string[]</code>, <code>int</code>, <code>bool</code>&hellip;) and you will need a <code>return</code> keyword in the method body. If the method does not return a value, then you can use the <code>void</code> keyword.</li>
+<li><strong>Method Name</strong>: Unique method name.</li>
+<li><strong>Parameters</strong>, pass data to the method.</li>
+<li><strong>Method Body</strong> contains the set of instructions needed if it is a return method you will need to <code>return</code> a value.</li>
+</ul>
+
+<h3 id="method-example-1-private-void">Method example 1 - private void</h3>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">test</span>
+<span class="p">{</span>
+  <span class="k">class</span> <span class="nc">Program</span>
+  <span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="na">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// As PrintReverseText is not static we create an instance of Program
+</span><span class="c1"></span>      <span class="n">Program</span> <span class="n">program</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Program</span><span class="p">();</span>
+
+      <span class="c1">// Call PrintReverseText
+</span><span class="c1"></span>      <span class="n">program</span><span class="p">.</span><span class="n">PrintReverseText</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Init PrintReverseText
+</span><span class="c1"></span>    <span class="k">private</span> <span class="k">void</span> <span class="n">PrintReverseText</span><span class="p">(</span><span class="kt">string</span> <span class="n">text</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">char</span><span class="na">[]</span> <span class="n">arr</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="n">ToCharArray</span><span class="p">();</span>
+      <span class="n">Array</span><span class="p">.</span><span class="n">Reverse</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
+      <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="n">arr</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="https://repl.it/@vinceumo/Method-example-1-private-void">Edit on repl</a></p>
+
+<h3 id="method-example-2-static-private-void">Method example 2 - static private void</h3>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">test</span>
+<span class="p">{</span>
+  <span class="k">class</span> <span class="nc">Program</span>
+  <span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="na">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="c1">// Call PrintReverseText
+</span><span class="c1"></span>      <span class="n">PrintReverseText</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Init PrintReverseText
+</span><span class="c1"></span>    <span class="k">static</span> <span class="k">private</span> <span class="k">void</span> <span class="n">PrintReverseText</span><span class="p">(</span><span class="kt">string</span> <span class="n">text</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">char</span><span class="na">[]</span> <span class="n">arr</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="n">ToCharArray</span><span class="p">();</span>
+      <span class="n">Array</span><span class="p">.</span><span class="n">Reverse</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
+      <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="n">arr</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="https://repl.it/@vinceumo/Method-example-3-static-public-string">Edit on repl</a></p>
+
+<h3 id="method-example-3-static-public-string">Method example 3 - static public string</h3>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">test</span>
+<span class="p">{</span>
+  <span class="k">class</span> <span class="nc">Program</span>
+  <span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="na">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Program2</span><span class="p">.</span><span class="n">ReverseText</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">));</span>
+    <span class="p">}</span>
+    
+  <span class="p">}</span>
+
+  <span class="k">class</span> <span class="nc">Program2</span>
+  <span class="p">{</span>
+    <span class="k">static</span> <span class="k">public</span> <span class="kt">string</span> <span class="n">ReverseText</span><span class="p">(</span><span class="kt">string</span> <span class="n">text</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">char</span><span class="na">[]</span> <span class="n">arr</span> <span class="p">=</span> <span class="n">text</span><span class="p">.</span><span class="n">ToCharArray</span><span class="p">();</span>
+      <span class="n">Array</span><span class="p">.</span><span class="n">Reverse</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
+      <span class="k">return</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="https://repl.it/@vinceumo/Method-example-3-static-public-string">Edit on repl</a></p>
+
+<h2 id="statements-examples">Statements examples</h2>
+
+<p>C# has different statements available:</p>
+
+<h3 id="if-else">if else</h3>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="kt">int</span> <span class="n">number</span> <span class="p">=</span> <span class="m">5</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">condition</span> <span class="p">=</span> <span class="n">number</span> <span class="p">&gt;</span> <span class="m">10</span><span class="p">;</span>
+<span class="kt">bool</span> <span class="n">condition2</span> <span class="p">=</span> <span class="n">number</span> <span class="p">&lt;</span> <span class="m">10</span> <span class="p">&amp;&amp;</span> <span class="n">number</span> <span class="p">&gt;</span> <span class="m">3</span><span class="p">;</span> 
+
+<span class="k">if</span> <span class="p">(</span><span class="n">condition</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Number is greater than 10&#34;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">condition2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Number is between 4 and 10&#34;</span><span class="p">);</span> <span class="c1">// In this case this line will be printed
+</span><span class="c1"></span><span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Number is not smaller than 3&#34;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="switch">switch</h3>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="kt">int</span> <span class="n">number</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+      
+<span class="k">switch</span> <span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">case</span> <span class="m">1</span><span class="p">:</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Case 1&#34;</span><span class="p">);</span> <span class="c1">// In this case this line will be printed
+</span><span class="c1"></span>        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="m">2</span><span class="p">:</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Case 2&#34;</span><span class="p">);</span> 
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Default case&#34;</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="for">for</h3>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="kt">int</span><span class="na">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="na">[]</span> <span class="p">{</span> <span class="m">3</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span> <span class="m">92</span><span class="p">,</span> <span class="m">6</span> <span class="p">};</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">numbers</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">numbers</span><span class="na">[i]</span><span class="p">);</span> <span class="c1">// Will print each numbers in new lines
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="foreach">foreach</h3>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="kt">int</span><span class="na">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="na">[]</span> <span class="p">{</span> <span class="m">3</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span> <span class="m">92</span><span class="p">,</span> <span class="m">6</span> <span class="p">};</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">number</span> <span class="k">in</span> <span class="n">numbers</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="s">$&#34;{number} &#34;</span><span class="p">);</span> <span class="c1">// Will print each numbers
+</span><span class="c1"></span><span class="p">}</span>
+</code></pre></div>
+<h3 id="do">do</h3>
+
+<p>The do statements get executed at least once, as the expression is evaluated after each execution of the loop.</p>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="kt">int</span><span class="na">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="na">[]</span> <span class="p">{</span> <span class="m">3</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span> <span class="m">92</span><span class="p">,</span> <span class="m">6</span> <span class="p">};</span>
+<span class="kt">int</span> <span class="n">n</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="k">do</span> 
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">numbers</span><span class="na">[n]</span><span class="p">);</span>
+    <span class="n">n</span><span class="p">++;</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="p">&lt;</span> <span class="n">numbers</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="while">while</h3>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="kt">int</span><span class="na">[]</span> <span class="n">numbers</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">int</span><span class="na">[]</span> <span class="p">{</span> <span class="m">3</span><span class="p">,</span> <span class="m">14</span><span class="p">,</span> <span class="m">15</span><span class="p">,</span> <span class="m">92</span><span class="p">,</span> <span class="m">6</span> <span class="p">};</span>
+<span class="kt">int</span> <span class="n">n</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">n</span> <span class="p">&lt;</span> <span class="n">numbers</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">numbers</span><span class="na">[n]</span><span class="p">);</span>
+  <span class="n">n</span><span class="p">++;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="resources">Resources</h2>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=GhQdlIFylQ8&amp;t=5522s">C# Tutorial - Full Course for Beginners 📺 - FreeCodeCamp</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/">C# Guide - Microsoft</a></li>
+</ul>
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/Dotnet/c-101-cheat-sheet/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotesindex.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+
