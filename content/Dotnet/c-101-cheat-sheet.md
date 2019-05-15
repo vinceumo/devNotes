@@ -2,7 +2,6 @@
 canonical = ""
 category = "Dotnet"
 date = "2019-05-14T23:00:00+00:00"
-draft = true
 post_type = "note"
 title = "C# - 101 cheat sheet"
 type = "post"
