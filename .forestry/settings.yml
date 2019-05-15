@@ -25,12 +25,12 @@ sections:
   create: all
   match: "**/*"
 - type: directory
-  path: content/dotnet
+  path: content/Dotnet
   label: Dotnet
   create: all
   match: "**/*"
 - type: directory
-  path: content/a11y
+  path: content/A11Y
   label: A11Y
   create: all
   match: "**/*"
