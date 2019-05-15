@@ -31,7 +31,7 @@ sections:
   match: "**/*"
 - type: directory
   path: content/a11y
-  label: A11y
+  label: A11Y
   create: all
   match: "**/*"
 - type: directory
