@@ -4,22 +4,18 @@ DevNotes/ TIL (Today I Learnt) is a collection of things I learned around web de
 
 ## Project
 
-This project is build using jekyll.
+This project is build using [Hugo](https://gohugo.io/).
 
 Run project:
 
+Build:
+
 ```bash
-jekyll serve
+hugo
 ```
 
-Run project with drafts
+Serve project:
 
 ```bash
-jekyll serve --draft
-```
-
-Build
-
-```bash
-jekyll build
+hugo server
 ```
