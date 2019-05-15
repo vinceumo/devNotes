@@ -3,10 +3,10 @@ type: post
 title: CSS custom properties - Cheatsheet
 date: 2019-02-20T00:00:00.000+00:00
 category: CSS
-canonical: ""
+canonical: ''
 post_type: post
----
 
+---
 CSS custom properties, also known as CSS variables. represent custom properties that can be declared and be called in your CSS.
 
 ## Declare a custom property in CSS

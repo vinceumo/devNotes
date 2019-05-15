@@ -57,5 +57,6 @@ fields:
   hidden: false
   default: ''
 pages:
+- content/CSS/css-customs-properties.md
 - content/CSS/css-3d-scrolling-on-the-z-axis.md
 - content/CSS/bug-ie-flexbox-min-height.md
