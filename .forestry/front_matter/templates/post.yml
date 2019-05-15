@@ -1,0 +1,57 @@
+---
+label: Post
+hide_body: false
+fields:
+- name: layout
+  label: Layout
+  type: text
+  hidden: false
+  default: post
+- name: title
+  label: Title
+  type: text
+  hidden: false
+  default: ''
+- name: date
+  label: Date
+  type: datetime
+  hidden: false
+  default: ''
+- name: category
+  type: select
+  default: A11Y
+  config:
+    required: true
+    options:
+    - A11Y
+    - CSS
+    - Dotnet
+    - Javascript
+    - Sass
+    - Tools
+    source:
+      type: simple
+      category: 
+      file: 
+      path: 
+  label: Category
+- name: post_type
+  type: select
+  default: snippet
+  config:
+    required: true
+    options:
+    - snippet
+    - post
+    source:
+      type: simple
+      category: 
+      file: 
+      path: 
+  label: Post type
+- name: canonical
+  label: Canonical
+  type: text
+  hidden: false
+  default: ''
+pages:
