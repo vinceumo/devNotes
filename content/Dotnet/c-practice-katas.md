@@ -48,7 +48,7 @@ namespace test
 
 [Edit on repl](https://repl.it/@vinceumo/Kata-or-Square-Every-Digit)
 
-## Square Every Digit
+## Isograms
 
 [Codewars](https://www.codewars.com/kata/54ba84be607a92aa900000f1/train/csharp)
 
