@@ -3,7 +3,7 @@ canonical = ""
 category = "Dotnet"
 date = "2019-05-15T23:00:00+00:00"
 post_type = "note"
-title = "C# practice | katas"
+title = "C# - practice | katas"
 type = "post"
 
 +++
