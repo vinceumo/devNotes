@@ -5,7 +5,7 @@ date = "2019-05-15T23:00:00+00:00"
 post_type = "note"
 title = "C# - Practice | katas"
 type = "post"
-
+showTableOfContents = true
 +++
 ## Square Every Digit
 

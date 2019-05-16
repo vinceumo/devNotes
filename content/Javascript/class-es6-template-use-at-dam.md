@@ -1,5 +1,6 @@
 ---
 type: post
+showTableOfContents:  true
 title: Class (ES6) template use at DAM
 date: 2019-05-04T23:00:00.000+00:00
 category: Javascript

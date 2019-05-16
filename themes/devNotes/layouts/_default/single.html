@@ -8,9 +8,19 @@
           {{ dateFormat "Jan 01, 2006" .Date }}
         </time></p>
     </header>
+
+    {{ if .Param "showTableOfContents" }}
+    <details>
+      <summary>Table of contents</summary>
+      {{ .TableOfContents }}
+    </details>
+    {{ end }}
+    
   
     <div class="post-content" itemprop="articleBody">
+      
       {{ .Content }}
+
     </div>
   
     <a class="u-url" href="{{ .Permalink }}" hidden></a>

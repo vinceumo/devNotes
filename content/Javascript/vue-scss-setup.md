@@ -1,5 +1,6 @@
 ---
 type: post
+showTableOfContents:  true
 title: Vue - SCSS set up with Vue CLI 3
 date: 2018-08-13T08:50:00.000+00:00
 category: Javascript

@@ -1,5 +1,6 @@
 ---
 type: post
+showTableOfContents:  true
 title: Webpack 4 - Bundle SCSS and JavaScript for SSR applications
 date: 2019-05-05T23:00:00.000+00:00
 category: Javascript

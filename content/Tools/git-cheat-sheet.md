@@ -1,5 +1,6 @@
 ---
 type: post
+showTableOfContents:  true
 title: Git - Cheat sheet
 date: 2018-08-01T08:00:00.000+00:00
 category: Tools

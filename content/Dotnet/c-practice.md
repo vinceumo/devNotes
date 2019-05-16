@@ -1,5 +1,6 @@
 ---
 type: post
+showTableOfContents:  true
 post_type: note
 title: 'C# - Practice | Basic exercises '
 date: 2019-05-11T23:00:00.000+00:00

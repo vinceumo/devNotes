@@ -1,5 +1,6 @@
 ---
 type: post
+showTableOfContents:  true
 title: CSS Grid Layout
 date: 2018-08-09T13:37:19.000+00:00
 category: CSS

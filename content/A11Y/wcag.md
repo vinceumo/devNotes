@@ -1,5 +1,6 @@
 ---
 type: post
+showTableOfContents:  false
 title: WCAG 2.0 & 2.1 Checklist
 date: 2018-08-03T11:50:00.000+00:00
 category: A11Y

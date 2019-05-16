@@ -1,5 +1,6 @@
 ---
 type: post
+showTableOfContents:  true
 title: Vue - Components props and events examples
 date: 2018-08-24T10:07:00.000+00:00
 category: Javascript

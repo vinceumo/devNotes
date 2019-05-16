@@ -1,9 +1,11 @@
 ---
 type: post
+showTableOfContents:  true
 title: hsl() & hsla()
 date: 2018-08-17T08:42:00.000+00:00
 category: CSS
 post_type: post
+showTableOfContents:  true
 canonical: ''
 
 ---

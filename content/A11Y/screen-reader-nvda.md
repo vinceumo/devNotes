@@ -1,5 +1,6 @@
 ---
 type: post
+showTableOfContents:  true
 title: Screen reader - NVDA (Non-Visual Desktop Access) (Windows)
 date: 2018-08-04T19:51:00.000+00:00
 category: A11Y

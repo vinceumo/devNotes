@@ -1,5 +1,6 @@
 ---
 type: post
+showTableOfContents:  false
 title: Regex - 101
 date: 2019-01-14T00:00:00.000+00:00
 category: Tools
