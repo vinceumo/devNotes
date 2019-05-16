@@ -1,6 +1,6 @@
 ---
 type: post
-showTableOfContents:  false
+showtableofcontents: false
 title: CSS custom properties (CSS variables) with SCSS
 date: 2018-07-25T09:00:00.000+00:00
 category: Sass

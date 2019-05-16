@@ -1,6 +1,6 @@
 ---
 type: post
-showTableOfContents:  false
+showtableofcontents: false
 title: Youtube thumbnails
 date: 2018-07-25T09:00:00.000+00:00
 category: Tools

@@ -5,7 +5,7 @@ date = "2019-05-14T23:00:00+00:00"
 post_type = "note"
 title = "C# - 101 cheat sheet"
 type = "post"
-showTableOfContents = true
+showtableofcontents = true
 +++
 ## Introduction
 

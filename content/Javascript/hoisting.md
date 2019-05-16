@@ -1,6 +1,6 @@
 ---
 type: post
-showTableOfContents:  false
+showtableofcontents: false
 title: Hoisting
 date: 2018-07-31T00:00:00.000+00:00
 category: Javascript

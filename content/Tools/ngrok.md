@@ -1,6 +1,6 @@
 ---
 type: post
-showTableOfContents:  false
+showtableofcontents: false
 title: Ngrok - Public URLs for mobile testing
 date: 2018-07-21T19:32:19.000+00:00
 category: Tools

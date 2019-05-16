@@ -1,6 +1,6 @@
 ---
 type: post
-showTableOfContents:  true
+showtableofcontents: true
 title: ES6 - const | let | var
 date: 2018-08-06T22:13:00.000+00:00
 category: Javascript

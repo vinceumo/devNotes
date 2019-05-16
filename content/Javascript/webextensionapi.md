@@ -1,6 +1,6 @@
 ---
 type: post
-showTableOfContents:  true
+showtableofcontents: true
 title: Cross Browser extensions with WebExtensions API - 101
 date: 2018-10-23T08:25:00.000+00:00
 category: Javascript

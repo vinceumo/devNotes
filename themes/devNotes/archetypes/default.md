@@ -1,6 +1,6 @@
 ---
 type: post
-showTableOfContents:  true
+showtableofcontents: true
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 category: "{{ category }}"

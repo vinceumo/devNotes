@@ -2,7 +2,7 @@
 title: Z-index management with SCSS
 date:  2018-11-19T10:51:05.000+00:00
 type: post
-showTableOfContents:  false
+showtableofcontents: false
 category: Sass
 canonical: ""
 post_type: note
