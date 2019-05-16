@@ -56,6 +56,10 @@ fields:
   type: text
   hidden: false
   default: ''
+- name: showtableofcontents
+  type: boolean
+  label: Show Table Of Contents
+  default: true
 pages:
 - content/Javascript/hoisting.md
 - content/Tools/git-cheat-sheet.md
