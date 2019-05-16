@@ -47,3 +47,46 @@ namespace test
 ```
 
 [Edit on repl](https://repl.it/@vinceumo/Kata-or-Square-Every-Digit)
+
+## Square Every Digit
+
+[Codewars](https://www.codewars.com/kata/54ba84be607a92aa900000f1/train/csharp)
+
+> An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.
+
+```cs
+isIsogram "Dermatoglyphics" == true
+isIsogram "moose" == false
+isIsogram "aba" == false
+```
+
+### Solution
+
+```cs
+using System;
+
+namespace test
+{
+  class Kata
+  {
+    static void Main(string[] args)
+    {
+      int number = 9119;
+      Console.WriteLine(SquareDigits(number));
+    }
+    static int SquareDigits(int n)
+    {
+      string output = "";
+      
+      foreach (char num in n.ToString())
+      {
+        double numSquare = Math.Pow((int)(num - '0'), 2);
+        output += numSquare.ToString();
+      }
+      return int.Parse(string.Join("", output));
+    }
+  }
+}
+```
+
+[Edit on repl](https://repl.it/@vinceumo/Kata-or-Isograms)
