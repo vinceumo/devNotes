@@ -1,6 +1,6 @@
 ---
 type: post
-showTableOfContents:  true
+showtableofcontents: true
 title: Screen reader - TalkBack (Android)
 date: 2018-08-13T13:25:19.000+00:00
 category: A11Y

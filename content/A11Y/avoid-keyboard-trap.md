@@ -1,6 +1,6 @@
 ---
 type: post
-showTableOfContents:  true
+showtableofcontents: true
 title: Inert - Avoid keyboard trap
 date: 2018-08-21T14:49:19.000+00:00
 category: A11Y

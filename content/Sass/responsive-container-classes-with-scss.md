@@ -1,7 +1,7 @@
 ---
 title: Responsive container classes with SCSS
 type: post
-showTableOfContents:  true
+showtableofcontents: true
 date: 2018-11-22T10:51:05.000+00:00
 category: Sass
 canonical: ""

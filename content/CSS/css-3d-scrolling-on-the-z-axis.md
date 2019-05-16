@@ -1,13 +1,11 @@
 ---
 type: post
-showTableOfContents:  true
+showtableofcontents: true
 title: CSS 3D - Scrolling on the z-axis
 date: 2019-03-21T00:00:00.000+00:00
 category: CSS
 canonical: ''
 post_type: post
-showTableOfContents:  true
-
 ---
 ![Demo gif]({{< static "images/css3d-z-scroll-demo.gif" >}})
 
