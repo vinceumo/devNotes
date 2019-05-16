@@ -12,6 +12,19 @@
     
     
     <item>
+      <title>C# practice | katas</title>
+      <link>https://vinceumo.github.io/devNotes/Dotnet/c-practice-katas/</link>
+      <pubDate>Wed, 15 May 2019 23:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Dotnet/c-practice-katas/</guid>
+      <description>Square Every Digit Codewars
+ Welcome. In this kata, you are asked to square every digit of a number.
+For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
+Note: The function accepts an integer and returns an integer
+ Solution using System; namespace test { class Kata { static void Main(string[] args) { int number = 9119; Console.</description>
+    </item>
+    
+    <item>
       <title>C# - 101 cheat sheet</title>
       <link>https://vinceumo.github.io/devNotes/Dotnet/c-101-cheat-sheet/</link>
       <pubDate>Tue, 14 May 2019 23:00:00 +0000</pubDate>
