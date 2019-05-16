@@ -71,19 +71,23 @@ namespace test
   {
     static void Main(string[] args)
     {
-      int number = 9119;
-      Console.WriteLine(SquareDigits(number));
+      Console.WriteLine(IsIsogram("Dermatoglyphics"));
+      Console.WriteLine(IsIsogram("moose"));
+      Console.WriteLine(IsIsogram("aba"));
     }
-    static int SquareDigits(int n)
+    public static bool IsIsogram(string str)
     {
-      string output = "";
-      
-      foreach (char num in n.ToString())
+      char[] strChars = str.ToLower().ToCharArray();
+      Array.Sort(strChars);
+      int i = 0;
+      bool isIsogram = true;
+      while (isIsogram && i < strChars.Length - 1)
       {
-        double numSquare = Math.Pow((int)(num - '0'), 2);
-        output += numSquare.ToString();
+        if (strChars[i] == strChars[i + 1]) isIsogram = false;
+        i++;
       }
-      return int.Parse(string.Join("", output));
+
+      return isIsogram;
     }
   }
 }
