@@ -94,6 +94,45 @@
 </code></pre></div>
 <p><a href="https://repl.it/@vinceumo/Kata-or-Square-Every-Digit">Edit on repl</a></p>
 
+<h2 id="square-every-digit-1">Square Every Digit</h2>
+
+<p><a href="https://www.codewars.com/kata/54ba84be607a92aa900000f1/train/csharp">Codewars</a></p>
+
+<blockquote>
+<p>An isogram is a word that has no repeating letters, consecutive or non-consecutive. Implement a function that determines whether a string that contains only letters is an isogram. Assume the empty string is an isogram. Ignore letter case.</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="n">isIsogram</span> <span class="s">&#34;Dermatoglyphics&#34;</span> <span class="p">==</span> <span class="k">true</span>
+<span class="n">isIsogram</span> <span class="s">&#34;moose&#34;</span> <span class="p">==</span> <span class="k">false</span>
+<span class="n">isIsogram</span> <span class="s">&#34;aba&#34;</span> <span class="p">==</span> <span class="k">false</span>
+</code></pre></div>
+<h3 id="solution-1">Solution</h3>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">test</span>
+<span class="p">{</span>
+  <span class="k">class</span> <span class="nc">Kata</span>
+  <span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="na">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">int</span> <span class="n">number</span> <span class="p">=</span> <span class="m">9119</span><span class="p">;</span>
+      <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">SquareDigits</span><span class="p">(</span><span class="n">number</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="k">static</span> <span class="kt">int</span> <span class="n">SquareDigits</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">string</span> <span class="n">output</span> <span class="p">=</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+      
+      <span class="k">foreach</span> <span class="p">(</span><span class="kt">char</span> <span class="n">num</span> <span class="k">in</span> <span class="n">n</span><span class="p">.</span><span class="n">ToString</span><span class="p">())</span>
+      <span class="p">{</span>
+        <span class="kt">double</span> <span class="n">numSquare</span> <span class="p">=</span> <span class="n">Math</span><span class="p">.</span><span class="n">Pow</span><span class="p">((</span><span class="kt">int</span><span class="p">)(</span><span class="n">num</span> <span class="p">-</span> <span class="sc">&#39;0&#39;</span><span class="p">),</span> <span class="m">2</span><span class="p">);</span>
+        <span class="n">output</span> <span class="p">+=</span> <span class="n">numSquare</span><span class="p">.</span><span class="n">ToString</span><span class="p">();</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Join</span><span class="p">(</span><span class="s">&#34;&#34;</span><span class="p">,</span> <span class="n">output</span><span class="p">));</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="https://repl.it/@vinceumo/Kata-or-Isograms">Edit on repl</a></p>
+
     </div>
   
     <a class="u-url" href="https://vinceumo.github.io/devNotes/Dotnet/c-practice-katas/" hidden></a>
