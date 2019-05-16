@@ -61,16 +61,18 @@ fields:
   label: Show Table Of Contents
   default: true
 pages:
+- content/Javascript/es6-arrow-functions.md
+- content/Javascript/webpack-4-bundle-scss-and-javascript-for-ssr-applications.md
 - content/Javascript/hoisting.md
+- content/Tools/youtube-thumbnails.md
+- content/Sass/z-index-management-with-scss.md
 - content/Tools/git-cheat-sheet.md
 - content/Dotnet/c-practice-katas.md
 - content/Dotnet/c-101-cheat-sheet.md
 - content/Javascript/vue-js-101-todo-pwa-tutorial.md
 - content/Sass/responsive-container-classes-with-scss.md
-- content/Javascript/webpack-4-bundle-scss-and-javascript-for-ssr-applications.md
 - content/Javascript/vue-scss-setup.md
 - content/Javascript/vue-props-events.md
-- content/Tools/youtube-thumbnails.md
 - content/Tools/ngrok.md
 - content/Tools/regex-101.md
 - content/Tools/photoshop-101-introduction-for-web-developers.md
@@ -78,8 +80,6 @@ pages:
 - content/Javascript/es6-const-let-var.md
 - content/Javascript/IIFEE-template-dam.md
 - content/Javascript/get-address--postode--city-with-google-map-geocoding-api-and-html5-geolocation.md
-- content/Sass/z-index-management-with-scss.md
-- content/Javascript/es6-arrow-functions.md
 - content/Javascript/webextensionapi.md
 - content/Javascript/cosoleLogArgInObject.md
 - content/Javascript/class-es6-template-use-at-dam.md
