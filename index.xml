@@ -17,11 +17,9 @@
       <pubDate>Wed, 15 May 2019 23:00:00 +0000</pubDate>
       
       <guid>https://vinceumo.github.io/devNotes/Dotnet/c-practice-katas/</guid>
-      <description>Square Every Digit Codewars
- Welcome. In this kata, you are asked to square every digit of a number.
-For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
-Note: The function accepts an integer and returns an integer
- Solution using System; namespace test { class Kata { static void Main(string[] args) { int number = 9119; Console.</description>
+      <description>Write Number in Expanded Form Codewars
+ You will be given a number and you will need to return it as a string in Expanded Form. For example:
+ Kata.ExpandedForm(12); # Should return &amp;#34;10 + 2&amp;#34; Kata.ExpandedForm(42); # Should return &amp;#34;40 + 2&amp;#34; Kata.ExpandedForm(70304); # Should return &amp;#34;70000 + 300 + 4&amp;#34;  Solution using System; namespace test { class Kata { static void Main(string[] args) { Console.WriteLine(ExpandedForm(12)); Console.WriteLine(ExpandedForm(42)); Console.</description>
     </item>
     
     <item>
