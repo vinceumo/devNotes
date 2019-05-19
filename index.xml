@@ -17,9 +17,9 @@
       <pubDate>Wed, 15 May 2019 23:00:00 +0000</pubDate>
       
       <guid>https://vinceumo.github.io/devNotes/Dotnet/c-practice-katas/</guid>
-      <description>Write Number in Expanded Form Codewars
- You will be given a number and you will need to return it as a string in Expanded Form. For example:
- Kata.ExpandedForm(12); # Should return &amp;#34;10 + 2&amp;#34; Kata.ExpandedForm(42); # Should return &amp;#34;40 + 2&amp;#34; Kata.ExpandedForm(70304); # Should return &amp;#34;70000 + 300 + 4&amp;#34;  Solution using System; namespace test { class Kata { static void Main(string[] args) { Console.WriteLine(ExpandedForm(12)); Console.WriteLine(ExpandedForm(42)); Console.</description>
+      <description>Decode the Morse code Codewars
+ In this kata you have to write a simple Morse code decoder. While the Morse code is now mostly superceded by voice and digital data communication channels, it still has its use in some applications around the world.
+The Morse code encodes every character as a sequence of &amp;ldquo;dots&amp;rdquo; and &amp;ldquo;dashes&amp;rdquo;. For example, the letter A is coded as ·−, letter Q is coded as −−·−, and digit 1 is coded as ·−−−−.</description>
     </item>
     
     <item>

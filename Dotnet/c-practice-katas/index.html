@@ -58,17 +58,21 @@
 <ul>
 <li>
 <ul>
-<li><a href="#write-number-in-expanded-form">Write Number in Expanded Form</a>
+<li><a href="#decode-the-morse-code">Decode the Morse code</a>
 <ul>
 <li><a href="#solution">Solution</a></li>
 </ul></li>
-<li><a href="#square-every-digit">Square Every Digit</a>
+<li><a href="#write-number-in-expanded-form">Write Number in Expanded Form</a>
 <ul>
 <li><a href="#solution-1">Solution</a></li>
 </ul></li>
-<li><a href="#isograms">Isograms</a>
+<li><a href="#square-every-digit">Square Every Digit</a>
 <ul>
 <li><a href="#solution-2">Solution</a></li>
+</ul></li>
+<li><a href="#isograms">Isograms</a>
+<ul>
+<li><a href="#solution-3">Solution</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -81,6 +85,121 @@
       
       
 
+<h2 id="decode-the-morse-code">Decode the Morse code</h2>
+
+<p><a href="https://www.codewars.com/kata/54b724efac3d5402db00065e">Codewars</a></p>
+
+<blockquote>
+<p>In this kata you have to write a simple Morse code decoder. While the Morse code is now mostly superceded by voice and digital data communication channels, it still has its use in some applications around the world.</p>
+
+<p>The Morse code encodes every character as a sequence of &ldquo;dots&rdquo; and &ldquo;dashes&rdquo;. For example, the letter A is coded as ·−, letter Q is coded as −−·−, and digit 1 is coded as ·−−−−. The Morse code is case-insensitive, traditionally capital letters are used. When the message is written in Morse code, a single space is used to separate the character codes and 3 spaces are used to separate words. For example, the message HEY JUDE in Morse code is ···· · −·−−   ·−−− ··− −·· ·.</p>
+
+<p>NOTE: Extra spaces before or after the code have no meaning and should be ignored.</p>
+
+<p>In addition to letters, digits and some punctuation, there are some special service codes, the most notorious of those is the international distress signal SOS (that was first issued by Titanic), that is coded as ···−−−···. These special codes are treated as single special characters, and usually are transmitted as separate words.</p>
+
+<p>Your task is to implement a function that would take the morse code as input and return a decoded human-readable string.</p>
+
+<p>For example:</p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="n">MorseCodeDecoder</span><span class="p">.</span><span class="n">Decode</span><span class="p">(</span><span class="s">&#34;.... . -.--   .--- ..- -.. .&#34;</span><span class="p">)</span>
+<span class="c1">//should return &#34;HEY JUDE&#34;
+</span></code></pre></div>
+<blockquote>
+<p>NOTE: For coding purposes you have to use ASCII characters . and -, not Unicode characters.</p>
+
+<p>The Morse code table is preloaded for you as a dictionary, feel free to use it:
+C#: MorseCode.Get(&ldquo;.&ndash;&rdquo;) (returns string)</p>
+
+<p>All the test strings would contain valid Morse code, so you may skip checking for errors and exceptions. In C#, tests will fail if the solution code throws an exception, please keep that in mind. This is mostly because otherwise the engine would simply ignore the tests, resulting in a &ldquo;valid&rdquo; solution.</p>
+
+<p>Good luck!</p>
+
+<p>After you complete this kata, you may try yourself at Decode the Morse code, advanced.</p>
+</blockquote>
+
+<h3 id="solution">Solution</h3>
+<div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">test</span>
+<span class="p">{</span>
+  <span class="k">class</span> <span class="nc">MorseCodeDecoder</span>
+  <span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="n">Main</span><span class="p">(</span><span class="kt">string</span><span class="na">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Decode</span><span class="p">(</span><span class="s">&#34;.... . .-.. .-.. ---   .-- --- .-. .-.. -..&#34;</span><span class="p">));</span> 
+      <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Decode</span><span class="p">(</span><span class="s">&#34;.... . -.--   .--- ..- -.. .&#34;</span><span class="p">));</span> 
+      <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Decode</span><span class="p">(</span><span class="s">&#34;... --- ...&#34;</span><span class="p">));</span> 
+      <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Decode</span><span class="p">(</span><span class="s">&#34;- .... .   -... .-. --- .-- -.   ..-. --- -..-   .--- ..- -- .--. . -..   --- ...- . .-.   - .... .   .-.. .- --.. -.--   -.. --- --.&#34;</span><span class="p">));</span> 
+
+    <span class="p">}</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="kt">string</span> <span class="n">Decode</span><span class="p">(</span><span class="kt">string</span> <span class="n">morseCode</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="kt">string</span><span class="na">[]</span> <span class="n">morseCodeWords</span> <span class="p">=</span> <span class="n">morseCode</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="s">&#34;   &#34;</span><span class="p">);</span>
+      <span class="kt">string</span> <span class="n">output</span> <span class="p">=</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+
+      <span class="k">foreach</span><span class="p">(</span><span class="kt">string</span> <span class="n">morseWord</span> <span class="k">in</span> <span class="n">morseCodeWords</span><span class="p">)</span>
+      <span class="p">{</span>
+        <span class="kt">string</span><span class="na">[]</span> <span class="n">morseLetters</span> <span class="p">=</span> <span class="n">morseWord</span><span class="p">.</span><span class="n">Split</span><span class="p">(</span><span class="s">&#34; &#34;</span><span class="p">);</span>
+        <span class="kt">string</span> <span class="n">outputWord</span> <span class="p">=</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+
+        <span class="k">foreach</span><span class="p">(</span><span class="kt">string</span> <span class="n">morseLetter</span> <span class="k">in</span> <span class="n">morseLetters</span><span class="p">)</span>
+        <span class="p">{</span>
+          <span class="n">outputWord</span> <span class="p">+=</span> <span class="n">morse</span><span class="p">.</span><span class="n">FirstOrDefault</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">Value</span> <span class="p">==</span> <span class="n">morseLetter</span><span class="p">).</span><span class="n">Key</span><span class="p">;</span>
+          <span class="c1">// outputWord += MorseCode.Get(morseLetter); for codewars
+</span><span class="c1"></span>        <span class="p">}</span>
+
+        <span class="n">output</span> <span class="p">+=</span> <span class="p">(</span><span class="n">output</span> <span class="p">==</span> <span class="s">&#34;&#34;</span><span class="p">)</span> <span class="p">?</span> <span class="n">outputWord</span> <span class="p">:</span> <span class="s">&#34; &#34;</span> <span class="p">+</span> <span class="n">outputWord</span><span class="p">;</span>
+      <span class="p">}</span>
+
+      <span class="k">return</span> <span class="n">output</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">static</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">String</span><span class="p">&gt;</span> <span class="n">morse</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="n">String</span><span class="p">&gt;()</span>
+    <span class="p">{</span>
+      <span class="p">{</span><span class="sc">&#39;A&#39;</span> <span class="p">,</span> <span class="s">&#34;.-&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;B&#39;</span> <span class="p">,</span> <span class="s">&#34;-...&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;C&#39;</span> <span class="p">,</span> <span class="s">&#34;-.-.&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;D&#39;</span> <span class="p">,</span> <span class="s">&#34;-..&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;E&#39;</span> <span class="p">,</span> <span class="s">&#34;.&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;F&#39;</span> <span class="p">,</span> <span class="s">&#34;..-.&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;G&#39;</span> <span class="p">,</span> <span class="s">&#34;--.&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;H&#39;</span> <span class="p">,</span> <span class="s">&#34;....&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;I&#39;</span> <span class="p">,</span> <span class="s">&#34;..&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;J&#39;</span> <span class="p">,</span> <span class="s">&#34;.---&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;K&#39;</span> <span class="p">,</span> <span class="s">&#34;-.-&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;L&#39;</span> <span class="p">,</span> <span class="s">&#34;.-..&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;M&#39;</span> <span class="p">,</span> <span class="s">&#34;--&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;N&#39;</span> <span class="p">,</span> <span class="s">&#34;-.&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;O&#39;</span> <span class="p">,</span> <span class="s">&#34;---&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;P&#39;</span> <span class="p">,</span> <span class="s">&#34;.--.&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;Q&#39;</span> <span class="p">,</span> <span class="s">&#34;--.-&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;R&#39;</span> <span class="p">,</span> <span class="s">&#34;.-.&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;S&#39;</span> <span class="p">,</span> <span class="s">&#34;...&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;T&#39;</span> <span class="p">,</span> <span class="s">&#34;-&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;U&#39;</span> <span class="p">,</span> <span class="s">&#34;..-&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;V&#39;</span> <span class="p">,</span> <span class="s">&#34;...-&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;W&#39;</span> <span class="p">,</span> <span class="s">&#34;.--&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;X&#39;</span> <span class="p">,</span> <span class="s">&#34;-..-&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;Y&#39;</span> <span class="p">,</span> <span class="s">&#34;-.--&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;Z&#39;</span> <span class="p">,</span> <span class="s">&#34;--..&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;0&#39;</span> <span class="p">,</span> <span class="s">&#34;-----&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;1&#39;</span> <span class="p">,</span> <span class="s">&#34;.----&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;2&#39;</span> <span class="p">,</span> <span class="s">&#34;..---&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;3&#39;</span> <span class="p">,</span> <span class="s">&#34;...--&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;4&#39;</span> <span class="p">,</span> <span class="s">&#34;....-&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;5&#39;</span> <span class="p">,</span> <span class="s">&#34;.....&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;6&#39;</span> <span class="p">,</span> <span class="s">&#34;-....&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;7&#39;</span> <span class="p">,</span> <span class="s">&#34;--...&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;8&#39;</span> <span class="p">,</span> <span class="s">&#34;---..&#34;</span><span class="p">},</span>
+      <span class="p">{</span><span class="sc">&#39;9&#39;</span> <span class="p">,</span> <span class="s">&#34;----.&#34;</span><span class="p">},</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><a href="https://repl.it/@vinceumo/Kata-or-Decode-the-Morse-code">Edit on repl</a></p>
+
 <h2 id="write-number-in-expanded-form">Write Number in Expanded Form</h2>
 
 <p><a href="https://www.codewars.com/kata/write-number-in-expanded-form">Codewars</a></p>
@@ -92,7 +211,7 @@
 <span class="n">Kata</span><span class="p">.</span><span class="n">ExpandedForm</span><span class="p">(</span><span class="m">42</span><span class="p">);</span> <span class="err">#</span> <span class="n">Should</span> <span class="k">return</span> <span class="s">&#34;40 + 2&#34;</span>
 <span class="n">Kata</span><span class="p">.</span><span class="n">ExpandedForm</span><span class="p">(</span><span class="m">70304</span><span class="p">);</span> <span class="err">#</span> <span class="n">Should</span> <span class="k">return</span> <span class="s">&#34;70000 + 300 + 4&#34;</span>
 </code></pre></div>
-<h3 id="solution">Solution</h3>
+<h3 id="solution-1">Solution</h3>
 <div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">namespace</span> <span class="nn">test</span>
@@ -139,7 +258,7 @@
 <p>Note: The function accepts an integer and returns an integer</p>
 </blockquote>
 
-<h3 id="solution-1">Solution</h3>
+<h3 id="solution-2">Solution</h3>
 <div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">namespace</span> <span class="nn">test</span>
@@ -178,7 +297,7 @@
 <span class="n">isIsogram</span> <span class="s">&#34;moose&#34;</span> <span class="p">==</span> <span class="k">false</span>
 <span class="n">isIsogram</span> <span class="s">&#34;aba&#34;</span> <span class="p">==</span> <span class="k">false</span>
 </code></pre></div>
-<h3 id="solution-2">Solution</h3>
+<h3 id="solution-3">Solution</h3>
 <div class="highlight"><pre class="chroma"><code class="language-cs" data-lang="cs"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
 
 <span class="k">namespace</span> <span class="nn">test</span>
