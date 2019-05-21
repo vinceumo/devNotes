@@ -10,6 +10,150 @@ type = "post"
 +++
 ## Decode the Morse code
 
+[Codewars](https://www.codewars.com/kata/decode-the-morse-code-advanced) /!\ No actual C# kata
+
+> In this kata you have to write a Morse code decoder for wired electrical telegraph.
+> 
+> Electric telegraph is operated on a 2-wire line with a key that, when pressed, connects the wires together, which can be detected on a remote station. The Morse code encodes every character being transmitted as a sequence of "dots" (short presses on the key) and "dashes" (long presses on the key).
+>
+> When transmitting the Morse code, the international standard specifies that: 
+> - "Dot" – is 1 time unit long.
+> - "Dash" – is 3 time units long.
+> - Pause between dots and dashes in a character – is 1 time unit long.
+> - Pause between characters inside a word – is 3 time units long.
+> - Pause between words – is 7 time units long.
+> 
+> However, the standard does not specify how long that "time unit" is. And in fact different operators would transmit at different speed. An amateur person may need a few seconds to transmit a single character, a skilled professional can transmit 60 words per minute, and robotic transmitters may go way faster.
+> 
+> For this kata we assume the message receiving is performed automatically by the hardware that checks the line periodically, and if the line is connected (the key at the remote station is down), 1 is recorded, and if the line is not connected (remote key is up), 0 is recorded. After the message is fully received, it gets to you for decoding as a string containing only symbols 0 and 1.
+> 
+> For example, the message HEY JUDE, that is ···· · −·−− ·−−− ··− −·· · may be received as follows:
+
+```bash
+1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011
+```
+
+> As you may see, this transmission is perfectly accurate according to the standard, and the hardware sampled the line exactly two times per "dot".
+>
+> That said, your task is to implement two functions:
+>
+> Function decodeBits(bits), that should find out the transmission rate of the message, correctly decode the message to dots ., dashes - and spaces (one between characters, three between words) and return those as a string. Note that some extra 0's may naturally occur at the beginning and the end of a message, make sure to ignore them. Also if you have trouble discerning if the particular sequence of 1's is a dot or a dash, assume it's a dot.
+>
+> Function decodeMorse(morseCode), that would take the output of the previous function and return a human-readable string.
+> 
+> NOTE: For coding purposes you have to use ASCII characters . and -, not Unicode characters.
+>
+> The Morse code table is preloaded for you as MORSE_CODE dictionary; in Java MorseCode class is provided; in Haskell the codes are in a Map String String and can be accessed like this: morseCodes ! ".--" - feel free to use it.
+> 
+> All the test strings would be valid to the point that they could be reliably decoded as described above, so you may skip checking for errors and exceptions, just do your best in figuring out what the message is!
+> 
+> Good luck!
+>
+> After you master this kata, you may try to Decode the Morse code, for real.
+
+### Solution
+
+```cs
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace test
+{
+  class MorseCodeDecoder
+  {
+    static void Main(string[] args)
+    {
+      Console.WriteLine(DecodeMorse(DecodeBits("1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011")));
+    }
+    public static string DecodeBits(string bits)
+    {
+      int frequency = 0;
+      string output = "";
+
+      while (output == "" || output.Contains('0') || output.Contains('1'))
+      {
+        frequency++;
+        output = bits;
+        output = Regex.Replace(output, @"0{" + frequency * 7 + @"}", "   ");
+        output = Regex.Replace(output, @"0{" + frequency * 3 + @"}", " ");
+        output = Regex.Replace(output, @"1{" + frequency * 3 + @"}0{" + frequency * 1 + @"}", "-");
+        output = Regex.Replace(output, @"1{" + frequency * 1 + @"}0{" + frequency * 1 + @"}", ".");
+        output = Regex.Replace(output, @"1{" + frequency * 3 + @"}", "-");
+        output = Regex.Replace(output, @"1{" + frequency * 1 + @"}", ".");
+      }
+      return output;
+    }
+    public static string DecodeMorse(string morseCode)
+    {
+      string[] morseCodeWords = morseCode.Split("   ");
+      string output = "";
+
+      foreach (string morseWord in morseCodeWords)
+      {
+        string[] morseLetters = morseWord.Split(" ");
+        string outputWord = "";
+
+        foreach (string morseLetter in morseLetters)
+        {
+          outputWord += morse.FirstOrDefault(x => x.Value == morseLetter).Key;
+          // outputWord += MorseCode.Get(morseLetter); for codewars
+        }
+
+        output += (output == "") ? outputWord : " " + outputWord;
+      }
+
+      return output;
+    }
+    static Dictionary<char, String> morse = new Dictionary<char, String>()
+    {
+      {'A' , ".-"},
+      {'B' , "-..."},
+      {'C' , "-.-."},
+      {'D' , "-.."},
+      {'E' , "."},
+      {'F' , "..-."},
+      {'G' , "--."},
+      {'H' , "...."},
+      {'I' , ".."},
+      {'J' , ".---"},
+      {'K' , "-.-"},
+      {'L' , ".-.."},
+      {'M' , "--"},
+      {'N' , "-."},
+      {'O' , "---"},
+      {'P' , ".--."},
+      {'Q' , "--.-"},
+      {'R' , ".-."},
+      {'S' , "..."},
+      {'T' , "-"},
+      {'U' , "..-"},
+      {'V' , "...-"},
+      {'W' , ".--"},
+      {'X' , "-..-"},
+      {'Y' , "-.--"},
+      {'Z' , "--.."},
+      {'0' , "-----"},
+      {'1' , ".----"},
+      {'2' , "..---"},
+      {'3' , "...--"},
+      {'4' , "....-"},
+      {'5' , "....."},
+      {'6' , "-...."},
+      {'7' , "--..."},
+      {'8' , "---.."},
+      {'9' , "----."},
+    };
+  }
+}
+```
+
+[Edit on repl](https://repl.it/@vinceumo/Kata-or-Decode-the-Morse-code-advanced)
+
+
+## Decode the Morse code
+
 [Codewars](https://www.codewars.com/kata/54b724efac3d5402db00065e)
 
 > In this kata you have to write a simple Morse code decoder. While the Morse code is now mostly superceded by voice and digital data communication channels, it still has its use in some applications around the world.
