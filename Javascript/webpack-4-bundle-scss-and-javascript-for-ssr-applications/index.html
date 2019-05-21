@@ -155,20 +155,16 @@
             <span class="nx">loader</span><span class="o">:</span> <span class="s2">&#34;postcss-loader&#34;</span><span class="p">,</span>
             <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
               <span class="nx">ident</span><span class="o">:</span> <span class="s2">&#34;postcss&#34;</span><span class="p">,</span>
-              <span class="nx">plugins</span><span class="o">:</span> <span class="nx">devMode</span>
-                <span class="o">?</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">[</span><span class="nx">require</span><span class="p">(</span><span class="s2">&#34;autoprefixer&#34;</span><span class="p">)({</span> <span class="nx">grid</span><span class="o">:</span> <span class="kc">true</span> <span class="p">})]</span>
-                <span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">[</span>
+              <span class="nx">plugins</span><span class="o">:</span> <span class="nx">devMode</span> <span class="o">?</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">[</span>
                     <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;autoprefixer&#34;</span><span class="p">)({</span> <span class="nx">grid</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}),</span>
-                    <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;cssnano&#34;</span><span class="p">)(),</span>
                     <span class="nx">purgecss</span><span class="p">({</span>
-                      <span class="nx">content</span><span class="o">:</span> <span class="p">[</span>
-                        <span class="s2">&#34;./Views/**/*.cshtml&#34;</span><span class="p">,</span>
-                        <span class="s2">&#34;./Content/js/**/*.js&#34;</span><span class="p">,</span>
-                        <span class="p">,</span>
-                        <span class="s2">&#34;./Content/apps/**/*.vue&#34;</span>
-                      <span class="p">]</span>
-                    <span class="p">})</span>
-                  <span class="p">]</span>
+                    <span class="nx">content</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;./Views/**/*.cshtml&#39;</span><span class="p">,</span> <span class="s1">&#39;./Content/js/**/*.js&#39;</span><span class="p">,</span> <span class="s1">&#39;./Content/apps/**/*.vue&#39;</span><span class="p">]</span>
+                    <span class="p">})]</span> <span class="o">:</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">[</span>
+                    <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;autoprefixer&#34;</span><span class="p">)({</span> <span class="nx">grid</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}),</span> 
+                    <span class="nx">purgecss</span><span class="p">({</span>
+                        <span class="nx">content</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;./Views/**/*.cshtml&#39;</span><span class="p">,</span> <span class="s1">&#39;./Content/js/**/*.js&#39;</span><span class="p">,</span> <span class="s1">&#39;./Content/apps/**/*.vue&#39;</span><span class="p">]</span>
+                    <span class="p">}),</span>
+                    <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;cssnano&#34;</span><span class="p">)()]</span>
             <span class="p">}</span>
           <span class="p">},</span>
           <span class="p">{</span>
