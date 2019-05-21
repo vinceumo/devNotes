@@ -4,10 +4,10 @@ showtableofcontents: true
 title: Webpack 4 - Bundle SCSS and JavaScript for SSR applications
 date: 2019-05-05T23:00:00.000+00:00
 category: Javascript
-canonical: ""
+canonical: ''
 post_type: note
----
 
+---
 ## Project structure
 
     Proj:
@@ -94,20 +94,16 @@ module.exports = {
             loader: "postcss-loader",
             options: {
               ident: "postcss",
-              plugins: devMode
-                ? () => [require("autoprefixer")({ grid: true })]
-                : () => [
+              plugins: devMode ? () => [
                     require("autoprefixer")({ grid: true }),
-                    require("cssnano")(),
                     purgecss({
-                      content: [
-                        "./Views/**/*.cshtml",
-                        "./Content/js/**/*.js",
-                        ,
-                        "./Content/apps/**/*.vue"
-                      ]
-                    })
-                  ]
+                    content: ['./Views/**/*.cshtml', './Content/js/**/*.js', './Content/apps/**/*.vue']
+                    })] : () => [
+                    require("autoprefixer")({ grid: true }), 
+                    purgecss({
+                        content: ['./Views/**/*.cshtml', './Content/js/**/*.js', './Content/apps/**/*.vue']
+                    }),
+                    require("cssnano")()]
             }
           },
           {
