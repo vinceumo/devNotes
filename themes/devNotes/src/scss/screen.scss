@@ -98,6 +98,14 @@ a {
   color: $primary;
 }
 
+ul, ol {
+  margin-top: 0;
+
+  > li {
+      margin-bottom: 0.5rem;
+  }
+}
+
 button {
   background-color: $primary-lighten;
   color: $black;
@@ -217,10 +225,6 @@ footer {
     margin-top: 0.75rem;
     font-size: 1.1rem;
     font-weight: 300;
-  }
-
-  ul {
-    margin-top: 0;
   }
 }
 
