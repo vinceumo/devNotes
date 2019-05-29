@@ -14,4 +14,4 @@ CanonifyURLs: true
 params:
   description: "Collection of things I learned around web development"
   author: "Vincent Humeau"
-  authorUrl: "https:www.vincent-humeau.com"
+  authorUrl: "https://www.vincent-humeau.com/"
