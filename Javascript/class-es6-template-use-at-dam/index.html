@@ -106,11 +106,10 @@
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">export</span> <span class="k">default</span> <span class="k">class</span> <span class="nx">MyModule</span> <span class="p">{</span>
   <span class="nx">constructor</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">options</span> <span class="o">=</span> <span class="nx">MyModule</span><span class="p">.</span><span class="nx">updateSettings</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">selector</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">selector</span> <span class="o">=</span>
-      <span class="k">typeof</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">selector</span> <span class="o">===</span> <span class="s2">&#34;string&#34;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">selector</span> <span class="o">=</span> <span class="k">typeof</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">selector</span> <span class="o">===</span> <span class="s2">&#34;string&#34;</span>
         <span class="o">?</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">selector</span><span class="p">)</span>
         <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">selector</span><span class="p">;</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">ctas</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">selector</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="sb">`.</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">ctaClassName</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">ctas</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="kr">static</span> <span class="nx">updateSettings</span><span class="p">(</span><span class="nx">userSettings</span><span class="p">)</span> <span class="p">{</span>
@@ -130,7 +129,10 @@
 
   <span class="nx">init</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">//Do things
-</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">onInit</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">selector</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">ctas</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">selector</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="sb">`.</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">ctaClassName</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+    	<span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">onInit</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
