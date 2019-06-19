@@ -4,7 +4,7 @@ category = "Javascript"
 date = "2019-06-18T23:00:00+00:00"
 post_type = "note"
 showtableofcontents = true
-title = "map(), filter() and reduce()"
+title = "Map, Filter and Reduce"
 type = "post"
 
 +++
