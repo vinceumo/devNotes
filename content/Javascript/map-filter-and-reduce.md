@@ -2,7 +2,6 @@
 canonical = ""
 category = "Javascript"
 date = "2019-06-18T23:00:00+00:00"
-draft = true
 post_type = "note"
 showtableofcontents = true
 title = "map(), filter() and reduce()"
