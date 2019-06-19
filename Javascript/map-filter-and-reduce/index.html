@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> map(), filter() and reduce() | Javascript  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https://www.vincent-humeau.com/" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">map(), filter() and reduce()</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2019-06-18 23:00:00 &#43;0000 UTC" itemprop="datePublished">
+          Jun 06, 2019
+        </time></p>
+    </header>
+
+    
+    <details>
+      <summary>Table of contents</summary>
+      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#map">Map</a></li>
+<li><a href="#reduce">Reduce</a></li>
+<li><a href="#filter">Filter</a></li>
+<li><a href="#chain-map-filter-and-reduce">Chain <code>map</code>, <code>filter</code> and <code>reduce</code></a></li>
+</ul></li>
+</ul>
+</nav>
+    </details>
+    
+    
+  
+    <div class="post-content" itemprop="articleBody">
+      
+      
+
+<h2 id="map">Map</h2>
+
+<blockquote>
+<p>The <code>map()</code> method creates a new array with the results of calling a provided function on every element in the calling array. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">MDN</a></p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+
+<span class="k">const</span> <span class="nx">numbersTimeTwo</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">x</span> <span class="p">=&gt;</span> <span class="nx">x</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">numbersTimeTwo</span><span class="p">);</span> <span class="c1">// [ 1, 1.5, 2, 2.5 ]
+</span></code></pre></div>
+<h2 id="reduce">Reduce</h2>
+
+<blockquote>
+<p>The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">MDN</a></p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+<span class="k">const</span> <span class="nx">sum</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">acc</span> <span class="o">+</span> <span class="nx">x</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span> <span class="c1">// 14
+</span></code></pre></div>
+<p>The reduce methods can take an initial value parameter.</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+<span class="k">const</span> <span class="nx">initialValue</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="k">const</span> <span class="nx">sumFromInitialValue</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">x</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">acc</span> <span class="o">+</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">initialValue</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sumFromInitialValue</span><span class="p">);</span> <span class="c1">// 24
+</span></code></pre></div>
+<h2 id="filter">Filter</h2>
+
+<blockquote>
+<p>The filter() method creates a new array with all elements that pass the test implemented by the provided function. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">MDN</a></p>
+</blockquote>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+
+<span class="k">const</span> <span class="nx">oddNumbers</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">x</span> <span class="p">=&gt;</span> <span class="nx">x</span> <span class="o">%</span> <span class="mi">2</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">oddNumbers</span><span class="p">);</span> <span class="c1">// [ 3, 5 ]
+</span></code></pre></div>
+<h2 id="chain-map-filter-and-reduce">Chain <code>map</code>, <code>filter</code> and <code>reduce</code></h2>
+
+<p>In the following example with have a list of candidates with their score out of 100, The passing score is 50. We want to return the sum of the passing score with bonus.</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">candidates</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Adrian&#34;</span><span class="p">,</span>
+    <span class="nx">score</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="nx">bonus</span><span class="o">:</span> <span class="mi">2</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Claude&#34;</span><span class="p">,</span>
+    <span class="nx">score</span><span class="o">:</span> <span class="mi">60</span><span class="p">,</span>
+    <span class="nx">bonus</span><span class="o">:</span> <span class="mi">8</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Fred&#34;</span><span class="p">,</span>
+    <span class="nx">score</span><span class="o">:</span> <span class="mi">53</span><span class="p">,</span>
+    <span class="nx">bonus</span><span class="o">:</span> <span class="mi">2</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;Mark&#34;</span><span class="p">,</span>
+    <span class="nx">score</span><span class="o">:</span> <span class="mi">79</span><span class="p">,</span>
+    <span class="nx">bonus</span><span class="o">:</span> <span class="mi">5</span>
+  <span class="p">}</span>
+<span class="p">];</span>
+
+<span class="k">const</span> <span class="nx">totalPassingScore</span> <span class="o">=</span> <span class="nx">candidates</span>
+  <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">candidate</span> <span class="p">=&gt;</span> <span class="nx">candidate</span><span class="p">.</span><span class="nx">score</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">)</span> <span class="c1">// Exclude Adrian
+</span><span class="c1"></span>  <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">candidate</span> <span class="p">=&gt;</span> <span class="nx">candidate</span><span class="p">.</span><span class="nx">score</span> <span class="o">+</span> <span class="nx">candidate</span><span class="p">.</span><span class="nx">bonus</span><span class="p">)</span> <span class="c1">// [ 68, 55, 84 ]
+</span><span class="c1"></span>  <span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">total</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">acc</span> <span class="o">+</span> <span class="nx">total</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">totalPassingScore</span><span class="p">);</span> <span class="c1">// 207
+</span></code></pre></div>
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/Javascript/map-filter-and-reduce/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotes/index.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+
