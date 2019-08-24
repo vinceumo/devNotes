@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Yarn: Upgrade all packages </title>
+      <link>https://vinceumo.github.io/devNotes/Javascript/yarn-upgrade-all-packages/</link>
+      <pubDate>Fri, 23 Aug 2019 23:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/Javascript/yarn-upgrade-all-packages/</guid>
+      <description>yarn upgrade-interactive --latest  </description>
+    </item>
+    
+    <item>
       <title>Map, Filter and Reduce</title>
       <link>https://vinceumo.github.io/devNotes/Javascript/map-filter-and-reduce/</link>
       <pubDate>Tue, 18 Jun 2019 23:00:00 +0000</pubDate>

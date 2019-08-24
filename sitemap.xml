@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://vinceumo.github.io/devNotes/Javascript/yarn-upgrade-all-packages/</loc>
+    <lastmod>2019-08-23T23:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vinceumo.github.io/devNotes/Javascript/map-filter-and-reduce/</loc>
     <lastmod>2019-06-18T23:00:00+00:00</lastmod>
   </url>
