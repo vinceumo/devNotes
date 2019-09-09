@@ -1,9 +1,9 @@
 ---
-title: "Home"
-date: 2018-11-07T13:21:02Z
----
+title: Home
+date: 2018-11-07T13:21:02.000+00:00
 
-👋 My name is Vince, I'm lead Front End Developer at [Dam Digital](https://www.damdigital.com/), London, UK.
+---
+👋 My name is Vince, I'm Front End Developer for The New York Times ([T Brand Studio] (http://www.tbrandstudio.com/)), London, UK.
 
 devNotes is a collection of notes and posts about things I learned around web development.
 
