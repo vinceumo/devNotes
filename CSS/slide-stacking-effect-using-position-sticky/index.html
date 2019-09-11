@@ -84,7 +84,7 @@
 
 <h2 id="basic-effect-with-position-sticky">Basic effect with position sticky</h2>
 
-<p>Position sticky allows to position an element like position fixed relative to its parent until it reaches the boundary of its parent.</p>
+<p>Position sticky enables to position an element like position fixed relative to its parent until it reaches the boundary of the parent.</p>
 
 <blockquote>
 <p>Sticky positioning can be thought of as a hybrid of relative and fixed positioning. A stickily positioned element is treated as relatively positioned until it crosses a specified threshold, at which point it is treated as fixed until it reaches the boundary of its parent.</p>
@@ -139,7 +139,7 @@
 
 <h2 id="vertical-scroll-snap">Vertical Scroll Snap</h2>
 
-<p>CSS scroll snap allows us to make each slide position nicely at the top of the viewport after scroll.</p>
+<p>CSS scroll snap permits us to make each slide position nicely at the top of the viewport after scroll.</p>
 
 <blockquote>
 <p>CSS Scroll Snap is a module of CSS that introduces scroll snap positions, which enforce the scroll positions that a scroll container’s scrollport may end at after a scrolling operation has completed.</p>
@@ -147,9 +147,9 @@
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap">MDN - CSS Scroll Snap</a></p>
 </blockquote>
 
-<p>To use scroll snap we are going to wrap our sections into <code>.vertical-scroll-snap</code>. This class is going to have a fixe height of 100vh (Same heigh as our slides) and <code>overflow-y: scroll</code> so the user can scroll between sections.</p>
+<p>To use scroll snap we are going to wrap our sections into <code>.vertical-scroll-snap</code>. This element is going to have a fixe height of 100vh and <code>overflow-y: scroll</code> so the user can scroll between sections.</p>
 
-<p>Next step we are going to look into scroll snap. First we are going the set <code>scroll-snap-type</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type">MDN</a>). This property allows us how strictly snap points are enforced on scroll. We are going to set it to <code>y mandatory</code>. <code>y</code> indicating that the snap positions is in its vertical axis only. <code>mandatory</code> that the scroll container will rest on a snap point of the section if it isn&rsquo;t currently scrolled.</p>
+<p>Next step we are going to look into scroll snap. First we are going the set <code>scroll-snap-type</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type">MDN</a>). This property defines how strictly snap points are enforced on scroll. We are going to set it to <code>y mandatory</code>. <code>y</code> is indicating that the snap positions is in its vertical axis only. <code>mandatory</code> that the scroll container will rest on a snap point of the section if it isn&rsquo;t currently scrolled.</p>
 
 <p>Then we need to tell our sections which part need to be aligned to the container. We are going to use <code>scroll-snap-align</code> (<a href="https://css-tricks.com/almanac/properties/s/scroll-snap-align/">CSS Tricks</a>) with the value <code>start</code>.</p>
 
@@ -187,7 +187,7 @@
 
 <h2 id="add-some-nice-transition-using-intersection-observer-api">Add some nice transition using Intersection Observer API.</h2>
 
-<p>The Intersection Observer API, allows us to detect when an element enters the viewport. We can trigger a callback function when this element enters or leave the viewport.</p>
+<p>The Intersection Observer API, lets us to detect when an element enters the viewport. We can trigger a callback function when this element enters or leave the viewport.</p>
 
 <blockquote>
 <p>The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document&rsquo;s viewport.</p>
@@ -195,7 +195,7 @@
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">MDN - Intersection Observer API</a></p>
 </blockquote>
 
-<p>In the following example, we are adding the class <code>.is-intersecting</code> when a <code>.stacking-slide</code> enter 10% of the viewport. And we remove this class when the slide leaves it. This allows us to add some transitions using CSS.</p>
+<p>In the following example, we are adding the class <code>.is-intersecting</code> when a <code>.stacking-slide</code> enter 10% of the viewport. And we remove this class when the slide leaves it. We can now add some nice transitions using CSS.</p>
 
 <p>JS:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">sectionEls</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&#34;.stacking-slide&#34;</span><span class="p">);</span>
