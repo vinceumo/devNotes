@@ -61,6 +61,7 @@ fields:
   label: Show Table Of Contents
   default: true
 pages:
+- content/CSS/slide-stacking-effect-using-position-sticky.md
 - content/Javascript/yarn-upgrade-all-packages.md
 - content/Javascript/map-filter-and-reduce.md
 - content/Sass/z-index-management-with-scss.md
