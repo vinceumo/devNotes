@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <meta name="author" content="Vincent Humeau">
+  
+  
+    <meta name="description" content="Collection of things I learned around web development">
+  
+  
+  <title> Slide stacking effect using position sticky | CSS  | devNotes</title>
+
+  <link rel="manifest" href="https://vinceumo.github.io/devNotes/manifest.json">
+  <meta name="msapplication-config" content="https://vinceumo.github.io/devNotes/browserconfig.xml">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://vinceumo.github.io/devNotes/images/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://vinceumo.github.io/devNotes/images/favicons/favicon-16x16.png">
+  <link rel="mask-icon" href="https://vinceumo.github.io/devNotes/images/favicons/safari-pinned-tab.svg" color="#000000">
+  <link rel="shortcut icon" href="https://vinceumo.github.io/devNotes/favicon.ico">
+  <meta name="msapplication-TileColor" content="#212121">
+  <meta name="theme-color" content="#212121">
+
+  <link rel="stylesheet" href="https://vinceumo.github.io/devNotes/css/screen.min.css">  
+</head>
+<body>
+        <div class="page-wrapper"><header class="page-header">
+  <p>
+    <a class="site-title" href="https://vinceumo.github.io/devNotes">
+      devNotes
+    </a> 
+    
+    <small>by 
+      <a
+        href="https://www.vincent-humeau.com/" rel="author">
+        Vincent Humeau
+      </a>
+    </small>
+    
+  </p>
+</header><main id="main-content" class="page-content">
+  <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+    <header class="post-header">
+      <h1 itemprop="name headline">Slide stacking effect using position sticky</h1>
+      <p class="post-meta">
+        <time class="dt-published" datetime="2019-09-10 23:00:00 &#43;0000 UTC" itemprop="datePublished">
+          Sep 09, 2019
+        </time></p>
+    </header>
+
+    
+    <details>
+      <summary>Table of contents</summary>
+      <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#basic-effect-with-position-sticky">Basic effect with position sticky</a></li>
+<li><a href="#vertical-scroll-snap">Vertical Scroll Snap</a>
+<ul>
+<li><a href="#support">Support</a></li>
+</ul></li>
+<li><a href="#add-some-nice-transition-using-intersection-observer-api">Add some nice transition using Intersection Observer API.</a>
+<ul>
+<li><a href="#support-1">Support</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </details>
+    
+    
+  
+    <div class="post-content" itemprop="articleBody">
+      
+      
+
+<p><img src="../../images/scroll-gif.gif" alt="Demo gif" /></p>
+
+<p>Recently I was looking to create a slide (card) stacking effect on scroll. The closest resource I could find about this effect was <a href="https://medium.com/@sanjeevy133/card-stack-scroll-effect-486cc3b55312">Card Stack: Scroll Effect by Sanjeev Yadav</a>. I wanted to look if I could recreate a similar effect only with CSS.</p>
+
+<h2 id="basic-effect-with-position-sticky">Basic effect with position sticky</h2>
+
+<p>Position sticky allows to position an element like position fixed relative to its parent until it reaches the boundary of its parent.</p>
+
+<blockquote>
+<p>Sticky positioning can be thought of as a hybrid of relative and fixed positioning. A stickily positioned element is treated as relatively positioned until it crosses a specified threshold, at which point it is treated as fixed until it reaches the boundary of its parent.</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/position#Sticky_positioning">MDN - Sticky positioning</a></p>
+</blockquote>
+
+<p>We can use position sticky to stick each slide, at the top at the parent and have a fixe height.</p>
+
+<p>CSS:</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.stacking-slide</span> <span class="p">{</span>
+    <span class="nt">height</span><span class="nd">:</span> <span class="nt">100vh</span><span class="o">;</span>
+    <span class="nt">width</span><span class="nd">:</span> <span class="nt">100</span><span class="err">%</span><span class="o">;</span>
+    <span class="nt">position</span><span class="nd">:</span> <span class="nt">sticky</span><span class="o">;</span>
+    <span class="nt">top</span><span class="nd">:</span> <span class="nt">0</span><span class="o">;</span>
+  
+<span class="o">//</span>   <span class="nt">Not</span> <span class="nt">needed</span> <span class="nt">if</span> <span class="nt">100vh</span>
+<span class="o">//</span>   <span class="k">&amp;</span><span class="nd">:nth-last-child</span><span class="o">(</span><span class="nt">1</span><span class="o">)</span> <span class="p">{</span>
+<span class="c1">//      height: 100vh;
+</span><span class="c1">//   }
+</span><span class="c1"></span><span class="p">}</span></code></pre></div>
+<p>HTML:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;stacking-slide&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Section 1<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;stacking-slide&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Section 2<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;stacking-slide&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Section 3<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;stacking-slide&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Section 4<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;stacking-slide&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Section 5<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span></code></pre></div>
+<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="result" data-user="vinceumo" data-slug-hash="KKPoVGL" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Slide Stacking Effect">
+  <span>See the Pen <a href="https://codepen.io/vinceumo/pen/KKPoVGL/">
+  Slide Stacking Effect</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+### Support
+
+<p class="ciu_embed" data-feature="css-sticky" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+    <a href="http://caniuse.com/#feat=css-sticky">Can I Use css-sticky?</a> Data on support for the css-sticky feature across the major browsers from caniuse.com.
+</p>
+
+<p>Position sticky has great support, but if you need to support older browsers you can use a <a href="https://github.com/wilddeer/stickyfill/">polyfill</a>.</p>
+
+<h2 id="vertical-scroll-snap">Vertical Scroll Snap</h2>
+
+<p>CSS scroll snap allows us to make each slide position nicely at the top of the viewport after scroll.</p>
+
+<blockquote>
+<p>CSS Scroll Snap is a module of CSS that introduces scroll snap positions, which enforce the scroll positions that a scroll container’s scrollport may end at after a scrolling operation has completed.</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap">MDN - CSS Scroll Snap</a></p>
+</blockquote>
+
+<p>To use scroll snap we are going to wrap our sections into <code>.vertical-scroll-snap</code>. This class is going to have a fixe height of 100vh (Same heigh as our slides) and <code>overflow-y: scroll</code> so the user can scroll between sections.</p>
+
+<p>Next step we are going to look into scroll snap. First we are going the set <code>scroll-snap-type</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type">MDN</a>). This property allows us how strictly snap points are enforced on scroll. We are going to set it to <code>y mandatory</code>. <code>y</code> indicating that the snap positions is in its vertical axis only. <code>mandatory</code> that the scroll container will rest on a snap point of the section if it isn&rsquo;t currently scrolled.</p>
+
+<p>Then we need to tell our sections which part need to be aligned to the container. We are going to use <code>scroll-snap-align</code> (<a href="https://css-tricks.com/almanac/properties/s/scroll-snap-align/">CSS Tricks</a>) with the value <code>start</code>.</p>
+
+<p>HTML:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;vertical-scroll-snap&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">section</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;stacking-slide&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Section 1<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+  <span class="c">&lt;!-- ... --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
+<p>SCSS:</p>
+<div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nc">.vertical-scroll-snap</span> <span class="p">{</span>
+    <span class="nt">overflow-y</span><span class="nd">:</span> <span class="nt">scroll</span><span class="o">;</span>
+    <span class="nt">scroll-snap-type</span><span class="nd">:</span> <span class="nt">y</span> <span class="nt">mandatory</span><span class="o">;</span>
+    <span class="nt">max-height</span><span class="nd">:</span> <span class="nt">100vh</span><span class="o">;</span>
+<span class="p">}</span>
+
+<span class="nc">.stacking-slide</span> <span class="p">{</span>
+    <span class="nt">scroll-snap-align</span><span class="nd">:</span> <span class="nt">start</span><span class="o">;</span>
+    <span class="o">//</span> <span class="nc">...</span>
+<span class="p">}</span></code></pre></div>
+<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="css,result" data-user="vinceumo" data-slug-hash="aboYLBW" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Vertical Scroll Snap">
+  <span>See the Pen <a href="https://codepen.io/vinceumo/pen/aboYLBW/">
+  Vertical Scroll Snap</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<h3 id="support">Support</h3>
+
+<p class="ciu_embed" data-feature="css-snappoints" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+    <a href="http://caniuse.com/#feat=css-snappoints">Can I Use css-snappoints?</a> Data on support for the css-snappoints feature across the major browsers from caniuse.com.
+</p>
+
+<p>CSS Scroll snap has good support, if you need to support older browsers you can use a <a href="https://www.npmjs.com/package/css-scroll-snap-polyfill">polyfill</a>.</p>
+
+<h2 id="add-some-nice-transition-using-intersection-observer-api">Add some nice transition using Intersection Observer API.</h2>
+
+<p>The Intersection Observer API, allows us to detect when an element enters the viewport. We can trigger a callback function when this element enters or leave the viewport.</p>
+
+<blockquote>
+<p>The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document&rsquo;s viewport.</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">MDN - Intersection Observer API</a></p>
+</blockquote>
+
+<p>In the following example, we are adding the class <code>.is-intersecting</code> when a <code>.stacking-slide</code> enter 10% of the viewport. And we remove this class when the slide leaves it. This allows us to add some transitions using CSS.</p>
+
+<p>JS:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">const</span> <span class="nx">sectionEls</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&#34;.stacking-slide&#34;</span><span class="p">);</span>
+
+<span class="k">const</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">rootMargin</span><span class="o">:</span> <span class="s2">&#34;-10% 0% -10% 0%&#34;</span>
+<span class="p">};</span>
+
+<span class="k">const</span> <span class="nx">observer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">IntersectionObserver</span><span class="p">(</span><span class="nx">entries</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">entries</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">entry</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">entry</span><span class="p">.</span><span class="nx">isIntersecting</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">entry</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="s2">&#34;is-intersecting&#34;</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">entry</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="s2">&#34;is-intersecting&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">},</span> <span class="nx">options</span><span class="p">);</span>
+
+<span class="nx">sectionEls</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">el</span> <span class="p">=&gt;</span> <span class="nx">observer</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="nx">el</span><span class="p">));</span>
+</code></pre></div>
+<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="result" data-user="vinceumo" data-slug-hash="WNeJRZo" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Intersection Observer">
+  <span>See the Pen <a href="https://codepen.io/vinceumo/pen/WNeJRZo/">
+  Intersection Observer</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<h3 id="support-1">Support</h3>
+
+<p class="ciu_embed" data-feature="intersectionobserver" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+    <a href="http://caniuse.com/#feat=intersectionobserver">Can I Use intersectionobserver?</a> Data on support for the intersectionobserver feature across the major browsers from caniuse.com.
+  </p>
+
+<p>The Intersection Observer API has good support, if you need to support older browsers you can use a <a href="https://github.com/w3c/IntersectionObserver/tree/master/polyfill">polyfill</a>.</p>
+
+<hr />
+
+<p>Thanks for reading hope you enjoyed this small article.</p>
+
+<ul>
+<li><a href="https://twitter.com/vince_umo">Follow me on twitter</a></li>
+<li><a href="https://github.com/vinceumo">Follow me on Github</a></li>
+<li><a href="https://dev.to/vinceumo">Follow me on dev.to</a></li>
+</ul>
+
+
+    </div>
+  
+    <a class="u-url" href="https://vinceumo.github.io/devNotes/CSS/slide-stacking-effect-using-position-sticky/" hidden></a>
+  </article>
+  <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
+            </main><footer>
+  <p>🌍 London, UK</p>
+  <ul class="links">
+    <li><a href="https://vinceumo.github.io/devNotes/index.xml">RSS</a></li>
+    <li><a href="https://vincent-humeau.com/">vincent-humeau.com</a></li>
+    <li><a href="https://github.com/vinceumo/devNotes">Check this project on github</a></li>
+  </ul>
+  <button class="toggle-theme" data-toggle-theme="theme-dark">Dark theme</button>
+  <button class="toggle-theme" data-toggle-theme="theme-default">Light theme</button>
+</footer></div><script src="https://vinceumo.github.io/devNotes/js/index.min.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('https:\/\/vinceumo.github.io\/devNotes/sw.js');
+    });
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script></body>
+</html>
+

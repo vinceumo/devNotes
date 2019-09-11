@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Slide stacking effect using position sticky</title>
+      <link>https://vinceumo.github.io/devNotes/CSS/slide-stacking-effect-using-position-sticky/</link>
+      <pubDate>Tue, 10 Sep 2019 23:00:00 +0000</pubDate>
+      
+      <guid>https://vinceumo.github.io/devNotes/CSS/slide-stacking-effect-using-position-sticky/</guid>
+      <description>Recently I was looking to create a slide (card) stacking effect on scroll. The closest resource I could find about this effect was Card Stack: Scroll Effect by Sanjeev Yadav. I wanted to look if I could recreate a similar effect only with CSS.
+Basic effect with position sticky Position sticky allows to position an element like position fixed relative to its parent until it reaches the boundary of its parent.</description>
+    </item>
+    
+    <item>
       <title>Yarn - Upgrade all packages </title>
       <link>https://vinceumo.github.io/devNotes/Javascript/yarn-upgrade-all-packages/</link>
       <pubDate>Fri, 23 Aug 2019 23:00:00 +0000</pubDate>
