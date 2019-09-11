@@ -14,7 +14,7 @@ Recently I was looking to create a slide (card) stacking effect on scroll. The c
 
 ## Basic effect with position sticky
 
-Position sticky allows to position an element like position fixed relative to its parent until it reaches the boundary of its parent.
+Position sticky enables to position an element like position fixed relative to its parent until it reaches the boundary of the parent.
 
 > Sticky positioning can be thought of as a hybrid of relative and fixed positioning. A stickily positioned element is treated as relatively positioned until it crosses a specified threshold, at which point it is treated as fixed until it reaches the boundary of its parent. 
 >
@@ -75,15 +75,15 @@ Position sticky has great support, but if you need to support older browsers you
 
 ## Vertical Scroll Snap
 
-CSS scroll snap allows us to make each slide position nicely at the top of the viewport after scroll.
+CSS scroll snap permits us to make each slide position nicely at the top of the viewport after scroll.
 
 > CSS Scroll Snap is a module of CSS that introduces scroll snap positions, which enforce the scroll positions that a scroll container’s scrollport may end at after a scrolling operation has completed.
 >
 > [MDN - CSS Scroll Snap](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap)
 
-To use scroll snap we are going to wrap our sections into `.vertical-scroll-snap`. This class is going to have a fixe height of 100vh (Same heigh as our slides) and `overflow-y: scroll` so the user can scroll between sections.
+To use scroll snap we are going to wrap our sections into `.vertical-scroll-snap`. This element is going to have a fixe height of 100vh and `overflow-y: scroll` so the user can scroll between sections.
 
-Next step we are going to look into scroll snap. First we are going the set `scroll-snap-type` ([MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type)). This property allows us how strictly snap points are enforced on scroll. We are going to set it to `y mandatory`. `y` indicating that the snap positions is in its vertical axis only. `mandatory` that the scroll container will rest on a snap point of the section if it isn't currently scrolled.
+Next step we are going to look into scroll snap. First we are going the set `scroll-snap-type` ([MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type)). This property defines how strictly snap points are enforced on scroll. We are going to set it to `y mandatory`. `y` is indicating that the snap positions is in its vertical axis only. `mandatory` that the scroll container will rest on a snap point of the section if it isn't currently scrolled.
 
 Then we need to tell our sections which part need to be aligned to the container. We are going to use `scroll-snap-align` ([CSS Tricks](https://css-tricks.com/almanac/properties/s/scroll-snap-align/)) with the value `start`.
 
@@ -129,13 +129,13 @@ CSS Scroll snap has good support, if you need to support older browsers you can 
 
 ## Add some nice transition using Intersection Observer API.
 
-The Intersection Observer API, allows us to detect when an element enters the viewport. We can trigger a callback function when this element enters or leave the viewport.
+The Intersection Observer API, lets us to detect when an element enters the viewport. We can trigger a callback function when this element enters or leave the viewport.
 
 > The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or with a top-level document's viewport.
 >
 > [MDN - Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API)
 
-In the following example, we are adding the class `.is-intersecting` when a `.stacking-slide` enter 10% of the viewport. And we remove this class when the slide leaves it. This allows us to add some transitions using CSS.
+In the following example, we are adding the class `.is-intersecting` when a `.stacking-slide` enter 10% of the viewport. And we remove this class when the slide leaves it. We can now add some nice transitions using CSS.
 
 JS:
 
