@@ -65,7 +65,9 @@ HTML:
 </p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
+
 ### Support
+
 
 <p class="ciu_embed" data-feature="css-sticky" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
     <a href="http://caniuse.com/#feat=css-sticky">Can I Use css-sticky?</a> Data on support for the css-sticky feature across the major browsers from caniuse.com.
@@ -113,7 +115,7 @@ SCSS:
 }
 ```
 
-<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="css,result" data-user="vinceumo" data-slug-hash="aboYLBW" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Vertical Scroll Snap">
+<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="result" data-user="vinceumo" data-slug-hash="aboYLBW" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Vertical Scroll Snap">
   <span>See the Pen <a href="https://codepen.io/vinceumo/pen/aboYLBW/">
   Vertical Scroll Snap</a> by Vincent Humeau (<a href="https://codepen.io/vinceumo">@vinceumo</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
@@ -158,7 +160,6 @@ const observer = new IntersectionObserver(entries => {
 
 sectionEls.forEach(el => observer.observe(el));
 ```
-
 
 <p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="result" data-user="vinceumo" data-slug-hash="WNeJRZo" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Intersection Observer">
   <span>See the Pen <a href="https://codepen.io/vinceumo/pen/WNeJRZo/">
