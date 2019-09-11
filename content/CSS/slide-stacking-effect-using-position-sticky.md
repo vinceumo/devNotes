@@ -9,7 +9,7 @@ title = "Slide stacking effect using position sticky"
 type = "post"
 
 +++
-
+![Demo gif]({{< static "images/scroll-gif.gif" >}})
 
 Recently I was looking to create a slide (card) stacking effect on scroll. The closest resource I could find about this effect was [Card Stack: Scroll Effect by Sanjeev Yadav](https://medium.com/@sanjeevy133/card-stack-scroll-effect-486cc3b55312). I wanted to look if I could recreate a similar effect only with CSS.
 
