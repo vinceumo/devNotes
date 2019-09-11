@@ -2,7 +2,6 @@
 canonical = ""
 category = "CSS"
 date = "2019-09-10T23:00:00+00:00"
-draft = true
 post_type = "post"
 showtableofcontents = true
 title = "Slide stacking effect using position sticky"
